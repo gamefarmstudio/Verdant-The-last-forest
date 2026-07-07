@@ -1,0 +1,3250 @@
+fileFormatVersion: 2
+guid: e7997bcdecbbd174f82d88660110b613
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6735638039148474499
+    second: Hex Shaman_Explosion Spell_0
+  - first:
+      213: 4038361583800664090
+    second: Hex Shaman_Explosion Spell_1
+  - first:
+      213: -7520711534363775426
+    second: Hex Shaman_Explosion Spell_2
+  - first:
+      213: -6308033522761024764
+    second: Hex Shaman_Explosion Spell_3
+  - first:
+      213: -4460998304249509364
+    second: Hex Shaman_Explosion Spell_4
+  - first:
+      213: -2742501119717185900
+    second: Hex Shaman_Explosion Spell_5
+  - first:
+      213: 1656700730654944653
+    second: Hex Shaman_Explosion Spell_6
+  - first:
+      213: -2273169705607202504
+    second: Hex Shaman_Explosion Spell_7
+  - first:
+      213: 6323378587109649470
+    second: Hex Shaman_Explosion Spell_8
+  - first:
+      213: -5809913346282130328
+    second: Hex Shaman_Explosion Spell_9
+  - first:
+      213: 8804513716719743008
+    second: Hex Shaman_Explosion Spell_10
+  - first:
+      213: -1952043706897749962
+    second: Hex Shaman_Explosion Spell_11
+  - first:
+      213: -8522589633909703574
+    second: Hex Shaman_Explosion Spell_12
+  - first:
+      213: -2739466030140680724
+    second: Hex Shaman_Explosion Spell_13
+  - first:
+      213: 4855566362893076940
+    second: Hex Shaman_Explosion Spell_14
+  - first:
+      213: 3371157924376628293
+    second: Hex Shaman_Explosion Spell_15
+  - first:
+      213: -8773571970701539324
+    second: Hex Shaman_Explosion Spell_16
+  - first:
+      213: 5718648116417494384
+    second: Hex Shaman_Explosion Spell_17
+  - first:
+      213: -8030433787724450558
+    second: Hex Shaman_Explosion Spell_18
+  - first:
+      213: -6428695635787027640
+    second: Hex Shaman_Explosion Spell_19
+  - first:
+      213: 4634397122530124558
+    second: Hex Shaman_Explosion Spell_20
+  - first:
+      213: -4126432563773876422
+    second: Hex Shaman_Explosion Spell_21
+  - first:
+      213: -541158324875878984
+    second: Hex Shaman_Explosion Spell_22
+  - first:
+      213: -2690892936612933949
+    second: Hex Shaman_Explosion Spell_23
+  - first:
+      213: -9164798849457269898
+    second: Hex Shaman_Explosion Spell_24
+  - first:
+      213: -4859031272960487879
+    second: Hex Shaman_Explosion Spell_25
+  - first:
+      213: -4615176127649740323
+    second: Hex Shaman_Explosion Spell_26
+  - first:
+      213: -1095417177271466412
+    second: Hex Shaman_Explosion Spell_27
+  - first:
+      213: -5808965415201437179
+    second: Hex Shaman_Explosion Spell_28
+  - first:
+      213: 1441061487040103244
+    second: Hex Shaman_Explosion Spell_29
+  - first:
+      213: 6608793877361868148
+    second: Hex Shaman_Explosion Spell_30
+  - first:
+      213: -6468947791098237770
+    second: Hex Shaman_Explosion Spell_31
+  - first:
+      213: -859051293032719884
+    second: Hex Shaman_Explosion Spell_32
+  - first:
+      213: 8387984227812163507
+    second: Hex Shaman_Explosion Spell_33
+  - first:
+      213: 5621898638183909640
+    second: Hex Shaman_Explosion Spell_34
+  - first:
+      213: -4772383529443537703
+    second: Hex Shaman_Explosion Spell_35
+  - first:
+      213: 151151195990544028
+    second: Hex Shaman_Explosion Spell_36
+  - first:
+      213: 5694961490514527737
+    second: Hex Shaman_Explosion Spell_37
+  - first:
+      213: -158334161882396582
+    second: Hex Shaman_Explosion Spell_38
+  - first:
+      213: 4122795050809010424
+    second: Hex Shaman_Explosion Spell_39
+  - first:
+      213: 8605898882142454002
+    second: Hex Shaman_Explosion Spell_40
+  - first:
+      213: 3004603016467337392
+    second: Hex Shaman_Explosion Spell_41
+  - first:
+      213: -5069716042695819666
+    second: Hex Shaman_Explosion Spell_42
+  - first:
+      213: 2456446433949030375
+    second: Hex Shaman_Explosion Spell_43
+  - first:
+      213: 3809102109016447450
+    second: Hex Shaman_Explosion Spell_44
+  - first:
+      213: 7576173871714734865
+    second: Hex Shaman_Explosion Spell_45
+  - first:
+      213: -1272618761518782935
+    second: Hex Shaman_Explosion Spell_46
+  - first:
+      213: 6894828211996546351
+    second: Hex Shaman_Explosion Spell_47
+  - first:
+      213: 5208650058413865518
+    second: Hex Shaman_Explosion Spell_48
+  - first:
+      213: 4779193916838328743
+    second: Hex Shaman_Explosion Spell_49
+  - first:
+      213: 7258237009794418036
+    second: Hex Shaman_Explosion Spell_50
+  - first:
+      213: -4883217306247808197
+    second: Hex Shaman_Explosion Spell_51
+  - first:
+      213: -8531970506647145931
+    second: Hex Shaman_Explosion Spell_52
+  - first:
+      213: 5812056887530979482
+    second: Hex Shaman_Explosion Spell_53
+  - first:
+      213: 4103843816028610132
+    second: Hex Shaman_Explosion Spell_54
+  - first:
+      213: -7726672525833728275
+    second: Hex Shaman_Explosion Spell_55
+  - first:
+      213: -1411679320982015076
+    second: Hex Shaman_Explosion Spell_56
+  - first:
+      213: -2436988603140842951
+    second: Hex Shaman_Explosion Spell_57
+  - first:
+      213: -2092572723903104832
+    second: Hex Shaman_Explosion Spell_58
+  - first:
+      213: -8772704825389928424
+    second: Hex Shaman_Explosion Spell_59
+  - first:
+      213: 2042058133031056118
+    second: Hex Shaman_Explosion Spell_60
+  - first:
+      213: -2316107409542002019
+    second: Hex Shaman_Explosion Spell_61
+  - first:
+      213: 7352232610428756367
+    second: Hex Shaman_Explosion Spell_62
+  - first:
+      213: -5472981043233613774
+    second: Hex Shaman_Explosion Spell_63
+  - first:
+      213: -1090400750423184102
+    second: Hex Shaman_Explosion Spell_64
+  - first:
+      213: -6821565980440998272
+    second: Hex Shaman_Explosion Spell_65
+  - first:
+      213: 5959472697738037315
+    second: Hex Shaman_Explosion Spell_66
+  - first:
+      213: 4523887060171327037
+    second: Hex Shaman_Explosion Spell_67
+  - first:
+      213: 3126916272062605868
+    second: Hex Shaman_Explosion Spell_68
+  - first:
+      213: 313354915131635782
+    second: Hex Shaman_Explosion Spell_69
+  - first:
+      213: -694281724669724276
+    second: Hex Shaman_Explosion Spell_70
+  - first:
+      213: -8942784544723819507
+    second: Hex Shaman_Explosion Spell_71
+  - first:
+      213: -127806823255294810
+    second: Hex Shaman_Explosion Spell_72
+  - first:
+      213: -3088161694436007499
+    second: Hex Shaman_Explosion Spell_73
+  - first:
+      213: -2975281011583433727
+    second: Hex Shaman_Explosion Spell_74
+  - first:
+      213: -8197686337945065470
+    second: Hex Shaman_Explosion Spell_75
+  - first:
+      213: -2896223853032241622
+    second: Hex Shaman_Explosion Spell_76
+  - first:
+      213: -774955377626571665
+    second: Hex Shaman_Explosion Spell_77
+  - first:
+      213: -3643639898419694747
+    second: Hex Shaman_Explosion Spell_78
+  - first:
+      213: -507369611011541566
+    second: Hex Shaman_Explosion Spell_79
+  - first:
+      213: -686099284335476243
+    second: Hex Shaman_Explosion Spell_80
+  - first:
+      213: -4766420359527585677
+    second: Hex Shaman_Explosion Spell_81
+  - first:
+      213: 5276266794372791277
+    second: Hex Shaman_Explosion Spell_82
+  - first:
+      213: 6995667201018660913
+    second: Hex Shaman_Explosion Spell_83
+  - first:
+      213: -2935342081091268740
+    second: Hex Shaman_Explosion Spell_84
+  - first:
+      213: 3701694573626781981
+    second: Hex Shaman_Explosion Spell_85
+  - first:
+      213: 2367641239334476704
+    second: Hex Shaman_Explosion Spell_86
+  - first:
+      213: -4414515826722799926
+    second: Hex Shaman_Explosion Spell_87
+  - first:
+      213: -1417145652873740269
+    second: Hex Shaman_Explosion Spell_88
+  - first:
+      213: 7530026571796928579
+    second: Hex Shaman_Explosion Spell_89
+  - first:
+      213: 2693692149140706564
+    second: Hex Shaman_Explosion Spell_90
+  - first:
+      213: 7725324639981464580
+    second: Hex Shaman_Explosion Spell_91
+  - first:
+      213: 5958858205553921171
+    second: Hex Shaman_Explosion Spell_92
+  - first:
+      213: -705355169959593167
+    second: Hex Shaman_Explosion Spell_93
+  - first:
+      213: -1289644305064943014
+    second: Hex Shaman_Explosion Spell_94
+  - first:
+      213: 3303590938953228111
+    second: Hex Shaman_Explosion Spell_95
+  - first:
+      213: 2474278407840027005
+    second: Hex Shaman_Explosion Spell_96
+  - first:
+      213: 7461059531840812617
+    second: Hex Shaman_Explosion Spell_97
+  - first:
+      213: 3755190051108285779
+    second: Hex Shaman_Explosion Spell_98
+  - first:
+      213: -1944619807623564893
+    second: Hex Shaman_Explosion Spell_99
+  - first:
+      213: -4803859648384463216
+    second: Hex Shaman_Explosion Spell_100
+  - first:
+      213: -8258136264022787422
+    second: Hex Shaman_Explosion Spell_101
+  - first:
+      213: 5798528535848829829
+    second: Hex Shaman_Explosion Spell_102
+  - first:
+      213: 1191068978671479694
+    second: Hex Shaman_Explosion Spell_103
+  - first:
+      213: -3537270615130225169
+    second: Hex Shaman_Explosion Spell_104
+  - first:
+      213: 8363859362869851153
+    second: Hex Shaman_Explosion Spell_105
+  - first:
+      213: 6751843118040821587
+    second: Hex Shaman_Explosion Spell_106
+  - first:
+      213: -1721417567103246646
+    second: Hex Shaman_Explosion Spell_107
+  - first:
+      213: 256204045525705632
+    second: Hex Shaman_Explosion Spell_108
+  - first:
+      213: 6721251397194283999
+    second: Hex Shaman_Explosion Spell_109
+  - first:
+      213: 8752289950422194443
+    second: Hex Shaman_Explosion Spell_110
+  - first:
+      213: 4654643424557878856
+    second: Hex Shaman_Explosion Spell_111
+  - first:
+      213: 8596198779132827308
+    second: Hex Shaman_Explosion Spell_112
+  - first:
+      213: -6636662248808239020
+    second: Hex Shaman_Explosion Spell_113
+  - first:
+      213: -2167692550051733881
+    second: Hex Shaman_Explosion Spell_114
+  - first:
+      213: -1748384190287124093
+    second: Hex Shaman_Explosion Spell_115
+  - first:
+      213: 5896996172718387621
+    second: Hex Shaman_Explosion Spell_116
+  - first:
+      213: 351562728977197694
+    second: Hex Shaman_Explosion Spell_117
+  - first:
+      213: -5363057538609813388
+    second: Hex Shaman_Explosion Spell_118
+  - first:
+      213: 4651891492332201438
+    second: Hex Shaman_Explosion Spell_119
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_0
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 159
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7f42fce3e43682a0800000000000000
+      internalID: -6735638039148474499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_1
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 161
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a10c50dd6742b0830800000000000000
+      internalID: 4038361583800664090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_2
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 160
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e6018b4b011a790800000000000000
+      internalID: -7520711534363775426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_3
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 166
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40bb294beec5578a0800000000000000
+      internalID: -6308033522761024764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_4
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 165
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a869b7da95712c0800000000000000
+      internalID: -4460998304249509364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_5
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 169
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496652313cda0f9d0800000000000000
+      internalID: -2742501119717185900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_6
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 159
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d61d57988cdf610800000000000000
+      internalID: 1656700730654944653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_7
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 153
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8397a1f42341470e0800000000000000
+      internalID: -2273169705607202504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_8
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 116
+        width: 71
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c6bf0825721c750800000000000000
+      internalID: 6323378587109649470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_9
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 157
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8647d03089a0f5fa0800000000000000
+      internalID: -5809913346282130328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_10
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 146
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0207229b39aef2a70800000000000000
+      internalID: 8804513716719743008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_11
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 155
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638a2584792f8e4e0800000000000000
+      internalID: -1952043706897749962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_12
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 148
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6cb260f1eda9b980800000000000000
+      internalID: -8522589633909703574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_13
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 157
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce5173fe8267bf9d0800000000000000
+      internalID: -2739466030140680724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_14
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 153
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9c39391ef626340800000000000000
+      internalID: 4855566362893076940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_15
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 145
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54c46346542c8ce20800000000000000
+      internalID: 3371157924376628293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_16
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 156
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408c20be6c20e3680800000000000000
+      internalID: -8773571970701539324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_17
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 150
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d7586c928bc5f40800000000000000
+      internalID: 5718648116417494384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_18
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 205b362640b2e8090800000000000000
+      internalID: -8030433787724450558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_19
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 134
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b6fc3416fa8c6a0800000000000000
+      internalID: -6428695635787027640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_20
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 143
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e03208cf0afa05040800000000000000
+      internalID: 4634397122530124558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_21
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 139
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3757ae2277fbb6c0800000000000000
+      internalID: -4126432563773876422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_22
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 144
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd1786ee5b6d78f0800000000000000
+      internalID: -541158324875878984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_23
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 142
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce0490912708aad0800000000000000
+      internalID: -2690892936612933949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_24
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 128
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 673d03ce00810d080800000000000000
+      internalID: -9164798849457269898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_25
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 130
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e0dae2dc0419cb0800000000000000
+      internalID: -4859031272960487879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_26
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 132
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd9039f93c993ffb0800000000000000
+      internalID: -4615176127649740323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_27
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 122
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4568fdb81eb4cc0f0800000000000000
+      internalID: -1095417177271466412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_28
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 57
+        width: 39
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a836a6bb8626fa0800000000000000
+      internalID: -5808965415201437179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_29
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 117
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c43858299cdaff310800000000000000
+      internalID: 1441061487040103244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_30
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 49
+        width: 45
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d3eed340727bb50800000000000000
+      internalID: 6608793877361868148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_31
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 125
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bcaa09024ea936a0800000000000000
+      internalID: -6468947791098237770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_32
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 116
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9d1f286690414f0800000000000000
+      internalID: -859051293032719884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_33
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 114
+        width: 38
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfb258b63b186470800000000000000
+      internalID: 8387984227812163507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_34
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 128
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809443c760ff40e40800000000000000
+      internalID: 5621898638183909640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_35
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 131
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dcc793177615cdb0800000000000000
+      internalID: -4772383529443537703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_36
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 104
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9e4460463ff81200800000000000000
+      internalID: 151151195990544028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_37
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 115
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5c5ab6d41980f40800000000000000
+      internalID: 5694961490514527737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_38
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 124
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58c03d2beb7dcdf0800000000000000
+      internalID: -158334161882396582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_39
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 117
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f8a535514c173930800000000000000
+      internalID: 4122795050809010424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_40
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 121
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f04803ff6b4e6770800000000000000
+      internalID: 8605898882142454002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_41
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 43
+        width: 110
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b05a9f368e72b920800000000000000
+      internalID: 3004603016467337392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_42
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 119
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e3403ae10c4a9b0800000000000000
+      internalID: -5069716042695819666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_43
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 100
+        width: 38
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e79e41540d071220800000000000000
+      internalID: 2456446433949030375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_44
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 121
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9dd19cf26acd430800000000000000
+      internalID: 3809102109016447450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_45
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 116
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 113172cfef9f32960800000000000000
+      internalID: 7576173871714734865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_46
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 121
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 926ec21aaffb65ee0800000000000000
+      internalID: -1272618761518782935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_47
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 114
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f25556b7ab95faf50800000000000000
+      internalID: 6894828211996546351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_48
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 112
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a731ba1a7d84840800000000000000
+      internalID: 5208650058413865518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_49
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 120
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a93bddcb8b135240800000000000000
+      internalID: 4779193916838328743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_50
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 111
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475c368ca107ab460800000000000000
+      internalID: 7258237009794418036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_51
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 119
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b3f0c7bb35b3cb0800000000000000
+      internalID: -4883217306247808197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_52
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 94
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532ff2d470a589980800000000000000
+      internalID: -8531970506647145931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_53
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 70
+        width: 269
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9085a312f298a050800000000000000
+      internalID: 5812056887530979482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_54
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 40
+        width: 117
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e91142538c3f830800000000000000
+      internalID: 4103843816028610132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_55
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 79
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dee09e1864855c490800000000000000
+      internalID: -7726672525833728275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_56
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 98
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c933a101325b86ce0800000000000000
+      internalID: -1411679320982015076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_57
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 90
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a5d14f6c31e2ed0800000000000000
+      internalID: -2436988603140842951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_58
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 82
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8751dc130b5f2e0800000000000000
+      internalID: -2092572723903104832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_59
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 77
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810374be077114680800000000000000
+      internalID: -8772704825389928424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_60
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 97
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f2730e7d09d65c10800000000000000
+      internalID: 2042058133031056118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_61
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 107
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a499015988bdfd0800000000000000
+      internalID: -2316107409542002019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_62
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 80
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8126aafa90680660800000000000000
+      internalID: 7352232610428756367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_63
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 98
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2381d9ffcb01c04b0800000000000000
+      internalID: -5472981043233613774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_64
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 110
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1de4307b4e1ed0f0800000000000000
+      internalID: -1090400750423184102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_65
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 77
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ecceb02ede451a0800000000000000
+      internalID: -6821565980440998272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_66
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 92
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 348805d08dc44b250800000000000000
+      internalID: 5959472697738037315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_67
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 108
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d368f79005318ce30800000000000000
+      internalID: 4523887060171327037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_68
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 91
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a2ea648c9056b20800000000000000
+      internalID: 3126916272062605868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_69
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 104
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6483b0592a2495400800000000000000
+      internalID: 313354915131635782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_70
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 96
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c89f30b237a6d56f0800000000000000
+      internalID: -694281724669724276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_71
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 97
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0422e466d8d4e380800000000000000
+      internalID: -8942784544723819507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_72
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 109
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac3ff31f50f93ef0800000000000000
+      internalID: -127806823255294810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_73
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 91
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b16c2afc45a425d0800000000000000
+      internalID: -3088161694436007499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_74
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 105
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 104ca950fada5b6d0800000000000000
+      internalID: -2975281011583433727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_75
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 91
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20826b675b7fb3e80800000000000000
+      internalID: -8197686337945065470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_76
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 97
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a26000220cb8ec7d0800000000000000
+      internalID: -2896223853032241622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_77
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 95
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6c1acf903ece35f0800000000000000
+      internalID: -774955377626571665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_78
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 91
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563f04531d03f6dc0800000000000000
+      internalID: -3643639898419694747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_79
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 98
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c534d5e60675f8f0800000000000000
+      internalID: -507369611011541566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_80
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 103
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de1c884065c7a76f0800000000000000
+      internalID: -686099284335476243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_81
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 88
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3782b24cfe54addb0800000000000000
+      internalID: -4766420359527585677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_82
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 89
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb77c2d1b0193940800000000000000
+      internalID: 5276266794372791277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_83
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 84
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1388193314a951160800000000000000
+      internalID: 6995667201018660913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_84
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 79
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f8c4aede19347d0800000000000000
+      internalID: -2935342081091268740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_85
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 74
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11f3003a9f0f5330800000000000000
+      internalID: 3701694573626781981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_86
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 90
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0abd812b92d8bd020800000000000000
+      internalID: 2367641239334476704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_87
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 43
+        width: 82
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acef8d4ae3d7cb2c0800000000000000
+      internalID: -4414515826722799926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_88
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 64
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 310c87d7989455ce0800000000000000
+      internalID: -1417145652873740269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_89
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 67
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34855317547008860800000000000000
+      internalID: 7530026571796928579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_90
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 72
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4055ac3ecbae16520800000000000000
+      internalID: 2693692149140706564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_91
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 58
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ceaac54ddd53b60800000000000000
+      internalID: 7725324639981464580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_92
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 74
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c86f077fd12b250800000000000000
+      internalID: 5958858205553921171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_93
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 77
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13bb216c5331636f0800000000000000
+      internalID: -705355169959593167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_94
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 65
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52affd56534a1ee0800000000000000
+      internalID: -1289644305064943014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_95
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 63
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4f918fa476b8dd20800000000000000
+      internalID: 3303590938953228111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_96
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 63
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7159b64a17665220800000000000000
+      internalID: 2474278407840027005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_97
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 946f9632d120b8760800000000000000
+      internalID: 7461059531840812617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_98
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 73
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35de364a47d1d1430800000000000000
+      internalID: 3755190051108285779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_99
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 76
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1b86786925305e0800000000000000
+      internalID: -1944619807623564893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_100
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 78
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09e063b0a13455db0800000000000000
+      internalID: -4803859648384463216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_101
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 74
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa762442d4356d80800000000000000
+      internalID: -8258136264022787422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_102
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 78
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5834c3f3bf2887050800000000000000
+      internalID: 5798528535848829829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_103
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 77
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b63b0fce6878010800000000000000
+      internalID: 1191068978671479694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_104
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 64
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe54cb6ed1719eec0800000000000000
+      internalID: -3537270615130225169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_105
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 80
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114be23e6c5621470800000000000000
+      internalID: 8363859362869851153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_106
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 74
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f2df50b8d53bd50800000000000000
+      internalID: 6751843118040821587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_107
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 78
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ace91bad7db4c18e0800000000000000
+      internalID: -1721417567103246646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_108
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 56
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3e393d8383e8300800000000000000
+      internalID: 256204045525705632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_109
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 61
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbfcd7f88ea64d50800000000000000
+      internalID: 6721251397194283999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_110
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 61
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b09d22a9651667970800000000000000
+      internalID: 8752289950422194443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_111
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 66
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e41e4888d989040800000000000000
+      internalID: 4654643424557878856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_112
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 62
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6dbd8be35db4770800000000000000
+      internalID: 8596198779132827308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_113
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 65
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4503a85e8d6d5e3a0800000000000000
+      internalID: -6636662248808239020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_114
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 64
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78ed7e35c1fcae1e0800000000000000
+      internalID: -2167692550051733881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_115
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 41
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 389e60f97dd7cb7e0800000000000000
+      internalID: -1748384190287124093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_116
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 41
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1b7b486c656d150800000000000000
+      internalID: 5896996172718387621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_117
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 48
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ae3f8707001e400800000000000000
+      internalID: 351562728977197694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_118
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 41
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4786e2555979295b0800000000000000
+      internalID: -5363057538609813388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion Spell_119
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 42
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed56f1e5aa6de8040800000000000000
+      internalID: 4651891492332201438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hex Shaman_Explosion Spell_0: -6735638039148474499
+      Hex Shaman_Explosion Spell_1: 4038361583800664090
+      Hex Shaman_Explosion Spell_10: 8804513716719743008
+      Hex Shaman_Explosion Spell_100: -4803859648384463216
+      Hex Shaman_Explosion Spell_101: -8258136264022787422
+      Hex Shaman_Explosion Spell_102: 5798528535848829829
+      Hex Shaman_Explosion Spell_103: 1191068978671479694
+      Hex Shaman_Explosion Spell_104: -3537270615130225169
+      Hex Shaman_Explosion Spell_105: 8363859362869851153
+      Hex Shaman_Explosion Spell_106: 6751843118040821587
+      Hex Shaman_Explosion Spell_107: -1721417567103246646
+      Hex Shaman_Explosion Spell_108: 256204045525705632
+      Hex Shaman_Explosion Spell_109: 6721251397194283999
+      Hex Shaman_Explosion Spell_11: -1952043706897749962
+      Hex Shaman_Explosion Spell_110: 8752289950422194443
+      Hex Shaman_Explosion Spell_111: 4654643424557878856
+      Hex Shaman_Explosion Spell_112: 8596198779132827308
+      Hex Shaman_Explosion Spell_113: -6636662248808239020
+      Hex Shaman_Explosion Spell_114: -2167692550051733881
+      Hex Shaman_Explosion Spell_115: -1748384190287124093
+      Hex Shaman_Explosion Spell_116: 5896996172718387621
+      Hex Shaman_Explosion Spell_117: 351562728977197694
+      Hex Shaman_Explosion Spell_118: -5363057538609813388
+      Hex Shaman_Explosion Spell_119: 4651891492332201438
+      Hex Shaman_Explosion Spell_12: -8522589633909703574
+      Hex Shaman_Explosion Spell_13: -2739466030140680724
+      Hex Shaman_Explosion Spell_14: 4855566362893076940
+      Hex Shaman_Explosion Spell_15: 3371157924376628293
+      Hex Shaman_Explosion Spell_16: -8773571970701539324
+      Hex Shaman_Explosion Spell_17: 5718648116417494384
+      Hex Shaman_Explosion Spell_18: -8030433787724450558
+      Hex Shaman_Explosion Spell_19: -6428695635787027640
+      Hex Shaman_Explosion Spell_2: -7520711534363775426
+      Hex Shaman_Explosion Spell_20: 4634397122530124558
+      Hex Shaman_Explosion Spell_21: -4126432563773876422
+      Hex Shaman_Explosion Spell_22: -541158324875878984
+      Hex Shaman_Explosion Spell_23: -2690892936612933949
+      Hex Shaman_Explosion Spell_24: -9164798849457269898
+      Hex Shaman_Explosion Spell_25: -4859031272960487879
+      Hex Shaman_Explosion Spell_26: -4615176127649740323
+      Hex Shaman_Explosion Spell_27: -1095417177271466412
+      Hex Shaman_Explosion Spell_28: -5808965415201437179
+      Hex Shaman_Explosion Spell_29: 1441061487040103244
+      Hex Shaman_Explosion Spell_3: -6308033522761024764
+      Hex Shaman_Explosion Spell_30: 6608793877361868148
+      Hex Shaman_Explosion Spell_31: -6468947791098237770
+      Hex Shaman_Explosion Spell_32: -859051293032719884
+      Hex Shaman_Explosion Spell_33: 8387984227812163507
+      Hex Shaman_Explosion Spell_34: 5621898638183909640
+      Hex Shaman_Explosion Spell_35: -4772383529443537703
+      Hex Shaman_Explosion Spell_36: 151151195990544028
+      Hex Shaman_Explosion Spell_37: 5694961490514527737
+      Hex Shaman_Explosion Spell_38: -158334161882396582
+      Hex Shaman_Explosion Spell_39: 4122795050809010424
+      Hex Shaman_Explosion Spell_4: -4460998304249509364
+      Hex Shaman_Explosion Spell_40: 8605898882142454002
+      Hex Shaman_Explosion Spell_41: 3004603016467337392
+      Hex Shaman_Explosion Spell_42: -5069716042695819666
+      Hex Shaman_Explosion Spell_43: 2456446433949030375
+      Hex Shaman_Explosion Spell_44: 3809102109016447450
+      Hex Shaman_Explosion Spell_45: 7576173871714734865
+      Hex Shaman_Explosion Spell_46: -1272618761518782935
+      Hex Shaman_Explosion Spell_47: 6894828211996546351
+      Hex Shaman_Explosion Spell_48: 5208650058413865518
+      Hex Shaman_Explosion Spell_49: 4779193916838328743
+      Hex Shaman_Explosion Spell_5: -2742501119717185900
+      Hex Shaman_Explosion Spell_50: 7258237009794418036
+      Hex Shaman_Explosion Spell_51: -4883217306247808197
+      Hex Shaman_Explosion Spell_52: -8531970506647145931
+      Hex Shaman_Explosion Spell_53: 5812056887530979482
+      Hex Shaman_Explosion Spell_54: 4103843816028610132
+      Hex Shaman_Explosion Spell_55: -7726672525833728275
+      Hex Shaman_Explosion Spell_56: -1411679320982015076
+      Hex Shaman_Explosion Spell_57: -2436988603140842951
+      Hex Shaman_Explosion Spell_58: -2092572723903104832
+      Hex Shaman_Explosion Spell_59: -8772704825389928424
+      Hex Shaman_Explosion Spell_6: 1656700730654944653
+      Hex Shaman_Explosion Spell_60: 2042058133031056118
+      Hex Shaman_Explosion Spell_61: -2316107409542002019
+      Hex Shaman_Explosion Spell_62: 7352232610428756367
+      Hex Shaman_Explosion Spell_63: -5472981043233613774
+      Hex Shaman_Explosion Spell_64: -1090400750423184102
+      Hex Shaman_Explosion Spell_65: -6821565980440998272
+      Hex Shaman_Explosion Spell_66: 5959472697738037315
+      Hex Shaman_Explosion Spell_67: 4523887060171327037
+      Hex Shaman_Explosion Spell_68: 3126916272062605868
+      Hex Shaman_Explosion Spell_69: 313354915131635782
+      Hex Shaman_Explosion Spell_7: -2273169705607202504
+      Hex Shaman_Explosion Spell_70: -694281724669724276
+      Hex Shaman_Explosion Spell_71: -8942784544723819507
+      Hex Shaman_Explosion Spell_72: -127806823255294810
+      Hex Shaman_Explosion Spell_73: -3088161694436007499
+      Hex Shaman_Explosion Spell_74: -2975281011583433727
+      Hex Shaman_Explosion Spell_75: -8197686337945065470
+      Hex Shaman_Explosion Spell_76: -2896223853032241622
+      Hex Shaman_Explosion Spell_77: -774955377626571665
+      Hex Shaman_Explosion Spell_78: -3643639898419694747
+      Hex Shaman_Explosion Spell_79: -507369611011541566
+      Hex Shaman_Explosion Spell_8: 6323378587109649470
+      Hex Shaman_Explosion Spell_80: -686099284335476243
+      Hex Shaman_Explosion Spell_81: -4766420359527585677
+      Hex Shaman_Explosion Spell_82: 5276266794372791277
+      Hex Shaman_Explosion Spell_83: 6995667201018660913
+      Hex Shaman_Explosion Spell_84: -2935342081091268740
+      Hex Shaman_Explosion Spell_85: 3701694573626781981
+      Hex Shaman_Explosion Spell_86: 2367641239334476704
+      Hex Shaman_Explosion Spell_87: -4414515826722799926
+      Hex Shaman_Explosion Spell_88: -1417145652873740269
+      Hex Shaman_Explosion Spell_89: 7530026571796928579
+      Hex Shaman_Explosion Spell_9: -5809913346282130328
+      Hex Shaman_Explosion Spell_90: 2693692149140706564
+      Hex Shaman_Explosion Spell_91: 7725324639981464580
+      Hex Shaman_Explosion Spell_92: 5958858205553921171
+      Hex Shaman_Explosion Spell_93: -705355169959593167
+      Hex Shaman_Explosion Spell_94: -1289644305064943014
+      Hex Shaman_Explosion Spell_95: 3303590938953228111
+      Hex Shaman_Explosion Spell_96: 2474278407840027005
+      Hex Shaman_Explosion Spell_97: 7461059531840812617
+      Hex Shaman_Explosion Spell_98: 3755190051108285779
+      Hex Shaman_Explosion Spell_99: -1944619807623564893
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

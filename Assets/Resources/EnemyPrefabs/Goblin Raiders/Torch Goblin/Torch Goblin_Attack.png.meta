@@ -1,0 +1,1014 @@
+fileFormatVersion: 2
+guid: e1a3f73f2ead99d4f9c24fc96cdd8255
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7588530421947464541
+    second: Torch Goblin_Attack_0
+  - first:
+      213: -7842078151690305793
+    second: Torch Goblin_Attack_1
+  - first:
+      213: 2131341465340047022
+    second: Torch Goblin_Attack_2
+  - first:
+      213: -1855414772966135717
+    second: Torch Goblin_Attack_3
+  - first:
+      213: -8281423226931022230
+    second: Torch Goblin_Attack_4
+  - first:
+      213: 4532747277014350665
+    second: Torch Goblin_Attack_5
+  - first:
+      213: 1040833900427024851
+    second: Torch Goblin_Attack_6
+  - first:
+      213: 186658970710459656
+    second: Torch Goblin_Attack_7
+  - first:
+      213: 525237481605799227
+    second: Torch Goblin_Attack_8
+  - first:
+      213: 3120057696794144471
+    second: Torch Goblin_Attack_9
+  - first:
+      213: -1742580850561315653
+    second: Torch Goblin_Attack_10
+  - first:
+      213: 2664820046607900521
+    second: Torch Goblin_Attack_11
+  - first:
+      213: -2142928502098175960
+    second: Torch Goblin_Attack_12
+  - first:
+      213: -8146508883200617375
+    second: Torch Goblin_Attack_13
+  - first:
+      213: -2326290464032896404
+    second: Torch Goblin_Attack_14
+  - first:
+      213: -6483614013689586152
+    second: Torch Goblin_Attack_15
+  - first:
+      213: -8024742471129402392
+    second: Torch Goblin_Attack_16
+  - first:
+      213: -4381208081362892578
+    second: Torch Goblin_Attack_17
+  - first:
+      213: 2022100389286750132
+    second: Torch Goblin_Attack_18
+  - first:
+      213: 8815386952031283605
+    second: Torch Goblin_Attack_19
+  - first:
+      213: 6691684523109510941
+    second: Torch Goblin_Attack_20
+  - first:
+      213: 6233647596209318997
+    second: Torch Goblin_Attack_21
+  - first:
+      213: -8195290558330288959
+    second: Torch Goblin_Attack_22
+  - first:
+      213: -4109101923748892458
+    second: Torch Goblin_Attack_23
+  - first:
+      213: 6512237842521880438
+    second: Torch Goblin_Attack_24
+  - first:
+      213: 7639609506104987385
+    second: Torch Goblin_Attack_25
+  - first:
+      213: 5664980191748400111
+    second: Torch Goblin_Attack_26
+  - first:
+      213: -8480591424164064341
+    second: Torch Goblin_Attack_27
+  - first:
+      213: -8851091017149158361
+    second: Torch Goblin_Attack_28
+  - first:
+      213: 3823704957379750937
+    second: Torch Goblin_Attack_29
+  - first:
+      213: -5398629401097624669
+    second: Torch Goblin_Attack_30
+  - first:
+      213: -1455550756721578393
+    second: Torch Goblin_Attack_31
+  - first:
+      213: 1194335130178130961
+    second: Torch Goblin_Attack_32
+  - first:
+      213: -9137730708133999049
+    second: Torch Goblin_Attack_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 58
+        width: 96
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a4839879cf10b690800000000000000
+      internalID: -7588530421947464541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 58
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffeb5ab58775b2390800000000000000
+      internalID: -7842078151690305793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 135
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eae67a835cb049d10800000000000000
+      internalID: 2131341465340047022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 137
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58675a281e3046e0800000000000000
+      internalID: -1855414772966135717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 130
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a667b14b379721d80800000000000000
+      internalID: -8281423226931022230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 58
+        width: 82
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b3f0702ad87ee30800000000000000
+      internalID: 4532747277014350665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 58
+        width: 84
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d91329fae8c17e00800000000000000
+      internalID: 1040833900427024851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 58
+        width: 83
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805465b4855279200800000000000000
+      internalID: 186658970710459656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 119
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d95d9e4b40a4700800000000000000
+      internalID: 525237481605799227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 58
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de6328c1fbac4b20800000000000000
+      internalID: 3120057696794144471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 127
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbc05e1f2fb11d7e0800000000000000
+      internalID: -1742580850561315653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 103
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f576ca6b75bf420800000000000000
+      internalID: 2664820046607900521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 58
+        width: 68
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828d06d81e9c242e0800000000000000
+      internalID: -2142928502098175960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 104
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16453413559c1fe80800000000000000
+      internalID: -8146508883200617375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 58
+        width: 109
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6ac0fee52b57bfd0800000000000000
+      internalID: -2326290464032896404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 94
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81e994df7639506a0800000000000000
+      internalID: -6483614013689586152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 88
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e3775a4d3362a090800000000000000
+      internalID: -8024742471129402392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 116
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed84b4f6672d233c0800000000000000
+      internalID: -4381208081362892578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 115
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b7ad9b2791ff0c10800000000000000
+      internalID: 2022100389286750132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 97
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59920791abb865a70800000000000000
+      internalID: 8815386952031283605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 105
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1febe4ae93addc50800000000000000
+      internalID: 6691684523109510941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 85
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c2603267d528650800000000000000
+      internalID: 6233647596209318997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 99
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c44c9f58aa744e80800000000000000
+      internalID: -8195290558330288959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 94
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0b211429989f6c0800000000000000
+      internalID: -4109101923748892458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 92
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6777f5080dd106a50800000000000000
+      internalID: 6512237842521880438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_25
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 91
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fec5129e58550a60800000000000000
+      internalID: 7639609506104987385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_26
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 86
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe3a9c4587d0e9e40800000000000000
+      internalID: 5664980191748400111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_27
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 95
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba31a752803ee4a80800000000000000
+      internalID: -8480591424164064341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_28
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 72
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c6c207d9b9a2580800000000000000
+      internalID: -8851091017149158361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_29
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 76
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c258e5667801530800000000000000
+      internalID: 3823704957379750937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_30
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 77
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3a891b9273415b0800000000000000
+      internalID: -5398629401097624669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_31
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76e2f017c48dccbe0800000000000000
+      internalID: -1455550756721578393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_32
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 79
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11499091971239010800000000000000
+      internalID: 1194335130178130961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torch Goblin_Attack_33
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 78
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e8e70b552403180800000000000000
+      internalID: -9137730708133999049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Torch Goblin_Attack_0: -7588530421947464541
+      Torch Goblin_Attack_1: -7842078151690305793
+      Torch Goblin_Attack_10: -1742580850561315653
+      Torch Goblin_Attack_11: 2664820046607900521
+      Torch Goblin_Attack_12: -2142928502098175960
+      Torch Goblin_Attack_13: -8146508883200617375
+      Torch Goblin_Attack_14: -2326290464032896404
+      Torch Goblin_Attack_15: -6483614013689586152
+      Torch Goblin_Attack_16: -8024742471129402392
+      Torch Goblin_Attack_17: -4381208081362892578
+      Torch Goblin_Attack_18: 2022100389286750132
+      Torch Goblin_Attack_19: 8815386952031283605
+      Torch Goblin_Attack_2: 2131341465340047022
+      Torch Goblin_Attack_20: 6691684523109510941
+      Torch Goblin_Attack_21: 6233647596209318997
+      Torch Goblin_Attack_22: -8195290558330288959
+      Torch Goblin_Attack_23: -4109101923748892458
+      Torch Goblin_Attack_24: 6512237842521880438
+      Torch Goblin_Attack_25: 7639609506104987385
+      Torch Goblin_Attack_26: 5664980191748400111
+      Torch Goblin_Attack_27: -8480591424164064341
+      Torch Goblin_Attack_28: -8851091017149158361
+      Torch Goblin_Attack_29: 3823704957379750937
+      Torch Goblin_Attack_3: -1855414772966135717
+      Torch Goblin_Attack_30: -5398629401097624669
+      Torch Goblin_Attack_31: -1455550756721578393
+      Torch Goblin_Attack_32: 1194335130178130961
+      Torch Goblin_Attack_33: -9137730708133999049
+      Torch Goblin_Attack_4: -8281423226931022230
+      Torch Goblin_Attack_5: 4532747277014350665
+      Torch Goblin_Attack_6: 1040833900427024851
+      Torch Goblin_Attack_7: 186658970710459656
+      Torch Goblin_Attack_8: 525237481605799227
+      Torch Goblin_Attack_9: 3120057696794144471
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 093d1cfa80b54a64cbef3d669ae7269d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1748282454639574720
+    second: Troll_ClubPart2_0
+  - first:
+      213: 7667462701563821505
+    second: Troll_ClubPart2_1
+  - first:
+      213: 6060720296026571155
+    second: Troll_ClubPart2_2
+  - first:
+      213: -5109954526325457082
+    second: Troll_ClubPart2_3
+  - first:
+      213: -7392745468239471196
+    second: Troll_ClubPart2_4
+  - first:
+      213: 8780971248101079748
+    second: Troll_ClubPart2_5
+  - first:
+      213: -4820040303597200270
+    second: Troll_ClubPart2_6
+  - first:
+      213: -8668887236009348425
+    second: Troll_ClubPart2_7
+  - first:
+      213: 9197239979347317567
+    second: Troll_ClubPart2_8
+  - first:
+      213: 6987939909518978428
+    second: Troll_ClubPart2_9
+  - first:
+      213: -6259550358306921002
+    second: Troll_ClubPart2_10
+  - first:
+      213: 8633766120737461534
+    second: Troll_ClubPart2_11
+  - first:
+      213: -3864523417160483142
+    second: Troll_ClubPart2_12
+  - first:
+      213: -7947446377643363888
+    second: Troll_ClubPart2_13
+  - first:
+      213: 4191959865926389778
+    second: Troll_ClubPart2_14
+  - first:
+      213: 6099081965606889631
+    second: Troll_ClubPart2_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Troll_ClubPart2_0
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 175
+        width: 85
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041092cce5adcb7e0800000000000000
+      internalID: -1748282454639574720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_1
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 185
+        width: 90
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cdb44ff3bc486a60800000000000000
+      internalID: 7667462701563821505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_2
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 189
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3910aa78ff00c1450800000000000000
+      internalID: 6060720296026571155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_3
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 190
+        width: 95
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64fb8f79e6bc519b0800000000000000
+      internalID: -5109954526325457082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_4
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 176
+        width: 95
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad15b24a21b76990800000000000000
+      internalID: -7392745468239471196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_5
+      rect:
+        serializedVersion: 2
+        x: 2452
+        y: 139
+        width: 89
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cabbf993d64cd970800000000000000
+      internalID: 8780971248101079748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_6
+      rect:
+        serializedVersion: 2
+        x: 2037
+        y: 144
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27cd50da1e6cb1db0800000000000000
+      internalID: -4820040303597200270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_7
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 139
+        width: 108
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b2beb31dfce1b780800000000000000
+      internalID: -8668887236009348425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_8
+      rect:
+        serializedVersion: 2
+        x: 2422
+        y: 146
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f33940b380923af70800000000000000
+      internalID: 9197239979347317567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_9
+      rect:
+        serializedVersion: 2
+        x: 2549
+        y: 147
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d67a2f2562af060800000000000000
+      internalID: 6987939909518978428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_10
+      rect:
+        serializedVersion: 2
+        x: 2806
+        y: 149
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d562771d1c9129a0800000000000000
+      internalID: -6259550358306921002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_11
+      rect:
+        serializedVersion: 2
+        x: 2835
+        y: 140
+        width: 106
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e15db5c0b8c41d770800000000000000
+      internalID: 8633766120737461534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_12
+      rect:
+        serializedVersion: 2
+        x: 3193
+        y: 152
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe78fd5d647e5ac0800000000000000
+      internalID: -3864523417160483142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_13
+      rect:
+        serializedVersion: 2
+        x: 3220
+        y: 137
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d13a1d70aff4b190800000000000000
+      internalID: -7947446377643363888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_14
+      rect:
+        serializedVersion: 2
+        x: 3604
+        y: 137
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2109c31c945dc2a30800000000000000
+      internalID: 4191959865926389778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll_ClubPart2_15
+      rect:
+        serializedVersion: 2
+        x: 2161
+        y: 145
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f986dffbbba44a450800000000000000
+      internalID: 6099081965606889631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Troll_ClubPart2_0: -1748282454639574720
+      Troll_ClubPart2_1: 7667462701563821505
+      Troll_ClubPart2_10: -6259550358306921002
+      Troll_ClubPart2_11: 8633766120737461534
+      Troll_ClubPart2_12: -3864523417160483142
+      Troll_ClubPart2_13: -7947446377643363888
+      Troll_ClubPart2_14: 4191959865926389778
+      Troll_ClubPart2_15: 6099081965606889631
+      Troll_ClubPart2_2: 6060720296026571155
+      Troll_ClubPart2_3: -5109954526325457082
+      Troll_ClubPart2_4: -7392745468239471196
+      Troll_ClubPart2_5: 8780971248101079748
+      Troll_ClubPart2_6: -4820040303597200270
+      Troll_ClubPart2_7: -8668887236009348425
+      Troll_ClubPart2_8: 9197239979347317567
+      Troll_ClubPart2_9: 6987939909518978428
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

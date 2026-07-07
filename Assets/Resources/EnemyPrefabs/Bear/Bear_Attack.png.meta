@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 6eebd739d6187b644a47dc697a6dc342
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8932154214229173346
+    second: Bear_Attack_0
+  - first:
+      213: 2073371222263828158
+    second: Bear_Attack_1
+  - first:
+      213: 8475008236743639273
+    second: Bear_Attack_2
+  - first:
+      213: 895329416020127910
+    second: Bear_Attack_3
+  - first:
+      213: 1804751173891814793
+    second: Bear_Attack_4
+  - first:
+      213: -7951214152837274951
+    second: Bear_Attack_5
+  - first:
+      213: 4459342991175242049
+    second: Bear_Attack_6
+  - first:
+      213: -4860180798509038561
+    second: Bear_Attack_7
+  - first:
+      213: -5949881908268357413
+    second: Bear_Attack_8
+  - first:
+      213: -2329213147699635018
+    second: Bear_Attack_9
+  - first:
+      213: 3678198770105357404
+    second: Bear_Attack_10
+  - first:
+      213: 8306477255347607742
+    second: Bear_Attack_11
+  - first:
+      213: -8582142722302025496
+    second: Bear_Attack_12
+  - first:
+      213: -1237699710311789788
+    second: Bear_Attack_13
+  - first:
+      213: -7967221671739899286
+    second: Bear_Attack_14
+  - first:
+      213: -7025009248204488500
+    second: Bear_Attack_15
+  - first:
+      213: 2391858134441400050
+    second: Bear_Attack_16
+  - first:
+      213: -5082475918560168563
+    second: Bear_Attack_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bear_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 78
+        width: 160
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b9cd5111d9a0480800000000000000
+      internalID: -8932154214229173346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 78
+        width: 141
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe8d86342816cc10800000000000000
+      internalID: 2073371222263828158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 78
+        width: 142
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e04d9bb6174d9570800000000000000
+      internalID: 8475008236743639273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 78
+        width: 142
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a076d63c59dc6c00800000000000000
+      internalID: 895329416020127910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 201
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9857ac371a3cb0910800000000000000
+      internalID: 1804751173891814793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 194
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b26317fadc97a190800000000000000
+      internalID: -7951214152837274951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 78
+        width: 121
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 141d0a8e2d4c2ed30800000000000000
+      internalID: 4459342991175242049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 78
+        width: 117
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f14c1b8605b2d8cb0800000000000000
+      internalID: -4860180798509038561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 122
+        width: 39
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd82422ade5cd6da0800000000000000
+      internalID: -5949881908268357413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 160
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc913d9bf8fcafd0800000000000000
+      internalID: -2329213147699635018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 58
+        width: 154
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5498612b469b0330800000000000000
+      internalID: 3678198770105357404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 70
+        width: 138
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb81bdbdd09864370800000000000000
+      internalID: 8306477255347607742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 2121
+        y: 68
+        width: 140
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0eb790aaa16e880800000000000000
+      internalID: -8582142722302025496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1991
+        y: 71
+        width: 25
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42b034ccbaec2dee0800000000000000
+      internalID: -1237699710311789788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2256
+        y: 89
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6246290a1ebe6190800000000000000
+      internalID: -7967221671739899286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 2265
+        y: 98
+        width: 6
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc000f01f47228e90800000000000000
+      internalID: -7025009248204488500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 2260
+        y: 84
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f61288fc46913120800000000000000
+      internalID: 2391858134441400050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1971
+        y: 64
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d857eb6841b6779b0800000000000000
+      internalID: -5082475918560168563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bear_Attack_0: -8932154214229173346
+      Bear_Attack_1: 2073371222263828158
+      Bear_Attack_10: 3678198770105357404
+      Bear_Attack_11: 8306477255347607742
+      Bear_Attack_12: -8582142722302025496
+      Bear_Attack_13: -1237699710311789788
+      Bear_Attack_14: -7967221671739899286
+      Bear_Attack_15: -7025009248204488500
+      Bear_Attack_16: 2391858134441400050
+      Bear_Attack_17: -5082475918560168563
+      Bear_Attack_2: 8475008236743639273
+      Bear_Attack_3: 895329416020127910
+      Bear_Attack_4: 1804751173891814793
+      Bear_Attack_5: -7951214152837274951
+      Bear_Attack_6: 4459342991175242049
+      Bear_Attack_7: -4860180798509038561
+      Bear_Attack_8: -5949881908268357413
+      Bear_Attack_9: -2329213147699635018
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

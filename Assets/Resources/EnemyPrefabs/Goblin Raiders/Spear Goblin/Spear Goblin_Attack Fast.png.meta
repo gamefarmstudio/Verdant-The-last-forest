@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 96bd47d3d34296b49a148597b6426fff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7512492061912864875
+    second: Spear Goblin_Attack Fast_0
+  - first:
+      213: -3595294342526923417
+    second: Spear Goblin_Attack Fast_1
+  - first:
+      213: -1188209892120463519
+    second: Spear Goblin_Attack Fast_2
+  - first:
+      213: -2223627449257039615
+    second: Spear Goblin_Attack Fast_3
+  - first:
+      213: -9008670615106341049
+    second: Spear Goblin_Attack Fast_4
+  - first:
+      213: -7352612014513595674
+    second: Spear Goblin_Attack Fast_5
+  - first:
+      213: 7900144099043062633
+    second: Spear Goblin_Attack Fast_6
+  - first:
+      213: 6294761006405056799
+    second: Spear Goblin_Attack Fast_7
+  - first:
+      213: -8843657624914729154
+    second: Spear Goblin_Attack Fast_8
+  - first:
+      213: -8621599767133053559
+    second: Spear Goblin_Attack Fast_9
+  - first:
+      213: 5919843955944243957
+    second: Spear Goblin_Attack Fast_10
+  - first:
+      213: 4292332239565348289
+    second: Spear Goblin_Attack Fast_11
+  - first:
+      213: 4812738102402023660
+    second: Spear Goblin_Attack Fast_12
+  - first:
+      213: 3969713543670170729
+    second: Spear Goblin_Attack Fast_13
+  - first:
+      213: -918310911766954319
+    second: Spear Goblin_Attack Fast_14
+  - first:
+      213: 9095838091721363883
+    second: Spear Goblin_Attack Fast_15
+  - first:
+      213: -6808968027060551690
+    second: Spear Goblin_Attack Fast_16
+  - first:
+      213: -4150660877582734859
+    second: Spear Goblin_Attack Fast_17
+  - first:
+      213: 8508377844176772296
+    second: Spear Goblin_Attack Fast_18
+  - first:
+      213: 3260065856449385624
+    second: Spear Goblin_Attack Fast_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_0
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 84
+        width: 110
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 597edb7c5444eb790800000000000000
+      internalID: -7512492061912864875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_1
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 84
+        width: 119
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d06ba18d2fa1ec0800000000000000
+      internalID: -3595294342526923417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_2
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 84
+        width: 132
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167fd850661a28fe0800000000000000
+      internalID: -1188209892120463519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_3
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 84
+        width: 86
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 109e93ebd961421e0800000000000000
+      internalID: -2223627449257039615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_4
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 179
+        width: 48
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74736183ec5caf280800000000000000
+      internalID: -9008670615106341049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_5
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 143
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ead5af145646f990800000000000000
+      internalID: -7352612014513595674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_6
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 61
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9633cd98333f2ad60800000000000000
+      internalID: 7900144099043062633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_7
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 156
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f19f0c4c8cb7b5750800000000000000
+      internalID: 6294761006405056799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_8
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 76
+        width: 120
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3768cfee34054580800000000000000
+      internalID: -8843657624914729154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_9
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 125
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d9174e0bce95880800000000000000
+      internalID: -8621599767133053559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_10
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 72
+        width: 125
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f2ccc796b2872250800000000000000
+      internalID: 5919843955944243957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_11
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 65
+        width: 75
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cddf3d1e6d619b30800000000000000
+      internalID: 4292332239565348289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_12
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 68
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce009ae1ec74ac240800000000000000
+      internalID: 4812738102402023660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_13
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 78
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 964848e7f61471730800000000000000
+      internalID: 3969713543670170729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_14
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 66
+        width: 53
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bef3c657118143f0800000000000000
+      internalID: -918310911766954319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_15
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 90
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba1d4877d88ea3e70800000000000000
+      internalID: 9095838091721363883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_16
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 58
+        width: 62
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff3014a7afa181a0800000000000000
+      internalID: -6808968027060551690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_17
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 74
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f9e1984ce3e566c0800000000000000
+      internalID: -4150660877582734859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_18
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 69
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ccd5f8e194d31670800000000000000
+      internalID: 8508377844176772296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spear Goblin_Attack Fast_19
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 62
+        width: 34
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8949b06bf941e3d20800000000000000
+      internalID: 3260065856449385624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Spear Goblin_Attack Fast_0: -7512492061912864875
+      Spear Goblin_Attack Fast_1: -3595294342526923417
+      Spear Goblin_Attack Fast_10: 5919843955944243957
+      Spear Goblin_Attack Fast_11: 4292332239565348289
+      Spear Goblin_Attack Fast_12: 4812738102402023660
+      Spear Goblin_Attack Fast_13: 3969713543670170729
+      Spear Goblin_Attack Fast_14: -918310911766954319
+      Spear Goblin_Attack Fast_15: 9095838091721363883
+      Spear Goblin_Attack Fast_16: -6808968027060551690
+      Spear Goblin_Attack Fast_17: -4150660877582734859
+      Spear Goblin_Attack Fast_18: 8508377844176772296
+      Spear Goblin_Attack Fast_19: 3260065856449385624
+      Spear Goblin_Attack Fast_2: -1188209892120463519
+      Spear Goblin_Attack Fast_3: -2223627449257039615
+      Spear Goblin_Attack Fast_4: -9008670615106341049
+      Spear Goblin_Attack Fast_5: -7352612014513595674
+      Spear Goblin_Attack Fast_6: 7900144099043062633
+      Spear Goblin_Attack Fast_7: 6294761006405056799
+      Spear Goblin_Attack Fast_8: -8843657624914729154
+      Spear Goblin_Attack Fast_9: -8621599767133053559
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

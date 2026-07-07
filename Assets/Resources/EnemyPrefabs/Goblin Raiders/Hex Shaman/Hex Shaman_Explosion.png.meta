@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 3951c87314f7ddd44932a297e539edbd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 138805272490031285
+    second: Hex Shaman_Explosion_0
+  - first:
+      213: 8831989928853061084
+    second: Hex Shaman_Explosion_1
+  - first:
+      213: 8327028353891294783
+    second: Hex Shaman_Explosion_2
+  - first:
+      213: 9195339599944613867
+    second: Hex Shaman_Explosion_3
+  - first:
+      213: 3148973339720777914
+    second: Hex Shaman_Explosion_4
+  - first:
+      213: -2612269622094604975
+    second: Hex Shaman_Explosion_5
+  - first:
+      213: 2499909801598917048
+    second: Hex Shaman_Explosion_6
+  - first:
+      213: -5991685780625413237
+    second: Hex Shaman_Explosion_7
+  - first:
+      213: -2437669135083810393
+    second: Hex Shaman_Explosion_8
+  - first:
+      213: 58635006444018488
+    second: Hex Shaman_Explosion_9
+  - first:
+      213: -7917803796409628893
+    second: Hex Shaman_Explosion_10
+  - first:
+      213: 6122997437681079977
+    second: Hex Shaman_Explosion_11
+  - first:
+      213: 942395215397403680
+    second: Hex Shaman_Explosion_12
+  - first:
+      213: -4790791605372101294
+    second: Hex Shaman_Explosion_13
+  - first:
+      213: -9000163196865215333
+    second: Hex Shaman_Explosion_14
+  - first:
+      213: 1335508788786462491
+    second: Hex Shaman_Explosion_15
+  - first:
+      213: -3204907940205925828
+    second: Hex Shaman_Explosion_16
+  - first:
+      213: 1034558536671843435
+    second: Hex Shaman_Explosion_17
+  - first:
+      213: 1933485029874173077
+    second: Hex Shaman_Explosion_18
+  - first:
+      213: 7759263168221617587
+    second: Hex Shaman_Explosion_19
+  - first:
+      213: 8486879286813892719
+    second: Hex Shaman_Explosion_20
+  - first:
+      213: 7461639539296310587
+    second: Hex Shaman_Explosion_21
+  - first:
+      213: -7959107312906169769
+    second: Hex Shaman_Explosion_22
+  - first:
+      213: -9007483063324752691
+    second: Hex Shaman_Explosion_23
+  - first:
+      213: 8795368144712349668
+    second: Hex Shaman_Explosion_24
+  - first:
+      213: -1620044324776702480
+    second: Hex Shaman_Explosion_25
+  - first:
+      213: 7716266837253962207
+    second: Hex Shaman_Explosion_26
+  - first:
+      213: 6290139356820701273
+    second: Hex Shaman_Explosion_27
+  - first:
+      213: -5264432828459533941
+    second: Hex Shaman_Explosion_28
+  - first:
+      213: -172011262263149132
+    second: Hex Shaman_Explosion_29
+  - first:
+      213: -8640008490017247534
+    second: Hex Shaman_Explosion_30
+  - first:
+      213: 8064619858915340112
+    second: Hex Shaman_Explosion_31
+  - first:
+      213: -4658091490068508570
+    second: Hex Shaman_Explosion_32
+  - first:
+      213: -2132056735368797336
+    second: Hex Shaman_Explosion_33
+  - first:
+      213: 5496090136207337818
+    second: Hex Shaman_Explosion_34
+  - first:
+      213: -4197537934886126763
+    second: Hex Shaman_Explosion_35
+  - first:
+      213: -3314778977178227864
+    second: Hex Shaman_Explosion_36
+  - first:
+      213: -5634358461869185812
+    second: Hex Shaman_Explosion_37
+  - first:
+      213: 2911142708013550172
+    second: Hex Shaman_Explosion_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_0
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 33
+        width: 81
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b838bfe8a22de100800000000000000
+      internalID: 138805272490031285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_1
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 28
+        width: 79
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd3d11eb08819a70800000000000000
+      internalID: 8831989928853061084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_2
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 60
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3edb4c5b2c8f8370800000000000000
+      internalID: 8327028353891294783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_3
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 98
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beff7cba5a86c9f70800000000000000
+      internalID: 9195339599944613867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_4
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 49
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab08b39819663bb20800000000000000
+      internalID: 3148973339720777914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_5
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 37
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155d18d7e9a5fbbd0800000000000000
+      internalID: -2612269622094604975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_6
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 32
+        width: 76
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b912de28b671b220800000000000000
+      internalID: 2499909801598917048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_7
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 31
+        width: 77
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b2010278149dca0800000000000000
+      internalID: -5991685780625413237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_8
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 72
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a1556346d8ab2ed0800000000000000
+      internalID: -2437669135083810393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_9
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 68
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b9f7a4a3050d000800000000000000
+      internalID: 58635006444018488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_10
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 80
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 327c3c1c56f4e1290800000000000000
+      internalID: -7917803796409628893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_11
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 68
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a69b918ab149f450800000000000000
+      internalID: 6122997437681079977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_12
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 78
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c3ac3947f041d00800000000000000
+      internalID: 942395215397403680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_13
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 81
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d5fd8ea60b38db0800000000000000
+      internalID: -4790791605372101294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_14
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 48
+        width: 78
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b940e42e14ff81380800000000000000
+      internalID: -9000163196865215333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_15
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 38
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f7706ea2ea88210800000000000000
+      internalID: 1335508788786462491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_16
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 34
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3a623e6531e583d0800000000000000
+      internalID: -3204907940205925828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_17
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 49
+        width: 6
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b645cadf18d7b5e00800000000000000
+      internalID: 1034558536671843435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_18
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 32
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5948f20046e15da10800000000000000
+      internalID: 1933485029874173077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_19
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 48
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd1f9cbdb07eab60800000000000000
+      internalID: 7759263168221617587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_20
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 41
+        width: 11
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f60a926feb377c570800000000000000
+      internalID: 8486879286813892719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_21
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 30
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3514c5a0a11d8760800000000000000
+      internalID: 7461639539296310587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_22
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 26
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752930d61129b8190800000000000000
+      internalID: -7959107312906169769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_23
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 40
+        width: 9
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc44e2aa0edfef280800000000000000
+      internalID: -9007483063324752691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_24
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 40
+        width: 7
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7bd5e4abc6f0a70800000000000000
+      internalID: 8795368144712349668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_25
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 40
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd0c4d15427489e0800000000000000
+      internalID: -1620044324776702480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_26
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 31
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd936a25ecfa51b60800000000000000
+      internalID: 7716266837253962207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_27
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 24
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950800f1b601b4750800000000000000
+      internalID: 6290139356820701273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_28
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 37
+        width: 12
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89b3c31c3af0f6b0800000000000000
+      internalID: -5264432828459533941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_29
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 31
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd30771ba4ec9df0800000000000000
+      internalID: -172011262263149132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_30
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 24
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dea9281e06881880800000000000000
+      internalID: -8640008490017247534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_31
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 53
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05fa53398094bef60800000000000000
+      internalID: 8064619858915340112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_32
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 36
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660523b28722b5fb0800000000000000
+      internalID: -4658091490068508570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_33
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 29
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8632d5ff1b96962e0800000000000000
+      internalID: -2132056735368797336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_34
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 43
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59aa2efbd8064c40800000000000000
+      internalID: 5496090136207337818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_35
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 48
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55bb2ebdc795fb5c0800000000000000
+      internalID: -4197537934886126763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_36
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 38
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86beb5c251a8ff1d0800000000000000
+      internalID: -3314778977178227864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_37
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 29
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4221fb4dcbec1b0800000000000000
+      internalID: -5634358461869185812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Explosion_38
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 38
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5acd997ed4766820800000000000000
+      internalID: 2911142708013550172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hex Shaman_Explosion_0: 138805272490031285
+      Hex Shaman_Explosion_1: 8831989928853061084
+      Hex Shaman_Explosion_10: -7917803796409628893
+      Hex Shaman_Explosion_11: 6122997437681079977
+      Hex Shaman_Explosion_12: 942395215397403680
+      Hex Shaman_Explosion_13: -4790791605372101294
+      Hex Shaman_Explosion_14: -9000163196865215333
+      Hex Shaman_Explosion_15: 1335508788786462491
+      Hex Shaman_Explosion_16: -3204907940205925828
+      Hex Shaman_Explosion_17: 1034558536671843435
+      Hex Shaman_Explosion_18: 1933485029874173077
+      Hex Shaman_Explosion_19: 7759263168221617587
+      Hex Shaman_Explosion_2: 8327028353891294783
+      Hex Shaman_Explosion_20: 8486879286813892719
+      Hex Shaman_Explosion_21: 7461639539296310587
+      Hex Shaman_Explosion_22: -7959107312906169769
+      Hex Shaman_Explosion_23: -9007483063324752691
+      Hex Shaman_Explosion_24: 8795368144712349668
+      Hex Shaman_Explosion_25: -1620044324776702480
+      Hex Shaman_Explosion_26: 7716266837253962207
+      Hex Shaman_Explosion_27: 6290139356820701273
+      Hex Shaman_Explosion_28: -5264432828459533941
+      Hex Shaman_Explosion_29: -172011262263149132
+      Hex Shaman_Explosion_3: 9195339599944613867
+      Hex Shaman_Explosion_30: -8640008490017247534
+      Hex Shaman_Explosion_31: 8064619858915340112
+      Hex Shaman_Explosion_32: -4658091490068508570
+      Hex Shaman_Explosion_33: -2132056735368797336
+      Hex Shaman_Explosion_34: 5496090136207337818
+      Hex Shaman_Explosion_35: -4197537934886126763
+      Hex Shaman_Explosion_36: -3314778977178227864
+      Hex Shaman_Explosion_37: -5634358461869185812
+      Hex Shaman_Explosion_38: 2911142708013550172
+      Hex Shaman_Explosion_4: 3148973339720777914
+      Hex Shaman_Explosion_5: -2612269622094604975
+      Hex Shaman_Explosion_6: 2499909801598917048
+      Hex Shaman_Explosion_7: -5991685780625413237
+      Hex Shaman_Explosion_8: -2437669135083810393
+      Hex Shaman_Explosion_9: 58635006444018488
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

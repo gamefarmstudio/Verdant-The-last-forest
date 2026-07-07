@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 454cb9cf71caa724dba8cc7c12f4628a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3784539298085661557
+    second: Seahorse Boat_Paddle Shark_0
+  - first:
+      213: -6888527625013803656
+    second: Seahorse Boat_Paddle Shark_1
+  - first:
+      213: 4435875029199103376
+    second: Seahorse Boat_Paddle Shark_2
+  - first:
+      213: -4808174937668429659
+    second: Seahorse Boat_Paddle Shark_3
+  - first:
+      213: -1769852741596894849
+    second: Seahorse Boat_Paddle Shark_4
+  - first:
+      213: -3096330438978968656
+    second: Seahorse Boat_Paddle Shark_5
+  - first:
+      213: -7338318501353334265
+    second: Seahorse Boat_Paddle Shark_6
+  - first:
+      213: -5621266647037424126
+    second: Seahorse Boat_Paddle Shark_7
+  - first:
+      213: -8141372319234686926
+    second: Seahorse Boat_Paddle Shark_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 41
+        width: 102
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84191b4f8d9a7bc0800000000000000
+      internalID: -3784539298085661557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_1
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 42
+        width: 102
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875469d3f980760a0800000000000000
+      internalID: -6888527625013803656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_2
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 41
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095207736d46f8d30800000000000000
+      internalID: 4435875029199103376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_3
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 41
+        width: 102
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a856567e5ee54db0800000000000000
+      internalID: -4808174937668429659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_4
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 40
+        width: 103
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79ad500f483077e0800000000000000
+      internalID: -1769852741596894849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_5
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 39
+        width: 104
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b3ed6deedf9705d0800000000000000
+      internalID: -3096330438978968656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_6
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 39
+        width: 103
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a582ef33e092a90800000000000000
+      internalID: -7338318501353334265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_7
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 41
+        width: 102
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e459b64cf3df1b0800000000000000
+      internalID: -5621266647037424126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Paddle Shark_8
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 41
+        width: 102
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23081dfa209040f80800000000000000
+      internalID: -8141372319234686926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Seahorse Boat_Paddle Shark_0: -3784539298085661557
+      Seahorse Boat_Paddle Shark_1: -6888527625013803656
+      Seahorse Boat_Paddle Shark_2: 4435875029199103376
+      Seahorse Boat_Paddle Shark_3: -4808174937668429659
+      Seahorse Boat_Paddle Shark_4: -1769852741596894849
+      Seahorse Boat_Paddle Shark_5: -3096330438978968656
+      Seahorse Boat_Paddle Shark_6: -7338318501353334265
+      Seahorse Boat_Paddle Shark_7: -5621266647037424126
+      Seahorse Boat_Paddle Shark_8: -8141372319234686926
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 904540bfe7e88eb4f8c270d656c6f066
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6086482126271506268
+    second: Hex Shaman_Idle_0
+  - first:
+      213: 2335491604314837304
+    second: Hex Shaman_Idle_1
+  - first:
+      213: 7757401695721611397
+    second: Hex Shaman_Idle_2
+  - first:
+      213: -5761500584161447550
+    second: Hex Shaman_Idle_3
+  - first:
+      213: -1192503708543855199
+    second: Hex Shaman_Idle_4
+  - first:
+      213: -3204445946080321574
+    second: Hex Shaman_Idle_5
+  - first:
+      213: 7775329236209994996
+    second: Hex Shaman_Idle_6
+  - first:
+      213: 924967624560190881
+    second: Hex Shaman_Idle_7
+  - first:
+      213: 4794625775522050291
+    second: Hex Shaman_Idle_8
+  - first:
+      213: 3842498413694759383
+    second: Hex Shaman_Idle_9
+  - first:
+      213: -2189973234403045510
+    second: Hex Shaman_Idle_10
+  - first:
+      213: -1863773546465165332
+    second: Hex Shaman_Idle_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 54
+        width: 98
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c576d2c0f37877450800000000000000
+      internalID: 6086482126271506268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 132
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 831d71b7d35596020800000000000000
+      internalID: 2335491604314837304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 54
+        width: 100
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580ef75edb3d7ab60800000000000000
+      internalID: 7757401695721611397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 54
+        width: 102
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281f9d39eb90b00b0800000000000000
+      internalID: -5761500584161447550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 54
+        width: 102
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a558eaf130637fe0800000000000000
+      internalID: -1192503708543855199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 54
+        width: 102
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf11f1d3658783d0800000000000000
+      internalID: -3204445946080321574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 54
+        width: 100
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fc8100beb487eb60800000000000000
+      internalID: 7775329236209994996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 54
+        width: 101
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5a5a2672526dc00800000000000000
+      internalID: 924967624560190881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 54
+        width: 95
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f07ce46dbee98240800000000000000
+      internalID: 4794625775522050291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 103
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d13746e2fb435530800000000000000
+      internalID: 3842498413694759383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 105
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f0bcf32f6ab91e0800000000000000
+      internalID: -2189973234403045510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 106
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef7c2d85db8226e0800000000000000
+      internalID: -1863773546465165332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hex Shaman_Idle_0: 6086482126271506268
+      Hex Shaman_Idle_1: 2335491604314837304
+      Hex Shaman_Idle_10: -2189973234403045510
+      Hex Shaman_Idle_11: -1863773546465165332
+      Hex Shaman_Idle_2: 7757401695721611397
+      Hex Shaman_Idle_3: -5761500584161447550
+      Hex Shaman_Idle_4: -1192503708543855199
+      Hex Shaman_Idle_5: -3204445946080321574
+      Hex Shaman_Idle_6: 7775329236209994996
+      Hex Shaman_Idle_7: 924967624560190881
+      Hex Shaman_Idle_8: 4794625775522050291
+      Hex Shaman_Idle_9: 3842498413694759383
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

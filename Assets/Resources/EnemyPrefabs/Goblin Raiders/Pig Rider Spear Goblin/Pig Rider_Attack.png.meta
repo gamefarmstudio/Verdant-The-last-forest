@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 9624ed723df7f9a4fa9672d1abdbda88
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4139315167357682474
+    second: Pig Rider_Attack_0
+  - first:
+      213: -5865650165967796568
+    second: Pig Rider_Attack_1
+  - first:
+      213: 3845410939634802179
+    second: Pig Rider_Attack_2
+  - first:
+      213: 6148514604422166335
+    second: Pig Rider_Attack_3
+  - first:
+      213: -2372294231873951287
+    second: Pig Rider_Attack_4
+  - first:
+      213: -484863052525853732
+    second: Pig Rider_Attack_5
+  - first:
+      213: 8237347127934248748
+    second: Pig Rider_Attack_6
+  - first:
+      213: 3579419267392172996
+    second: Pig Rider_Attack_7
+  - first:
+      213: 8872665321751530895
+    second: Pig Rider_Attack_8
+  - first:
+      213: -6851586913100927392
+    second: Pig Rider_Attack_9
+  - first:
+      213: -4974714790085680465
+    second: Pig Rider_Attack_10
+  - first:
+      213: -8204556661798038832
+    second: Pig Rider_Attack_11
+  - first:
+      213: 8955213184850425070
+    second: Pig Rider_Attack_12
+  - first:
+      213: 1203817473669301366
+    second: Pig Rider_Attack_13
+  - first:
+      213: 3003759419062500530
+    second: Pig Rider_Attack_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pig Rider_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 89
+        width: 110
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a23cdb3b63dc17930800000000000000
+      internalID: 4139315167357682474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 89
+        width: 123
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a647c86046099ea0800000000000000
+      internalID: -5865650165967796568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 87
+        width: 194
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30e555030e4ad5530800000000000000
+      internalID: 3845410939634802179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 89
+        width: 83
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3772ecd479e35550800000000000000
+      internalID: 6148514604422166335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 208
+        width: 48
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c9e17e07fae31fd0800000000000000
+      internalID: -2372294231873951287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 172
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd32c756f9b6549f0800000000000000
+      internalID: -484863052525853732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 89
+        width: 126
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c27ea1cc19fe05270800000000000000
+      internalID: 8237347127934248748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 89
+        width: 117
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3791febd6aca130800000000000000
+      internalID: 3579419267392172996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 185
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d4de9c91a022b70800000000000000
+      internalID: 8872665321751530895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 89
+        width: 123
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e67e8f0064ae0a0800000000000000
+      internalID: -6851586913100927392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 154
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2af0e614346fab0800000000000000
+      internalID: -4974714790085680465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 95
+        width: 53
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d296f98f2f832e80800000000000000
+      internalID: -8204556661798038832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 119
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee477e2e1fe474c70800000000000000
+      internalID: 8955213184850425070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 103
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 674877c3d91d4b010800000000000000
+      internalID: 1203817473669301366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pig Rider_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 98
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc34fbe64f7fa920800000000000000
+      internalID: 3003759419062500530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pig Rider_Attack_0: 4139315167357682474
+      Pig Rider_Attack_1: -5865650165967796568
+      Pig Rider_Attack_10: -4974714790085680465
+      Pig Rider_Attack_11: -8204556661798038832
+      Pig Rider_Attack_12: 8955213184850425070
+      Pig Rider_Attack_13: 1203817473669301366
+      Pig Rider_Attack_14: 3003759419062500530
+      Pig Rider_Attack_2: 3845410939634802179
+      Pig Rider_Attack_3: 6148514604422166335
+      Pig Rider_Attack_4: -2372294231873951287
+      Pig Rider_Attack_5: -484863052525853732
+      Pig Rider_Attack_6: 8237347127934248748
+      Pig Rider_Attack_7: 3579419267392172996
+      Pig Rider_Attack_8: 8872665321751530895
+      Pig Rider_Attack_9: -6851586913100927392
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

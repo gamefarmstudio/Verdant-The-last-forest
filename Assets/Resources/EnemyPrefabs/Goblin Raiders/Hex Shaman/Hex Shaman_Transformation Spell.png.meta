@@ -1,0 +1,936 @@
+fileFormatVersion: 2
+guid: 3d0eeb955a1d8ef4eb5cdeba453138be
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7412478456175937501
+    second: Hex Shaman_Transformation Spell_0
+  - first:
+      213: 3795712165680219901
+    second: Hex Shaman_Transformation Spell_1
+  - first:
+      213: 884648950792497583
+    second: Hex Shaman_Transformation Spell_2
+  - first:
+      213: -5537606905186053955
+    second: Hex Shaman_Transformation Spell_3
+  - first:
+      213: 7750655176424766025
+    second: Hex Shaman_Transformation Spell_4
+  - first:
+      213: 98995108355954608
+    second: Hex Shaman_Transformation Spell_5
+  - first:
+      213: 2630231558880927646
+    second: Hex Shaman_Transformation Spell_6
+  - first:
+      213: 7042902132730579767
+    second: Hex Shaman_Transformation Spell_7
+  - first:
+      213: 1625263112373996573
+    second: Hex Shaman_Transformation Spell_8
+  - first:
+      213: -688627420069239609
+    second: Hex Shaman_Transformation Spell_9
+  - first:
+      213: 32508356415849283
+    second: Hex Shaman_Transformation Spell_10
+  - first:
+      213: -8410975242818061856
+    second: Hex Shaman_Transformation Spell_11
+  - first:
+      213: 683064323075822601
+    second: Hex Shaman_Transformation Spell_12
+  - first:
+      213: 6071776458823816052
+    second: Hex Shaman_Transformation Spell_13
+  - first:
+      213: -7843738793440875648
+    second: Hex Shaman_Transformation Spell_14
+  - first:
+      213: -7794452519629143772
+    second: Hex Shaman_Transformation Spell_15
+  - first:
+      213: -633066664948886090
+    second: Hex Shaman_Transformation Spell_16
+  - first:
+      213: -8771808458607152131
+    second: Hex Shaman_Transformation Spell_17
+  - first:
+      213: 7818697059732087791
+    second: Hex Shaman_Transformation Spell_18
+  - first:
+      213: -2009789554794131833
+    second: Hex Shaman_Transformation Spell_19
+  - first:
+      213: -8416783399266541470
+    second: Hex Shaman_Transformation Spell_20
+  - first:
+      213: 4729478610114903647
+    second: Hex Shaman_Transformation Spell_21
+  - first:
+      213: 2731977367519135560
+    second: Hex Shaman_Transformation Spell_22
+  - first:
+      213: 5770479343581533930
+    second: Hex Shaman_Transformation Spell_23
+  - first:
+      213: 3746345687092033476
+    second: Hex Shaman_Transformation Spell_24
+  - first:
+      213: -7454914031566509913
+    second: Hex Shaman_Transformation Spell_25
+  - first:
+      213: 3095591283991366622
+    second: Hex Shaman_Transformation Spell_26
+  - first:
+      213: -3437075610035332683
+    second: Hex Shaman_Transformation Spell_27
+  - first:
+      213: 5883112016306192250
+    second: Hex Shaman_Transformation Spell_28
+  - first:
+      213: -5546440886755375864
+    second: Hex Shaman_Transformation Spell_29
+  - first:
+      213: -696814203078030818
+    second: Hex Shaman_Transformation Spell_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_0
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 58
+        width: 121
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd74a9502e96ed660800000000000000
+      internalID: 7412478456175937501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_1
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 114
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df68ff8aa141da430800000000000000
+      internalID: 3795712165680219901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_2
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 145
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9a8ee9887e64c00800000000000000
+      internalID: 884648950792497583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_3
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 148
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db092a6fbd77623b0800000000000000
+      internalID: -5537606905186053955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_4
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 135
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94a375771dbdf8b60800000000000000
+      internalID: 7750655176424766025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_5
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 135
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b7de0cc683bf5100800000000000000
+      internalID: 98995108355954608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_6
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 142
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9f9e10daa5708420800000000000000
+      internalID: 2630231558880927646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_7
+      rect:
+        serializedVersion: 2
+        x: 1781
+        y: 147
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b4f31cc2a6db160800000000000000
+      internalID: 7042902132730579767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_8
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 54
+        width: 101
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c099f80381e8610800000000000000
+      internalID: 1625263112373996573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_9
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 58
+        width: 98
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4ed2c82018176f0800000000000000
+      internalID: -688627420069239609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_10
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 58
+        width: 94
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 343066c8d2e737000800000000000000
+      internalID: 32508356415849283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_11
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 58
+        width: 114
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e979357496364b80800000000000000
+      internalID: -8410975242818061856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_12
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 58
+        width: 91
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9045daff16bba7900800000000000000
+      internalID: 683064323075822601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_13
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 58
+        width: 120
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 473d5c70588434450800000000000000
+      internalID: 6071776458823816052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_14
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 58
+        width: 92
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b61021021752390800000000000000
+      internalID: -7843738793440875648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_15
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 58
+        width: 89
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4214bdceaba84d390800000000000000
+      internalID: -7794452519629143772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_16
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 58
+        width: 121
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b5949ce835e637f0800000000000000
+      internalID: -633066664948886090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_17
+      rect:
+        serializedVersion: 2
+        x: 1765
+        y: 58
+        width: 91
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df334f29ea6444680800000000000000
+      internalID: -8771808458607152131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_18
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 139
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe3e8b3fc87918c60800000000000000
+      internalID: 7818697059732087791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_19
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 126
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78e84395c0bcb14e0800000000000000
+      internalID: -2009789554794131833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_20
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 125
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2602057a714913b80800000000000000
+      internalID: -8416783399266541470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_21
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 99
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5ef4b0fcbb72a140800000000000000
+      internalID: 4729478610114903647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_22
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 99
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847826de0fee9e520800000000000000
+      internalID: 2731977367519135560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_23
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 112
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae618e1c36cd41050800000000000000
+      internalID: 5770479343581533930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_24
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 99
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c7ffecad81bdf330800000000000000
+      internalID: 3746345687092033476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_25
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 69
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a82765af23da8890800000000000000
+      internalID: -7454914031566509913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_26
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 98
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edbc9142fdfb5fa20800000000000000
+      internalID: 3095591283991366622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_27
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 86
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b95fad61fd0d40d0800000000000000
+      internalID: -3437075610035332683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_28
+      rect:
+        serializedVersion: 2
+        x: 1851
+        y: 84
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f33c1753305a150800000000000000
+      internalID: 5883112016306192250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_29
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 54
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8054e3956651703b0800000000000000
+      internalID: -5546440886755375864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hex Shaman_Transformation Spell_30
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 54
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a46179c2b6456f0800000000000000
+      internalID: -696814203078030818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hex Shaman_Transformation Spell_0: 7412478456175937501
+      Hex Shaman_Transformation Spell_1: 3795712165680219901
+      Hex Shaman_Transformation Spell_10: 32508356415849283
+      Hex Shaman_Transformation Spell_11: -8410975242818061856
+      Hex Shaman_Transformation Spell_12: 683064323075822601
+      Hex Shaman_Transformation Spell_13: 6071776458823816052
+      Hex Shaman_Transformation Spell_14: -7843738793440875648
+      Hex Shaman_Transformation Spell_15: -7794452519629143772
+      Hex Shaman_Transformation Spell_16: -633066664948886090
+      Hex Shaman_Transformation Spell_17: -8771808458607152131
+      Hex Shaman_Transformation Spell_18: 7818697059732087791
+      Hex Shaman_Transformation Spell_19: -2009789554794131833
+      Hex Shaman_Transformation Spell_2: 884648950792497583
+      Hex Shaman_Transformation Spell_20: -8416783399266541470
+      Hex Shaman_Transformation Spell_21: 4729478610114903647
+      Hex Shaman_Transformation Spell_22: 2731977367519135560
+      Hex Shaman_Transformation Spell_23: 5770479343581533930
+      Hex Shaman_Transformation Spell_24: 3746345687092033476
+      Hex Shaman_Transformation Spell_25: -7454914031566509913
+      Hex Shaman_Transformation Spell_26: 3095591283991366622
+      Hex Shaman_Transformation Spell_27: -3437075610035332683
+      Hex Shaman_Transformation Spell_28: 5883112016306192250
+      Hex Shaman_Transformation Spell_29: -5546440886755375864
+      Hex Shaman_Transformation Spell_3: -5537606905186053955
+      Hex Shaman_Transformation Spell_30: -696814203078030818
+      Hex Shaman_Transformation Spell_4: 7750655176424766025
+      Hex Shaman_Transformation Spell_5: 98995108355954608
+      Hex Shaman_Transformation Spell_6: 2630231558880927646
+      Hex Shaman_Transformation Spell_7: 7042902132730579767
+      Hex Shaman_Transformation Spell_8: 1625263112373996573
+      Hex Shaman_Transformation Spell_9: -688627420069239609
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

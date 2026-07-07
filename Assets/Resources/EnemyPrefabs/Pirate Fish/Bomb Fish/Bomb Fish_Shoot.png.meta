@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 04bed719a2e98b7419a774453eed07b1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2823366511502222935
+    second: Bomb Fish_Shoot_0
+  - first:
+      213: 764235268529566720
+    second: Bomb Fish_Shoot_1
+  - first:
+      213: -9179182428650044156
+    second: Bomb Fish_Shoot_2
+  - first:
+      213: -6342174606454990966
+    second: Bomb Fish_Shoot_3
+  - first:
+      213: -5275458626044080290
+    second: Bomb Fish_Shoot_4
+  - first:
+      213: 2365856109582071884
+    second: Bomb Fish_Shoot_5
+  - first:
+      213: -5394962590245626241
+    second: Bomb Fish_Shoot_6
+  - first:
+      213: 3419197187065185002
+    second: Bomb Fish_Shoot_7
+  - first:
+      213: 2041796549551413412
+    second: Bomb Fish_Shoot_8
+  - first:
+      213: -5369174323687529205
+    second: Bomb Fish_Shoot_9
+  - first:
+      213: 1700479755074270253
+    second: Bomb Fish_Shoot_10
+  - first:
+      213: -9123479132853667103
+    second: Bomb Fish_Shoot_11
+  - first:
+      213: 2152903605771601389
+    second: Bomb Fish_Shoot_12
+  - first:
+      213: 7243649670691576454
+    second: Bomb Fish_Shoot_13
+  - first:
+      213: 4106343092832569565
+    second: Bomb Fish_Shoot_14
+  - first:
+      213: 3393702085100929545
+    second: Bomb Fish_Shoot_15
+  - first:
+      213: 4965339365243477903
+    second: Bomb Fish_Shoot_16
+  - first:
+      213: -4970477225498233462
+    second: Bomb Fish_Shoot_17
+  - first:
+      213: 1631960824410062646
+    second: Bomb Fish_Shoot_18
+  - first:
+      213: -3996201718331411010
+    second: Bomb Fish_Shoot_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_0
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 55
+        width: 76
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 756e2d422ec9e2720800000000000000
+      internalID: 2823366511502222935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_1
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 56
+        width: 69
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004b7897deb1b9a00800000000000000
+      internalID: 764235268529566720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_2
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 128
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4058ecbe63efc9080800000000000000
+      internalID: -9179182428650044156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_3
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 127
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a875fb63cc11cf7a0800000000000000
+      internalID: -6342174606454990966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_4
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 132
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f4f57845ec9c6b0800000000000000
+      internalID: -5275458626044080290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_5
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 126
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c48b359c89535d020800000000000000
+      internalID: 2365856109582071884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 56
+        width: 73
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7e53ef9b1e3125b0800000000000000
+      internalID: -5394962590245626241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_7
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 55
+        width: 87
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae20908d9bd637f20800000000000000
+      internalID: 3419197187065185002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_8
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 56
+        width: 92
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a851a7d42be55c10800000000000000
+      internalID: 2041796549551413412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_9
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 49
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b05e473566cdc75b0800000000000000
+      internalID: -5369174323687529205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_10
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 60
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24f1f4e351599710800000000000000
+      internalID: 1700479755074270253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_11
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 49
+        width: 67
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ea71922114e26180800000000000000
+      internalID: -9123479132853667103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_12
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 65
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de58ca14c66a0ed10800000000000000
+      internalID: 2152903605771601389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_13
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 62
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a52fa3ffc968460800000000000000
+      internalID: 7243649670691576454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_14
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 56
+        width: 73
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd80a2e5949acf830800000000000000
+      internalID: 4106343092832569565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_15
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 50
+        width: 21
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90281f7d01ad81f20800000000000000
+      internalID: 3393702085100929545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 51
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fd99e58dd68e440800000000000000
+      internalID: 4965339365243477903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_17
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 50
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8532025c41550bb0800000000000000
+      internalID: -4970477225498233462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_18
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 51
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63fb05a29b3e5a610800000000000000
+      internalID: 1631960824410062646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bomb Fish_Shoot_19
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 50
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5fc00c5b3aa88c0800000000000000
+      internalID: -3996201718331411010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bomb Fish_Shoot_0: 2823366511502222935
+      Bomb Fish_Shoot_1: 764235268529566720
+      Bomb Fish_Shoot_10: 1700479755074270253
+      Bomb Fish_Shoot_11: -9123479132853667103
+      Bomb Fish_Shoot_12: 2152903605771601389
+      Bomb Fish_Shoot_13: 7243649670691576454
+      Bomb Fish_Shoot_14: 4106343092832569565
+      Bomb Fish_Shoot_15: 3393702085100929545
+      Bomb Fish_Shoot_16: 4965339365243477903
+      Bomb Fish_Shoot_17: -4970477225498233462
+      Bomb Fish_Shoot_18: 1631960824410062646
+      Bomb Fish_Shoot_19: -3996201718331411010
+      Bomb Fish_Shoot_2: -9179182428650044156
+      Bomb Fish_Shoot_3: -6342174606454990966
+      Bomb Fish_Shoot_4: -5275458626044080290
+      Bomb Fish_Shoot_5: 2365856109582071884
+      Bomb Fish_Shoot_6: -5394962590245626241
+      Bomb Fish_Shoot_7: 3419197187065185002
+      Bomb Fish_Shoot_8: 2041796549551413412
+      Bomb Fish_Shoot_9: -5369174323687529205
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

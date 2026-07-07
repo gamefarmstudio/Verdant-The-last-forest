@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 316f4cc3d6323f640835befee800de7f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2381779804790623528
+    second: Seahorse Boat_Harpoon Shark_0
+  - first:
+      213: -6749815998778838614
+    second: Seahorse Boat_Harpoon Shark_1
+  - first:
+      213: 2379039025364867956
+    second: Seahorse Boat_Harpoon Shark_2
+  - first:
+      213: -9217106877639224877
+    second: Seahorse Boat_Harpoon Shark_3
+  - first:
+      213: -5822898472341598766
+    second: Seahorse Boat_Harpoon Shark_4
+  - first:
+      213: -4422456336925502029
+    second: Seahorse Boat_Harpoon Shark_5
+  - first:
+      213: -693055969919370083
+    second: Seahorse Boat_Harpoon Shark_6
+  - first:
+      213: -4006614947584549611
+    second: Seahorse Boat_Harpoon Shark_7
+  - first:
+      213: 3988463141958007068
+    second: Seahorse Boat_Harpoon Shark_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 41
+        width: 110
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d2714203e732fed0800000000000000
+      internalID: -2381779804790623528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_1
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 42
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa1f9857c16d352a0800000000000000
+      internalID: -6749815998778838614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_2
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 41
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b1aad836b040120800000000000000
+      internalID: 2379039025364867956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_3
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 41
+        width: 109
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1118d0122461080800000000000000
+      internalID: -9217106877639224877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_4
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 40
+        width: 110
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd0ae0c0b8e03fa0800000000000000
+      internalID: -5822898472341598766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_5
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 39
+        width: 111
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b551ea846740a2c0800000000000000
+      internalID: -4422456336925502029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_6
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 39
+        width: 111
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9cfd7f6445c166f0800000000000000
+      internalID: -693055969919370083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_7
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 41
+        width: 110
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51dd371eee4a568c0800000000000000
+      internalID: -4006614947584549611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Harpoon Shark_8
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 41
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c193528881ed95730800000000000000
+      internalID: 3988463141958007068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Seahorse Boat_Harpoon Shark_0: -2381779804790623528
+      Seahorse Boat_Harpoon Shark_1: -6749815998778838614
+      Seahorse Boat_Harpoon Shark_2: 2379039025364867956
+      Seahorse Boat_Harpoon Shark_3: -9217106877639224877
+      Seahorse Boat_Harpoon Shark_4: -5822898472341598766
+      Seahorse Boat_Harpoon Shark_5: -4422456336925502029
+      Seahorse Boat_Harpoon Shark_6: -693055969919370083
+      Seahorse Boat_Harpoon Shark_7: -4006614947584549611
+      Seahorse Boat_Harpoon Shark_8: 3988463141958007068
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

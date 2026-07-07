@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 4a45cc42188fbac418cbaee0b64c2f9b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1583419632963891737
+    second: dust_flipbook_4x4_512_0
+  - first:
+      213: 3146458026951926369
+    second: dust_flipbook_4x4_512_1
+  - first:
+      213: 1512951150584639298
+    second: dust_flipbook_4x4_512_2
+  - first:
+      213: -8689078237432608507
+    second: dust_flipbook_4x4_512_3
+  - first:
+      213: 3036667466463596375
+    second: dust_flipbook_4x4_512_4
+  - first:
+      213: 5445603194298765732
+    second: dust_flipbook_4x4_512_5
+  - first:
+      213: -8015891753601666329
+    second: dust_flipbook_4x4_512_6
+  - first:
+      213: 7020946082995822181
+    second: dust_flipbook_4x4_512_7
+  - first:
+      213: -9170068167013166617
+    second: dust_flipbook_4x4_512_8
+  - first:
+      213: 8392331088918491167
+    second: dust_flipbook_4x4_512_9
+  - first:
+      213: 3364147443053892136
+    second: dust_flipbook_4x4_512_10
+  - first:
+      213: -2863512044080312648
+    second: dust_flipbook_4x4_512_11
+  - first:
+      213: -7194966712108434119
+    second: dust_flipbook_4x4_512_12
+  - first:
+      213: -1975759145311856265
+    second: dust_flipbook_4x4_512_13
+  - first:
+      213: 5148203441914317320
+    second: dust_flipbook_4x4_512_14
+  - first:
+      213: 6073855372001866590
+    second: dust_flipbook_4x4_512_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 394
+        width: 101
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7edceceab30960ae0800000000000000
+      internalID: -1583419632963891737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 395
+        width: 101
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1626525a7e67aab20800000000000000
+      internalID: 3146458026951926369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_2
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 396
+        width: 102
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24fad153e051ff410800000000000000
+      internalID: 1512951150584639298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_3
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 399
+        width: 103
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509804831613a6780800000000000000
+      internalID: -8689078237432608507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_4
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 273
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75f4c87c8f8642a20800000000000000
+      internalID: 3036667466463596375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_5
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 275
+        width: 101
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a119efc04ba29b40800000000000000
+      internalID: 5445603194298765732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_6
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 276
+        width: 99
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2f69c8be4d1c090800000000000000
+      internalID: -8015891753601666329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_7
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 275
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ed22093496f6160800000000000000
+      internalID: 7020946082995822181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 145
+        width: 97
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e11013569f5db080800000000000000
+      internalID: -9170068167013166617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 143
+        width: 98
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f10347039ac877470800000000000000
+      internalID: 8392331088918491167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_10
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 141
+        width: 101
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8221443864adfae20800000000000000
+      internalID: 3364147443053892136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_11
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 140
+        width: 102
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be4a8aa7f2c248d0800000000000000
+      internalID: -2863512044080312648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_12
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 11
+        width: 104
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d340a55e7562c90800000000000000
+      internalID: -7194966712108434119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_13
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 11
+        width: 104
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77915fd7681b494e0800000000000000
+      internalID: -1975759145311856265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_14
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 11
+        width: 104
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80a0fba01c7127740800000000000000
+      internalID: 5148203441914317320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dust_flipbook_4x4_512_15
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 10
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53f449b74baa4450800000000000000
+      internalID: 6073855372001866590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dust_flipbook_4x4_512_0: -1583419632963891737
+      dust_flipbook_4x4_512_1: 3146458026951926369
+      dust_flipbook_4x4_512_10: 3364147443053892136
+      dust_flipbook_4x4_512_11: -2863512044080312648
+      dust_flipbook_4x4_512_12: -7194966712108434119
+      dust_flipbook_4x4_512_13: -1975759145311856265
+      dust_flipbook_4x4_512_14: 5148203441914317320
+      dust_flipbook_4x4_512_15: 6073855372001866590
+      dust_flipbook_4x4_512_2: 1512951150584639298
+      dust_flipbook_4x4_512_3: -8689078237432608507
+      dust_flipbook_4x4_512_4: 3036667466463596375
+      dust_flipbook_4x4_512_5: 5445603194298765732
+      dust_flipbook_4x4_512_6: -8015891753601666329
+      dust_flipbook_4x4_512_7: 7020946082995822181
+      dust_flipbook_4x4_512_8: -9170068167013166617
+      dust_flipbook_4x4_512_9: 8392331088918491167
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: a3894ca746f458d43a7740b36ec2fee0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7010591647040895799
+    second: Seahorse Boat_Idle_0
+  - first:
+      213: 152489495532746151
+    second: Seahorse Boat_Idle_1
+  - first:
+      213: -6716851642931428848
+    second: Seahorse Boat_Idle_2
+  - first:
+      213: 2659611113231379851
+    second: Seahorse Boat_Idle_3
+  - first:
+      213: -3921654563342086831
+    second: Seahorse Boat_Idle_4
+  - first:
+      213: -701971094624385683
+    second: Seahorse Boat_Idle_5
+  - first:
+      213: 1399389548498346541
+    second: Seahorse Boat_Idle_6
+  - first:
+      213: 4311232652278926336
+    second: Seahorse Boat_Idle_7
+  - first:
+      213: 3715861996014612759
+    second: Seahorse Boat_Idle_8
+  - first:
+      213: -6624754058548131033
+    second: Seahorse Boat_Idle_9
+  - first:
+      213: -7729479927464220297
+    second: Seahorse Boat_Idle_10
+  - first:
+      213: -296054439534389544
+    second: Seahorse Boat_Idle_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 41
+        width: 83
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c48ecc6a0065be90800000000000000
+      internalID: -7010591647040895799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 42
+        width: 82
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a535356360cd1200800000000000000
+      internalID: 152489495532746151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 74
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 012c216a403f8c2a0800000000000000
+      internalID: -6716851642931428848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 41
+        width: 78
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8d66dc5736d8e420800000000000000
+      internalID: 2659611113231379851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 40
+        width: 82
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d8434d3fb7399c0800000000000000
+      internalID: -3921654563342086831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 39
+        width: 82
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65425632091246f0800000000000000
+      internalID: -701971094624385683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 39
+        width: 82
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2263ac4161ab6310800000000000000
+      internalID: 1399389548498346541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 68
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c862f514394db30800000000000000
+      internalID: 4311232652278926336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 41
+        width: 80
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71133d24cc4619330800000000000000
+      internalID: 3715861996014612759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 71
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72b49ef78452014a0800000000000000
+      internalID: -6624754058548131033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 41
+        width: 81
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779abf065fe5bb490800000000000000
+      internalID: -7729479927464220297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seahorse Boat_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 41
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d610694e0434ebf0800000000000000
+      internalID: -296054439534389544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Seahorse Boat_Idle_0: -7010591647040895799
+      Seahorse Boat_Idle_1: 152489495532746151
+      Seahorse Boat_Idle_10: -7729479927464220297
+      Seahorse Boat_Idle_11: -296054439534389544
+      Seahorse Boat_Idle_2: -6716851642931428848
+      Seahorse Boat_Idle_3: 2659611113231379851
+      Seahorse Boat_Idle_4: -3921654563342086831
+      Seahorse Boat_Idle_5: -701971094624385683
+      Seahorse Boat_Idle_6: 1399389548498346541
+      Seahorse Boat_Idle_7: 4311232652278926336
+      Seahorse Boat_Idle_8: 3715861996014612759
+      Seahorse Boat_Idle_9: -6624754058548131033
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
