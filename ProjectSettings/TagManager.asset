@@ -63,5 +63,8 @@ TagManager:
   - name: Boss
     uniqueID: 2331639551
     locked: 0
+  - name: Towers
+    uniqueID: 2502162603
+    locked: 0
   m_RenderingLayers:
   - Default
