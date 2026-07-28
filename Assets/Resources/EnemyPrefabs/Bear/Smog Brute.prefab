@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1716849722740350988}
   - component: {fileID: 7068146229729187820}
   - component: {fileID: 1663204368996604833}
+  - component: {fileID: 1321994308100342424}
+  - component: {fileID: -1813024927814731487}
   m_Layer: 6
   m_Name: Smog Brute
   m_TagString: Untagged
@@ -201,3 +203,30 @@ MonoBehaviour:
   OnReachedBase:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1321994308100342424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987284298009425889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799b4d0974ea8d148ac949ce23895f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  reachThreshold: 0.05
+  flipToFaceDirection: 1
+--- !u!114 &-1813024927814731487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987284298009425889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f939dac61fe8f64c9646c83031c09a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  enemyBase: {fileID: 0}

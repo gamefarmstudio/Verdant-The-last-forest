@@ -106,6 +106,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Verdant.Combat.Projectile
   hitRadius: 0.15
-  hitVfxPrefab: {fileID: 903997646891721100, guid: a3aedc7190de20549be6f58f8a15cc4c,
-    type: 3}
-  maxLifetime: 5
+  maxLifetime: 2.5

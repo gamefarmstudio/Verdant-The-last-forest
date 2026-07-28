@@ -109,7 +109,7 @@ MonoBehaviour:
   fallbackData: {fileID: 0}
   projectilePrefab: {fileID: 2104606310830300528, guid: ff9e1a94419154a49b8c0778066200ab,
     type: 3}
-  projectileSpeed: 10
+  projectileSpeed: 25
   targeting: 2
   muzzle: {fileID: 5772824237782107792}
   rotatePart: {fileID: 0}

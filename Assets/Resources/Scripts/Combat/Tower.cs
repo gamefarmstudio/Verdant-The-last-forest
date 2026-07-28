@@ -215,7 +215,7 @@ namespace Verdant.Combat
             if (projectilePrefab == null) return;
 
             Vector3 spawnPos = muzzle != null ? muzzle.position : transform.position;
-            Projectile arrow = Instantiate(projectilePrefab, spawnPos, transform.rotation * Quaternion.Euler(0, 0, 180f));
+            Projectile arrow = Instantiate(projectilePrefab, spawnPos, transform.rotation);
             arrow.Launch(currentTarget, damage, projectileSpeed);
         }
 
