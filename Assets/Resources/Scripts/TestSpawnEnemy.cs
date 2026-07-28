@@ -38,6 +38,7 @@ public class TestSpawnEnemy : MonoBehaviour
 
     private void SpawnEnemy(GameObject prefab, string enemyID)
     {
+        print($"[TestSpawnEnemy] กดปุ่ม spawn {enemyID} — prefab: {prefab?.name ?? "null"}");
         if (prefab == null)
         {
             Debug.LogError($"[TestSpawnEnemy] ยังไม่ได้ลาก Prefab ของ {enemyID} ใส่ Inspector");

@@ -12,13 +12,8 @@ public class CurrencyManager : MonoBehaviour
     [Header("Settings")]
     public int startingCrystal = 200;
 
-    [Header("Passive Income")]
-    public int incomePerTick = 2;       // crystal ที่ได้ต่อ tick
-    public float tickInterval = 1f;     // ความถี่ (วินาที)
-
     // ── State ──
     private int _crystal;
-    private float _timer;
 
     public int Crystal => _crystal;
 
@@ -34,19 +29,11 @@ public class CurrencyManager : MonoBehaviour
     void Start()
     {
         _crystal = startingCrystal;
-        _timer = tickInterval;
         OnCrystalChanged.Invoke(_crystal);
     }
 
-    void Update()
-    {
-        _timer -= Time.deltaTime;
-        if (_timer <= 0f)
-        {
-            _timer += tickInterval;   // +=  แทน = เพื่อไม่ให้ drift สะสม
-            Earn(incomePerTick);
-        }
-    }
+    // รายได้มาจากการฆ่ามอนสเตอร์เท่านั้น (เรียก Earn จาก GameManager.NotifyEnemyKilled)
+    // — ไม่มี passive income อีกต่อไป
 
     public bool CanAfford(int cost) => _crystal >= cost;
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using Verdant.Combat;   // IDamageable — ให้ป้อม/ลูกธนูยิงโดนได้
 
 /// <summary>
 /// EnemyBase — ติดกับ Enemy Prefab ทุกตัว (ทั้ง normal enemy และ boss)
@@ -7,8 +8,11 @@ using UnityEngine.Events;
 ///
 /// ยังไม่มี movement — ตัวนี้ทำแค่ HP, รับ damage, ตาย, แจ้ง GameManager
 /// (เพิ่ม EnemyMovement.cs แยกทีหลัง)
+///
+/// implement IDamageable → ระบบป้อม (Verdant.Combat.Tower) ตรวจจับและยิงได้
+/// ⚠ ต้องมี Collider2D บน prefab และตั้ง layer เป็น "Enemy" ป้อมถึงจะเห็น
 /// </summary>
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour, IDamageable
 {
     [Header("Runtime Data (set by ApplyRecord)")]
     public EnemyRecord enemyRecord;   // null ถ้าเป็น boss
@@ -23,9 +27,28 @@ public class EnemyBase : MonoBehaviour
     public int   MaxHP        { get; private set; }
     public int   CurrentHP    { get; private set; }
     public float MoveSpeed    { get; private set; }
-    public int   BaseDamage   { get; private set; }   // damage ให้ player base เมื่อถึงเส้นชัย
-    public int   RewardKill   { get; private set; }   // crystal เมื่อ kill
-    public bool  IsDead       { get; private set; } = false;
+    public int   BaseDamage    { get; private set; }   // damage ให้ player base เมื่อถึงเส้นชัย
+    public int   RewardKill    { get; private set; }   // crystal เมื่อฆ่าด้วยดาเมจ (ป้อมทั่วไป)
+    public int   RewardCleanse { get; private set; }   // crystal เมื่อ cleanse (Wildfire Tower) — boss = 0
+    public bool  IsDead        { get; private set; } = false;
+
+    // ─────────────────────────────────────────────
+    // IDamageable — สะพานเชื่อมระบบป้อม (Verdant.Combat)
+    // ─────────────────────────────────────────────
+
+    private float _pathProgress;   // 0..1 — ให้ระบบ movement ทีหลังอัปเดตค่านี้
+
+    public Transform Transform => transform;
+    public bool      IsAlive   => !IsDead;
+
+    float IDamageable.CurrentHealth => CurrentHP;
+    float IDamageable.PathProgress  => _pathProgress;
+
+    // HP เป็น int แต่ดาเมจป้อมเป็น float → ปัดเป็น int (อย่างน้อย 1 กันยิงแล้วไม่ขยับ)
+    void IDamageable.TakeDamage(float amount) => TakeDamage(Mathf.Max(1, Mathf.RoundToInt(amount)));
+
+    /// <summary>ให้ระบบเดินทาง (movement/wave) เรียกอัปเดตความคืบหน้าบนเส้นทาง — ใช้กับโหมดเล็ง First/Last</summary>
+    public void SetPathProgress(float t) => _pathProgress = Mathf.Clamp01(t);
 
     // ─────────────────────────────────────────────
     // EVENTS
@@ -46,12 +69,13 @@ public class EnemyBase : MonoBehaviour
         enemyRecord = record;
         bossRecord  = null;
 
-        MaxHP      = record.hp;
-        CurrentHP  = record.hp;
-        MoveSpeed  = record.speed;
-        BaseDamage = record.baseDamage;
-        RewardKill = record.rewardKill;
-        IsDead     = false;
+        MaxHP         = record.hp;
+        CurrentHP     = record.hp;
+        MoveSpeed     = record.speed;
+        BaseDamage    = record.baseDamage;
+        RewardKill    = record.rewardKill;
+        RewardCleanse = record.rewardCleanse;
+        IsDead        = false;
 
         gameObject.name = $"Enemy_{record.id}_{record.nameEN}";
 
@@ -64,12 +88,13 @@ public class EnemyBase : MonoBehaviour
         bossRecord  = record;
         enemyRecord = null;
 
-        MaxHP      = record.hp;
-        CurrentHP  = record.hp;
-        MoveSpeed  = record.speed;
-        BaseDamage = record.damage;
-        RewardKill = record.rewardCrystal;
-        IsDead     = false;
+        MaxHP         = record.hp;
+        CurrentHP     = record.hp;
+        MoveSpeed     = record.speed;
+        BaseDamage    = record.damage;
+        RewardKill    = record.rewardCrystal;
+        RewardCleanse = 0;                     // boss ไม่มีคอลัมน์ cleanse
+        IsDead        = false;
 
         gameObject.name = $"Boss_{record.id}_{record.nameEN}";
 
@@ -117,11 +142,17 @@ public class EnemyBase : MonoBehaviour
         OnHPChanged.Invoke(CurrentHP);
 
         if (CurrentHP <= 0)
-            Die();
+            RemoveByPlayer(RewardKill, "killed");   // ตายจากดาเมจ → reward kill
     }
 
-    /// <summary>เรียกเมื่อ enemy ถูก kill (มี reward)</summary>
-    private void Die()
+    /// <summary>
+    /// ฆ่าแบบ cleanse (เรียกจาก Wildfire Tower) — ให้ crystal เป็น rewardCleanse แทน rewardKill
+    /// ทำให้ค่า Reward Cleanse (Crystal) จาก CSV ถูกใช้จริง
+    /// </summary>
+    public void CleanseKill() => RemoveByPlayer(RewardCleanse, "cleansed");
+
+    /// <summary>เส้นทางการตายที่ผู้เล่นเป็นคนกำจัด (kill/cleanse) — มี crystal reward + หมอกถอย</summary>
+    private void RemoveByPlayer(int crystalReward, string cause)
     {
         if (IsDead) return;
         IsDead = true;
@@ -129,9 +160,9 @@ public class EnemyBase : MonoBehaviour
         OnDeath.Invoke();
 
         if (GameManager.Instance != null)
-            GameManager.Instance.NotifyEnemyKilled(RewardKill);
+            GameManager.Instance.NotifyEnemyKilled(crystalReward);
 
-        Debug.Log($"[EnemyBase] {gameObject.name} died — reward {RewardKill} crystal");
+        Debug.Log($"[EnemyBase] {gameObject.name} {cause} — reward {crystalReward} crystal");
 
         Destroy(gameObject);
     }

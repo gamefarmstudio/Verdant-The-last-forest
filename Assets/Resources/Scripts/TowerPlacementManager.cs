@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Singleton ควบคุมระบบวางป้อมทั้งหมด
@@ -69,8 +70,8 @@ public class TowerPlacementManager : MonoBehaviour
 
     void Update()
     {
-        // กด ESC หรือคลิกนอก popup → ปิด
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // กด ESC → ปิด popup (คลิกนอก popup จัดการใน TowerBuildPopup)
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
             ClosePopup();
     }
 }

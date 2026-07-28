@@ -28,8 +28,11 @@ public class TowerRecord
     /// <summary>เป็น Level 1 (ป้อมเริ่มต้นที่ซื้อได้) ไหม</summary>
     public bool IsBaseLevel => level == 1;
 
-    /// <summary>ราคา upgrade จาก level ก่อนหน้า</summary>
-    public int UpgradeCost => level == 1 ? cost : cost; // cost column คือราคา upgrade แต่ละ level อยู่แล้ว
+    /// <summary>
+    /// ราคาที่ต้องจ่ายเพื่อ "ได้ป้อมระดับนี้" — คอลัมน์ Cost ใน CSV คือราคาต่อ level อยู่แล้ว
+    /// (Lv1 = ราคาซื้อป้อมใหม่, Lv2+ = ราคา upgrade จาก level ก่อนหน้า)
+    /// </summary>
+    public int UpgradeCost => cost;
 
     public override string ToString() =>
         $"[{id}] {nameEN} Tier{tier} Lv{level} | Cost:{cost} | DMG:{damage} | Range:{range}";

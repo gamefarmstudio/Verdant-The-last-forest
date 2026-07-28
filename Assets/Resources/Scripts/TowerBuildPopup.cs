@@ -132,7 +132,8 @@ public class TowerBuildPopup : MonoBehaviour
     {
         if (!gameObject.activeSelf) return;
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        // Mouse.current เป็น null ได้ถ้าไม่มีเมาส์เชื่อมต่อ (เช่น build บนมือถือ)
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
             if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
                 TowerPlacementManager.Instance.ClosePopup();

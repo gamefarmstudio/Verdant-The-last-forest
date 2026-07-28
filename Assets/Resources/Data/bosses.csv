@@ -1,8 +1,5 @@
-ID,Name (EN),Name (TH),HP,Speed (tiles/s),Base Damage,Reward Kill (Crystal),Reward Cleanse (Crystal),Pollution Drop,First Appears (Wave),Special Ability,Asset (Tiny Sword),Real-World Symbol
-E1,Smog Skull,ก็อบลินควันพิษ,60,2,1,8,12,1,1,Basic threat,Goblin Warrior,PM 2.5 air pollution
-E2,Toxic Drum,ถังพิษ,150,1,2,15,25,3,2,"Tanky, leaks on death",Barrel Goblin,Industrial waste
-E3,Plastic Bomber,มือระเบิดพลาสติก,80,1.5,3,12,18,2,6,Explodes 50 dmg to towers (AoE),TNT Goblin,Plastic waste
-E4,Oil Lighter,จุดไฟน้ำมัน,90,1.8,2,10,15,2,7,Sets pollution puddles on fire,Torch Goblin,Oil spill
-E5,Smog Brute,มหึมาควันพิษ,300,0.8,5,25,40,4,11,50% damage reduction (armored),Goblin variant,Heavy industry
-E6,Hydra Goblin,ก็อบลินไฮดร้า,200,1.2,4,20,35,2,12,Splits into 2 Smog Goblins on death,Goblin variant,Microplastics
-E7,Shadow Goblin,ก็อบลินเงา,120,1.5,3,15,25,0,16,Invisible (Wildfire detects),Dark goblin,Hidden chemicals
+ID,WaveID,Boss Name (EN),Boss Name (TH),HP,Speed,Damage,Phases,Special Mechanic,Reward (Crystal),Theme
+B1,W5,Oil Behemoth,มหึมาน้ำมัน,1500,0.6,15,1,Leaves oil trail (slows enemies but lasts 5s); explodes 100 AoE on death,100,Marine oil spill
+B2,10,Smog Dragon,มังกรหมอกควัน,2000,2,20,1,FLYING - only Solar Mirror & Greenshot L3 can hit. Spreads pollution from sky.,200,Air pollution / Bushfires
+B3,15,Plastic Hydra Queen,ราชินีไฮดร้าพลาสติก,3000,0.8,25,2,Spawns 2 Hydra Goblins every 10s. Phase 2 (50% HP): spawns 4 instead.,350,Ocean plastic / Microplastics
+B4,20,The Hollow,ความว่างเปล่า,5000,1.2,50,3,Phase 1: tanky slow (2000HP). Phase 2: fast + summons (2000HP). Phase 3: flying weak (1000HP). FINAL.,0,Human apathy / Climate change

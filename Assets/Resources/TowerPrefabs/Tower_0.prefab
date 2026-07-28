@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5772824237782107792}
   - component: {fileID: 3580769403975155841}
+  - component: {fileID: 3575989543074518794}
   m_Layer: 0
   m_Name: Tower_0
   m_TagString: Untagged
@@ -77,11 +78,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1792804693
+  m_SortingLayer: 8
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7316229441688303391, guid: e6ec9003da02de1448e0c30ddb2d33b2, type: 3}
+  m_Sprite: {fileID: 7316229441688303391, guid: e6ec9003da02de1448e0c30ddb2d33b2,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,3 +93,26 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &3575989543074518794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637361538954307650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2dfc56cfa91ffe49aa3b0f29614036d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Verdant.Combat.Tower
+  towerId: T1B1
+  fallbackData: {fileID: 0}
+  projectilePrefab: {fileID: 2104606310830300528, guid: ff9e1a94419154a49b8c0778066200ab,
+    type: 3}
+  projectileSpeed: 10
+  targeting: 2
+  muzzle: {fileID: 5772824237782107792}
+  rotatePart: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 192

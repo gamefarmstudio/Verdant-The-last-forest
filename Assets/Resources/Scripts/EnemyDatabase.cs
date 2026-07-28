@@ -117,7 +117,13 @@ public class EnemyDatabase : MonoBehaviour
             if (record == null) continue;
 
             _bossByID[record.id] = record;
-            _bossByWave[record.WaveNumber] = record;
+
+            // กันบอส 2 ตัวชน wave เดียวกันแล้วทับกันเงียบๆ — เก็บตัวแรก เตือนตัวที่ชน
+            if (_bossByWave.TryGetValue(record.WaveNumber, out var existing))
+                Debug.LogWarning($"[EnemyDatabase] Wave {record.WaveNumber} มีบอสซ้ำ: " +
+                                 $"'{existing.id}' (เก็บไว้) กับ '{record.id}' (ข้าม) — ตรวจสอบ bosses.csv");
+            else
+                _bossByWave[record.WaveNumber] = record;
         }
 
         Debug.Log($"[EnemyDatabase] โหลด bosses สำเร็จ {_bossByID.Count} ตัว");

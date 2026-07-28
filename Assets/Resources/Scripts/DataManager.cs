@@ -86,35 +86,31 @@ public class DataManager : MonoBehaviour
     {
         var result = new List<Dictionary<string, string>>();
 
-        // แยกบรรทัด รองรับทั้ง \r\n และ \n
-        string[] lines = text.Split(new[] { "\r\n", "\n" }, System.StringSplitOptions.None);
+        // ตัด UTF-8 BOM (U+FEFF) ที่หัวไฟล์ (Excel เซฟ "CSV UTF-8" จะติด BOM มา
+        // ทำให้ header ตัวแรกกลายเป็น "﻿ID" แล้ว row["ID"] หาไม่เจอทั้งไฟล์)
+        text = text.TrimStart('﻿');
 
-        if (lines.Length < 2)
+        // parse ทั้งไฟล์ทีเดียว → รองรับ newline ที่อยู่ในเซลล์ครอบ quote ได้
+        var rows = ParseRows(text);
+        if (rows.Count < 2)
         {
             Debug.LogWarning("[DataManager] CSV มีน้อยกว่า 2 บรรทัด (header + data)");
             return result;
         }
 
-        // บรรทัดแรก = header
-        string[] headers = ParseLine(lines[0]);
+        var headers = rows[0];
+        for (int i = 0; i < headers.Count; i++) headers[i] = headers[i].Trim();
 
-        // บรรทัดที่เหลือ = data
-        for (int i = 1; i < lines.Length; i++)
+        for (int i = 1; i < rows.Count; i++)
         {
-            string line = lines[i].Trim();
+            var values = rows[i];
 
-            // ข้ามบรรทัดว่าง
-            if (string.IsNullOrEmpty(line)) continue;
-
-            string[] values = ParseLine(line);
+            // ข้ามบรรทัดว่าง (มี field เดียวและว่าง)
+            if (values.Count == 1 && string.IsNullOrEmpty(values[0].Trim())) continue;
 
             var row = new Dictionary<string, string>();
-            for (int j = 0; j < headers.Length; j++)
-            {
-                string key = headers[j].Trim();
-                string value = j < values.Length ? values[j].Trim() : "";
-                row[key] = value;
-            }
+            for (int j = 0; j < headers.Count; j++)
+                row[headers[j]] = j < values.Count ? values[j].Trim() : "";
 
             result.Add(row);
         }
@@ -123,46 +119,54 @@ public class DataManager : MonoBehaviour
     }
 
     /// <summary>
-    /// แยก CSV line ทีละ field รองรับ cell ที่มี comma อยู่ในเครื่องหมาย "..."
-    /// เช่น  T2A1,"Wildfire Tower",2,1,"30% Cleanse, clears tile"
+    /// แยกทั้งไฟล์ CSV เป็น list ของแถว (แต่ละแถว = list ของ field)
+    /// รองรับ: comma/newline ในเซลล์ครอบ quote, escape "" , ทั้ง \r\n และ \n
+    /// เช่น  T2A1,"Wildfire Tower",2,"30% Cleanse,\nclears tile"
     /// </summary>
-    private string[] ParseLine(string line)
+    private List<List<string>> ParseRows(string text)
     {
+        var rows = new List<List<string>>();
         var fields = new List<string>();
         var current = new System.Text.StringBuilder();
         bool inQuote = false;
 
-        for (int i = 0; i < line.Length; i++)
+        for (int i = 0; i < text.Length; i++)
         {
-            char c = line[i];
+            char c = text[i];
 
             if (c == '"')
             {
-                // "" ภายใน quoted field = escape สำหรับ "
-                if (inQuote && i + 1 < line.Length && line[i + 1] == '"')
+                if (inQuote && i + 1 < text.Length && text[i + 1] == '"')
                 {
-                    current.Append('"');
-                    i++; // ข้าม quote อันที่สอง
+                    current.Append('"');   // "" = escape ของ "
+                    i++;
                 }
-                else
-                {
-                    inQuote = !inQuote;
-                }
+                else inQuote = !inQuote;
             }
             else if (c == ',' && !inQuote)
             {
                 fields.Add(current.ToString());
                 current.Clear();
             }
-            else
+            else if ((c == '\n' || c == '\r') && !inQuote)
             {
-                current.Append(c);
+                // ปิดแถวเมื่อเจอ newline นอก quote — ข้าม \n ของคู่ \r\n
+                if (c == '\r' && i + 1 < text.Length && text[i + 1] == '\n') i++;
+                fields.Add(current.ToString());
+                current.Clear();
+                rows.Add(fields);
+                fields = new List<string>();
             }
+            else current.Append(c);
         }
 
-        // field สุดท้าย
-        fields.Add(current.ToString());
+        // field/แถวสุดท้าย (ไฟล์ที่ไม่ได้ลงท้ายด้วย newline)
+        if (current.Length > 0 || fields.Count > 0)
+        {
+            fields.Add(current.ToString());
+            rows.Add(fields);
+        }
 
-        return fields.ToArray();
+        return rows;
     }
 }

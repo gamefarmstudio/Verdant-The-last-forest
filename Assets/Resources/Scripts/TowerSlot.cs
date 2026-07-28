@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 /// ติดกับ: Slot GameObject แต่ละจุดบนแผนที่
 /// ต้องมี: Collider2D (CircleCollider2D หรือ BoxCollider2D)
 /// </summary>
-public class TowerSlot : MonoBehaviour, IPointerClickHandler
+public class TowerSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     // ── State ──
     [HideInInspector] public bool isOccupied = false;
@@ -76,7 +76,7 @@ public class TowerSlot : MonoBehaviour, IPointerClickHandler
     // ────────────────────────────────────────────
     // Hover visual
     // ────────────────────────────────────────────
-    void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
         if (isOccupied || _isSelected || highlightRing == null) return;
         if (_spot != null && !_spot.IsUnlocked) return;   // ยังมีหมอกปกคลุมอยู่ ไม่ต้อง highlight
@@ -84,7 +84,7 @@ public class TowerSlot : MonoBehaviour, IPointerClickHandler
         highlightRing.SetActive(true);
     }
 
-    void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
         if (!_isSelected && highlightRing != null)
             highlightRing.SetActive(false);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4544129201670108249}
   - component: {fileID: 6921783650141723568}
   - component: {fileID: 4773834769514595996}
+  - component: {fileID: 7649787221560631133}
   m_Layer: 7
   m_Name: Oil lighter
   m_TagString: Untagged
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1899589511
+  m_SortingLayer: 6
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3856214088682444218, guid: aad4abc6a515b0c49a65d49c8d3e9b6d,
@@ -103,8 +104,7 @@ Animator:
   m_GameObject: {fileID: 3666501710811044924}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: -3051910247576521365, guid: aad4abc6a515b0c49a65d49c8d3e9b6d,
-    type: 3}
+  m_Controller: {fileID: 9100000, guid: b0ae252e661323149b9ef7e9fb53e42e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -116,3 +116,50 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7649787221560631133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666501710811044924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e01a269013bb24bb246dcf0aaef60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
+  enemyRecord:
+    id: 
+    nameEN: 
+    nameTH: 
+    hp: 0
+    speed: 0
+    baseDamage: 0
+    rewardKill: 0
+    rewardCleanse: 0
+    pollutionDrop: 0
+    firstAppearsWave: 0
+    specialAbility: 
+    assetName: 
+    realWorldSymbol: 
+  bossRecord:
+    id: 
+    waveID: 
+    nameEN: 
+    nameTH: 
+    hp: 0
+    speed: 0
+    damage: 0
+    phases: 0
+    specialMechanic: 
+    rewardCrystal: 0
+    theme: 
+  OnHPChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReachedBase:
+    m_PersistentCalls:
+      m_Calls: []

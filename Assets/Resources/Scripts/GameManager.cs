@@ -177,7 +177,10 @@ public class GameManager : MonoBehaviour
     // STATS TRACKING
     // ─────────────────────────────────────────────
 
-    /// <summary>เรียกจาก EnemyBase เมื่อ enemy ถูก kill</summary>
+    /// <summary>
+    /// เรียกจาก EnemyBase เมื่อผู้เล่นกำจัด enemy (kill ด้วยดาเมจ หรือ cleanse)
+    /// crystalReward = rewardKill หรือ rewardCleanse ตามวิธีกำจัด
+    /// </summary>
     public void NotifyEnemyKilled(int crystalReward = 0)
     {
         EnemiesKilled++;
@@ -188,7 +191,7 @@ public class GameManager : MonoBehaviour
             CurrencyManager.Instance.Earn(crystalReward);
         }
 
-        // ฆ่ามอนแต่ละตัว ทำให้หมอกถอย (ดู PollutionManager.defaultCleansePerKill)
+        // ฆ่ามอนแต่ละตัว ทำให้หมอกถอย (ส่ง 0 = ให้ PollutionManager ใช้ค่า defaultCleansePerKill)
         GameEvents.RaiseEnemyKilled(0f);
     }
 

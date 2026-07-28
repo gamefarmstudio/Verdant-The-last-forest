@@ -31,6 +31,11 @@ public class TowerDatabase : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
+    }
+
+    private void Start()
+    {
+        // โหลดใน Start ไม่ใช่ Awake — รอให้ DataManager.Awake() วิ่งเสร็จก่อน
         LoadFromCSV();
     }
 

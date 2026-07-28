@@ -54,6 +54,8 @@ Material:
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
     - _BlendMode: 0
     - _CheckerBoardScale: 8
     - _ConservativeDepthOffsetEnable: 0
@@ -77,7 +79,7 @@ Material:
     - _Noise_Smoothness_Intensity: 0.5
     - _OpaqueCullMode: 2
     - _PerPixelSorting: 0
-    - _QueueControl: -1
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _Radius: 0.5
     - _RayTracing: 0
@@ -115,6 +117,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - _Checker_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _Color_1: {r: 0.254717, g: 0.254717, b: 0.254717, a: 0}
     - _Color_2: {r: 0.191, g: 0.191, b: 0.191, a: 0}
