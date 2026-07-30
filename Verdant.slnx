@@ -2,5 +2,6 @@
   <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="Unity.RenderPipelines.Core.Samples.Runtime.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="DOTween.Modules.csproj" />
   <Project Path="Unity.RenderPipelines.Core.Samples.Editor.csproj" />
 </Solution>

@@ -50,8 +50,21 @@ namespace Verdant.Combat
         private bool _statsReady;    // มีสถานะพร้อมทำงาน (CSV หรือ fallback)
         private bool _csvResolved;   // ลอง CSV จน DB โหลดเสร็จแล้ว (เลิก retry)
 
+        // ตำแหน่ง rotatePart เทียบกับ muzzle ตอนเริ่มเกม (world space offset + rotation เริ่มต้น)
+        // ใช้คำนวณให้ rotatePart "โคจร" รอบ muzzle ซึ่งเป็นจุดหมุนคงที่ เวลาป้อมหมุนเล็ง
+        private Vector3 rotatePartOffsetFromMuzzle;
+        private Quaternion rotatePartInitialRotation;
+        private bool hasRotateOrbit;
+
         private void Awake()
         {
+            if (rotatePart != null && muzzle != null)
+            {
+                rotatePartOffsetFromMuzzle = rotatePart.position - muzzle.position;
+                rotatePartInitialRotation = rotatePart.rotation;
+                hasRotateOrbit = true;
+            }
+
             // เว้น enemyLayer ไว้ → เดาเป็น Enemy ให้ (กันลืมตั้งใน Inspector แล้วยิงไม่โดนใคร)
             if (enemyLayer.value == 0)
             {
@@ -82,11 +95,11 @@ namespace Verdant.Combat
         {
             if (fallbackData == null) return;
 
-            damage = fallbackData.damage;
-            range = fallbackData.range;
+            damage       = fallbackData.damage;
+            range        = fallbackData.range;
             fireCooldown = fallbackData.FireCooldown;
             if (projectilePrefab == null) projectilePrefab = fallbackData.projectilePrefab;
-            if (projectileSpeed <= 0f) projectileSpeed = fallbackData.projectileSpeed;
+            if (projectileSpeed <= 0f)    projectileSpeed  = fallbackData.projectileSpeed;
 
             _statsReady = true;
         }
@@ -115,10 +128,10 @@ namespace Verdant.Combat
                 Debug.Log($"[Tower] '{name}' โหลดสถานะจาก CSV ID='{towerId}' สำเร็จ", this);
             }
 
-            damage = rec.damage;
-            range = rec.range;
+            damage       = rec.damage;
+            range        = rec.range;
             if (rec.atkSpeed > 0f) fireCooldown = rec.atkSpeed;   // atkSpeed = วินาที/นัด อยู่แล้ว
-            _statsReady = true;
+            _statsReady  = true;
         }
 
         private void Update()
@@ -187,8 +200,8 @@ namespace Verdant.Combat
         {
             switch (targeting)
             {
-                case TargetingMode.First: return t.PathProgress;
-                case TargetingMode.Last: return -t.PathProgress;
+                case TargetingMode.First:     return t.PathProgress;
+                case TargetingMode.Last:      return -t.PathProgress;
                 case TargetingMode.Strongest: return t.CurrentHealth;
                 default: // Closest — ใกล้ = คะแนนสูง
                     return -Vector2.Distance(transform.position, t.Transform.position);
@@ -205,7 +218,16 @@ namespace Verdant.Combat
 
             // -90 เพราะสมมติสไปรต์หันหัวขึ้น (แกน +Y) เป็นค่าเริ่มต้น
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-            rotatePart.rotation = Quaternion.Euler(0f, 0f, angle);
+            Quaternion newRotation = Quaternion.Euler(0f, 0f, angle + 90f);
+            rotatePart.rotation = newRotation;
+
+            // ให้ rotatePart โคจรรอบ muzzle (จุดหมุนคงที่) ตามมุมที่หมุนไปจากจุดเริ่มต้น
+            // muzzle จะอยู่นิ่งกับที่เสมอ ส่วน rotatePart จะสวิงรอบมันแทน
+            if (hasRotateOrbit)
+            {
+                Quaternion deltaRotation = newRotation * Quaternion.Inverse(rotatePartInitialRotation);
+                rotatePart.position = muzzle.position + deltaRotation * rotatePartOffsetFromMuzzle;
+            }
         }
 
         // ---------- ยิง ----------
@@ -215,7 +237,7 @@ namespace Verdant.Combat
             if (projectilePrefab == null) return;
 
             Vector3 spawnPos = muzzle != null ? muzzle.position : transform.position;
-            Projectile arrow = Instantiate(projectilePrefab, spawnPos, transform.rotation);
+            Projectile arrow = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
             arrow.Launch(currentTarget, damage, projectileSpeed);
         }
 

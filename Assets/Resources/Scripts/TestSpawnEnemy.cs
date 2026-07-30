@@ -68,6 +68,7 @@ public class TestSpawnEnemy : MonoBehaviour
         }
 
         enemy.Setup(enemyID);
+        enemy.CurrentHP = enemy.MaxHP;  // เริ่มต้น HP เต็ม (ปกติ EnemyBase.Setup() จะทำให้ CurrentHP = MaxHP อยู่แล้ว แต่กันไว้ก่อน)
 
         Debug.Log($"[TestSpawnEnemy] Spawned {enemyID} → {enemy.enemyRecord?.nameEN} | HP:{enemy.MaxHP} SPD:{enemy.MoveSpeed}");
     }

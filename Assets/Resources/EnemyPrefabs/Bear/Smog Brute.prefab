@@ -83,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1899589511
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4631622946855659795, guid: 083eef5157f791d4890cacb61cd229b0,
@@ -230,3 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   enemyBase: {fileID: 0}
+  healthCanvasPrefab: {fileID: 2079615114020501152, guid: 5b7fd81c0f11d714481e513939cfef22,
+    type: 3}
+  offset: {x: 5.75, y: 4, z: 0}
+  gizmoPreviewSize: {x: 0.6, y: 0.15, z: 0.05}

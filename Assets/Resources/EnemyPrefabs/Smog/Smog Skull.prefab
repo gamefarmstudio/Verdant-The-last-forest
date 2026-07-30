@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: 3626916397498700004, guid: 9a62495022194824b9428e22e1952dac,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 9a62495022194824b9428e22e1952dac,
         type: 3}
@@ -244,3 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   enemyBase: {fileID: 0}
+  healthCanvasPrefab: {fileID: 2079615114020501152, guid: 5b7fd81c0f11d714481e513939cfef22,
+    type: 3}
+  offset: {x: 5.75, y: 4, z: 0}
+  gizmoPreviewSize: {x: 0.6, y: 0.15, z: 0.05}

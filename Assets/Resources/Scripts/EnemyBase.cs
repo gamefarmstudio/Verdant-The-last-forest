@@ -24,8 +24,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     // STATS (อ่านจาก record)
     // ─────────────────────────────────────────────
 
-    public int   MaxHP        { get; private set; }
-    public int   CurrentHP    { get; private set; }
+    public int   MaxHP        { get;  set; }
+    public int   CurrentHP    { get;  set; }
     public float MoveSpeed    { get; private set; }
     public int   BaseDamage    { get; private set; }   // damage ให้ player base เมื่อถึงเส้นชัย
     public int   RewardKill    { get; private set; }   // crystal เมื่อฆ่าด้วยดาเมจ (ป้อมทั่วไป)
@@ -116,6 +116,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
                 return;
             }
             ApplyBossRecord(record);
+            MaxHP = record.hp;   // boss มี HP สูงมาก → slider ต้องปรับ maxValue ให้ถูกต้อง
+            CurrentHP = record.hp;
         }
         else
         {
@@ -126,7 +128,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
                 return;
             }
             ApplyRecord(record);
+            MaxHP = record.hp;   // enemy ปกติ → slider ต้องปรับ maxValue ให้ถูกต้อง
+            CurrentHP = record.hp;
         }
+
     }
 
     // ─────────────────────────────────────────────

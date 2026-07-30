@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: fb66c2c581c1848a99ddaab54c09dd21
+AssetOrigin:
+  serializedVersion: 1
+  productId: 352566
+  packageName: Tiny Swords
+  packageVersion: 1.0
+  assetPath: Assets/Tiny Swords/UI Elements/Ribbons/SmallRibbons 1.png
+  uploadId: 844324
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -183,665 +190,84 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SmallRibbons_0
+      name: SmallRibbons 1_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 575
+        x: 0
+        y: 0
         width: 64
-        height: 61
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4805d9f5e340be430800000000000000
-      internalID: 3813146175437885572
+      spriteID: 7663abaaeb6ad8243a78238a4d153816
+      internalID: -10832594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SmallRibbons_1
+      name: SmallRibbons 1_1
       rect:
         serializedVersion: 2
-        x: 127
-        y: 580
-        width: 66
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 82f32f758918faec0800000000000000
-      internalID: -3553479089661526232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_2
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 575
+        x: 64
+        y: 0
         width: 64
-        height: 61
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 910099888051e66a0800000000000000
-      internalID: -6454198089579692007
+      spriteID: ff9cb5b6231cba6498a6b7568141d216
+      internalID: -1147970452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SmallRibbons_3
+      name: SmallRibbons 1_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 517
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c64ec75995eb8b10800000000000000
-      internalID: 1984932507552728771
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_4
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 517
-        width: 66
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0fa231d284d790300800000000000000
-      internalID: 218843805851527920
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_5
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 517
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ba69b29038945dad0800000000000000
-      internalID: -2678153576258496853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_6
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 447
+        x: 128
+        y: 0
         width: 64
-        height: 61
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b4644bafe37e4d3a0800000000000000
-      internalID: -6641429292784531893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_7
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 452
-        width: 66
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c1a8dbd60bab7fd60800000000000000
-      internalID: 7924007336299825692
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_8
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 447
-        width: 64
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e5077e59408731020800000000000000
-      internalID: 2311322994861371486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_9
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 389
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b9c12f40c52c3290800000000000000
-      internalID: -7909405337677870665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_10
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 389
-        width: 66
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e29fdd68c14e71860800000000000000
-      internalID: 7500714515581761838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_11
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 389
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c3630c01d47ff7680800000000000000
-      internalID: -8755007240219380164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_12
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 319
-        width: 64
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 31672bd993a67e2b0800000000000000
-      internalID: -5555354819646818797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_13
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 324
-        width: 66
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1405db53d20c6cc50800000000000000
-      internalID: 6685241997285740609
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_14
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 319
-        width: 64
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e0bde2d3b758b1c0800000000000000
-      internalID: -4487740598825144094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_15
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 261
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bdee98f6b137b09d0800000000000000
-      internalID: -2807023381062750501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_16
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 261
-        width: 66
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 54c9ba97dbbc508f0800000000000000
-      internalID: -574829362769322939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_17
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 261
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5f884b01da0d16730800000000000000
-      internalID: 3990700186555156725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_18
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 191
-        width: 64
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 06b0f060bdb418910800000000000000
-      internalID: 1837833527015443296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_19
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 196
-        width: 66
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5b1fa5a3e645dd400800000000000000
-      internalID: 350529178406941109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_20
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 191
-        width: 64
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 18690462c8d1dc060800000000000000
-      internalID: 6975263885641160321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_21
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 133
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0ddbf479bb97b8230800000000000000
-      internalID: 3642138570263608784
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_22
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 133
-        width: 66
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 87597c910bb1f0940800000000000000
-      internalID: 5264456932580103544
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_23
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 133
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6a3271ed49b18d7c0800000000000000
-      internalID: -4046453938997222490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_24
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 63
-        width: 64
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 850ea7c4fb9eefcb0800000000000000
-      internalID: -4828164742663446440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_25
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 68
-        width: 66
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 55e84fde875a212d0800000000000000
-      internalID: -3309400837357007275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_26
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 63
-        width: 64
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8a3ee7c8e7e1786c0800000000000000
-      internalID: -4141307803472043096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_27
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 5
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8a388a7fdf2ce66d0800000000000000
-      internalID: -2995242306117270616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_28
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 5
-        width: 66
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a2663cd9f847c8200800000000000000
-      internalID: 183649844991321642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallRibbons_29
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 5
-        width: 63
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1eaaf566d673b5f10800000000000000
-      internalID: 2259460581064944353
+      spriteID: cc03a5f7cc16e94438bc5ab1053c458b
+      internalID: -1093587609
       vertices: []
       indices: 
       edges: []
@@ -858,47 +284,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SmallRibbons_0: 3813146175437885572
-      SmallRibbons_1: -3553479089661526232
-      SmallRibbons_10: 7500714515581761838
-      SmallRibbons_11: -8755007240219380164
-      SmallRibbons_12: -5555354819646818797
-      SmallRibbons_13: 6685241997285740609
-      SmallRibbons_14: -4487740598825144094
-      SmallRibbons_15: -2807023381062750501
-      SmallRibbons_16: -574829362769322939
-      SmallRibbons_17: 3990700186555156725
-      SmallRibbons_18: 1837833527015443296
-      SmallRibbons_19: 350529178406941109
-      SmallRibbons_2: -6454198089579692007
-      SmallRibbons_20: 6975263885641160321
-      SmallRibbons_21: 3642138570263608784
-      SmallRibbons_22: 5264456932580103544
-      SmallRibbons_23: -4046453938997222490
-      SmallRibbons_24: -4828164742663446440
-      SmallRibbons_25: -3309400837357007275
-      SmallRibbons_26: -4141307803472043096
-      SmallRibbons_27: -2995242306117270616
-      SmallRibbons_28: 183649844991321642
-      SmallRibbons_29: 2259460581064944353
-      SmallRibbons_3: 1984932507552728771
-      SmallRibbons_4: 218843805851527920
-      SmallRibbons_5: -2678153576258496853
-      SmallRibbons_6: -6641429292784531893
-      SmallRibbons_7: 7924007336299825692
-      SmallRibbons_8: 2311322994861371486
-      SmallRibbons_9: -7909405337677870665
+      SmallRibbons 1_0: -10832594
+      SmallRibbons 1_1: -1147970452
+      SmallRibbons 1_2: -1093587609
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 352566
-  packageName: Tiny Swords
-  packageVersion: 1.0
-  assetPath: Assets/Tiny Swords/UI Elements/Ribbons/SmallRibbons 1.png
-  uploadId: 844324

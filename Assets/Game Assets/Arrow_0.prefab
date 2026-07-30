@@ -105,5 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b37a94e5361834186f16068eb19019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Verdant.Combat.Projectile
-  hitRadius: 0.15
-  maxLifetime: 2.5
+  hitRadius: 0.1
+  maxLifetime: 1
+  missChance: 0.1
+  missOffsetRadius: 0.75

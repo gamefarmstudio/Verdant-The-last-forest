@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     [Tooltip("พลิกสไปรต์ให้หันตามทิศทางเดิน (สมมติ default หันขวา)")]
     [SerializeField] private bool flipToFaceDirection = true;
 
+    private float offset_Y;
     private EnemyBase _enemy;
     private Transform[] _waypoints;
     private int _index;
@@ -25,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
+        offset_Y = Random.Range(-1f, 0.5f);  // random offset Y เพื่อไม่ให้มอนซ้อนกันเป๊ะ
         var path = FindAnyObjectByType<EnemyPath>();
         if (path == null || !path.IsValid)
         {
@@ -36,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
         _waypoints  = path.Waypoints;
         _totalLength = path.TotalLength;
 
-        transform.position = _waypoints[0].position;  // เริ่มที่จุดเกิด
+        transform.position = _waypoints[0].position + Vector3.up * offset_Y;  // เริ่มที่จุดเกิด
         _index = 1;                                     // มุ่งหน้า waypoint ถัดไป
     }
 
@@ -47,7 +49,7 @@ public class EnemyMovement : MonoBehaviour
         Transform wp = _waypoints[_index];
         if (wp == null) { _index++; return; }
 
-        Vector3 target = wp.position;
+        Vector3 target = wp.position + Vector3.up * offset_Y;
         Vector3 before = transform.position;
         float step = _enemy.MoveSpeed * Time.deltaTime;
 

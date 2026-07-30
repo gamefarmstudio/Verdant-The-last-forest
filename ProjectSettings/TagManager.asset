@@ -57,14 +57,17 @@ TagManager:
   - name: Layer 5
     uniqueID: 1833318761
     locked: 0
+  - name: Towers
+    uniqueID: 2502162603
+    locked: 0
   - name: Enemy
     uniqueID: 2395377785
     locked: 0
   - name: Boss
     uniqueID: 2331639551
     locked: 0
-  - name: Towers
-    uniqueID: 2502162603
+  - name: VFX
+    uniqueID: 2756351891
     locked: 0
   m_RenderingLayers:
   - Default
