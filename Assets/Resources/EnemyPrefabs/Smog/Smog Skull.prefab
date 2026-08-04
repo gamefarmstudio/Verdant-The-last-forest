@@ -20,6 +20,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 9a62495022194824b9428e22e1952dac,
         type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 9a62495022194824b9428e22e1952dac,
+        type: 3}
       propertyPath: m_SortingLayer
       value: 7
       objectReference: {fileID: 0}

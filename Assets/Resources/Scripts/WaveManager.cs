@@ -2,30 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// WaveManager — spawn มอนเป็นเวฟตามข้อมูลใน EnemyDatabase (enemies.csv / bosses.csv)
-/// ติดกับ: GameObject ในฉาก (จะเป็น "GameManager" หรือ object แยกก็ได้)
-///
-/// การไหลของเกม (ผูกกับ GameManager):
-///   GameManager.StartGame() → StartNextWave() → OnWaveStart(wave)
-///     → WaveManager spawn มอนของ wave นั้น
-///     → รอจนมอนตายหมด → GameManager.NotifyWaveCompleted()
-///     → ถ้าไม่ใช่ wave สุดท้ายและเปิด auto → หน่วงเวลาแล้ว StartNextWave()
-///
-/// หมายเหตุ: ยังไม่มีระบบเดิน — มอน spawn แล้วอยู่กับที่ ป้อมยิงจนตาย = จบ wave
-///          พอเพิ่ม movement ทีหลัง ก็ยังใช้ flow เดิมได้ (เพิ่มเงื่อนไข reach base เอง)
-/// </summary>
 public class WaveManager : MonoBehaviour
 {
     [System.Serializable]
     public class EnemyPrefabEntry
     {
-        public string id;          // ID ตรงกับ enemies.csv เช่น E1
-        public GameObject prefab;  // prefab ของมอนตัวนั้น (มี SpriteRenderer ฯลฯ)
+        public string id; 
+        public GameObject prefab;
     }
 
     [Header("Enemy Prefabs (map ID → prefab)")]
-    [Tooltip("ระบุ prefab เฉพาะของแต่ละ Enemy ID — ID ไหนไม่มีในลิสต์จะใช้ defaultEnemyPrefab")]
+    [Tooltip("ระบุ prefab เฉพาะของแต่ละ ID — ID ไหนไม่มีในลิสต์จะใช้ default/boss prefab")]
     [SerializeField] private EnemyPrefabEntry[] enemyPrefabs;
     [SerializeField] private GameObject defaultEnemyPrefab;
     [SerializeField] private GameObject bossPrefab;
@@ -33,13 +20,8 @@ public class WaveManager : MonoBehaviour
     [Header("Spawn")]
     [Tooltip("จุด spawn (สุ่มเลือก) — เว้นว่างจะ spawn ที่ตำแหน่ง WaveManager เอง")]
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float spawnInterval = 0.8f;
-
-    [Header("องค์ประกอบเวฟ")]
-    [Tooltip("จำนวนมอนใน wave 1")]
-    [SerializeField] private int baseEnemiesPerWave = 5;
-    [Tooltip("จำนวนมอนที่เพิ่มขึ้นต่อ wave")]
-    [SerializeField] private int extraEnemiesPerWave = 2;
+    [Tooltip("ใช้เมื่อ Spawn Interval ใน CSV เป็น 0")]
+    [SerializeField] private float defaultSpawnInterval = 0.8f;
 
     [Header("การไหลของเวฟ")]
     [SerializeField] private float delayBetweenWaves = 3f;
@@ -55,10 +37,6 @@ public class WaveManager : MonoBehaviour
     private int _enemyLayer = -1;
     private Coroutine _waveRoutine;
 
-    // แคช WaitForSeconds ไว้ใช้ซ้ำ กัน allocate ใหม่ทุกครั้งที่ yield
-    private WaitForSeconds _spawnWait;
-    private WaitForSeconds _waveDelayWait;
-
     public int AliveCount => _alive.Count;
 
     // ─────────────────────────────────────────────
@@ -67,10 +45,7 @@ public class WaveManager : MonoBehaviour
     {
         _enemyLayer = LayerMask.NameToLayer(enemyLayerName);
         if (_enemyLayer < 0)
-            Debug.LogError($"[WaveManager] ไม่พบ layer '{enemyLayerName}' — ป้อมจะตรวจจับมอนไม่เจอ (ไปเพิ่ม layer ใน Project Settings)");
-
-        _spawnWait = new WaitForSeconds(spawnInterval);
-        _waveDelayWait = new WaitForSeconds(delayBetweenWaves);
+            Debug.LogError($"[WaveManager] ไม่พบ layer '{enemyLayerName}' — ป้อมจะตรวจจับมอนไม่เจอ");
 
         if (GameManager.Instance != null)
             GameManager.Instance.OnWaveStart.AddListener(HandleWaveStart);
@@ -88,7 +63,7 @@ public class WaveManager : MonoBehaviour
     // WAVE FLOW
     // ─────────────────────────────────────────────
 
-    private void HandleWaveStart(int wave)
+    public void HandleWaveStart(int wave)
     {
         if (_waveRoutine != null) StopCoroutine(_waveRoutine);
         _waveRoutine = StartCoroutine(RunWave(wave));
@@ -98,34 +73,59 @@ public class WaveManager : MonoBehaviour
     {
         _alive.Clear();
 
+        if (WaveDatabase.Instance == null || !WaveDatabase.Instance.IsLoaded)
+        {
+            Debug.LogError("[WaveManager] WaveDatabase ยังไม่พร้อม — ข้ามเวฟ");
+            yield return FinishWave(wave, null);
+            yield break;
+        }
         if (EnemyDatabase.Instance == null || !EnemyDatabase.Instance.IsLoaded)
         {
-            Debug.LogError("[WaveManager] EnemyDatabase ยังไม่พร้อม — ข้าม wave นี้");
+            Debug.LogError("[WaveManager] EnemyDatabase ยังไม่พร้อม — ข้ามเวฟ");
+            yield return FinishWave(wave, null);
             yield break;
         }
 
-        // 1) spawn มอนปกติที่ปลดล็อกแล้ว ณ wave นี้
-        var pool = EnemyDatabase.Instance.GetEnemiesForWave(wave);
-        int count = baseEnemiesPerWave + extraEnemiesPerWave * Mathf.Max(0, wave - 1);
-
-        if (pool == null || pool.Count == 0)
-            Debug.LogWarning($"[WaveManager] wave {wave} ไม่มีมอนใน pool (เช็ค 'First Appears (Wave)' ใน enemies.csv)");
-
-        for (int i = 0; i < count && pool != null && pool.Count > 0; i++)
+        var rec = WaveDatabase.Instance.GetWave(wave);
+        if (rec == null)
         {
-            var rec = pool[Random.Range(0, pool.Count)];
-            SpawnEnemy(rec.id, false);
-            yield return _spawnWait;
+            Debug.LogWarning($"[WaveManager] ไม่มีข้อมูลเวฟ {wave} ใน waves.csv — ผ่านเวฟ");
+            yield return FinishWave(wave, null);
+            yield break;
         }
 
-        // 2) spawn boss ถ้า wave นี้มี
-        if (EnemyDatabase.Instance.HasBossOnWave(wave))
+        
+        float interval = rec.spawnInterval > 0f ? rec.spawnInterval : defaultSpawnInterval;
+        bool bossSpawned = false;
+
+        foreach (var entry in rec.spawns)
         {
-            var boss = EnemyDatabase.Instance.GetBossForWave(wave);
-            if (boss != null) SpawnEnemy(boss.id, true);
+            for (int k = 0; k < entry.count; k++)
+            {
+                SpawnEnemy(entry.enemyID, entry.IsBoss);
+                if (entry.IsBoss) bossSpawned = true;
+                yield return new WaitForSeconds(interval);
+            }
         }
 
-        // 3) รอจนมอนตายหมด (เผื่อบางตัวถูกทำลายด้วยวิธีอื่น จึงเช็ค null ด้วย)
+        // เวฟบอสที่ยังไม่มีบอสในองค์ประกอบ → เติมบอสจาก bosses.csv
+        if (rec.IsBossWave && !bossSpawned &&
+            EnemyDatabase.Instance.HasBossOnWave(wave))
+        {
+            var b = EnemyDatabase.Instance.GetBossForWave(wave);
+            if (b != null) SpawnEnemy(b.id, true);
+        }
+
+        if (rec.spawns.Count == 0 && !rec.IsBossWave)
+            Debug.LogWarning($"[WaveManager] เวฟ {wave} ยังไม่มีองค์ประกอบใน waves_enemies.csv — ยังไม่ได้ใส่ข้อมูล");
+
+        yield return FinishWave(wave, rec);
+    }
+
+
+    private IEnumerator FinishWave(int wave, WaveRecord rec)
+    {
+        
         while (true)
         {
             _alive.RemoveAll(e => e == null || e.IsDead);
@@ -133,15 +133,20 @@ public class WaveManager : MonoBehaviour
             yield return null;
         }
 
-        // 4) จบ wave — GameManager จะเช็คเองว่าเป็น wave สุดท้ายไหม (→ victory)
+        
+        if (rec != null && rec.reward > 0 && CurrencyManager.Instance != null)
+        {
+            CurrencyManager.Instance.Earn(rec.reward);
+            Debug.Log($"[WaveManager] จบเวฟ {wave} — reward {rec.reward} crystal");
+        }
+
         GameManager.Instance.NotifyWaveCompleted();
 
-        // 5) ต่อ wave ถัดไปอัตโนมัติ (ถ้ายังไม่ใช่ wave สุดท้ายและเกมยังเล่นอยู่)
         if (autoStartNextWave &&
             GameManager.Instance.CurrentState == GameManager.GameState.Playing &&
             wave < GameManager.Instance.totalWaves)
         {
-            yield return _waveDelayWait;
+            yield return new WaitForSeconds(delayBetweenWaves);
             GameManager.Instance.StartNextWave();
         }
 
@@ -154,7 +159,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemy(string id, bool isBoss)
     {
-        GameObject prefab = isBoss ? bossPrefab : ResolvePrefab(id);
+        GameObject prefab = ResolvePrefab(id, isBoss);
         if (prefab == null)
         {
             Debug.LogError($"[WaveManager] ไม่มี prefab สำหรับ {(isBoss ? "boss" : "enemy")} '{id}' " +
@@ -169,57 +174,38 @@ public class WaveManager : MonoBehaviour
         GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
 
         var enemy = obj.GetComponent<EnemyBase>();
-        if (enemy == null)
-        {
-            Debug.LogWarning($"[WaveManager] Prefab สำหรับ '{id}' ไม่มี EnemyBase — เพิ่มให้อัตโนมัติ " +
-                             "(ควรแก้ที่ prefab โดยตรงเพื่อกัน setup ผิดเงียบ ๆ)", obj);
-            enemy = obj.AddComponent<EnemyBase>();
-        }
+        if (enemy == null) enemy = obj.AddComponent<EnemyBase>();
 
         enemy.Setup(id, isBoss);
         MakeDetectable(obj);
 
-        // ให้มอนเดินตาม EnemyPath (เติมให้ถ้า prefab ยังไม่มี)
         if (obj.GetComponent<EnemyMovement>() == null)
-        {
-            Debug.LogWarning($"[WaveManager] Prefab สำหรับ '{id}' ไม่มี EnemyMovement — เพิ่มให้อัตโนมัติ " +
-                             "(ควรแก้ที่ prefab โดยตรงเพื่อกัน setup ผิดเงียบ ๆ)", obj);
             obj.AddComponent<EnemyMovement>();
-        }
 
         _alive.Add(enemy);
     }
 
-    private GameObject ResolvePrefab(string id)
+    
+    private GameObject ResolvePrefab(string id, bool isBoss)
     {
         if (enemyPrefabs != null)
             foreach (var e in enemyPrefabs)
                 if (e != null && e.id == id && e.prefab != null)
                     return e.prefab;
-        return defaultEnemyPrefab;
+
+        return isBoss ? bossPrefab : defaultEnemyPrefab;
     }
 
-    /// <summary>
-    /// ให้ป้อมตรวจจับได้: ตั้ง layer Enemy + มี Collider2D อย่างน้อย 1
-    /// สำคัญ: ต้องตั้ง layer ที่ GameObject ซึ่งมี Collider2D ติดอยู่จริง ๆ ไม่ใช่แค่ root
-    /// เพราะ Physics2D.OverlapCircle เช็ค layer ของ GameObject ที่มี collider โดยตรง
-    /// ถ้า collider อยู่บน child แล้วตั้ง layer แค่ root เฉย ๆ ป้อมจะตรวจจับไม่เจอแบบเงียบ ๆ
-    /// </summary>
+    
     private void MakeDetectable(GameObject obj)
     {
-        var existingCollider = obj.GetComponentInChildren<Collider2D>();
+        if (_enemyLayer >= 0) obj.layer = _enemyLayer;
 
-        if (existingCollider == null)
+        if (obj.GetComponentInChildren<Collider2D>() == null)
         {
-            if (_enemyLayer >= 0) obj.layer = _enemyLayer;
-
             var col = obj.AddComponent<CircleCollider2D>();
             col.isTrigger = true;
             col.radius = autoColliderRadius;
-        }
-        else if (_enemyLayer >= 0)
-        {
-            existingCollider.gameObject.layer = _enemyLayer;
         }
     }
 }

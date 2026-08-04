@@ -200,4 +200,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, 0.3f);
     }
+    void Awake()
+    {
+        OnDeath.AddListener(() => Object.FindAnyObjectByType<CurrencyManager>().Earn(RewardKill));   // ป้องกันปัญหา enemy ตายแล้วยังถูกยิงต่อ (Tower/Projectile) → ปิด GameObject ทันที
+    }
 }

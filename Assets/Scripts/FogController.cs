@@ -31,16 +31,11 @@ public class FogController : MonoBehaviour
             FogSlider.minValue = 0f;
             FogSlider.maxValue = 1f;
             FogSlider.value = FogGauge;
-            FogSlider.onValueChanged.AddListener(OnSliderChanged);
         }
     }
 
-    void OnDisable()
-    {
-        FogSlider?.onValueChanged.RemoveListener(OnSliderChanged);
-    }
 
-    void OnSliderChanged(float value) => FogGauge = value;
+
 
     void Update()
     {
@@ -64,6 +59,9 @@ public class FogController : MonoBehaviour
     }
     public void cleanse(float percent)
     {
-        FogGauge = Mathf.Clamp01(FogGauge - percent/100f);
+        if (Object.FindAnyObjectByType<CurrencyManager>().Spend(10))   // ใช้เงิน 10 crystal ต่อการ cleanse 1%
+        {
+            FogGauge = Mathf.Clamp01(FogGauge - percent / 100f);
+        }
     }
 }
