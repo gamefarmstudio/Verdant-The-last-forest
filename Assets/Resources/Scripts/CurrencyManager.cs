@@ -51,4 +51,15 @@ public class CurrencyManager : MonoBehaviour
         _crystal += amount;
         OnCrystalChanged.Invoke(_crystal);
     }
+    public void SpendMoney(int amount)
+    {
+        if (Spend(amount))
+        {
+            Debug.Log($"Spend {amount} crystal. Remaining: {_crystal}");
+        }
+        else
+        {
+            Debug.Log($"Not enough crystal to spend {amount}. Remaining: {_crystal}");
+        }
+    }
 }

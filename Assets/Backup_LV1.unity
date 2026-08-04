@@ -1784,7 +1784,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.25
+  orthographic size: 11.979167
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -12506,7 +12506,7 @@ Transform:
   m_GameObject: {fileID: 1107070660}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.13, y: 0.14, z: 0}
+  m_LocalPosition: {x: 0.13, y: -1.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12559,15 +12559,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111047300}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5102b0db9f55cef489388679f7f0692d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  enemyPrefabs: []
-  defaultEnemyPrefab: {fileID: 0}
-  bossPrefab: {fileID: 0}
-  spawnPoints: []
+  enemyPrefabs:
+  - id: E1
+    prefab: {fileID: 6575514044721247205, guid: 4637ece587446b840a96fdeb6f60b1f1,
+      type: 3}
+  - id: E2
+    prefab: {fileID: 7317152941306304047, guid: a1885a1e809b1e44bae9854a7273e532,
+      type: 3}
+  defaultEnemyPrefab: {fileID: 1656365302505080234, guid: 1c77c6a31c0d3174b9868a56f26ae50b,
+    type: 3}
+  bossPrefab: {fileID: -2253911629886400664, guid: 698fbc04b624e324892706078e00d21f,
+    type: 3}
+  spawnPoints:
+  - {fileID: 204512737}
   spawnInterval: 0.8
   baseEnemiesPerWave: 5
   extraEnemiesPerWave: 2
@@ -12610,15 +12619,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111047300}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbdfeb5fd8c86044aa53bf4e1056fc6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  totalWaves: 6
+  totalWaves: 5
   OnWaveStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7018654793265999076}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnWaveEnd:
     m_PersistentCalls:
       m_Calls: []

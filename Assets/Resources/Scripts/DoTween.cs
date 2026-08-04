@@ -33,36 +33,40 @@ public class DoTween : MonoBehaviour
 
     void Awake()
     {
-        if (targetTransform == null)
-        {
-            targetTransform = this.transform;
-        }
-
-        // สร้าง tween แค่ครั้งเดียวต่อชนิด แล้วใช้ SetLoops จัดการวนซ้ำ
-        // แทนการสร้างซ้ำในลูป for ซึ่งจะได้ tween หลายตัวมาแย่งกันขยับ property เดียวกัน
-        // และทำให้ loopCount = -1 (infinite) ไม่ทำงานเลยเพราะ for-loop ไม่รันแม้แต่รอบเดียว
+        PlayTween();
+    }
+    public void ResetTransform()
+    {
+        targetTransform.localPosition = Vector3.zero;
+        targetTransform.localScale = Vector3.one;
+        targetTransform.localRotation = Quaternion.identity;
+    }
+    public void PlayTween()
+    {
         if (usingMoveTween)
         {
-            Tween moveTween = targetTransform.DOMove(targetPosition, duration).SetEase(easeType);
-            if (usingLoop) moveTween.SetLoops(loopCount, loopType);
+            targetTransform.DOMove(targetPosition, duration).SetEase(easeType);
         }
 
         if (usingScaleTween)
         {
-            Tween scaleTween = targetTransform.DOScale(targetScale, duration).SetEase(easeType);
-            if (usingLoop) scaleTween.SetLoops(loopCount, loopType);
+            targetTransform.DOScale(targetScale, duration).SetEase(easeType);
         }
 
         if (usingRotationTween)
         {
-            Tween rotateTween = targetTransform.DORotate(targetRotation, duration).SetEase(easeType);
-            if (usingLoop) rotateTween.SetLoops(loopCount, loopType);
+            targetTransform.DORotate(targetRotation, duration).SetEase(easeType);
+        }
+
+        if (usingLoop)
+        {
+            targetTransform.DOComplete();
+            targetTransform.DOLocalMove(targetPosition, duration).SetLoops(loopCount, loopType).SetEase(easeType);
         }
 
         if (usingShakeTween)
         {
-            Tween shakeTween = targetTransform.DOShakePosition(shakeDuration, shakeStrength).SetEase(easeType);
-            if (usingLoop) shakeTween.SetLoops(loopCount, loopType);
+            targetTransform.DOShakePosition(shakeDuration, shakeStrength).SetEase(easeType);
         }
     }
 }

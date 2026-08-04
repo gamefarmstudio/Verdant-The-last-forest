@@ -60,5 +60,10 @@ public class FogController : MonoBehaviour
         float centerX = (MapLeftX + edgeX) * 0.5f;
         FogEffect.SetVector3(CenterID, new Vector3(centerX, MapCenterY, 0f));
         FogEffect.SetVector3(SizeID, new Vector3(width, MapHeight, 0.1f));
+        FogSlider.value = _showGuage;
+    }
+    public void cleanse(float percent)
+    {
+        FogGauge = Mathf.Clamp01(FogGauge - percent/100f);
     }
 }

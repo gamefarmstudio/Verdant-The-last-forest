@@ -55,6 +55,10 @@ public class WaveManager : MonoBehaviour
     private int _enemyLayer = -1;
     private Coroutine _waveRoutine;
 
+    // แคช WaitForSeconds ไว้ใช้ซ้ำ กัน allocate ใหม่ทุกครั้งที่ yield
+    private WaitForSeconds _spawnWait;
+    private WaitForSeconds _waveDelayWait;
+
     public int AliveCount => _alive.Count;
 
     // ─────────────────────────────────────────────
@@ -64,6 +68,9 @@ public class WaveManager : MonoBehaviour
         _enemyLayer = LayerMask.NameToLayer(enemyLayerName);
         if (_enemyLayer < 0)
             Debug.LogError($"[WaveManager] ไม่พบ layer '{enemyLayerName}' — ป้อมจะตรวจจับมอนไม่เจอ (ไปเพิ่ม layer ใน Project Settings)");
+
+        _spawnWait = new WaitForSeconds(spawnInterval);
+        _waveDelayWait = new WaitForSeconds(delayBetweenWaves);
 
         if (GameManager.Instance != null)
             GameManager.Instance.OnWaveStart.AddListener(HandleWaveStart);
@@ -108,7 +115,7 @@ public class WaveManager : MonoBehaviour
         {
             var rec = pool[Random.Range(0, pool.Count)];
             SpawnEnemy(rec.id, false);
-            yield return new WaitForSeconds(spawnInterval);
+            yield return _spawnWait;
         }
 
         // 2) spawn boss ถ้า wave นี้มี
@@ -134,7 +141,7 @@ public class WaveManager : MonoBehaviour
             GameManager.Instance.CurrentState == GameManager.GameState.Playing &&
             wave < GameManager.Instance.totalWaves)
         {
-            yield return new WaitForSeconds(delayBetweenWaves);
+            yield return _waveDelayWait;
             GameManager.Instance.StartNextWave();
         }
 
@@ -162,14 +169,23 @@ public class WaveManager : MonoBehaviour
         GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
 
         var enemy = obj.GetComponent<EnemyBase>();
-        if (enemy == null) enemy = obj.AddComponent<EnemyBase>();
+        if (enemy == null)
+        {
+            Debug.LogWarning($"[WaveManager] Prefab สำหรับ '{id}' ไม่มี EnemyBase — เพิ่มให้อัตโนมัติ " +
+                             "(ควรแก้ที่ prefab โดยตรงเพื่อกัน setup ผิดเงียบ ๆ)", obj);
+            enemy = obj.AddComponent<EnemyBase>();
+        }
 
         enemy.Setup(id, isBoss);
         MakeDetectable(obj);
 
         // ให้มอนเดินตาม EnemyPath (เติมให้ถ้า prefab ยังไม่มี)
         if (obj.GetComponent<EnemyMovement>() == null)
+        {
+            Debug.LogWarning($"[WaveManager] Prefab สำหรับ '{id}' ไม่มี EnemyMovement — เพิ่มให้อัตโนมัติ " +
+                             "(ควรแก้ที่ prefab โดยตรงเพื่อกัน setup ผิดเงียบ ๆ)", obj);
             obj.AddComponent<EnemyMovement>();
+        }
 
         _alive.Add(enemy);
     }
@@ -183,16 +199,27 @@ public class WaveManager : MonoBehaviour
         return defaultEnemyPrefab;
     }
 
-    /// <summary>ให้ป้อมตรวจจับได้: ตั้ง layer Enemy + มี Collider2D อย่างน้อย 1</summary>
+    /// <summary>
+    /// ให้ป้อมตรวจจับได้: ตั้ง layer Enemy + มี Collider2D อย่างน้อย 1
+    /// สำคัญ: ต้องตั้ง layer ที่ GameObject ซึ่งมี Collider2D ติดอยู่จริง ๆ ไม่ใช่แค่ root
+    /// เพราะ Physics2D.OverlapCircle เช็ค layer ของ GameObject ที่มี collider โดยตรง
+    /// ถ้า collider อยู่บน child แล้วตั้ง layer แค่ root เฉย ๆ ป้อมจะตรวจจับไม่เจอแบบเงียบ ๆ
+    /// </summary>
     private void MakeDetectable(GameObject obj)
     {
-        if (_enemyLayer >= 0) obj.layer = _enemyLayer;
+        var existingCollider = obj.GetComponentInChildren<Collider2D>();
 
-        if (obj.GetComponentInChildren<Collider2D>() == null)
+        if (existingCollider == null)
         {
+            if (_enemyLayer >= 0) obj.layer = _enemyLayer;
+
             var col = obj.AddComponent<CircleCollider2D>();
             col.isTrigger = true;
             col.radius = autoColliderRadius;
+        }
+        else if (_enemyLayer >= 0)
+        {
+            existingCollider.gameObject.layer = _enemyLayer;
         }
     }
 }
