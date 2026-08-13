@@ -28,21 +28,52 @@ public class TowerSlot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     // ────────────────────────────────────────────
     public void OnPointerClick(PointerEventData eventData)
     {
-        // ถ้ามีป้อมแล้ว → ไม่ทำอะไร (วันหลังค่อยทำ upgrade/sell)
-        if (isOccupied) return;
+        // [แก้] มีป้อมแล้ว → เปิดเมนูอัพเกรด/ทำลาย (คลิกซ้ำ = ปิด)
+        if (isOccupied)
+        {
+            if (_isSelected) TowerPlacementManager.Instance.ClosePopup();
+            else             TowerPlacementManager.Instance.OpenUpgrade(this);
+            return;
+        }
 
         // หมอกยังไม่ถอยพ้นจุดนี้ → วางป้อมไม่ได้
         if (_spot != null && !_spot.IsUnlocked) return;
 
         if (_isSelected)
-        {
-            // คลิกซ้ำ = ปิด popup
-            TowerPlacementManager.Instance.ClosePopup();
-        }
+            TowerPlacementManager.Instance.ClosePopup();   // คลิกซ้ำ = ปิด popup
         else
-        {
             TowerPlacementManager.Instance.OpenPopup(this);
-        }
+    }
+
+    // [แก้] อ่านป้อมผ่าน interface IUpgradableTower → รองรับทั้งป้อมยิงไกล (Tower) และป้อมประชิด (MeleeTower)
+    public IUpgradableTower TowerComponent =>
+        placedTower != null ? placedTower.GetComponentInChildren<IUpgradableTower>() : null;
+
+    // [เพิ่ม] แทนป้อมด้วย prefab เลเวลใหม่ (อัพเกรดแบบเปลี่ยน prefab) — slot ยังถือว่ามีป้อมอยู่
+    public void ReplaceTower(GameObject prefab)
+    {
+        var col = GetComponent<CircleCollider2D>();
+        Vector3 spawnPos = col != null
+            ? transform.TransformPoint(col.offset)
+            : transform.position;
+
+        if (placedTower != null) Destroy(placedTower);
+
+        placedTower = Instantiate(prefab, spawnPos, Quaternion.identity);
+        placedTower.transform.SetParent(transform);
+
+        isOccupied = true;
+        if (slotSprite != null) slotSprite.SetActive(false);
+    }
+
+    // [เพิ่ม] ทำลายป้อมแล้วคืน slot ให้ว่าง (ใช้ตอนขาย)
+    public void ClearTower()
+    {
+        if (placedTower != null) Destroy(placedTower);
+        placedTower = null;
+        isOccupied = false;
+        SetSelected(false);
+        if (slotSprite != null) slotSprite.SetActive(true);
     }
 
     // ────────────────────────────────────────────

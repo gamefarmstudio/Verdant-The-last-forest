@@ -1,0 +1,21 @@
+waveID,Type,Spawn Interval (s),Total Enemies,Wave Reward (Crystal),Difficulty Rating,Notes
+W1,Standard,1.4,18,80,2,Tutorial wave
+W2,Standard,1.2,22,110,2,Introduce tank
+W3,Standard,1.2,24,140,3,Test mid-line defense
+W4,Standard,1,28,170,3,Higher density
+W5,BOSS,2,9,250,4,⚠️ BOSS WAVE
+W6,Standard,1,18,200,2,Introduce explosives
+W7,Standard,0.9,17,230,3,Introduce DoT
+W8,Standard,0.8,23,260,3,Combo damage
+W9,Standard,0.8,27,290,3,Pre-boss push
+W10,BOSS,2,9,400,4,⚠️ FLYING BOSS — need Solar Mirror
+W11,Standard,0.7,16,320,★★★,Introduce armored
+W12,Standard,0.7,15,350,★★★★,Introduce splitting
+W13,Standard,0.7,13,380,★★★★,Mixed threats
+W14,Standard,0.6,19,410,★★★★,Pre-boss density
+W15,BOSS,2,11,550,★★★★★,⚠️ MULTI-PHASE BOSS
+W16,Standard,0.6,14,440,★★★★,Introduce invisible
+W17,Standard,0.6,18,470,★★★★,Stealth focus
+W18,Standard,0.5,24,500,★★★★★,Endgame challenge
+W19,Standard,0.5,26,530,★★★★★,Pre-final wave
+W20,FINAL BOSS,0,1,0,★★★★★,⚠️⚠️ FINAL BOSS — GAME ENDS

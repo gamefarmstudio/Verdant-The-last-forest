@@ -25,6 +25,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 9a62495022194824b9428e22e1952dac,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 9a62495022194824b9428e22e1952dac,
+        type: 3}
       propertyPath: m_SortingLayer
       value: 7
       objectReference: {fileID: 0}
@@ -163,6 +168,7 @@ MonoBehaviour:
   OnReachedBase:
     m_PersistentCalls:
       m_Calls: []
+  meleeAttackInterval: 1
 --- !u!95 &-8356069939263961266
 Animator:
   serializedVersion: 7
@@ -198,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   reachThreshold: 0.05
-  flipToFaceDirection: 1
+  flipToFaceDirection: 0
 --- !u!70 &3014545631703206830
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -248,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f939dac61fe8f64c9646c83031c09a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  enemyBase: {fileID: 0}
+  enemyBase: {fileID: 4337050708740161047}
   healthCanvasPrefab: {fileID: 2079615114020501152, guid: 5b7fd81c0f11d714481e513939cfef22,
     type: 3}
   offset: {x: 5.75, y: 4, z: 0}

@@ -1,0 +1,63 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+// [เพิ่ม] สคริปต์ใหม่: ปุ่ม "เริ่มเวฟถัดไป"
+//   - โผล่เมื่อจบเวฟ (GameManager.OnWaveEnd) ยกเว้นเวฟสุดท้ายที่จบแล้ว = ชนะ (ไม่ต้องมีปุ่ม)
+//   - กดปุ่ม → GameManager.StartNextWave()
+//   - ซ่อนเมื่อเวฟถัดไปเริ่ม (GameManager.OnWaveStart)
+// วิธีใช้: วางสคริปต์บน object HUD ที่ "เปิดอยู่ตลอด" แล้วลาก Button (ลูก) มาใส่ช่อง button
+public class NextWaveButtonUI : MonoBehaviour
+{
+    [SerializeField] private Button button;
+
+    void Awake()
+    {
+        if (button == null) button = GetComponent<Button>();
+    }
+
+    void Start()
+    {
+        if (button != null) button.onClick.AddListener(OnClick);
+        SetVisible(false);
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnWaveEnd.AddListener(HandleWaveEnd);
+            GameManager.Instance.OnWaveStart.AddListener(HandleWaveStart);
+        }
+        else
+        {
+            Debug.LogError("[NextWaveButtonUI] ไม่พบ GameManager.Instance — ปุ่มเริ่มเวฟถัดไปจะไม่ทำงาน");
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (button != null) button.onClick.RemoveListener(OnClick);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnWaveEnd.RemoveListener(HandleWaveEnd);
+            GameManager.Instance.OnWaveStart.RemoveListener(HandleWaveStart);
+        }
+    }
+
+    void HandleWaveEnd(int wave)
+    {
+        // เวฟสุดท้ายจบแล้ว = ชนะด่าน ไม่ต้องโชว์ปุ่ม
+        if (wave >= GameManager.Instance.totalWaves) return;
+        SetVisible(true);
+    }
+
+    void HandleWaveStart(int wave) => SetVisible(false);
+
+    void OnClick()
+    {
+        SetVisible(false);
+        GameManager.Instance.StartNextWave();
+    }
+
+    void SetVisible(bool on)
+    {
+        if (button != null) button.gameObject.SetActive(on);
+    }
+}

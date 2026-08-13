@@ -45,13 +45,14 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (_enemy.IsDead || _waypoints == null || _index >= _waypoints.Length) return;
+        if (_enemy.IsBlocked) return;   // [เพิ่ม] ถูกอัศวินบล็อก → หยุดเดิน (เดินต่อเมื่ออัศวินตาย)
 
         Transform wp = _waypoints[_index];
         if (wp == null) { _index++; return; }
 
         Vector3 target = wp.position + Vector3.up * offset_Y;
         Vector3 before = transform.position;
-        float step = _enemy.MoveSpeed * Time.deltaTime;
+        float step = _enemy.MoveSpeed * _enemy.SpeedMultiplier * Time.deltaTime;   // [เพิ่ม] คูณ slow/freeze
 
         transform.position = Vector3.MoveTowards(before, target, step);
         _traveled += Vector3.Distance(before, transform.position);

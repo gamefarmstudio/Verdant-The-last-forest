@@ -35,6 +35,10 @@ public class EnemyHealth : MonoBehaviour
             Debug.LogError($"[EnemyHealth] '{name}' ยังไม่ได้ลาก Canvas prefab มาใส่ในช่อง Health Canvas Prefab", this);
             return;
         }
+        if (!this.gameObject.TryGetComponent<CapsuleCollider2D>(out var collider))
+        {
+            this.gameObject.AddComponent<CapsuleCollider2D>();
+        }
 
         // Clone Canvas แยกให้ enemy ตัวนี้โดยเฉพาะ กันหลาย enemy แย่งใช้ Slider ตัวเดียวกัน
         healthCanvas = Instantiate(healthCanvasPrefab);

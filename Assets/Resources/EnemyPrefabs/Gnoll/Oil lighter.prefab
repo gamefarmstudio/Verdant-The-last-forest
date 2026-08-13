@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8559284299983678490}
   - component: {fileID: -2266749476055909504}
   - component: {fileID: 9038187771601225047}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Oil lighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1899589511
-  m_SortingLayer: 7
+  m_SortingLayerID: -1963327745
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3856214088682444218, guid: aad4abc6a515b0c49a65d49c8d3e9b6d,
@@ -166,6 +166,7 @@ MonoBehaviour:
   OnReachedBase:
     m_PersistentCalls:
       m_Calls: []
+  meleeAttackInterval: 1
 --- !u!114 &8559284299983678490
 MonoBehaviour:
   m_ObjectHideFlags: 0

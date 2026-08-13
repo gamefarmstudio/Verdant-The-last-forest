@@ -200,8 +200,76 @@ public class EnemyBase : MonoBehaviour, IDamageable
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, 0.3f);
     }
-    void Awake()
+
+    // ─────────────────────────────────────────────
+    // [เพิ่ม] ENGAGEMENT — ถูกอัศวิน (KnightUnit) บล็อก
+    //   ถูกบล็อก → EnemyMovement หยุดเดิน (เช็ค IsBlocked) + หันมาตีอัศวินทุก meleeAttackInterval
+    //   อัศวินตาย → หลุดบล็อก เดินต่อได้
+    // ─────────────────────────────────────────────
+
+    [Header("Melee (ตอนถูกอัศวินบล็อก)")]
+    [SerializeField] private float meleeAttackInterval = 1f;   // วินาที/นัด (ดาเมจ = BaseDamage)
+
+    private KnightUnit _blocker;
+    private float _meleeTimer;
+
+    public bool IsBlocked => _blocker != null && _blocker.IsAlive;
+    public KnightUnit Blocker => _blocker;
+
+    /// <summary>เรียกจาก KnightUnit เมื่อเข้าปะทะ — ศัตรูหยุดเดินแล้วตีอัศวิน</summary>
+    public void EngageWith(KnightUnit knight)
     {
-        OnDeath.AddListener(() => Object.FindAnyObjectByType<CurrencyManager>().Earn(RewardKill));   // ป้องกันปัญหา enemy ตายแล้วยังถูกยิงต่อ (Tower/Projectile) → ปิด GameObject ทันที
+        if (_blocker == knight) return;   // ปะทะอยู่แล้ว ไม่รีเซ็ต timer
+        _blocker = knight;
+        _meleeTimer = meleeAttackInterval;
+    }
+
+    public void Disengage() => _blocker = null;
+
+    // ─────────────────────────────────────────────
+    // [เพิ่ม] STATUS — slow / freeze (จากป้อม Crystal Spring)
+    // ─────────────────────────────────────────────
+
+    private float _slowFactor = 1f;   // 1 = ปกติ, 0.6 = ช้าลง 40%
+    private float _slowTimer;
+    private bool  _frozen;
+    private float _freezeTimer;
+
+    /// <summary>ตัวคูณความเร็ว (EnemyMovement เอาไปคูณ) — 0 ตอน freeze</summary>
+    public float SpeedMultiplier => _frozen ? 0f : _slowFactor;
+
+    /// <summary>ติด slow — slowPercent 0.4 = ช้าลง 40% · เอาอันที่ช้ากว่า และรีเฟรชเวลา</summary>
+    public void ApplySlow(float slowPercent, float duration)
+    {
+        float factor = Mathf.Clamp01(1f - slowPercent);
+        if (factor <= _slowFactor || _slowTimer <= 0f) _slowFactor = factor;
+        _slowTimer = Mathf.Max(_slowTimer, duration);
+    }
+
+    /// <summary>ติด freeze — หยุดนิ่งชั่วคราว</summary>
+    public void ApplyFreeze(float duration)
+    {
+        _frozen = true;
+        _freezeTimer = Mathf.Max(_freezeTimer, duration);
+    }
+
+    void Update()
+    {
+        if (IsDead) return;
+
+        // [เพิ่ม] นับเวลา slow/freeze แล้วคืนสภาพเมื่อหมดเวลา
+        if (_slowTimer > 0f)   { _slowTimer   -= Time.deltaTime; if (_slowTimer <= 0f)   _slowFactor = 1f; }
+        if (_freezeTimer > 0f) { _freezeTimer -= Time.deltaTime; if (_freezeTimer <= 0f) _frozen = false; }
+
+        // ตีอัศวินตอนถูกบล็อก (เดิม)
+        if (_blocker == null) return;
+        if (!_blocker.IsAlive) { _blocker = null; return; }
+
+        _meleeTimer -= Time.deltaTime;
+        if (_meleeTimer <= 0f)
+        {
+            _meleeTimer = meleeAttackInterval;
+            _blocker.TakeDamage(BaseDamage);   // ตีอัศวิน
+        }
     }
 }

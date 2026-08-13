@@ -25,7 +25,8 @@ public class WaveManager : MonoBehaviour
 
     [Header("การไหลของเวฟ")]
     [SerializeField] private float delayBetweenWaves = 3f;
-    [SerializeField] private bool autoStartNextWave = true;
+    // [แก้] ปิด auto-start — ด่านแรกให้ผู้เล่นกดปุ่ม "เริ่มเวฟถัดไป" เอง (ดู NextWaveButtonUI)
+    [SerializeField] private bool autoStartNextWave = false;
 
     [Header("ให้ป้อมตรวจจับได้")]
     [Tooltip("layer ของมอน — ต้องตรงกับ enemyLayer ที่ตั้งบน Tower")]
@@ -94,7 +95,6 @@ public class WaveManager : MonoBehaviour
             yield break;
         }
 
-        
         float interval = rec.spawnInterval > 0f ? rec.spawnInterval : defaultSpawnInterval;
         bool bossSpawned = false;
 
@@ -122,10 +122,8 @@ public class WaveManager : MonoBehaviour
         yield return FinishWave(wave, rec);
     }
 
-
     private IEnumerator FinishWave(int wave, WaveRecord rec)
     {
-        
         while (true)
         {
             _alive.RemoveAll(e => e == null || e.IsDead);
@@ -133,7 +131,6 @@ public class WaveManager : MonoBehaviour
             yield return null;
         }
 
-        
         if (rec != null && rec.reward > 0 && CurrencyManager.Instance != null)
         {
             CurrencyManager.Instance.Earn(rec.reward);
@@ -167,9 +164,22 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        Vector3 pos = (spawnPoints != null && spawnPoints.Length > 0)
-            ? spawnPoints[Random.Range(0, spawnPoints.Length)].position
-            : transform.position;
+        Vector3 pos; 
+
+        if (spawnPoints != null && spawnPoints.Length > 1) 
+        {
+            // ลบการสุ่ม Seed แบบเก่าออก เพื่อให้ระบบสุ่มของ Unity กระจายตำแหน่งอย่างเป็นธรรมชาติทุกตัวที่เกิด
+            int randomIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
+            pos = spawnPoints[randomIndex].position; 
+        }
+        else if (spawnPoints != null && spawnPoints.Length == 1)
+        {
+            pos = spawnPoints[0].position; 
+        }
+        else 
+        {
+            pos = transform.position;
+        }
 
         GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
 
@@ -185,7 +195,6 @@ public class WaveManager : MonoBehaviour
         _alive.Add(enemy);
     }
 
-    
     private GameObject ResolvePrefab(string id, bool isBoss)
     {
         if (enemyPrefabs != null)
@@ -196,7 +205,6 @@ public class WaveManager : MonoBehaviour
         return isBoss ? bossPrefab : defaultEnemyPrefab;
     }
 
-    
     private void MakeDetectable(GameObject obj)
     {
         if (_enemyLayer >= 0) obj.layer = _enemyLayer;

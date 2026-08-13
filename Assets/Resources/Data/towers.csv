@@ -1,7 +1,7 @@
 ID,Name (EN),Name (TH),Tier,Level,Cost (Crystal),Cumulative Cost,Damage,Atk Speed (s),DPS,Range (tiles),HP,Special Ability,Asset (Tiny Sword)
-T1A1,Forest Knight,อัศวินป่า,1,1,75,75,25,1,25,1.5,200,Single-target melee,Blue Warrior L1
-T1A2,Forest Knight,อัศวินป่า,1,2,130,205,40,0.8,50,1.5,250,+10% stun chance,Blue Warrior L2
-T1A3,Forest Knight,อัศวินป่า,1,3,200,405,60,0.6,100,1.5,300,Cleave 1-tile AoE,Blue Warrior L3
+T1A1,Forest Knight,อัศวินป่า,1,1,75,75,25,1,25,1.5,100,Single-target melee,Blue Warrior L1
+T1A2,Forest Knight,อัศวินป่า,1,2,130,205,40,0.8,50,1.5,150,+10% stun chance,Blue Warrior L2
+T1A3,Forest Knight,อัศวินป่า,1,3,200,405,60,0.6,100,1.5,200,Cleave 1-tile AoE,Blue Warrior L3
 T1B1,Greenshot,นักธนูใบไม้,1,1,60,60,15,0.7,21.4,4,80,Ranged single arrow,Blue Archer L1
 T1B2,Greenshot,นักธนูใบไม้,1,2,120,180,22,0.5,44,4.5,100,Pierces 2 enemies,Blue Archer L2
 T1B3,Greenshot,นักธนูใบไม้,1,3,180,360,35,0.4,87.5,5,130,Hits flying enemies,Blue Archer L3

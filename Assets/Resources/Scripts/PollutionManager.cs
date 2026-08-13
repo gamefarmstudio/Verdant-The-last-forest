@@ -1,66 +1,84 @@
-// ═══════════════════════════════════════════════════════════════
-//  PollutionManager.cs — สมองกลางของระบบมลพิษ
-//  กติกาทั้งหมดอยู่ที่นี่ที่เดียว: ฆ่ามอน = เกจลด, คริสตัลโดนตี = เกจเพิ่ม
-//  เกจ 0% → ชนะ / เกจ 100% → เกมโอเวอร์
-//  วางบน GameObject เปล่าในฉาก (1 ตัวต่อด่าน)
-// ═══════════════════════════════════════════════════════════════
 using UnityEngine;
 
+// [แก้] เขียนใหม่ทั้งไฟล์ให้ตรงกติกาหมอกของด่านแรก:
+//   [เพิ่ม] หมอกไต่ขึ้นเองตามเวลา — +passiveStep ทุก passiveInterval วินาที (ดีฟอลต์ +1% ทุก 2 วิ)
+//   [เพิ่ม] TryCleanse() — จ่าย cleanseCost คริสตัล เพื่อลดหมอก cleansePercent (ดีฟอลต์ 10 คริสตัล / -5%)
+//   [ลบ]  การลดหมอกตอนฆ่ามอน (defaultCleansePerKill / OnEnemyKilled) — สเปคด่านแรกให้ลดหมอกผ่านปุ่มเท่านั้น
 public class PollutionManager : MonoBehaviour
 {
     public static PollutionManager Instance { get; private set; }
 
     [Header("Config")]
     [Range(0f, 1f)]
-    [SerializeField] private float startGauge = 0.7f;            // เริ่มด่าน หมอก 70%
-    [SerializeField] private float defaultCleansePerKill = 0.02f; // fallback ถ้า CSV ไม่มีค่า
-    [SerializeField] private float gaugePerCrystalDamage = 0.005f;// ดาเมจ 1 หน่วย = เกจ +0.5%
+    [SerializeField] private float startGauge = 0.7f;
+    // [ลบ] gaugePerCrystalDamage — หมอกไม่ผูกกับดาเมจคริสตัลแล้ว (ย้ายไปเป็น "เลือด" ใน GameManager)
+
+    // [เพิ่ม] ค่าการเพิ่มหมอกตามเวลา
+    [Header("Passive Rise")]
+    [SerializeField] private float passiveInterval = 2f;   // เพิ่มหมอกทุกกี่วินาที
+    [SerializeField] private float passiveStep = 0.01f;    // เพิ่มครั้งละเท่าไร (0.01 = 1%)
+
+    // [เพิ่ม] ค่าปุ่มชำระล้าง
+    [Header("Cleanse Button")]
+    [SerializeField] private int cleanseCost = 10;         // คริสตัลต่อการกด 1 ครั้ง
+    [SerializeField] private float cleansePercent = 0.05f; // ลดหมอกต่อครั้ง (0.05 = 5%)
 
     public float Gauge { get; private set; }
+    public int CleanseCost => cleanseCost;   // [เพิ่ม] ให้ UI อ่านไปโชว์ราคา/เช็คปุ่ม
+
     private bool _ended;
+    private float _passiveTimer;             // [เพิ่ม] ตัวจับเวลาสำหรับหมอกเพิ่มเอง
 
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
-
-        // ตั้งค่าเกจใน Awake (ไม่ใช่ Start) — สคริปต์อื่น (เช่น TowerSpot) ต้องอ่าน
-        // Gauge ที่ถูกต้องได้ตั้งแต่ Start() ของตัวเอง ซึ่ง Unity รับประกันว่า
-        // Awake ของทุกสคริปต์จะรันเสร็จก่อน Start ของสคริปต์ใดๆ เสมอ
         Gauge = startGauge;
     }
 
-    void OnEnable()
-    {
-        GameEvents.OnEnemyKilled    += HandleEnemyKilled;
-        GameEvents.OnCrystalDamaged += HandleCrystalDamaged;
-    }
-
-    void OnDisable()
-    {
-        GameEvents.OnEnemyKilled    -= HandleEnemyKilled;
-        GameEvents.OnCrystalDamaged -= HandleCrystalDamaged;
-    }
+    // [ลบ] OnEnable/OnDisable ที่ subscribe OnCrystalDamaged — หมอกขึ้นจากเวลาอย่างเดียว
+    //      (มอนหลุดถึงฐานไปลด "เลือด" ใน GameManager แทน ไม่เพิ่มหมอกอีก)
 
     void Start()
     {
-        GameEvents.RaisePollutionChanged(Gauge);   // แจ้งค่าเริ่มต้นให้ทุกระบบ sync กัน
+        GameEvents.RaisePollutionChanged(Gauge);
     }
 
-    void HandleEnemyKilled(float cleanse)
-        => ApplyDelta(-(cleanse > 0f ? cleanse : defaultCleansePerKill));
+    // [เพิ่ม] หมอกไต่ขึ้นเองตามเวลา — ทำงานเฉพาะตอนกำลังเล่นและยังไม่จบเกม
+    void Update()
+    {
+        if (_ended) return;
+        if (GameManager.Instance == null ||
+            GameManager.Instance.CurrentState != GameManager.GameState.Playing) return;
 
-    void HandleCrystalDamaged(float damage)
-        => ApplyDelta(damage * gaugePerCrystalDamage);
+        _passiveTimer += Time.deltaTime;
+        while (_passiveTimer >= passiveInterval)
+        {
+            _passiveTimer -= passiveInterval;
+            ApplyDelta(passiveStep);
+        }
+    }
+
+    // [เพิ่ม] เรียกจากปุ่มชำระล้าง — คืน true เมื่อจ่ายเงินและลดหมอกสำเร็จ, false ถ้าเงินไม่พอ/จบเกมแล้ว
+    public bool TryCleanse()
+    {
+        if (_ended) return false;
+        if (CurrencyManager.Instance == null || !CurrencyManager.Instance.CanAfford(cleanseCost))
+            return false;
+
+        CurrencyManager.Instance.Spend(cleanseCost);
+        ApplyDelta(-cleansePercent);
+        return true;
+    }
 
     private void ApplyDelta(float delta)
     {
-        if (_ended) return;                        // จบเกมแล้ว ไม่รับอะไรอีก
+        if (_ended) return;
 
         Gauge = Mathf.Clamp01(Gauge + delta);
         GameEvents.RaisePollutionChanged(Gauge);
 
-        if (Gauge <= 0f)      { _ended = true; GameEvents.RaisePollutionCleared(); }
-        else if (Gauge >= 1f) { _ended = true; GameEvents.RaisePollutionFull(); }
+        // [แก้] เกจ 0% ไม่ใช่เงื่อนไขชนะแล้ว (ชนะจากจบเวฟเท่านั้น) — แค่ clamp ไว้ ปล่อยให้ไต่ขึ้นใหม่ได้
+        if (Gauge >= 1f) { _ended = true; GameEvents.RaisePollutionFull(); }   // หมอกเต็ม 100% → แพ้
     }
 }

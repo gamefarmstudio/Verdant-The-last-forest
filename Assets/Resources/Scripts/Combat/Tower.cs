@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Verdant.Combat
 {
@@ -11,7 +12,7 @@ namespace Verdant.Combat
     /// ค่าที่ไม่มีใน CSV (ลูกกระสุน, โหมดเล็ง) ตั้งบน component นี้โดยตรง
     /// </summary>
     [DisallowMultipleComponent]
-    public class Tower : MonoBehaviour
+    public class Tower : MonoBehaviour, IUpgradableTower   // [เพิ่ม] implement interface (TowerId/NextLevelPrefab มีอยู่แล้ว)
     {
         [Header("อ้างอิง CSV")]
         [Tooltip("ID ของป้อมใน towers.csv เช่น T1A1 — ดึง Damage/Range/Atk Speed จากแถวนี้")]
@@ -88,6 +89,14 @@ namespace Verdant.Combat
         }
 
         private void Start() => TryLoadStatsFromCsv();
+
+        // ── [เพิ่ม] API สำหรับระบบอัพเกรด (แบบเปลี่ยน Prefab) ──
+        [Header("อัพเกรด")]
+        [Tooltip("Prefab ป้อมเลเวลถัดไป — เว้นว่าง = เลเวลสูงสุด (อัพเกรดต่อไม่ได้)")]
+        [SerializeField] private GameObject nextLevelPrefab;
+
+        public string TowerId => towerId;
+        public GameObject NextLevelPrefab => nextLevelPrefab;
 
         // ── โหลดสถานะจาก CSV ──
 
@@ -219,7 +228,8 @@ namespace Verdant.Combat
             // -90 เพราะสมมติสไปรต์หันหัวขึ้น (แกน +Y) เป็นค่าเริ่มต้น
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
             Quaternion newRotation = Quaternion.Euler(0f, 0f, angle + 90f);
-            rotatePart.rotation = newRotation;
+            DOTween.Kill(rotatePart);   // กันป้อมหมุนสลับเป้าถี่เกินไปจนค้าง tween เก่า
+            rotatePart.DORotateQuaternion(newRotation, 0.1f).SetEase(Ease.OutBounce);   // หมุนหัวป้อมไปหาศัตรู (ไม่หมุนทันที → ดูเป็นธรรมชาติ)
 
             // ให้ rotatePart โคจรรอบ muzzle (จุดหมุนคงที่) ตามมุมที่หมุนไปจากจุดเริ่มต้น
             // muzzle จะอยู่นิ่งกับที่เสมอ ส่วน rotatePart จะสวิงรอบมันแทน

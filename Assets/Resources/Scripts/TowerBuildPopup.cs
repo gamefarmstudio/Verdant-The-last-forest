@@ -1,60 +1,70 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
-/// <summary>
-/// Popup UI แสดงป้อมที่สร้างได้
-/// ติดกับ: Canvas > TowerBuildPopup (Panel)
-///
-/// รองรับ 1–4 ป้อม — วันนี้ใส่แค่ป้อมธนู (Greenshot) ตัวเดียว
-/// เพิ่มป้อมทีหลังแค่ drag prefab ใส่ towerOptions เพิ่ม
-/// </summary>
+// [แก้] เขียนใหม่ทั้งไฟล์ (ล้างคอมเมนต์เดิม) — ประเด็นหลัก: ราคาป้อมอ้างอิงจาก towers.csv
 public class TowerBuildPopup : MonoBehaviour
 {
     [System.Serializable]
     public class TowerOption
     {
-        public string towerName;      // ชื่อแสดงS
-        public string towerNameTH;    // ชื่อไทย
-        public Sprite icon;           // icon ใน popup
-        public GameObject prefab;         // Prefab ที่จะ Instantiate
-        public int cost;           // ราคา Crystal
+        public string towerName;
+        public string towerNameTH;
+        public Sprite icon;
+        public GameObject prefab;
+        public int cost;          // [แก้] เหลือไว้เป็น fallback เมื่อ CSV โหลดไม่ได้/หา ID ไม่เจอ
+        public string towerId;     // [เพิ่ม] ID ใน towers.csv (เช่น T1B1) — ราคาจริงดึงจากแถวนี้
     }
 
-    [Header("ป้อมที่สร้างได้ในด่านนี้ (drag prefab มาใส่)")]
-    public TowerOption[] towerOptions;    // วันนี้ใส่แค่ 1 ตัว
+    [Header("ป้อมที่สร้างได้ในด่านนี้")]
+    public TowerOption[] towerOptions;
 
-    [Header("UI Buttons (4 ช่อง — ไม่ใช้ก็ SetActive false)")]
-    [SerializeField] GameObject[] optionButtons;   // Button TL, TR, BL, BR
-    [SerializeField] Image[] btnIcons;         // Image icon แต่ละปุ่ม
-    //[SerializeField] TMP_Text[] btnNames;         // ชื่อป้อม
-    [SerializeField] TMP_Text[] btnCosts;         // ราคา
-    [SerializeField] GameObject cancelButton;     // ปุ่ม X กลาง
+    [Header("UI Buttons (4 ช่อง)")]
+    [SerializeField] GameObject[] optionButtons;
+    [SerializeField] Image[] btnIcons;
+    [SerializeField] TMP_Text[] btnCosts;
+    [SerializeField] GameObject cancelButton;
 
     [Header("Panel")]
     [SerializeField] RectTransform panelRect;
 
-    // ── แสดง popup ──
     public void Show(TowerSlot slot)
     {
         gameObject.SetActive(true);
         SetupButtons();
         PositionNearSlot(slot.transform.position);
+
+        panelRect.localScale = Vector3.zero;
+        panelRect.DOKill();
+        panelRect.DOScale(1f, 0.25f).SetEase(Ease.OutBack).SetUpdate(true);
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        panelRect.DOKill();
+        panelRect.DOScale(0f, 0.25f).SetEase(Ease.OutBack).SetUpdate(false);
+
     }
 
-    // ── ตั้งค่าปุ่มตาม towerOptions ──
+    // [เพิ่ม] คืนราคาจาก towers.csv ผ่าน towerId — ถ้าโหลด CSV ไม่ได้ค่อย fallback เป็น opt.cost
+    int ResolveCost(TowerOption opt)
+    {
+        if (!string.IsNullOrEmpty(opt.towerId) &&
+            TowerDatabase.Instance != null && TowerDatabase.Instance.IsLoaded)
+        {
+            var rec = TowerDatabase.Instance.GetByID(opt.towerId);
+            if (rec != null) return rec.cost;
+        }
+        return opt.cost;
+    }
+
     void SetupButtons()
     {
-        // ซ่อนทุกปุ่มก่อน
         foreach (var btn in optionButtons) btn.SetActive(false);
 
-        // เปิดเฉพาะปุ่มที่มี option
         for (int i = 0; i < optionButtons.Length; i++)
         {
             if (i >= towerOptions.Length) break;
@@ -62,18 +72,18 @@ public class TowerBuildPopup : MonoBehaviour
             var opt = towerOptions[i];
             optionButtons[i].SetActive(true);
 
-            // ใส่ข้อมูล
             if (btnIcons != null && i < btnIcons.Length && opt.icon != null)
                 btnIcons[i].sprite = opt.icon;
 
-            //if (btnNames != null && i < btnNames.Length)
-                //btnNames[i].text = opt.towerNameTH != "" ? opt.towerNameTH : opt.towerName;
+            int cost = ResolveCost(opt);   // [แก้] เดิมใช้ opt.cost ตรงๆ ตอนนี้ดึงจาก CSV ก่อน
 
             if (btnCosts != null && i < btnCosts.Length)
-                btnCosts[i].text = opt.cost.ToString();
+                btnCosts[i].text = cost.ToString();
 
-            // Dim ปุ่มถ้าเงินไม่พอ
-            bool canAfford = CurrencyManager.Instance.CanAfford(opt.cost);
+            // [แก้] เช็ค null ก่อนใช้ CurrencyManager.Instance กัน NRE ตอน popup โผล่ก่อน manager พร้อม
+            bool canAfford = CurrencyManager.Instance != null &&
+                             CurrencyManager.Instance.CanAfford(cost);
+
             var btnComp = optionButtons[i].GetComponent<Button>();
             if (btnComp != null) btnComp.interactable = canAfford;
 
@@ -82,7 +92,6 @@ public class TowerBuildPopup : MonoBehaviour
         }
     }
 
-    // ── เรียกจากปุ่มแต่ละอัน (OnClick ใน Inspector) ──
     public void OnClickOption0() => SelectTower(0);
     public void OnClickOption1() => SelectTower(1);
     public void OnClickOption2() => SelectTower(2);
@@ -93,15 +102,14 @@ public class TowerBuildPopup : MonoBehaviour
     {
         if (index >= towerOptions.Length) return;
         var opt = towerOptions[index];
-        TowerPlacementManager.Instance.OnTowerSelected(opt.prefab, opt.cost);
+        // [แก้] หักเงินตามราคาจาก CSV แทนราคาที่กรอกมือ
+        TowerPlacementManager.Instance.OnTowerSelected(opt.prefab, ResolveCost(opt));
     }
 
-    // ── วาง popup ใกล้ slot ──
     void PositionNearSlot(Vector3 worldPos)
     {
         Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
 
-        // แปลงจาก screen → local position บน Canvas
         var canvasRect = transform.parent.GetComponent<RectTransform>();
         if (canvasRect == null) return;
 
@@ -114,7 +122,6 @@ public class TowerBuildPopup : MonoBehaviour
 
     void ClampToScreen()
     {
-        // ป้องกัน popup ออกนอกขอบจอ
         Vector3[] corners = new Vector3[4];
         panelRect.GetWorldCorners(corners);
         Vector2 pos = panelRect.anchoredPosition;
@@ -127,12 +134,10 @@ public class TowerBuildPopup : MonoBehaviour
         panelRect.anchoredPosition = pos;
     }
 
-    // ── คลิกนอก popup → ปิด ──
     void Update()
     {
         if (!gameObject.activeSelf) return;
 
-        // Mouse.current เป็น null ได้ถ้าไม่มีเมาส์เชื่อมต่อ (เช่น build บนมือถือ)
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
             if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
@@ -142,7 +147,6 @@ public class TowerBuildPopup : MonoBehaviour
 
     void OnEnable()
     {
-        
         if (CurrencyManager.Instance != null)
             CurrencyManager.Instance.OnCrystalChanged.AddListener(OnCrystalChanged);
     }

@@ -1,5 +1,5 @@
 ID,WaveID,Boss Name (EN),Boss Name (TH),HP,Speed,Damage,Phases,Special Mechanic,Reward (Crystal),Theme
-B1,W5,Oil Behemoth,มหึมาน้ำมัน,1500,0.6,15,1,Leaves oil trail (slows enemies but lasts 5s); explodes 100 AoE on death,100,Marine oil spill
+B1,W5,Oil Behemoth,มหึมาน้ำมัน,1500,0.6,25,1,Leaves oil trail (slows enemies but lasts 5s); explodes 100 AoE on death,100,Marine oil spill
 B2,10,Smog Dragon,มังกรหมอกควัน,2000,2,20,1,FLYING - only Solar Mirror & Greenshot L3 can hit. Spreads pollution from sky.,200,Air pollution / Bushfires
 B3,15,Plastic Hydra Queen,ราชินีไฮดร้าพลาสติก,3000,0.8,25,2,Spawns 2 Hydra Goblins every 10s. Phase 2 (50% HP): spawns 4 instead.,350,Ocean plastic / Microplastics
 B4,20,The Hollow,ความว่างเปล่า,5000,1.2,50,3,Phase 1: tanky slow (2000HP). Phase 2: fast + summons (2000HP). Phase 3: flying weak (1000HP). FINAL.,0,Human apathy / Climate change

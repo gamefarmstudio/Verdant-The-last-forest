@@ -29,8 +29,20 @@ public class GameManager : MonoBehaviour
     // INSPECTOR SETTINGS
     // ─────────────────────────────────────────────
 
+    // [แก้] จบครบทุกเวฟแล้วชนะด่าน — ตั้ง = 6 ตามสเปค (ปรับใน Inspector ให้ตรงจำนวนเวฟจริง)
     [Header("Wave Settings")]
     public int totalWaves = 6;
+
+    // [เพิ่ม] เริ่มเกมเองตอนกด Play — สำหรับเทสต์ในซีนด่านโดยตรง (ไม่ต้องผ่านปุ่ม/เมนู)
+    //        ถ้ามีเมนูเรียก StartGame() เองแล้ว ค่อยติ๊กออก
+    [SerializeField] private bool autoStartOnPlay = true;
+    private bool _autoStarted;
+
+    // [เพิ่ม] ระบบ "เลือด" ของคริสตัล/ฐาน — แยกจากเกจหมอก
+    //        มอนหลุดถึงฐาน → ลด HP · HP = 0 → เกมโอเวอร์
+    [Header("Base / Crystal HP")]
+    public int baseMaxHP = 20;
+    public int BaseHP { get; private set; }
 
     // ─────────────────────────────────────────────
     // RUNTIME STATE
@@ -53,6 +65,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnVictory = new UnityEvent();
     public UnityEvent OnGameOver = new UnityEvent();
     public UnityEvent<GameState> OnStateChanged = new UnityEvent<GameState>();
+    public UnityEvent<int> OnBaseHPChanged = new UnityEvent<int>();   // [เพิ่ม] int = HP ที่เหลือ (ให้ UI แถบเลือด)
 
     // ─────────────────────────────────────────────
     // SINGLETON SETUP
@@ -71,14 +84,13 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        GameEvents.OnPollutionCleared += HandlePollutionCleared;
-        GameEvents.OnPollutionFull    += HandlePollutionFull;
+        // [แก้] เกจ 0% ไม่ชนะแล้ว — ฟังแค่หมอกเต็ม 100% เพื่อแพ้
+        GameEvents.OnPollutionFull += HandlePollutionFull;
     }
 
     void OnDisable()
     {
-        GameEvents.OnPollutionCleared -= HandlePollutionCleared;
-        GameEvents.OnPollutionFull    -= HandlePollutionFull;
+        GameEvents.OnPollutionFull -= HandlePollutionFull;
     }
 
     // ─────────────────────────────────────────────
@@ -87,6 +99,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // [เพิ่ม] auto-start ครั้งเดียวในเฟรมแรก — ทำใน Update ไม่ใช่ Start()
+        //        เพื่อรอให้ Start() ของตัวอื่นเสร็จก่อน (เช่น WaveManager subscribe OnWaveStart)
+        //        ไม่งั้นถ้าเริ่มใน Start() อาจยิง event เวฟ 1 ตอนที่ WaveManager ยังไม่ฟัง
+        if (autoStartOnPlay && !_autoStarted && CurrentState == GameState.Idle)
+        {
+            _autoStarted = true;
+            StartGame();
+        }
+
         if (_timerRunning)
             SessionTime += Time.deltaTime;
     }
@@ -104,6 +125,11 @@ public class GameManager : MonoBehaviour
         EnemiesKilled = 0;
         TotalCrystalEarned = 0;
         CurrentWave = 0;
+
+        // [เพิ่ม] รีเซ็ตเลือด + คืน timeScale (กันค้าง 0 จากรอบก่อนที่ pause ตอนจบเกม)
+        BaseHP = baseMaxHP;
+        OnBaseHPChanged.Invoke(BaseHP);
+        Time.timeScale = 1f;
 
         _timerRunning = true;
         SetState(GameState.Playing);
@@ -164,13 +190,16 @@ public class GameManager : MonoBehaviour
     // CRYSTAL DAMAGE → เกจหมอกเพิ่มขึ้น
     // ─────────────────────────────────────────────
 
-    /// <summary>เรียกจาก Enemy เมื่อถึงปลายทางแล้วโจมตีคริสตัล — ดาเมจแปลงเป็นเกจหมอกที่เพิ่มขึ้น (ดู PollutionManager)</summary>
+    // [แก้] มอนหลุดถึงฐาน → ลด "เลือด" ของคริสตัล (เดิมไปเพิ่มเกจหมอก) — เลือด 0 = เกมโอเวอร์
     public void DamageBase(int amount)
     {
         if (CurrentState != GameState.Playing) return;
 
-        Debug.Log($"[GameManager] Crystal took {amount} damage");
-        GameEvents.RaiseCrystalDamaged(amount);
+        BaseHP = Mathf.Max(0, BaseHP - amount);
+        OnBaseHPChanged.Invoke(BaseHP);
+        Debug.Log($"[GameManager] Crystal took {amount} damage — HP {BaseHP}/{baseMaxHP}");
+
+        if (BaseHP <= 0) TriggerGameOver();
     }
 
     // ─────────────────────────────────────────────
@@ -199,14 +228,15 @@ public class GameManager : MonoBehaviour
     // WIN / LOSE
     // ─────────────────────────────────────────────
 
-    private void HandlePollutionCleared() => TriggerVictory();   // เกจหมอกเหลือ 0%
-    private void HandlePollutionFull()    => TriggerGameOver();  // เกจหมอกเต็ม 100%
+    // [ลบ] HandlePollutionCleared (เกจ 0% = ชนะ) — ตัดออก ชนะจากจบเวฟเท่านั้น
+    private void HandlePollutionFull() => TriggerGameOver();   // เกจหมอกเต็ม 100% → แพ้
 
     private void TriggerVictory()
     {
         if (CurrentState != GameState.Playing) return;
 
         _timerRunning = false;
+        Time.timeScale = 0f;   // [เพิ่ม] หยุดเกมตอนโชว์ popup ชนะ
         SetState(GameState.Victory);
         OnVictory.Invoke();
         Debug.Log($"[GameManager] Victory! Time: {FormatTime(SessionTime)} | Killed: {EnemiesKilled}");
@@ -217,9 +247,10 @@ public class GameManager : MonoBehaviour
         if (CurrentState != GameState.Playing) return;
 
         _timerRunning = false;
+        Time.timeScale = 0f;   // [เพิ่ม] หยุดเกมตอนโชว์ popup แพ้
         SetState(GameState.GameOver);
         OnGameOver.Invoke();
-        Debug.Log("[GameManager] Game Over — หมอกกลืนกินคริสตัลจนหมด");
+        Debug.Log("[GameManager] Game Over — เลือดหมด หรือ หมอกเต็ม 100%");
     }
 
     // ─────────────────────────────────────────────
