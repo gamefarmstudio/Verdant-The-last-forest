@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
@@ -30,10 +30,7 @@ public class TestSpawnEnemy : MonoBehaviour
         // Keyboard.current เป็น null ได้ถ้าไม่มี keyboard เชื่อมต่อ (เช่น build บนมือถือ) — กันไว้ก่อน
         if (Keyboard.current == null) return;
 
-        if (Keyboard.current.qKey.wasPressedThisFrame) SpawnEnemy(prefab_E1, "E1");
-        if (Keyboard.current.wKey.wasPressedThisFrame) SpawnEnemy(prefab_E2, "E2");
-        if (Keyboard.current.eKey.wasPressedThisFrame) SpawnEnemy(prefab_E3, "E3");
-        if (Keyboard.current.rKey.wasPressedThisFrame) SpawnEnemy(prefab_E4, "E4");
+
     }
 
     private void SpawnEnemy(GameObject prefab, string enemyID)

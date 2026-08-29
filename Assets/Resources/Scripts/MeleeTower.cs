@@ -12,6 +12,7 @@ public class MeleeTower : MonoBehaviour, IUpgradableTower   // [เพิ่ม]
     [Tooltip("Prefab ป้อมประชิดเลเวลถัดไป (เว้นว่าง = เลเวลสูงสุด)")]
     [SerializeField] private GameObject nextLevelPrefab;
 
+    public static MeleeTower Instance { get; private set; }   // [เพิ่ม] singleton สำหรับเรียกใช้จาก KnightUnit
     public string TowerId => towerId;
     public GameObject NextLevelPrefab => nextLevelPrefab;
 
@@ -31,13 +32,13 @@ public class MeleeTower : MonoBehaviour, IUpgradableTower   // [เพิ่ม]
 
     private KnightUnit _knight;
     private float _respawnTimer;
-    private Transform _transform;
-    
-    
+    [HideInInspector] public int _Health;   // [เพิ่ม] ให้ TowerSlot/UpgradePopup อ่านค่า HP อัศวินได้ (อ้างจาก towers.csv)
+
     void Start() => Summon();
 
     void Update()
     {
+        _Health = _knight != null ? _knight._hp : 0;   // [เพิ่ม] ให้ TowerSlot/UpgradePopup อ่านค่า HP อัศวินได้ (อ้างจาก towers.csv)
         if (_knight != null) return;   // ยังมีอัศวินอยู่ (Destroy แล้วจะกลายเป็น null เอง)
 
         _respawnTimer -= Time.deltaTime;
@@ -58,7 +59,7 @@ public class MeleeTower : MonoBehaviour, IUpgradableTower   // [เพิ่ม]
         // [เพิ่ม] โหลดสเตตัสอัศวินจาก towers.csv ตาม towerId ของป้อม (เลเวลนี้)
         var rec = TowerDatabase.Instance != null ? TowerDatabase.Instance.GetByID(towerId) : null;
         if (rec != null)
-            _knight.Configure(rec.hp, Mathf.RoundToInt(rec.damage), rec.atkSpeed, rec.range);
+            _knight.Configure( rec.hp, Mathf.RoundToInt(rec.damage), rec.atkSpeed, rec.range);
 
         _knight.Init(pos);
         _knight.OnDeath += HandleKnightDeath;

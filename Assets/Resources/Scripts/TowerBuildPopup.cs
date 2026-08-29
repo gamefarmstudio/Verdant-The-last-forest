@@ -32,6 +32,7 @@ public class TowerBuildPopup : MonoBehaviour
 
     public void Show(TowerSlot slot)
     {
+        Time.timeScale = 0.1f; // หยุดเกมชั่วคราวตอนเมนูเปิด
         gameObject.SetActive(true);
         SetupButtons();
         PositionNearSlot(slot.transform.position);
@@ -43,6 +44,7 @@ public class TowerBuildPopup : MonoBehaviour
 
     public void Hide()
     {
+        Time.timeScale = 1f; // รีเซ็ตเวลาเกมเมื่อเมนูปิด
         //gameObject.SetActive(false);
         panelRect.DOKill();
         panelRect.DOScale(0f, 0.25f).SetEase(Ease.OutBack).SetUpdate(false);
@@ -116,7 +118,7 @@ public class TowerBuildPopup : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvasRect, screenPos, null, out Vector2 localPos);
 
-        panelRect.anchoredPosition = localPos + new Vector2(0, 90f);
+        panelRect.anchoredPosition = localPos + new Vector2(0, -10f);
         ClampToScreen();
     }
 

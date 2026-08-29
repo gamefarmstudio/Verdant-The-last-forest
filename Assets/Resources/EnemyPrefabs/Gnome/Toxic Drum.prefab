@@ -204,6 +204,7 @@ MonoBehaviour:
   OnReachedBase:
     m_PersistentCalls:
       m_Calls: []
+  meleeAttackInterval: 1
 --- !u!114 &-6416470067626517886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   reachThreshold: 0.05
-  flipToFaceDirection: 1
+  flipToFaceDirection: 0
 --- !u!114 &-1585883695621343194
 MonoBehaviour:
   m_ObjectHideFlags: 0

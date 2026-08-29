@@ -37,12 +37,14 @@ public class DoTween : MonoBehaviour
     }
     public void ResetTransform()
     {
+        transform.DOKill();
         targetTransform.localPosition = Vector3.zero;
         targetTransform.localScale = Vector3.one;
         targetTransform.localRotation = Quaternion.identity;
     }
     public void PlayTween()
     {
+        ResetTransform();
         if (usingMoveTween)
         {
             targetTransform.DOMove(targetPosition, duration).SetEase(easeType);

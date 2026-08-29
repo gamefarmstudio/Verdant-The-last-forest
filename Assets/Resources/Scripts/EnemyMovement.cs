@@ -4,8 +4,6 @@ using UnityEngine;
 /// EnemyMovement — เดินมอนตาม EnemyPath จากจุดเกิดไปหา Crystal
 /// ความเร็วดึงจาก EnemyBase.MoveSpeed (มาจาก CSV) — ถึงปลายทางแล้วเรียก ReachBase()
 /// อัปเดต EnemyBase.PathProgress (0..1) ให้ป้อมโหมด First/Last เลือกเป้าได้
-///
-/// WaveManager จะ AddComponent ตัวนี้ให้อัตโนมัติตอน spawn (ไม่ต้องใส่บน prefab ก็ได้)
 /// </summary>
 [RequireComponent(typeof(EnemyBase))]
 public class EnemyMovement : MonoBehaviour
@@ -27,32 +25,47 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         offset_Y = Random.Range(-1f, 0.5f);  // random offset Y เพื่อไม่ให้มอนซ้อนกันเป๊ะ
-        var path = FindAnyObjectByType<EnemyPath>();
-        if (path == null || !path.IsValid)
+        
+        // ค้นหา Path ทั้งหมดในฉาก
+        EnemyPath[] allPaths = FindObjectsByType<EnemyPath>(FindObjectsSortMode.None);
+        
+        if (allPaths == null || allPaths.Length == 0)
         {
             Debug.LogWarning("[EnemyMovement] ไม่พบ EnemyPath ที่ถูกต้องในฉาก — มอนจะอยู่กับที่", this);
             enabled = false;
             return;
         }
 
-        _waypoints  = path.Waypoints;
-        _totalLength = path.TotalLength;
+        // --- THE FIX: สุ่มเลือก Path แบบ 100% ไม่สนใจจุดเกิด ---
+        int randomIndex = Random.Range(0, allPaths.Length);
+        EnemyPath chosenPath = allPaths[randomIndex];
 
-        transform.position = _waypoints[0].position + Vector3.up * offset_Y;  // เริ่มที่จุดเกิด
-        _index = 1;                                     // มุ่งหน้า waypoint ถัดไป
+        if (chosenPath != null && chosenPath.IsValid)
+        {
+            _waypoints  = chosenPath.Waypoints;
+            _totalLength = chosenPath.TotalLength;
+
+            // ย้ายมอนสเตอร์ไปที่จุดเริ่มต้นของ Path ที่สุ่มได้ทันที
+            transform.position = _waypoints[0].position + Vector3.up * offset_Y;  
+            _index = 1;                                                           
+        }
+        else
+        {
+            enabled = false;
+        }
     }
 
     void Update()
     {
         if (_enemy.IsDead || _waypoints == null || _index >= _waypoints.Length) return;
-        if (_enemy.IsBlocked) return;   // [เพิ่ม] ถูกอัศวินบล็อก → หยุดเดิน (เดินต่อเมื่ออัศวินตาย)
+        if (_enemy.IsBlocked) return;   // ถูกอัศวินบล็อก → หยุดเดิน (เดินต่อเมื่ออัศวินตาย)
 
         Transform wp = _waypoints[_index];
         if (wp == null) { _index++; return; }
 
         Vector3 target = wp.position + Vector3.up * offset_Y;
         Vector3 before = transform.position;
-        float step = _enemy.MoveSpeed * _enemy.SpeedMultiplier * Time.deltaTime;   // [เพิ่ม] คูณ slow/freeze
+        float step = _enemy.MoveSpeed * _enemy.SpeedMultiplier * Time.deltaTime;   // คูณ slow/freeze
 
         transform.position = Vector3.MoveTowards(before, target, step);
         _traveled += Vector3.Distance(before, transform.position);

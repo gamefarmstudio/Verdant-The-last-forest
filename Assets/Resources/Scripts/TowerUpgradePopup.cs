@@ -23,6 +23,7 @@ public class TowerUpgradePopup : MonoBehaviour
 
     public void Show(TowerSlot slot)
     {
+        Time.timeScale = 0.1f; // หยุดเกมชั่วคราวตอนเมนูเปิด
         _slot = slot;
         gameObject.SetActive(true);
         Refresh();
@@ -31,6 +32,8 @@ public class TowerUpgradePopup : MonoBehaviour
 
     public void Hide()
     {
+        Time.timeScale = 1f; // รีเซ็ตเวลาเกมเมื่อเมนูปิด
+
         _slot = null;
         gameObject.SetActive(false);
     }

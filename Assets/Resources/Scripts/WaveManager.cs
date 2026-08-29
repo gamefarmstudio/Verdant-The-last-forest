@@ -17,15 +17,19 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject defaultEnemyPrefab;
     [SerializeField] private GameObject bossPrefab;
 
-    [Header("Spawn")]
-    [Tooltip("จุด spawn (สุ่มเลือก) — เว้นว่างจะ spawn ที่ตำแหน่ง WaveManager เอง")]
+    [Header("Spawn Points / Paths")]
+    [Tooltip("จุด spawn ทั้งหมด (0 = ทางแรก, 1 = ทางที่สอง, 2 = ทางที่สาม ฯลฯ)")]
     [SerializeField] private Transform[] spawnPoints;
+
+    [Header("Custom Spawn Pattern")]
+    [Tooltip("ใส่ลำดับ Index ของจุด spawn ตามที่ต้องการ เช่น [0, 1, 0, 2] — ถ้าปล่อยว่างจะสลับเรียงตามลำดับปกติ")]
+    [SerializeField] private int[] spawnPattern;
+
     [Tooltip("ใช้เมื่อ Spawn Interval ใน CSV เป็น 0")]
     [SerializeField] private float defaultSpawnInterval = 0.8f;
 
     [Header("การไหลของเวฟ")]
     [SerializeField] private float delayBetweenWaves = 3f;
-    // [แก้] ปิด auto-start — ด่านแรกให้ผู้เล่นกดปุ่ม "เริ่มเวฟถัดไป" เอง (ดู NextWaveButtonUI)
     [SerializeField] private bool autoStartNextWave = false;
 
     [Header("ให้ป้อมตรวจจับได้")]
@@ -35,12 +39,11 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float autoColliderRadius = 0.4f;
 
     private readonly List<EnemyBase> _alive = new List<EnemyBase>();
+    private int _patternStepIndex = 0;
     private int _enemyLayer = -1;
     private Coroutine _waveRoutine;
 
     public int AliveCount => _alive.Count;
-
-    // ─────────────────────────────────────────────
 
     void Start()
     {
@@ -60,10 +63,6 @@ public class WaveManager : MonoBehaviour
             GameManager.Instance.OnWaveStart.RemoveListener(HandleWaveStart);
     }
 
-    // ─────────────────────────────────────────────
-    // WAVE FLOW
-    // ─────────────────────────────────────────────
-
     public void HandleWaveStart(int wave)
     {
         if (_waveRoutine != null) StopCoroutine(_waveRoutine);
@@ -73,18 +72,12 @@ public class WaveManager : MonoBehaviour
     private IEnumerator RunWave(int wave)
     {
         _alive.Clear();
-
-        if (WaveDatabase.Instance == null || !WaveDatabase.Instance.IsLoaded)
+        
+        if (WaveDatabase.Instance == null || !WaveDatabase.Instance.IsLoaded || 
+            EnemyDatabase.Instance == null || !EnemyDatabase.Instance.IsLoaded)
         {
-            Debug.LogError("[WaveManager] WaveDatabase ยังไม่พร้อม — ข้ามเวฟ");
-            yield return FinishWave(wave, null);
-            yield break;
-        }
-        if (EnemyDatabase.Instance == null || !EnemyDatabase.Instance.IsLoaded)
-        {
-            Debug.LogError("[WaveManager] EnemyDatabase ยังไม่พร้อม — ข้ามเวฟ");
-            yield return FinishWave(wave, null);
-            yield break;
+            Debug.LogError("[WaveManager] Databases not ready — Aborting wave start.");
+            yield break; 
         }
 
         var rec = WaveDatabase.Instance.GetWave(wave);
@@ -108,28 +101,25 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        // เวฟบอสที่ยังไม่มีบอสในองค์ประกอบ → เติมบอสจาก bosses.csv
-        if (rec.IsBossWave && !bossSpawned &&
-            EnemyDatabase.Instance.HasBossOnWave(wave))
+        if (rec.IsBossWave && !bossSpawned && EnemyDatabase.Instance.HasBossOnWave(wave))
         {
             var b = EnemyDatabase.Instance.GetBossForWave(wave);
             if (b != null) SpawnEnemy(b.id, true);
         }
 
         if (rec.spawns.Count == 0 && !rec.IsBossWave)
-            Debug.LogWarning($"[WaveManager] เวฟ {wave} ยังไม่มีองค์ประกอบใน waves_enemies.csv — ยังไม่ได้ใส่ข้อมูล");
+            Debug.LogWarning($"[WaveManager] เวฟ {wave} ยังไม่มีองค์ประกอบใน waves_enemies.csv");
 
         yield return FinishWave(wave, rec);
     }
 
     private IEnumerator FinishWave(int wave, WaveRecord rec)
     {
-        while (true)
+        yield return new WaitUntil(() => 
         {
             _alive.RemoveAll(e => e == null || e.IsDead);
-            if (_alive.Count == 0) break;
-            yield return null;
-        }
+            return _alive.Count == 0;
+        });
 
         if (rec != null && rec.reward > 0 && CurrencyManager.Instance != null)
         {
@@ -137,49 +127,32 @@ public class WaveManager : MonoBehaviour
             Debug.Log($"[WaveManager] จบเวฟ {wave} — reward {rec.reward} crystal");
         }
 
-        GameManager.Instance.NotifyWaveCompleted();
-
-        if (autoStartNextWave &&
-            GameManager.Instance.CurrentState == GameManager.GameState.Playing &&
-            wave < GameManager.Instance.totalWaves)
+        if (GameManager.Instance != null)
         {
-            yield return new WaitForSeconds(delayBetweenWaves);
-            GameManager.Instance.StartNextWave();
+            GameManager.Instance.NotifyWaveCompleted();
+
+            if (autoStartNextWave &&
+                GameManager.Instance.CurrentState == GameManager.GameState.Playing &&
+                wave < GameManager.Instance.totalWaves)
+            {
+                yield return new WaitForSeconds(delayBetweenWaves);
+                GameManager.Instance.StartNextWave();
+            }
         }
 
         _waveRoutine = null;
     }
-
-    // ─────────────────────────────────────────────
-    // SPAWN
-    // ─────────────────────────────────────────────
 
     private void SpawnEnemy(string id, bool isBoss)
     {
         GameObject prefab = ResolvePrefab(id, isBoss);
         if (prefab == null)
         {
-            Debug.LogError($"[WaveManager] ไม่มี prefab สำหรับ {(isBoss ? "boss" : "enemy")} '{id}' " +
-                           $"(ตั้ง defaultEnemyPrefab / bossPrefab หรือเพิ่มใน enemyPrefabs)");
+            Debug.LogError($"[WaveManager] ไม่มี prefab สำหรับ {(isBoss ? "boss" : "enemy")} '{id}'");
             return;
         }
 
-        Vector3 pos; 
-
-        if (spawnPoints != null && spawnPoints.Length > 1) 
-        {
-            // ลบการสุ่ม Seed แบบเก่าออก เพื่อให้ระบบสุ่มของ Unity กระจายตำแหน่งอย่างเป็นธรรมชาติทุกตัวที่เกิด
-            int randomIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
-            pos = spawnPoints[randomIndex].position; 
-        }
-        else if (spawnPoints != null && spawnPoints.Length == 1)
-        {
-            pos = spawnPoints[0].position; 
-        }
-        else 
-        {
-            pos = transform.position;
-        }
+        Vector3 pos = GetPatternSpawnPosition();
 
         GameObject obj = Instantiate(prefab, pos, Quaternion.identity);
 
@@ -195,13 +168,50 @@ public class WaveManager : MonoBehaviour
         _alive.Add(enemy);
     }
 
+    // ─────────────────────────────────────────────
+    // CUSTOM PATTERN SPAWN LOGIC (e.g. 0, 1, 0, 2)
+    // ─────────────────────────────────────────────
+    private Vector3 GetPatternSpawnPosition()
+    {
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            return transform.position;
+        }
+
+        int targetIndex;
+
+        // 1. If a custom pattern array is provided, follow it in order
+        if (spawnPattern != null && spawnPattern.Length > 0)
+        {
+            int rawIndex = spawnPattern[_patternStepIndex];
+            
+            // Safe clamp using modulo in case index is out of bounds
+            targetIndex = Mathf.Abs(rawIndex) % spawnPoints.Length;
+
+            // Move to next step in the pattern, looping back when reaching the end
+            _patternStepIndex = (_patternStepIndex + 1) % spawnPattern.Length;
+        }
+        else
+        {
+            // 2. Default fallback: Sequential round-robin (0, 1, 2...)
+            targetIndex = _patternStepIndex % spawnPoints.Length;
+            _patternStepIndex = (_patternStepIndex + 1) % spawnPoints.Length;
+        }
+
+        Transform targetPath = spawnPoints[targetIndex];
+        return targetPath != null ? targetPath.position : transform.position;
+    }
+
     private GameObject ResolvePrefab(string id, bool isBoss)
     {
         if (enemyPrefabs != null)
+        {
             foreach (var e in enemyPrefabs)
+            {
                 if (e != null && e.id == id && e.prefab != null)
                     return e.prefab;
-
+            }
+        }
         return isBoss ? bossPrefab : defaultEnemyPrefab;
     }
 

@@ -10,6 +10,7 @@ using UnityEngine.UI; // [Fix] แก้ไข Typo จาก UntyEngine.UI เ�
 //   หมายเหตุ: วาง prefab อัศวินบน layer ที่ไม่ใช่ Enemy
 public class KnightUnit : MonoBehaviour
 {
+    public static KnightUnit Instance { get; private set; }   // [เพิ่ม] singleton สำหรับเรียกใช้จาก MeleeTower
     [Header("Stats")]
     [SerializeField] private int maxHP = 100;
     [SerializeField] private int damage = 25;
@@ -45,7 +46,7 @@ public class KnightUnit : MonoBehaviour
     public int CurrentHP => _hp;
     public System.Action OnDeath;
 
-    private int _hp;
+    [HideInInspector] public int _hp;
     private float _attackTimer;
     private Vector3 _rallyPoint;
     private ContactFilter2D _filter;
@@ -62,9 +63,9 @@ public class KnightUnit : MonoBehaviour
     private Slider _healthSlider;
 
     // [เพิ่ม] ตั้งสเตตัสจากภายนอก (MeleeTower โหลดจาก towers.csv) — เรียกก่อน Init
-    public void Configure(int hp, int dmg, float atkInterval, float reach)
+    public void Configure( int hp, int dmg, float atkInterval, float reach)
     {
-        maxHP = hp;
+        maxHP = 100;
         _hp = hp;
         damage = dmg;
         if (atkInterval > 0f) attackInterval = atkInterval;

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   reachThreshold: 0.05
-  flipToFaceDirection: 1
+  flipToFaceDirection: 0
 --- !u!61 &-2266749476055909504
 BoxCollider2D:
   m_ObjectHideFlags: 0

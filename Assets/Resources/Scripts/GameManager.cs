@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// GameManager — ควบคุมภาพรวมของเกม Verdant: The Last Forest
@@ -66,6 +68,9 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnGameOver = new UnityEvent();
     public UnityEvent<GameState> OnStateChanged = new UnityEvent<GameState>();
     public UnityEvent<int> OnBaseHPChanged = new UnityEvent<int>();   // [เพิ่ม] int = HP ที่เหลือ (ให้ UI แถบเลือด)
+    [Header("UI")]
+    public Slider HealthBarSlider; // Reference to the UI Slider for health bar
+    public TextMeshProUGUI WaveText; // Reference to the UI Text for wave information
 
     // ─────────────────────────────────────────────
     // SINGLETON SETUP
@@ -129,6 +134,7 @@ public class GameManager : MonoBehaviour
         // [เพิ่ม] รีเซ็ตเลือด + คืน timeScale (กันค้าง 0 จากรอบก่อนที่ pause ตอนจบเกม)
         BaseHP = baseMaxHP;
         OnBaseHPChanged.Invoke(BaseHP);
+        HealthBarSlider.value = 1f; // Reset the health bar slider
         Time.timeScale = 1f;
 
         _timerRunning = true;
@@ -183,6 +189,7 @@ public class GameManager : MonoBehaviour
         CurrentWave++;
         OnWaveStart.Invoke(CurrentWave);
 
+        WaveText.text = $"{CurrentWave}/{totalWaves}";
         Debug.Log($"[GameManager] Wave {CurrentWave}/{totalWaves} started");
     }
 
@@ -198,6 +205,7 @@ public class GameManager : MonoBehaviour
         BaseHP = Mathf.Max(0, BaseHP - amount);
         OnBaseHPChanged.Invoke(BaseHP);
         Debug.Log($"[GameManager] Crystal took {amount} damage — HP {BaseHP}/{baseMaxHP}");
+        HealthBarSlider.value = (float)BaseHP / baseMaxHP; // Update the health bar slider
 
         if (BaseHP <= 0) TriggerGameOver();
     }

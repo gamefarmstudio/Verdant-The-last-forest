@@ -86,7 +86,7 @@ public class TowerPlacementManager : MonoBehaviour
         if (!CurrencyManager.Instance.CanAfford(next.cost)) { Debug.LogWarning("[Upgrade] เงินไม่พอ"); return; }
 
         CurrencyManager.Instance.Spend(next.cost);
-        _activeSlot.ReplaceTower(nextPrefab);   // [แก้] ทำลายตัวเก่า + วาง prefab เลเวลใหม่ (เดิม Reconfigure ค่า)
+        _activeSlot.ReplaceTower(nextPrefab,(this.gameObject),true);   // [แก้] ทำลายตัวเก่า + วาง prefab เลเวลใหม่ (เดิม Reconfigure ค่า)
 
         // feedback: เด้งป้อมใหม่นิดๆ
         if (_activeSlot.placedTower != null)
