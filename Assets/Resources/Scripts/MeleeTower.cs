@@ -12,7 +12,6 @@ public class MeleeTower : MonoBehaviour, IUpgradableTower   // [เพิ่ม]
     [Tooltip("Prefab ป้อมประชิดเลเวลถัดไป (เว้นว่าง = เลเวลสูงสุด)")]
     [SerializeField] private GameObject nextLevelPrefab;
 
-    public static MeleeTower Instance { get; private set; }   // [เพิ่ม] singleton สำหรับเรียกใช้จาก KnightUnit
     public string TowerId => towerId;
     public GameObject NextLevelPrefab => nextLevelPrefab;
 

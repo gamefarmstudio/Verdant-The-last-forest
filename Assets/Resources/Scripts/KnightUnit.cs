@@ -10,7 +10,6 @@ using UnityEngine.UI; // [Fix] แก้ไข Typo จาก UntyEngine.UI เ�
 //   หมายเหตุ: วาง prefab อัศวินบน layer ที่ไม่ใช่ Enemy
 public class KnightUnit : MonoBehaviour
 {
-    public static KnightUnit Instance { get; private set; }   // [เพิ่ม] singleton สำหรับเรียกใช้จาก MeleeTower
     [Header("Stats")]
     [SerializeField] private int maxHP = 100;
     [SerializeField] private int damage = 25;
@@ -41,6 +40,9 @@ public class KnightUnit : MonoBehaviour
     [Header("Animations")]
     [SerializeField] private Animator animator;
     [SerializeField] private string TriggerAttack = "IsAttacking";   // bool param — true = กำลังตี, false = เดิน/ยืน
+    [Header("Sound")]
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioSource audioSource;   // เว้นว่างได้ — จะหาเอง/เพิ่มให้อัตโนมัติใน Awake
 
     public bool IsAlive => _hp > 0;
     public int CurrentHP => _hp;
@@ -102,6 +104,11 @@ public class KnightUnit : MonoBehaviour
         _filter.SetLayerMask(mask);
         _filter.useTriggers = true;
 
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+        
+        audioSource.playOnAwake = false;
+
         SetupHealthBar();
     }
 
@@ -150,8 +157,9 @@ public class KnightUnit : MonoBehaviour
 
         UpdateBlockSet();   // เพิ่ม/ปลด มอนที่กั้นอยู่ตามรัศมี + เพดาน
 
-        // เป้าเคลื่อนที่: ถ้ากำลังกั้นอยู่ → ยืนกับที่ (กั้นตัวใกล้สุด), ถ้าว่าง → เดินไปดักมอนใกล้สุด
-        EnemyBase moveTarget = _blocked.Count > 0 ? NearestBlocked() : NearestEnemyInDetect();
+        // เป้าเคลื่อนที่: ถ้ากำลังกั้นอยู่ → ยืนกับที่ (กั้นตัวใกล้สุด — รวม B1 ด้วย กันหลุดบล็อกตอนตีมันไม่ได้),
+        // ถ้าว่าง → เดินไปดักมอนใกล้สุด
+        EnemyBase moveTarget = _blocked.Count > 0 ? NearestBlockedAny() : NearestEnemyInDetect();
 
         if (moveAlongPath && _path != null && _path.IsValid)
             MoveAlongPath(moveTarget);
@@ -165,9 +173,14 @@ public class KnightUnit : MonoBehaviour
             _attackTimer -= Time.deltaTime;
             if (_attackTimer <= 0f)
             {
-                if(animator != null) animator.SetTrigger(TriggerAttack);
                 _attackTimer = attackInterval;
                 atk.TakeDamage(damage);
+                if (animator != null) animator.SetTrigger(TriggerAttack);
+                if (attackSound != null && audioSource != null) 
+                {
+                    audioSource.clip = attackSound;
+                    audioSource.PlayOneShot(attackSound);
+                }
             }
         }
         else
@@ -216,7 +229,23 @@ public class KnightUnit : MonoBehaviour
         }
     }
 
+    // ใช้เลือกเป้าโจมตี — ยกเว้น B1 (ตีไม่ได้)
     EnemyBase NearestBlocked()
+    {
+        EnemyBase best = null; float bestSqr = float.MaxValue;
+        for (int i = 0; i < _blocked.Count; i++)
+        {
+            var e = _blocked[i];
+            if (e == null || e.IsDead) continue;
+            if (e.gameObject.name.Contains("B1") && damage == 60) continue;   // cannot attack dragon — skip as a candidate entirely
+            float sqr = ((Vector2)(e.transform.position - transform.position)).sqrMagnitude;
+            if (sqr < bestSqr) { bestSqr = sqr; best = e; }
+        }
+        return best;
+    }
+
+    // ใช้เลือกเป้าสำหรับ "ยืนกั้น" — รวม B1 ด้วย กันอัศวินเดินหนีจนหลุดบล็อกตอนกั้น B1 อยู่ตัวเดียว
+    EnemyBase NearestBlockedAny()
     {
         EnemyBase best = null; float bestSqr = float.MaxValue;
         for (int i = 0; i < _blocked.Count; i++)

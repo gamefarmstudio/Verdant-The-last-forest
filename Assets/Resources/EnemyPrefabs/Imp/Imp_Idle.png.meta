@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 8786787374f945243b81190acc427166
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1764284717018414643
+    second: Imp_Idle_0
+  - first:
+      213: 685512129739465589
+    second: Imp_Idle_1
+  - first:
+      213: -282802100930670427
+    second: Imp_Idle_2
+  - first:
+      213: 9032717783304836938
+    second: Imp_Idle_3
+  - first:
+      213: -421428769524980297
+    second: Imp_Idle_4
+  - first:
+      213: 3375548584026727402
+    second: Imp_Idle_5
+  - first:
+      213: -7068625896367293911
+    second: Imp_Idle_6
+  - first:
+      213: 1658038609087294327
+    second: Imp_Idle_7
+  - first:
+      213: -6349743064890354851
+    second: Imp_Idle_8
+  - first:
+      213: -5192754169817724998
+    second: Imp_Idle_9
+  - first:
+      213: -480634114316461793
+    second: Imp_Idle_10
+  - first:
+      213: -5208692776958543784
+    second: Imp_Idle_11
+  - first:
+      213: 7622518153562318275
+    second: Imp_Idle_12
+  - first:
+      213: 4364200468724273388
+    second: Imp_Idle_13
+  - first:
+      213: 2221316112835936470
+    second: Imp_Idle_14
+  - first:
+      213: 3665345945583122008
+    second: Imp_Idle_15
+  - first:
+      213: -7346278535754183367
+    second: Imp_Idle_16
+  - first:
+      213: -9088423407760005896
+    second: Imp_Idle_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Imp_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 62
+        width: 78
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1877fb5600487e0800000000000000
+      internalID: -1764284717018414643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 113
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 573a75666ad638900800000000000000
+      internalID: 685512129739465589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 63
+        width: 74
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a01b40dcf8431cf0800000000000000
+      internalID: -282802100930670427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 62
+        width: 83
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a471d3e67f8aa5d70800000000000000
+      internalID: 9032717783304836938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 63
+        width: 81
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5655654c8c62af0800000000000000
+      internalID: -421428769524980297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 64
+        width: 82
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae36cf08d8b58de20800000000000000
+      internalID: 3375548584026727402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 113
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a76ecc23237ed90800000000000000
+      internalID: -7068625896367293911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 64
+        width: 80
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77be78e8459820710800000000000000
+      internalID: 1658038609087294327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 63
+        width: 86
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d53d53a235e21e7a0800000000000000
+      internalID: -6349743064890354851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 62
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab7061e4891afe7b0800000000000000
+      internalID: -5192754169817724998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 39
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f199b3dc1d17459f0800000000000000
+      internalID: -480634114316461793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 39
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8583e35248107b7b0800000000000000
+      internalID: -5208692776958543784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 39
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c56c05ffdf98c960800000000000000
+      internalID: 7622518153562318275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 39
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce057ea2431c09c30800000000000000
+      internalID: 4364200468724273388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 39
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0007f4c33b3de10800000000000000
+      internalID: 2221316112835936470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 39
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8567669b7bcedd230800000000000000
+      internalID: 3665345945583122008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 39
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d8b4f0896cc0a90800000000000000
+      internalID: -7346278535754183367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 39
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4ae1c201f6fd180800000000000000
+      internalID: -9088423407760005896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Imp_Idle_0: -1764284717018414643
+      Imp_Idle_1: 685512129739465589
+      Imp_Idle_10: -480634114316461793
+      Imp_Idle_11: -5208692776958543784
+      Imp_Idle_12: 7622518153562318275
+      Imp_Idle_13: 4364200468724273388
+      Imp_Idle_14: 2221316112835936470
+      Imp_Idle_15: 3665345945583122008
+      Imp_Idle_16: -7346278535754183367
+      Imp_Idle_17: -9088423407760005896
+      Imp_Idle_2: -282802100930670427
+      Imp_Idle_3: 9032717783304836938
+      Imp_Idle_4: -421428769524980297
+      Imp_Idle_5: 3375548584026727402
+      Imp_Idle_6: -7068625896367293911
+      Imp_Idle_7: 1658038609087294327
+      Imp_Idle_8: -6349743064890354851
+      Imp_Idle_9: -5192754169817724998
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -33,10 +33,10 @@ Material:
     - _BubbleScale: 0.2
     - _BubbleSpeed: 0.7
     - _ColorMask: 15
-    - _FlowBright: 0.166
+    - _FlowBright: 0.34
     - _FlowScale: 5
     - _FlowSpeed: 0.6
-    - _Glow: 1.31
+    - _Glow: 3
     - _PulseAmt: 0.5
     - _PulseSpeed: 3
     - _Stencil: 0

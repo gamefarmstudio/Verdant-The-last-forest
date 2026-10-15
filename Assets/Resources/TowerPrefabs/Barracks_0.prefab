@@ -208,6 +208,7 @@ MonoBehaviour:
   snapRallyToPath: 1
   pathShift: 0
   respawnDelay: 12
+  _Health: 0
 --- !u!82 &7118292714035937958
 AudioSource:
   m_ObjectHideFlags: 0
@@ -217,7 +218,8 @@ AudioSource:
   m_GameObject: {fileID: 1981811790828511682}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3131945099270323466, guid: c2fef627e7f579347a5acf655f4d5c68,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8da9fd94d67634f4086c448700261495, type: 3}
   m_PlayOnAwake: 1

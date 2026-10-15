@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using Verdant.Combat;   // IDamageable — ให้ป้อม/ลูกธนูยิงโดนได้
@@ -62,7 +63,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     // ─────────────────────────────────────────────
     // SETUP — เรียกทันทีหลัง Instantiate
     // ─────────────────────────────────────────────
-
+    
     /// <summary>ใช้กับ enemy ปกติ — ดึง stats จาก EnemyRecord</summary>
     public void ApplyRecord(EnemyRecord record)
     {
@@ -147,7 +148,77 @@ public class EnemyBase : MonoBehaviour, IDamageable
         OnHPChanged.Invoke(CurrentHP);
 
         if (CurrentHP <= 0)
+        {
             RemoveByPlayer(RewardKill, "killed");   // ตายจากดาเมจ → reward kill
+            return;
+        }
+
+        FlashOnHit();   // [เพิ่ม] วาบสีขาวสั้นๆ ให้เห็นว่าโดนตี (ข้ามถ้าตายไปแล้ว เพราะ object กำลังจะถูก Destroy)
+    }
+
+    // ─────────────────────────────────────────────
+    // [เพิ่ม] HIT FLASH — วาบสีตอนโดนโจมตี (enemy ปกติ + boss ใช้ร่วมกัน)
+    // ─────────────────────────────────────────────
+
+    [Header("Hit Flash")]
+    // [แก้] Color.white เฉยๆ (1,1,1,1) เป็นค่า tint ปกติของ sprite อยู่แล้ว — คูณสีขาวเข้าไปเลยไม่เห็นผลอะไร
+    //      ใช้ค่าเกิน 1 แทน (เช่น 6,6,6,1) — shader ของ sprite คูณ texture ด้วยค่านี้
+    //      ทำให้พิกเซลที่ไม่ได้ดำสนิทถูก "โอเวอร์เอ็กซ์โพส" จนขาวจ้า ได้เอฟเฟกต์วาบขาวจริงๆ
+    //      (พิกเซลที่ดำสนิท (0,0,0) จะยังดำอยู่เสมอ ไม่ว่าคูณเท่าไหร่ก็ตาม — เช่น เส้น outline สีดำ)
+    [SerializeField] private Color hitFlashColor = new Color(2.2f, 2.2f, 2.2f, 1f);
+    [SerializeField] private float hitFlashDuration = 0.1f;
+
+    private SpriteRenderer[] _spriteRenderers;
+    private Color[] _originalColors;
+    private Coroutine _flashRoutine;
+    void Start()
+    {
+        if (enemyRecord == null && bossRecord == null)
+            Debug.LogWarning($"[EnemyBase] {gameObject.name} ยังไม่ได้ ApplyRecord() หรือ ApplyBossRecord()");
+            hitFlashColor = new Color(2.2f, 2.2f, 2.2f, 1f);   // safety — ถ้าไม่ตั้งใน inspector ให้ใช้ค่า default
+    }
+
+    private void CacheSpriteRenderers()
+    {
+        if (_spriteRenderers != null) return;   // แคชครั้งเดียวพอ — สีต้นฉบับต้องมาจากก่อนวาบครั้งแรกเท่านั้น
+
+        _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        _originalColors  = new Color[_spriteRenderers.Length];
+        for (int i = 0; i < _spriteRenderers.Length; i++)
+            _originalColors[i] = _spriteRenderers[i].color;
+    }
+
+    private void FlashOnHit()
+    {
+        CacheSpriteRenderers();
+        if (_spriteRenderers.Length == 0) return;
+
+        // โดนซ้ำระหว่างที่ยังวาบอยู่ → หยุดรอบเก่าแล้วเริ่มใหม่ (รีเฟรชเวลา ไม่ซ้อนกันจนสีค้าง)
+        if (_flashRoutine != null) StopCoroutine(_flashRoutine);
+        _flashRoutine = StartCoroutine(FlashRoutine());
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        // [แก้] เดิม set สีครั้งเดียวแล้ว WaitForSeconds — แต่ enemy พวกนี้เป็น rig ที่มี Animator
+        // ตั้ง Write Defaults ไว้ (เช็คใน .controller แล้ว) ซึ่งจะ "เขียนสีทับกลับ" ทุกเฟรมที่ Animator
+        // ประมวลผล ทำให้สีที่ set ไว้ครั้งเดียวโดนทับจนมองไม่เห็นเลยแม้แต่เฟรมเดียว
+        // แก้โดย set สีซ้ำทุกเฟรมตลอดช่วง flash แทน — สคริปต์รันหลัง Animator ในแต่ละเฟรมเสมอ
+        // จึงชนะการเขียนทับของ Animator ได้ทุกครั้ง ไม่ว่าสาเหตุจริงจะมาจาก Write Defaults หรือระบบอื่น
+        float elapsed = 0f;
+        while (elapsed < hitFlashDuration)
+        {
+            for (int i = 0; i < _spriteRenderers.Length; i++)
+                if (_spriteRenderers[i] != null) _spriteRenderers[i].color = hitFlashColor;
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        for (int i = 0; i < _spriteRenderers.Length; i++)
+            if (_spriteRenderers[i] != null) _spriteRenderers[i].color = _originalColors[i];
+
+        _flashRoutine = null;
     }
 
     /// <summary>
@@ -269,6 +340,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         if (_meleeTimer <= 0f)
         {
             _meleeTimer = meleeAttackInterval;
+            this.GetComponent<Animator>()?.SetTrigger("IsAttacking");   // trigger animation
             _blocker.TakeDamage(BaseDamage);   // ตีอัศวิน
         }
     }

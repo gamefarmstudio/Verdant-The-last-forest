@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad191bc5414c2e43bf05c3e962e601a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeTower
-  towerId: T1A1
+  towerId: T1A3
   nextLevelPrefab: {fileID: 0}
   knightPrefab: {fileID: -9158293163127423383, guid: 166891fee74788649bb2b5009e6e7578,
     type: 3}
@@ -115,6 +115,7 @@ MonoBehaviour:
   snapRallyToPath: 1
   pathShift: 0
   respawnDelay: 12
+  _Health: 0
 --- !u!82 &-1715280383032114583
 AudioSource:
   m_ObjectHideFlags: 0
@@ -124,7 +125,8 @@ AudioSource:
   m_GameObject: {fileID: 1981811790828511682}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3131945099270323466, guid: c2fef627e7f579347a5acf655f4d5c68,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8da9fd94d67634f4086c448700261495, type: 3}
   m_PlayOnAwake: 1

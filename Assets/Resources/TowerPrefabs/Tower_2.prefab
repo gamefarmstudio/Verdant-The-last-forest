@@ -113,7 +113,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2104606310830300528, guid: ff9e1a94419154a49b8c0778066200ab,
     type: 3}
   projectileSpeed: 25
-  targeting: 2
+  targeting: 0
   muzzle: {fileID: 4790305397470181186}
   rotatePart: {fileID: 954214241443731889}
   enemyLayer:
@@ -129,7 +129,8 @@ AudioSource:
   m_GameObject: {fileID: 637361538954307650}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3131945099270323466, guid: c2fef627e7f579347a5acf655f4d5c68,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8da9fd94d67634f4086c448700261495, type: 3}
   m_PlayOnAwake: 1

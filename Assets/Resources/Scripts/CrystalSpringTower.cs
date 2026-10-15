@@ -102,7 +102,7 @@ public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
         }
 
         if (hitAny && pulseVfxPrefab != null)
-            Destroy(Instantiate(pulseVfxPrefab, transform.position, Quaternion.identity), 1.5f);
+            Destroy(Instantiate(pulseVfxPrefab, transform.position, pulseVfxPrefab.transform.rotation), 1.5f);
     }
 
     void OnDrawGizmosSelected()

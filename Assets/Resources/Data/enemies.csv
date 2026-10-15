@@ -1,8 +1,8 @@
 ID,Name (EN),Name (TH),HP,Speed (tiles/s),Base Damage,Reward Kill (Crystal),Reward Cleanse (Crystal),Pollution Drop,First Appears (Wave),Special Ability,Asset (Tiny Sword),Real-World Symbol
-E1,Smog Skull,ก็อบลินควันพิษ,75,2,5,8,12,1,1,Basic threat,Goblin Warrior,PM 2.5 air pollution
-E2,Toxic Drum,ถังพิษ,165,1,8,15,25,3,2,"Tanky, leaks on death",Barrel Goblin,Industrial waste
-E3,Plastic Bomber,มือระเบิดพลาสติก,95,1.5,3,12,18,2,6,Explodes 50 dmg to towers (AoE),TNT Goblin,Plastic waste
-E4,Oil Lighter,จุดไฟน้ำมัน,105,1.8,2,10,15,2,7,Sets pollution puddles on fire,Torch Goblin,Oil spill
+E1,Smog Skull,ก็อบลินควันพิษ,75,2,5,10,12,1,1,Basic threat,Goblin Warrior,PM 2.5 air pollution
+E2,Toxic Drum,ถังพิษ,165,1,8,18,25,3,2,"Tanky, leaks on death",Barrel Goblin,Industrial waste
+E3,Plastic Bomber,มือระเบิดพลาสติก,95,1.5,3,15,18,2,6,Explodes 50 dmg to towers (AoE),TNT Goblin,Plastic waste
+E4,Oil Lighter,จุดไฟน้ำมัน,105,1.8,2,15,15,2,7,Sets pollution puddles on fire,Torch Goblin,Oil spill
 E5,Smog Brute,มหึมาควันพิษ,315,0.8,5,25,40,4,11,50% damage reduction (armored),Goblin variant,Heavy industry
 E6,Hydra Goblin,ก็อบลินไฮดร้า,215,1.2,4,20,35,2,12,Splits into 2 Smog Goblins on death,Goblin variant,Microplastics
 E7,Shadow Goblin,ก็อบลินเงา,135,1.5,3,15,25,0,16,Invisible (Wildfire detects),Dark goblin,Hidden chemicals

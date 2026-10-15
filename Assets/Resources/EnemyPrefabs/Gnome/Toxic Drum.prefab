@@ -22,7 +22,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: a132c89f9ea84894a9ea2508e44e7cdb, type: 2}
+      objectReference: {fileID: 9100000, guid: 9c0b5aedbbabba84db417b05d58b9e15, type: 2}
     - target: {fileID: 3626916397498700004, guid: 923822dea37963d4998fc57890e88910,
         type: 3}
       propertyPath: m_SortingLayer

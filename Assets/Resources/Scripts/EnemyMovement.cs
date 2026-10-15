@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
 
-        // --- THE FIX: สุ่มเลือก Path แบบ 100% ไม่สนใจจุดเกิด ---
+        // สุ่มเลือก Path แบบ 100% ไม่สนใจจุดเกิด
         int randomIndex = Random.Range(0, allPaths.Length);
         EnemyPath chosenPath = allPaths[randomIndex];
 

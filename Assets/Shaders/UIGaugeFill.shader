@@ -8,7 +8,7 @@ Shader "Verdant/UIGaugeFill"
         _FlowSpeed ("Flow Speed", Float) = 0.6
         _FlowScale ("Flow Scale", Float) = 5
         _FlowBright ("Flow Brightness", Range(0,1)) = 0.25
-        _Glow ("Glow (emissive)", Range(0,2)) = 0.3
+        _Glow ("Glow (emissive)", Range(0,3)) = 0.3
         _PulseSpeed ("Pulse Speed", Float) = 3
         _PulseAmt ("Pulse Amount", Range(0,0.5)) = 0.1
         _BubbleAmount ("Bubble Amount", Range(0,1)) = 0.4

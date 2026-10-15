@@ -19,7 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _Pollution
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -36,13 +36,13 @@ Material:
     - _CausticStrength: 0.78
     - _CausticThreshold: 0.693
     - _DepthRange: 5.47
-    - _FoamStrength: 0.75
+    - _FoamStrength: 0.7
     - _FoamWidth: 0.4
     - _Pixelate: 64
     - _Pollution: 0.7
     - _SurfaceX: 3.9999998
     - _SurfaceY: 1.32
-    - _WaveHighlight: 0.717
+    - _WaveHighlight: 0.7
     - _WaveScale: 0.5
     - _WaveSpeed: 3
     - _WaveStrength: 0.347
@@ -51,6 +51,6 @@ Material:
     - _DeepColor: {r: 0.19023673, g: 0.31908458, b: 0.5377358, a: 0.92}
     - _FoamColor: {r: 0.7122642, g: 0.96751374, b: 1, a: 0.09803922}
     - _ShallowColor: {r: 0.3798505, g: 0.78439176, b: 0.8301887, a: 0.40392157}
-    - _ToxicColor: {r: 0.36003363, g: 0.020247431, b: 0.6132076, a: 1}
+    - _ToxicColor: {r: 0.45501786, g: 0, b: 0.735849, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

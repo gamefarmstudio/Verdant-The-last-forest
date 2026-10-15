@@ -44,7 +44,7 @@ public class TowerBuildPopup : MonoBehaviour
 
     public void Hide()
     {
-        Time.timeScale = 1f; // รีเซ็ตเวลาเกมเมื่อเมนูปิด
+        GameSpeed.RestoreCurrent(); // คืนเวลาเกมกลับไปที่สปีดที่ผู้เล่นเลือกไว้ (1x/2x) แทนที่จะรีเซ็ตเป็น 1x เสมอ
         //gameObject.SetActive(false);
         panelRect.DOKill();
         panelRect.DOScale(0f, 0.25f).SetEase(Ease.OutBack).SetUpdate(false);

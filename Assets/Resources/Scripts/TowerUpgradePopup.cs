@@ -32,7 +32,7 @@ public class TowerUpgradePopup : MonoBehaviour
 
     public void Hide()
     {
-        Time.timeScale = 1f; // รีเซ็ตเวลาเกมเมื่อเมนูปิด
+        GameSpeed.RestoreCurrent(); // คืนเวลาเกมกลับไปที่สปีดที่ผู้เล่นเลือกไว้ (1x/2x) แทนที่จะรีเซ็ตเป็น 1x เสมอ
 
         _slot = null;
         gameObject.SetActive(false);

@@ -53,8 +53,15 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    public static bool IsOpen { get; private set; }
+
     void OnEnable()
     {
+        IsOpen = true;
+        // ถ้า Settings เปิดค้างอยู่ ให้ปิดก่อน กันสองหน้าต่างทับกัน
+        if (SettingsPage.Instance != null && SettingsPage.Instance.IsOpen)
+            SettingsPage.Instance.HideSettingsMenu();
+
         Time.timeScale = tutorialTimeScale;
 
         if (tutorialCanvasGroup != null)
@@ -69,7 +76,8 @@ public class Tutorial : MonoBehaviour
 
     void OnDisable()
     {
-        Time.timeScale = 1f;
+        IsOpen = false;
+        GameSpeed.RestoreCurrent();   // คืนสปีดที่ผู้เล่นเลือกไว้ (1x/2x) แทนการบังคับ 1x
     }
 
     public void ShowTutorialStep(int stepIndex)

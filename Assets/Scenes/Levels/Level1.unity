@@ -10139,8 +10139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrencyManager
   startingCrystal: 200
-  incomePerTick: 2
-  tickInterval: 1
   OnCrystalChanged:
     m_PersistentCalls:
       m_Calls:
@@ -10185,6 +10183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerPlacementManager
   popup: {fileID: 3495699133960706609}
+  upgradePopup: {fileID: 0}
+  sellRefundPercent: 0.6
 --- !u!1 &1790509518
 GameObject:
   m_ObjectHideFlags: 0
@@ -12417,6 +12417,7 @@ MonoBehaviour:
     icon: {fileID: -8308548904405912246, guid: e1448f3ef2e890d43a3670c98aac53b7, type: 3}
     prefab: {fileID: 637361538954307650, guid: a2ed686e0f9d24143af2d933207e0fae, type: 3}
     cost: 30
+    towerId: 
   optionButtons:
   - {fileID: 607589990854658004}
   btnIcons:
@@ -14115,7 +14116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveSpeed: 2.5
-  animator: {fileID: 0}
+  animator: {fileID: 1160356261407937832}
   groundTilemaps: []
   groundCheckOffsetY: 0.2
 --- !u!224 &7919006019688420599

@@ -1,7 +1,7 @@
 waveID,Type,Spawn Interval (s),Total Enemies,Wave Reward (Crystal),Difficulty Rating,Notes
 ,,,,,,
-W1,Standard,0.7,30,320,★★★,Introduce armored
-W2,Standard,0.7,32,350,★★★★,Introduce splitting
-W3,Standard,0.7,36,380,★★★★,Mixed threats
-W4,Standard,0.6,38,410,★★★★,Pre-boss density
-W5,BOSS,2,45,550,★★★★★,⚠️ MULTI-PHASE BOSS
+W1,Standard,0.7,30,220,★★★,Introduce armored
+W2,Standard,0.7,32,250,★★★★,Introduce splitting
+W3,Standard,0.7,36,280,★★★★,Mixed threats
+W4,Standard,0.6,38,310,★★★★,Pre-boss density
+W5,BOSS,1.5,45,450,★★★★★,⚠️ MULTI-PHASE BOSS

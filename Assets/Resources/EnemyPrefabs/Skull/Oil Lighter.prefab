@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1160356261127867848, guid: a1366316483a96140ab62f9430230a78,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8d2e63e7be81acc4cb739ebd809e82de, type: 2}
     - target: {fileID: 3626916397498700004, guid: a1366316483a96140ab62f9430230a78,
         type: 3}
       propertyPath: m_SortingLayer
@@ -165,7 +170,7 @@ MonoBehaviour:
   enemyBase: {fileID: 4186234079203496308}
   healthCanvasPrefab: {fileID: 2079615114020501152, guid: 5b7fd81c0f11d714481e513939cfef22,
     type: 3}
-  offset: {x: 5.75, y: 4, z: 0}
+  offset: {x: 5.75, y: 5, z: 0}
   gizmoPreviewSize: {x: 0.6, y: 0.15, z: 0.05}
 --- !u!114 &-6221285149273162435
 MonoBehaviour:

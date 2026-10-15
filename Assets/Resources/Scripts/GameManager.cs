@@ -134,8 +134,8 @@ public class GameManager : MonoBehaviour
         // [เพิ่ม] รีเซ็ตเลือด + คืน timeScale (กันค้าง 0 จากรอบก่อนที่ pause ตอนจบเกม)
         BaseHP = baseMaxHP;
         OnBaseHPChanged.Invoke(BaseHP);
-        HealthBarSlider.value = 1f; // Reset the health bar slider
-        Time.timeScale = 1f;
+        if (HealthBarSlider != null) HealthBarSlider.value = 1f; // Reset the health bar slider
+        GameSpeed.RestoreCurrent();
 
         _timerRunning = true;
         SetState(GameState.Playing);
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     {
         if (CurrentState != GameState.Paused) return;
         _timerRunning = true;
-        Time.timeScale = 1f;
+        GameSpeed.RestoreCurrent();
         SetState(GameState.Playing);
     }
 
@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
         CurrentWave++;
         OnWaveStart.Invoke(CurrentWave);
 
-        WaveText.text = $"{CurrentWave}/{totalWaves}";
+        if (WaveText != null) WaveText.text = $"{CurrentWave}/{totalWaves}";
         Debug.Log($"[GameManager] Wave {CurrentWave}/{totalWaves} started");
     }
 
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
         BaseHP = Mathf.Max(0, BaseHP - amount);
         OnBaseHPChanged.Invoke(BaseHP);
         Debug.Log($"[GameManager] Crystal took {amount} damage — HP {BaseHP}/{baseMaxHP}");
-        HealthBarSlider.value = (float)BaseHP / baseMaxHP; // Update the health bar slider
+        if (HealthBarSlider != null) HealthBarSlider.value = (float)BaseHP / baseMaxHP; // Update the health bar slider
 
         if (BaseHP <= 0) TriggerGameOver();
     }
