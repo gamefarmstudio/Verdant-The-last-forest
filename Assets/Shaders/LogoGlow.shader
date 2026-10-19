@@ -1,7 +1,5 @@
 Shader "Verdant/LogoGlow"
 {
-    // โลโก้จาก mask: fill ไล่สีไหว (เขียว→เทา) + แถบวาบ + เรืองแสงรอบตัวอักษร (outer glow)
-    //   ⚠ sprite ต้องตั้ง Mesh Type = Full Rect + มี padding โปร่งรอบตัวอักษร (ให้ glow มีที่ฟุ้ง)
     Properties
     {
         [PerRendererData] _MainTex ("Logo / Mask", 2D) = "white" {}
@@ -74,24 +72,20 @@ Shader "Verdant/LogoGlow"
                 float2 uv = IN.uv;
                 float t = _Time.y;
 
-                // เกรเดี๊ยนไหว เขียว(บน)→เทา(ล่าง)
                 float gy = saturate(uv.y + sin(uv.x * _WaveFreq + t * _FlowSpeed) * _WaveAmp
                                         + sin(t * _FlowSpeed) * 0.06);
                 float3 grad = lerp(_ColorBottom.rgb, _ColorTop.rgb, gy);
 
-                // แถบวาบวิ่งทแยง
                 float sweep = frac((uv.x - uv.y) * 0.5 - t * _ShineSpeed);
                 float band = smoothstep(_ShineWidth, 0.0, abs(sweep - 0.5));
                 grad += band * _ShineStrength * _ShineColor.rgb;
 
-                // fill vs outline
                 float fill = smoothstep(0.35, 0.80, lum);
                 float3 letterRGB = lerp(_OutlineColor.rgb, grad, fill);
                 letterRGB *= 1.0 + sin(t * _PulseSpeed) * _PulseAmt;
                 letterRGB += grad * _Glow * fill;
                 float letterA = tex.a;
 
-                // ── outer glow: หา alpha ตัวอักษรรอบๆ แล้วเรืองออกมาในพื้นที่โปร่ง ──
                 float ga = 0.0;
                 float2 tsz = _MainTex_TexelSize.xy * _GlowRadius;
                 const float2 dirs[8] = {
@@ -103,7 +97,6 @@ Shader "Verdant/LogoGlow"
                 ga *= (0.8 + 0.2 * sin(t * _PulseSpeed));           // เต้นเบาๆ
                 float glowA = saturate(ga * _OuterGlow) * (1.0 - letterA);
 
-                // composite: ตัวอักษรทับ glow
                 float3 outRGB = lerp(_GlowColor.rgb, letterRGB, letterA);
                 float  outA   = max(letterA, glowA);
                 return half4(outRGB * IN.color.rgb, outA * IN.color.a);

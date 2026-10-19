@@ -1,7 +1,5 @@
 Shader "Verdant/GodRays2D"
 {
-    // ลำแสงลอดน้ำ (god rays) — เลเยอร์ additive วางทับน้ำ
-    // วางบน Sprite สี่เหลี่ยม/Quad คลุมพื้นที่น้ำ, sorting order สูงกว่าน้ำ
     Properties
     {
         _RayColor  ("Ray Color", Color) = (0.55, 0.8, 1.0, 1)
@@ -18,7 +16,7 @@ Shader "Verdant/GodRays2D"
         Tags { "RenderType"="Transparent" "Queue"="Transparent" "RenderPipeline"="UniversalPipeline" }
         Cull Off
         ZWrite Off
-        Blend One One   // additive (บวกแสงเข้าฉาก)
+        Blend One One  
 
         Pass
         {
@@ -59,17 +57,13 @@ Shader "Verdant/GodRays2D"
 
             half4 frag(Varyings IN) : SV_Target
             {
-                // แกนของลำแสง = x เอียงตาม y (ลำแสงพาดเฉียง) + เลื่อนช้าๆ ตามเวลา
                 float axis = IN.uv.x * _Scale + IN.uv.y * _Tilt + _Time.y * _Speed;
 
-                // ซ้อน noise 2 ชั้นให้เป็นริ้วแสง
                 float n = vnoise(float2(axis, IN.uv.y * 1.5)) * 0.65
                         + vnoise(float2(axis * 2.1, IN.uv.y * 2.7)) * 0.35;
                 n = pow(saturate(n), _Sharpness);            // คมเป็นลำ
 
-                // จางลงตามความลึก (สว่างด้านบน → มืดด้านล่าง)
                 float vFade = pow(saturate(IN.uv.y), _Falloff);
-                // จางที่ขอบซ้าย/ขวา กันลำแสงตัดขอบ
                 float edge = smoothstep(0.0, 0.15, IN.uv.x) * smoothstep(1.0, 0.85, IN.uv.x);
 
                 float intensity = n * vFade * edge * _Intensity;

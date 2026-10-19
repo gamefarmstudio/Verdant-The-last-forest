@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-/// <summary>
-/// Singleton จัดการ Crystal (เงิน) ของผู้เล่น
-/// ติดกับ: GameObject ชื่อ "GameManager"
-/// </summary>
+
 public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager Instance { get; private set; }
@@ -12,12 +9,10 @@ public class CurrencyManager : MonoBehaviour
     [Header("Settings")]
     public int startingCrystal = 200;
 
-    // ── State ──
     private int _crystal;
 
     public int Crystal => _crystal;
 
-    // ── Event — UI subscribe เพื่อ update text อัตโนมัติ ──
     public UnityEvent<int> OnCrystalChanged = new UnityEvent<int>();
 
     void Awake()
@@ -32,12 +27,9 @@ public class CurrencyManager : MonoBehaviour
         OnCrystalChanged.Invoke(_crystal);
     }
 
-    // รายได้มาจากการฆ่ามอนสเตอร์เท่านั้น (เรียก Earn จาก GameManager.NotifyEnemyKilled)
-    // — ไม่มี passive income อีกต่อไป
 
     public bool CanAfford(int cost) => _crystal >= cost;
 
-    /// <summary>หัก crystal — return false ถ้าไม่พอ</summary>
     public bool Spend(int amount)
     {
         if (!CanAfford(amount)) return false;

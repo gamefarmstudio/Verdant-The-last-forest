@@ -1,11 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// [เพิ่ม] สคริปต์ใหม่: ปุ่ม "เริ่มเวฟถัดไป"
-//   - โผล่เมื่อจบเวฟ (GameManager.OnWaveEnd) ยกเว้นเวฟสุดท้ายที่จบแล้ว = ชนะ (ไม่ต้องมีปุ่ม)
-//   - กดปุ่ม → GameManager.StartNextWave()
-//   - ซ่อนเมื่อเวฟถัดไปเริ่ม (GameManager.OnWaveStart)
-// วิธีใช้: วางสคริปต์บน object HUD ที่ "เปิดอยู่ตลอด" แล้วลาก Button (ลูก) มาใส่ช่อง button
 public class NextWaveButtonUI : MonoBehaviour
 {
     [SerializeField] private Button button;
@@ -43,7 +38,6 @@ public class NextWaveButtonUI : MonoBehaviour
 
     void HandleWaveEnd(int wave)
     {
-        // เวฟสุดท้ายจบแล้ว = ชนะด่าน ไม่ต้องโชว์ปุ่ม
         if (wave >= GameManager.Instance.totalWaves) return;
         SetVisible(true);
     }

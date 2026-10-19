@@ -1,18 +1,22 @@
 // ═══════════════════════════════════════════════════════════════
-//  GameEvents.cs — static event bus ของ Verdant
-//  ระบบมลพิษ: ทุกระบบคุยกันผ่าน event ตรงนี้ ไม่อ้างอิงกันตรงๆ
+//  GameEvents.cs — Verdant's static event bus
+//  Pollution system: every system talks through these events
+//  instead of referencing each other directly.
 // ═══════════════════════════════════════════════════════════════
 using System;
 
+/// <summary>
+/// Global static events. Raise them with the Raise* methods; subscribe with += / -=.
+/// </summary>
 public static class GameEvents
 {
     // ── Pollution ──
-    public static event Action<float> OnPollutionChanged;   // ค่าเกจใหม่ 0..1
-    public static event Action OnPollutionCleared;           // หมอกเหลือ 0% → ชนะ
-    public static event Action OnPollutionFull;              // หมอกเต็ม 100% → เกมโอเวอร์
+    public static event Action<float> OnPollutionChanged;   // new gauge value, 0..1
+    public static event Action OnPollutionCleared;           // fog reached 0% (no longer a win condition)
+    public static event Action OnPollutionFull;              // fog reached 100% -> game over
 
-    public static event Action<float> OnEnemyKilled;         // ส่งค่า cleanse ของตัวที่ตาย
-    public static event Action<float> OnCrystalDamaged;      // ส่งดาเมจที่คริสตัลโดน
+    public static event Action<float> OnEnemyKilled;         // passes the cleanse amount of the enemy that died
+    public static event Action<float> OnCrystalDamaged;      // passes the damage the crystal took
 
     public static void RaisePollutionChanged(float v) => OnPollutionChanged?.Invoke(v);
     public static void RaisePollutionCleared()        => OnPollutionCleared?.Invoke();

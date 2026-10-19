@@ -82,19 +82,15 @@ Shader "Verdant/UIGaugeFill"
 
                 float3 rgb = tex.rgb;
 
-                // ของเหลวไหล (noise เลื่อนขึ้น)
                 float flow = vnoise(float2(uv.x * _FlowScale, uv.y * _FlowScale - t * _FlowSpeed));
                 rgb += flow * _FlowBright;
 
-                // ฟองผุดขึ้น
                 float2 bp = uv * _BubbleScale;
                 bp.y -= t * _BubbleSpeed;
                 float2 cell = floor(bp), f = frac(bp);
                 float d = distance(f, float2(hash21(cell + 3.1), 0.5));
                 float bub = smoothstep(0.25, 0.05, d) * step(hash21(cell), _BubbleAmount);
                 rgb += bub;
-
-                // เรืองแสง + เต้น
                 rgb *= 1.0 + sin(t * _PulseSpeed) * _PulseAmt;
                 rgb += tex.rgb * _Glow;
 

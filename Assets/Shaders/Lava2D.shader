@@ -87,28 +87,22 @@ Shader "Verdant/Lava2D"
                 float2 wp = _Pixelate > 0.001 ? floor(IN.wpos * _Pixelate) / _Pixelate : IN.wpos;
                 float t = _Time.y;
 
-                // churn
                 float2 wc = wp * _WarpScale + t * 0.12;
                 float2 warp = (float2(vnoise(wc), vnoise(wc + 5.2)) - 0.5) * _WarpStrength;
                 float2 p = wp * _Scale + _FlowSpeed.xy * t + warp;
                 float n = fbm(p);
 
-                // [เพิ่ม] posterize → ก้อนสีแบนแบบพิกเซลอาร์ต
                 float nq = floor(n * _Posterize) / _Posterize;
 
-                // ไล่เป็นแถบสีแข็ง (หิน → ส้ม → เหลือง)
                 float3 col = _CrustColor.rgb;
                 col = lerp(col, _HotColor.rgb,  step(0.42, nq));
                 col = lerp(col, _CoreColor.rgb, step(0.74, nq));
 
-                // เรืองแสงเต้นเฉพาะจุดร้อน
                 float glow = 0.5 + 0.5 * sin(t * _Pulse + nq * 8.0);
                 col += _HotColor.rgb * glow * _PulseStrength * step(0.6, nq);
 
-                // มลพิษ
                 col = lerp(col, _ToxicColor.rgb, saturate(_Pollution) * 0.5);
 
-                // แนวหน้าลาวาคืบ (หยัก) + ขอบเรือง
                 float edge = _EdgeX + (vnoise(wp * 0.4 + t * 0.08) - 0.5) * _EdgeWobble;
                 float cover = smoothstep(edge + _EdgeSoft, edge - _EdgeSoft, IN.wpos.x);
                 float front = smoothstep(_EdgeSoft, 0.0, abs(IN.wpos.x - edge));

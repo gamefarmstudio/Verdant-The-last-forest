@@ -1,21 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using DG.Tweening;            // [เพิ่ม] เด้ง feedback ตอนอัพเกรด
+using DG.Tweening;           
 using Verdant.Combat;
 
-// [แก้] เขียนใหม่ (ล้างคอมเมนต์เดิม) — [เพิ่ม] ระบบอัพเกรด/ขายป้อม
-// Singleton ควบคุมการวาง/อัพเกรด/ขายป้อม — ติดกับ GameObject "GameManager"
 public class TowerPlacementManager : MonoBehaviour
 {
     public static TowerPlacementManager Instance { get; private set; }
 
     [Header("References")]
-    [SerializeField] TowerBuildPopup popup;                    // เมนูสร้างป้อม (ช่องว่าง)
-    [SerializeField] TowerUpgradePopup upgradePopup;           // [เพิ่ม] เมนูอัพเกรด/ทำลาย (ป้อมที่วางแล้ว)
+    [SerializeField] TowerBuildPopup popup;                    
+    [SerializeField] TowerUpgradePopup upgradePopup;          
 
     [Header("Sell")]
     [Range(0f, 1f)]
-    [SerializeField] float sellRefundPercent = 0.6f;           // [เพิ่ม] คืนเงินกี่ % ของ Cumulative Cost
+    [SerializeField] float sellRefundPercent = 0.6f;          
 
     TowerSlot _activeSlot = null;
 
@@ -25,7 +23,6 @@ public class TowerPlacementManager : MonoBehaviour
         Instance = this;
     }
 
-    // ── เมนูสร้างป้อม (ช่องว่าง) ──
     public void OpenPopup(TowerSlot slot)
     {
         if (_activeSlot != null && _activeSlot != slot) _activeSlot.SetSelected(false);
@@ -34,7 +31,6 @@ public class TowerPlacementManager : MonoBehaviour
         popup.Show(slot);
     }
 
-    // [เพิ่ม] เมนูอัพเกรด/ทำลาย (ป้อมที่วางแล้ว)
     public void OpenUpgrade(TowerSlot slot)
     {
         if (_activeSlot != null && _activeSlot != slot) _activeSlot.SetSelected(false);
@@ -43,7 +39,6 @@ public class TowerPlacementManager : MonoBehaviour
         upgradePopup.Show(slot);
     }
 
-    // [แก้] ปิดได้ทั้งสองเมนู
     public void ClosePopup()
     {
         if (popup != null) popup.Hide();
@@ -55,7 +50,6 @@ public class TowerPlacementManager : MonoBehaviour
         }
     }
 
-    // ── สร้างป้อม (เรียกจาก TowerBuildPopup) ──
     public void OnTowerSelected(GameObject towerPrefab, int cost)
     {
         if (_activeSlot == null) { Debug.LogError("[TowerPlacement] _activeSlot is NULL"); return; }
@@ -67,7 +61,6 @@ public class TowerPlacementManager : MonoBehaviour
         popup.Hide();
     }
 
-    // ── [เพิ่ม] อัพเกรดป้อมใน slot ที่เลือกอยู่ ──
     public void UpgradeActiveTower()
     {
         if (_activeSlot == null) return;
@@ -76,7 +69,7 @@ public class TowerPlacementManager : MonoBehaviour
         if (tower == null) { Debug.LogWarning("[Upgrade] ไม่พบ Tower ใน slot"); return; }
 
         var next = TowerDatabase.Instance != null ? TowerDatabase.Instance.GetNextLevel(tower.TowerId) : null;
-        GameObject nextPrefab = tower.NextLevelPrefab;   // [เพิ่ม] prefab เลเวลถัดไป (ตั้งบน Tower)
+        GameObject nextPrefab = tower.NextLevelPrefab;   
         if (next == null || nextPrefab == null)
         {
             Debug.Log($"[Upgrade] '{tower.TowerId}' เลเวลสูงสุด หรือไม่ได้ตั้ง Next Level Prefab");
@@ -86,7 +79,7 @@ public class TowerPlacementManager : MonoBehaviour
         if (!CurrencyManager.Instance.CanAfford(next.cost)) { Debug.LogWarning("[Upgrade] เงินไม่พอ"); return; }
 
         CurrencyManager.Instance.Spend(next.cost);
-        _activeSlot.ReplaceTower(nextPrefab,(this.gameObject),true);   // [แก้] ทำลายตัวเก่า + วาง prefab เลเวลใหม่ (เดิม Reconfigure ค่า)
+        _activeSlot.ReplaceTower(nextPrefab,(this.gameObject),true); 
 
         // feedback: เด้งป้อมใหม่นิดๆ
         if (_activeSlot.placedTower != null)
@@ -95,11 +88,10 @@ public class TowerPlacementManager : MonoBehaviour
             _activeSlot.placedTower.transform.DOPunchScale(Vector3.one * 0.15f, 0.25f).SetLink(_activeSlot.placedTower);
         }
 
-        upgradePopup.Refresh();       // อัปเดตราคาถัดไป/สถานะปุ่ม
+        upgradePopup.Refresh();       
         Debug.Log($"[Upgrade] → {next.id} (จ่าย {next.cost})");
     }
 
-    // ── [เพิ่ม] ขายป้อมใน slot ที่เลือกอยู่ ──
     public void SellActiveTower()
     {
         if (_activeSlot == null) return;
@@ -113,7 +105,6 @@ public class TowerPlacementManager : MonoBehaviour
         Debug.Log($"[Sell] คืน {refund} crystal");
     }
 
-    // [แก้] รับ IUpgradableTower → คิดเงินคืนได้ทั้งป้อมยิงไกลและป้อมประชิด
     public int SellRefund(IUpgradableTower tower)
     {
         if (tower == null || TowerDatabase.Instance == null) return 0;
@@ -125,6 +116,6 @@ public class TowerPlacementManager : MonoBehaviour
     void Update()
     {
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
-            ClosePopup();   // ESC → ปิดเมนู
+            ClosePopup();   
     }
 }

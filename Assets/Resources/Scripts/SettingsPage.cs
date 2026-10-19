@@ -15,7 +15,6 @@ public class SettingsPage : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private AudioMixer AllMixer;
 
-    // ต้องตรงกับชื่อ Exposed Parameter ใน All.mixer
     private const string MusicParam = "MusicVolume";
     private const string SFXParam = "SFXVolume";
 
@@ -23,7 +22,7 @@ public class SettingsPage : MonoBehaviour
     private const string SFXKey = "Settings.SFX";
     private const string FullscreenKey = "Settings.Fullscreen";
     private const string ResolutionKey = "Settings.Resolution";
-    private const string MixerResourcePath = "Sounds/Mixers/All";   // Assets/Resources/Sounds/Mixers/All.mixer
+    private const string MixerResourcePath = "Sounds/Mixers/All";  
 
     private static readonly Vector2Int[] Resolutions =
     {
@@ -31,10 +30,10 @@ public class SettingsPage : MonoBehaviour
         new Vector2Int(1280, 720),
         new Vector2Int(960, 540),
         new Vector2Int(2560, 1440),
-    };   // ทั้งหมดเป็น 16:9 และเป็นจำนวนเต็มเท่าของ 320x180 (Pixel Perfect Camera) = พิกเซลคม
+    };   
 
     private int _selectedResolution = 0;
-    private bool _updatingToggles;   // กัน event วนซ้ำตอนเราตั้ง isOn เอง
+    private bool _updatingToggles;  
 
     public static SettingsPage Instance { get; private set; }
     public bool IsOpen { get; private set; }
@@ -42,10 +41,8 @@ public class SettingsPage : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        // ซ่อนหน้าก่อนเป็นอันดับแรก — ถ้าโค้ดด้านล่างพลาดตรงไหน หน้า Settings จะได้ไม่ค้างโชว์ทับ UI อื่น
         this.gameObject.SetActive(false);
 
-        // ผูก listener ก่อน แล้วค่อยตั้งค่าเริ่มต้น เพื่อให้ค่าถูกส่งเข้า mixer ทันที
         MusicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
         SFXVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
         FullscreenToggle.onValueChanged.AddListener(OnFullscreenToggleChanged);
@@ -55,7 +52,6 @@ public class SettingsPage : MonoBehaviour
             ResolutionButtons[i].onValueChanged.AddListener((value) => OnResolutionButtonClicked(index, value));
         }
 
-        // โหลดค่าที่เคยบันทึกไว้ (ไม่มี = ค่าเริ่มต้น)
         float music = 1f;
         float sfx = 1f;
         bool fullscreen = PlayerPrefs.GetInt(FullscreenKey, Screen.fullScreen ? 1 : 0) == 1;
@@ -71,7 +67,6 @@ public class SettingsPage : MonoBehaviour
         ApplyDisplay(fullscreen);
     }
 
-    // ตั้งค่าเสียงที่บันทึกไว้ให้ทันทีตอนเปิดเกม แม้หน้า Settings จะยังไม่เคยถูกเปิด/ไม่มีใน scene นั้น
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void ApplySavedVolumeOnLoad()
     {
@@ -94,7 +89,6 @@ public class SettingsPage : MonoBehaviour
         }
     }
 
-    // slider 0 -> Log10(0) = -infinity ซึ่ง mixer รับไม่ได้ จึงกันไว้ที่ -80 dB (เงียบสนิท)
     private static float ToDecibels(float value)
     {
         return Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
@@ -122,7 +116,6 @@ public class SettingsPage : MonoBehaviour
 
     public void OnFullscreenToggleChanged(bool value)
     {
-        // ออกจาก fullscreen แล้วกลับไปใช้ความละเอียดที่เลือกไว้
         ApplyDisplay(value);
 
         for (int i = 0; i < ResolutionButtons.Count; i++)
@@ -138,7 +131,6 @@ public class SettingsPage : MonoBehaviour
 
         if (!value)
         {
-            // กดปุ่มที่เลือกอยู่ซ้ำ -> ห้ามให้ไม่มีตัวไหนถูกเลือกเลย
             if (index == _selectedResolution) RefreshResolutionToggles();
             return;
         }
@@ -173,7 +165,7 @@ public class SettingsPage : MonoBehaviour
 
     private void Freeze()
     {
-        if (_frozen) return;   // กดเปิดซ้ำ ห้ามทับค่า timeScale เดิมด้วย 0
+        if (_frozen) return;   
         _prevTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         _frozen = true;
@@ -182,21 +174,21 @@ public class SettingsPage : MonoBehaviour
     private void Unfreeze()
     {
         if (!_frozen) return;
-        Time.timeScale = _prevTimeScale;   // คืนค่าเดิม (รวม 2x หรือ 0 ถ้าเกมจบ/พักอยู่ก่อนแล้ว)
+        Time.timeScale = _prevTimeScale;   
         _frozen = false;
     }
 
-    void OnDestroy() => Unfreeze();   // กัน timeScale ค้างที่ 0 ถ้าโหลด scene ใหม่ตอน settings เปิดอยู่
+    void OnDestroy() => Unfreeze();   
 
     public void ShowSettingsMenu()
     {
-        if (Tutorial.IsOpen) return;   // Tutorial เปิดอยู่ ต้องปิดก่อน ไม่ให้สองหน้าต่างซ้อนกัน
+        if (Tutorial.IsOpen) return;   
         IsOpen = true;
         Freeze();
         SettingsMenuPage.SetActive(true);
         DOTween.Kill(SettingsMenuPage.transform);
-        SettingsMenuPage.transform.localScale = Vector3.zero;   // เริ่มจากศูนย์ทุกครั้ง animation จะเล่นเสมอ
-        SettingsMenuPage.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).SetUpdate(true);   // SetUpdate(true) = ทำงานได้แม้ timeScale = 0
+        SettingsMenuPage.transform.localScale = Vector3.zero;  
+        SettingsMenuPage.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).SetUpdate(true);  
     }
 
     public void HideSettingsMenu()

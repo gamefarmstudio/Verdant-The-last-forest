@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// [เพิ่ม] ป้อม Crystal Spring — โจมตี AoE ทุกตัวในระยะ + ติด slow (และ freeze ที่ L3)
-//   Damage / Range / Atk Speed มาจาก towers.csv (T2B) · slow%/freeze ตั้งต่อเลเวลบน prefab
-//   อัพเกรด/ขายได้ผ่านระบบเดิม (implement IUpgradableTower)
 public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
 {
     [Header("อ้างอิง CSV / อัพเกรด")]
@@ -32,9 +29,8 @@ public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
     [SerializeField] private float freezeDuration = 2f;
 
     [Header("VFX (option)")]
-    [SerializeField] private GameObject pulseVfxPrefab;   // เอฟเฟกต์ตอนโจมตี (ปล่อยว่างได้)
+    [SerializeField] private GameObject pulseVfxPrefab; 
 
-    // runtime (จาก CSV)
     private float damage, range, fireCooldown;
     private float cooldownTimer;
     private bool _statsReady, _csvResolved;

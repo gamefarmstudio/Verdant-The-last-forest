@@ -23,7 +23,7 @@ public class DoTween : MonoBehaviour
     [Header("Loop")]
     [SerializeField] private bool usingLoop = false;
     [Tooltip("If You choose -1 for infinite loops, the tween will loop forever.")]
-    [SerializeField] private int loopCount = 1; // -1 for infinite loops
+    [SerializeField] private int loopCount = 1;
     [SerializeField] private LoopType loopType = LoopType.Restart;
 
     [Header("Shake")]

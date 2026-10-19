@@ -82,21 +82,17 @@ Shader "Verdant/WaterClear2D"
             {
                 float mask = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv).a;
 
-                // [เพิ่ม] Pixelate ตำแหน่ง (ตั้ง = PPU ให้ตรงกริดพิกเซล, 0 = เนียน)
                 float2 wp = _Pixelate > 0.001 ? floor(IN.wpos * _Pixelate) / _Pixelate : IN.wpos;
-
-                // ความลึกแนวนอน: ขวา = ตื้น(0) → ซ้าย = ลึก(1)
                 float depth = saturate((_SurfaceX - IN.wpos.x) / max(0.001, _DepthRange));
                 float3 col = lerp(_ShallowColor.rgb, _DeepColor.rgb, depth);
                 float  a   = lerp(_ShallowColor.a,   _DeepColor.a,   depth);
 
                 float t = _Time.y;
 
-                // คลื่น (บิดพิกัด)
                 float2 warp = float2(sin(wp.y * _WaveScale + t * _WaveSpeed),
                                      cos(wp.x * _WaveScale - t * _WaveSpeed)) * _WaveStrength;
 
-                // caustics ตาข่ายแสง
+
                 float2 cp = wp * _CausticScale + warp;
                 float n = vnoise(cp + float2( t*_CausticSpeed,  t*_CausticSpeed*0.6))
                         + vnoise(cp*1.4 + float2(-t*_CausticSpeed*0.7, t*_CausticSpeed));
@@ -104,18 +100,15 @@ Shader "Verdant/WaterClear2D"
                 caustic *= (1.0 - depth * 0.7);
                 col += caustic * _CausticStrength * _CausticColor.rgb;
 
-                // ริ้วคลื่นสว่างเลื่อน
                 float crest = sin((wp.x + wp.y * 0.35) * _WaveScale * 0.6 - t * _WaveSpeed * 1.5) * 0.5 + 0.5;
                 col += pow(crest, 6.0) * _WaveHighlight * (1.0 - depth * 0.5) * _CausticColor.rgb;
 
-                // [เพิ่ม] ฟองขอบน้ำตื้น (depth ~ 0) ขอบหยักตามคลื่น
                 float wob = (vnoise(wp * 2.5 + t * _WaveSpeed) - 0.5) * _FoamWidth * 0.6;
                 float foam = 1.0 - smoothstep(0.0, _FoamWidth, depth + wob);
                 foam = saturate(foam) * _FoamStrength;
                 col += foam * _FoamColor.rgb;
                 a = saturate(a + foam * _FoamColor.a);
 
-                // มลพิษ → ไล่ไปสีพิษ
                 col = lerp(col, _ToxicColor.rgb, saturate(_Pollution) * 0.85);
 
                 col *= IN.color.rgb;
