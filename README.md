@@ -50,3 +50,10 @@ These three classes form a self-contained A* system that is separate from the en
 - `EnemySpawner` adds `Enemy` via `AddComponent` after `Instantiate`, so enemy prefabs should **not** already have an `Enemy` component attached (it would be duplicated).
 - `Grid2D` reads walkable tiles by checking sprite `Bounds` at `Awake`. If tilemap tiles are added at runtime after `Awake`, the grid will not reflect them without a manual `CreateGrid()` call.
 - `BoostBrightness.Boost()` is a `[ContextMenu]` utility — call it from the Inspector right-click menu on the component, not from game code.
+## Files
+- All of the **code** are in the **Assets**/**Resources**/**script**
+- All of the **shaders** are in **Assets**/**Shaders**
+- All of the **Scenes** are in **Assets**/**Scene**
+- All of the **Tiny swords** Assets are in **Assets**/**Tiny swords**
+- All of the **Game** Assets are in **Assets**/**Game Assets or Resources**/**Tower or Enemy Prefabs**
+- All of the **CSV Data** are in **Assets**/**Resources**/**Data**
