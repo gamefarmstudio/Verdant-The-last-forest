@@ -1,7 +1,5 @@
 # Readme.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
 **Verdant** is a Unity 2D game (URP 17.3.0) featuring wave-based enemy spawning, custom A* pathfinding, a direction-based enemy pathing system, a player character, and a shop economy. All scripts live in `Assets/Scripts/`.
