@@ -4,16 +4,17 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// GameManager — ควบคุมภาพรวมของเกม Verdant: The Last Forest
-/// ติดกับ: GameObject ชื่อ "GameManager"
+/// GameManager — controls the overall flow of Verdant: The Last Forest.
+/// Attach to: the GameObject named "GameManager".
 ///
-/// Components ที่ต้องติดด้วยกัน:
+/// Components that must be on the same object:
 ///   CurrencyManager, TowerPlacementManager, PollutionManager
 ///
-/// แพ้/ชนะด่านตัดสินจากเกจหมอก (PollutionManager เป็นสมองกลาง):
-///   เกจหมอกเหลือ 0%   → ชนะ   (GameEvents.OnPollutionCleared)
-///   เกจหมอกเต็ม 100%  → เกมโอเวอร์ (GameEvents.OnPollutionFull — เกิดจากคริสตัลโดนดาเมจสะสม)
-/// หรือชนะทันทีถ้ากำจัดมอนสเตอร์ครบทุกเวฟ (ดู NotifyWaveCompleted)
+/// Win / lose:
+///   Clear every wave (CurrentWave reaches totalWaves)  -> Victory (see NotifyWaveCompleted)
+///   Crystal / base HP reaches 0                        -> Game Over (enemies that reach the base, see DamageBase)
+///   Pollution gauge reaches 100%                       -> Game Over (GameEvents.OnPollutionFull)
+/// Both endings pause the game (timeScale 0) and fire OnVictory / OnGameOver for the UI.
 /// </summary>
 public class GameManager : MonoBehaviour
 {
@@ -31,17 +32,17 @@ public class GameManager : MonoBehaviour
     // INSPECTOR SETTINGS
     // ─────────────────────────────────────────────
 
-    // [แก้] จบครบทุกเวฟแล้วชนะด่าน — ตั้ง = 6 ตามสเปค (ปรับใน Inspector ให้ตรงจำนวนเวฟจริง)
+    // Clearing this many waves wins the level — set it in the Inspector to match the level's real wave count.
     [Header("Wave Settings")]
     public int totalWaves = 6;
 
-    // [เพิ่ม] เริ่มเกมเองตอนกด Play — สำหรับเทสต์ในซีนด่านโดยตรง (ไม่ต้องผ่านปุ่ม/เมนู)
-    //        ถ้ามีเมนูเรียก StartGame() เองแล้ว ค่อยติ๊กออก
+    // Start the game automatically when Play is pressed — for testing a level scene directly (no menu/button needed).
+    // Untick it if a menu calls StartGame() itself.
     [SerializeField] private bool autoStartOnPlay = true;
     private bool _autoStarted;
 
-    // [เพิ่ม] ระบบ "เลือด" ของคริสตัล/ฐาน — แยกจากเกจหมอก
-    //        มอนหลุดถึงฐาน → ลด HP · HP = 0 → เกมโอเวอร์
+    // The crystal / base "HP" — separate from the pollution gauge.
+    // An enemy reaching the base -> HP goes down · HP = 0 -> game over.
     [Header("Base / Crystal HP")]
     public int baseMaxHP = 20;
     public int BaseHP { get; private set; }
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
     // RUNTIME STATE
     // ─────────────────────────────────────────────
 
-    public int CurrentWave { get; private set; } = 0;   // 0 = ยังไม่เริ่ม
+    public int CurrentWave { get; private set; } = 0;   // 0 = not started yet
     public int EnemiesKilled { get; private set; } = 0;
     public int TotalCrystalEarned { get; private set; } = 0;
     public float SessionTime { get; private set; } = 0f;
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnVictory = new UnityEvent();
     public UnityEvent OnGameOver = new UnityEvent();
     public UnityEvent<GameState> OnStateChanged = new UnityEvent<GameState>();
-    public UnityEvent<int> OnBaseHPChanged = new UnityEvent<int>();   // [เพิ่ม] int = HP ที่เหลือ (ให้ UI แถบเลือด)
+    public UnityEvent<int> OnBaseHPChanged = new UnityEvent<int>();   // int = HP left (for the HP bar UI)
     [Header("UI")]
     public Slider HealthBarSlider; // Reference to the UI Slider for health bar
     public TextMeshProUGUI WaveText; // Reference to the UI Text for wave information
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        // [แก้] เกจ 0% ไม่ชนะแล้ว — ฟังแค่หมอกเต็ม 100% เพื่อแพ้
+        // A 0% gauge is no longer a win — only listen for a full (100%) gauge, which loses.
         GameEvents.OnPollutionFull += HandlePollutionFull;
     }
 
@@ -104,9 +105,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // [เพิ่ม] auto-start ครั้งเดียวในเฟรมแรก — ทำใน Update ไม่ใช่ Start()
-        //        เพื่อรอให้ Start() ของตัวอื่นเสร็จก่อน (เช่น WaveManager subscribe OnWaveStart)
-        //        ไม่งั้นถ้าเริ่มใน Start() อาจยิง event เวฟ 1 ตอนที่ WaveManager ยังไม่ฟัง
+        // Auto-start once on the first frame — done in Update, not Start(),
+        // so every other Start() has run first (e.g. WaveManager subscribing to OnWaveStart).
+        // Starting in Start() could fire the wave-1 event before WaveManager is listening.
         if (autoStartOnPlay && !_autoStarted && CurrentState == GameState.Idle)
         {
             _autoStarted = true;
@@ -121,7 +122,7 @@ public class GameManager : MonoBehaviour
     // GAME STATE CONTROL
     // ─────────────────────────────────────────────
 
-    /// <summary>เริ่มเกม — เรียกจากปุ่ม Start Wave หรือ UI</summary>
+    /// <summary>Starts the game — called by a Start button / UI, or automatically (autoStartOnPlay).</summary>
     public void StartGame()
     {
         if (CurrentState != GameState.Idle) return;
@@ -131,7 +132,7 @@ public class GameManager : MonoBehaviour
         TotalCrystalEarned = 0;
         CurrentWave = 0;
 
-        // [เพิ่ม] รีเซ็ตเลือด + คืน timeScale (กันค้าง 0 จากรอบก่อนที่ pause ตอนจบเกม)
+        // Reset HP and restore timeScale (in case it was left at 0 by a previous game's pause/ending).
         BaseHP = baseMaxHP;
         OnBaseHPChanged.Invoke(BaseHP);
         if (HealthBarSlider != null) HealthBarSlider.value = 1f; // Reset the health bar slider
@@ -143,6 +144,7 @@ public class GameManager : MonoBehaviour
         StartNextWave();
     }
 
+    /// <summary>Freezes the game (timeScale 0).</summary>
     public void PauseGame()
     {
         if (CurrentState != GameState.Playing) return;
@@ -151,6 +153,7 @@ public class GameManager : MonoBehaviour
         SetState(GameState.Paused);
     }
 
+    /// <summary>Unfreezes the game at the speed the player chose (1x/2x).</summary>
     public void ResumeGame()
     {
         if (CurrentState != GameState.Paused) return;
@@ -163,24 +166,24 @@ public class GameManager : MonoBehaviour
     // WAVE CONTROL
     // ─────────────────────────────────────────────
 
-    /// <summary>เรียกจาก WaveManager เมื่อ wave นั้น spawn ครบและ enemy ตายหมดแล้ว</summary>
+    /// <summary>Called by WaveManager when a wave has finished spawning and every enemy is gone.</summary>
     public void NotifyWaveCompleted()
     {
         OnWaveEnd.Invoke(CurrentWave);
 
         if (CurrentWave >= totalWaves)
         {
-            // กำจัดมอนสเตอร์ครบทุกเวฟแล้ว — ชนะด่านทันที ไม่ต้องรอเกจหมอกหมด
+            // Every wave has been cleared — win the level straight away.
             TriggerVictory();
         }
         else
         {
-            // เว้นช่วงก่อน wave ถัดไป — WaveManager จะเป็นคนจัดการ delay
-            // แต่ถ้า auto-start ทันที ก็เรียก StartNextWave() ได้เลย
+            // Gap before the next wave — WaveManager handles the delay (if autoStartNextWave is on),
+            // otherwise the player presses the "Next Wave" button, which calls StartNextWave().
         }
     }
 
-    /// <summary>เรียกจาก WaveManager หรือปุ่ม "Next Wave"</summary>
+    /// <summary>Starts the next wave. Called by WaveManager or the "Next Wave" button.</summary>
     public void StartNextWave()
     {
         if (CurrentState != GameState.Playing) return;
@@ -194,10 +197,13 @@ public class GameManager : MonoBehaviour
     }
 
     // ─────────────────────────────────────────────
-    // CRYSTAL DAMAGE → เกจหมอกเพิ่มขึ้น
+    // CRYSTAL DAMAGE -> base HP goes down
     // ─────────────────────────────────────────────
 
-    // [แก้] มอนหลุดถึงฐาน → ลด "เลือด" ของคริสตัล (เดิมไปเพิ่มเกจหมอก) — เลือด 0 = เกมโอเวอร์
+    /// <summary>
+    /// An enemy reached the base -> lower the crystal's HP (this used to raise the fog gauge instead).
+    /// HP 0 = game over.
+    /// </summary>
     public void DamageBase(int amount)
     {
         if (CurrentState != GameState.Playing) return;
@@ -215,8 +221,8 @@ public class GameManager : MonoBehaviour
     // ─────────────────────────────────────────────
 
     /// <summary>
-    /// เรียกจาก EnemyBase เมื่อผู้เล่นกำจัด enemy (kill ด้วยดาเมจ หรือ cleanse)
-    /// crystalReward = rewardKill หรือ rewardCleanse ตามวิธีกำจัด
+    /// Called by EnemyBase when the player gets rid of an enemy (killed by damage, or cleansed).
+    /// crystalReward = rewardKill or rewardCleanse, depending on how it was removed.
     /// </summary>
     public void NotifyEnemyKilled(int crystalReward = 0)
     {
@@ -228,7 +234,8 @@ public class GameManager : MonoBehaviour
             CurrencyManager.Instance.Earn(crystalReward);
         }
 
-        // ฆ่ามอนแต่ละตัว ทำให้หมอกถอย (ส่ง 0 = ให้ PollutionManager ใช้ค่า defaultCleansePerKill)
+        // Broadcast the kill. (Nothing listens to this any more — kills no longer lower pollution;
+        // only the Cleanse button does.)
         GameEvents.RaiseEnemyKilled(0f);
     }
 
@@ -236,15 +243,15 @@ public class GameManager : MonoBehaviour
     // WIN / LOSE
     // ─────────────────────────────────────────────
 
-    // [ลบ] HandlePollutionCleared (เกจ 0% = ชนะ) — ตัดออก ชนะจากจบเวฟเท่านั้น
-    private void HandlePollutionFull() => TriggerGameOver();   // เกจหมอกเต็ม 100% → แพ้
+    // (A 0%-gauge win handler used to live here; it was removed — winning only comes from clearing every wave.)
+    private void HandlePollutionFull() => TriggerGameOver();   // fog gauge full at 100% -> lose
 
     private void TriggerVictory()
     {
         if (CurrentState != GameState.Playing) return;
 
         _timerRunning = false;
-        Time.timeScale = 0f;   // [เพิ่ม] หยุดเกมตอนโชว์ popup ชนะ
+        Time.timeScale = 0f;   // freeze the game while the victory popup is shown
         SetState(GameState.Victory);
         OnVictory.Invoke();
         Debug.Log($"[GameManager] Victory! Time: {FormatTime(SessionTime)} | Killed: {EnemiesKilled}");
@@ -255,10 +262,10 @@ public class GameManager : MonoBehaviour
         if (CurrentState != GameState.Playing) return;
 
         _timerRunning = false;
-        Time.timeScale = 0f;   // [เพิ่ม] หยุดเกมตอนโชว์ popup แพ้
+        Time.timeScale = 0f;   // freeze the game while the game-over popup is shown
         SetState(GameState.GameOver);
         OnGameOver.Invoke();
-        Debug.Log("[GameManager] Game Over — เลือดหมด หรือ หมอกเต็ม 100%");
+        Debug.Log("[GameManager] Game Over — base HP ran out, or the fog reached 100%");
     }
 
     // ─────────────────────────────────────────────
@@ -271,7 +278,7 @@ public class GameManager : MonoBehaviour
         OnStateChanged.Invoke(newState);
     }
 
-    /// <summary>แปลงวินาที → "2:34"</summary>
+    /// <summary>Formats seconds as "m:ss", e.g. 154 -> "2:34".</summary>
     public string FormatTime(float seconds)
     {
         int m = Mathf.FloorToInt(seconds / 60);

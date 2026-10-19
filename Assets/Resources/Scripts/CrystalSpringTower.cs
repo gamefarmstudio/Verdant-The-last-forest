@@ -1,36 +1,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Crystal Spring tower — every attack pulses damage to ALL enemies in range (AoE) and slows them.
+/// It can also freeze them (intended for level 3, set freezeChance on that prefab).
+///   Damage / Range / Atk Speed come from towers.csv (T2B rows); slow % and freeze are set per level on the prefab.
+///   Upgradable / sellable through the shared system (implements IUpgradableTower).
+/// </summary>
 public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
 {
-    [Header("อ้างอิง CSV / อัพเกรด")]
-    [Tooltip("ID ใน towers.csv เช่น T2B1")]
+    [Header("CSV reference / upgrade")]
+    [Tooltip("ID in towers.csv, e.g. T2B1")]
     [SerializeField] private string towerId = "T2B1";
-    [Tooltip("Prefab เลเวลถัดไป (เว้นว่าง = เลเวลสูงสุด)")]
+    [Tooltip("Prefab for the next level (leave empty = max level)")]
     [SerializeField] private GameObject nextLevelPrefab;
 
     public string TowerId => towerId;
     public GameObject NextLevelPrefab => nextLevelPrefab;
 
-    [Header("การตรวจจับ")]
-    [Tooltip("เลเยอร์ศัตรู (เว้นว่าง = เดา Enemy)")]
+    [Header("Detection")]
+    [Tooltip("Enemy layer (leave empty = assume the \"Enemy\" layer)")]
     [SerializeField] private LayerMask enemyLayer;
 
-    [Header("Slow (ต่อเลเวล)")]
+    [Header("Slow (per level)")]
     [Range(0f, 1f)]
-    [Tooltip("0.4 = ช้าลง 40%")]
+    [Tooltip("0.4 = 40% slower")]
     [SerializeField] private float slowPercent = 0.4f;
     [SerializeField] private float slowDuration = 2f;
 
-    [Header("Freeze (เปิดเฉพาะ L3)")]
+    [Header("Freeze (level 3 only)")]
     [Range(0f, 1f)]
-    [Tooltip("0 = ไม่มี freeze, 0.25 = โอกาส 25%")]
+    [Tooltip("0 = no freeze, 0.25 = 25% chance")]
     [SerializeField] private float freezeChance = 0f;
     [SerializeField] private float freezeDuration = 2f;
 
-    [Header("VFX (option)")]
-    [SerializeField] private GameObject pulseVfxPrefab; 
+    [Header("VFX (optional)")]
+    [SerializeField] private GameObject pulseVfxPrefab;   // effect spawned on each attack (can be empty)
 
+    // Runtime stats (from the CSV)
     private float damage, range, fireCooldown;
     private float cooldownTimer;
     private bool _statsReady, _csvResolved;
@@ -48,6 +55,7 @@ public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
 
     void Start() => TryLoadStats();
 
+    // Reads damage/range/attack speed from TowerDatabase. Retried from Update until the database has loaded.
     void TryLoadStats()
     {
         if (TowerDatabase.Instance == null || !TowerDatabase.Instance.IsLoaded) return;
@@ -56,7 +64,7 @@ public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
         var rec = TowerDatabase.Instance.GetByID(towerId);
         if (rec == null)
         {
-            Debug.LogError($"[CrystalSpring] ไม่พบ ID '{towerId}' ใน towers.csv", this);
+            Debug.LogError($"[CrystalSpring] ID '{towerId}' not found in towers.csv", this);
             return;
         }
         damage = rec.damage;
@@ -78,6 +86,7 @@ public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
         }
     }
 
+    // Damages and slows (and maybe freezes) every enemy within range.
     void Fire()
     {
         int count = Physics2D.OverlapCircle(transform.position, range, _filter, _hits);
@@ -90,7 +99,7 @@ public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
             hitAny = true;
 
             e.TakeDamage(Mathf.Max(1, Mathf.RoundToInt(damage)));
-            if (e.IsDead) continue;   // ตายจากดาเมจแล้ว ไม่ต้องติดสถานะ
+            if (e.IsDead) continue;   // killed by the damage — no need to apply a status
 
             e.ApplySlow(slowPercent, slowDuration);
             if (freezeChance > 0f && Random.value < freezeChance)
@@ -101,6 +110,7 @@ public class CrystalSpringTower : MonoBehaviour, IUpgradableTower
             Destroy(Instantiate(pulseVfxPrefab, transform.position, pulseVfxPrefab.transform.rotation), 1.5f);
     }
 
+    // Shows the attack range in the Scene view (2.5 before the CSV is loaded).
     void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0.3f, 0.7f, 1f, 0.35f);

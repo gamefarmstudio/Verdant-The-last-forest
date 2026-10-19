@@ -3,41 +3,42 @@ using UnityEngine;
 namespace Verdant.Combat
 {
     /// <summary>
-    /// ลูกธนู: บินโฮมมิ่งเข้าหาเป้าหมาย ถึงตัวแล้วสร้างดาเมจ
-    /// ถ้าเป้าตายกลางทาง จะบินต่อไปยังตำแหน่งสุดท้ายที่รู้แล้วหายไป
+    /// Arrow: homes in on its target and deals damage on arrival.
+    /// If the target dies on the way, it keeps flying to the last known position and then disappears.
+    /// Each arrow has a missChance: a missed arrow flies to a point slightly off the target and deals no damage.
     /// </summary>
     public class Projectile : MonoBehaviour
     {
-        [Header("การชน")]
-        [Tooltip("ระยะที่ถือว่า 'ถึงเป้า'")]
+        [Header("Collision")]
+        [Tooltip("Distance that counts as 'reached the target'")]
         [SerializeField] private float hitRadius = 0.15f;
-        [Tooltip("อายุสูงสุดกันลูกธนูค้างในฉาก")]
+        [Tooltip("Maximum lifetime, so arrows never get stuck in the scene")]
         [SerializeField] private float maxLifetime = 5f;
 
-        [Header("ความแม่นยำ")]
-        [Tooltip("โอกาสพลาดเป้า (0-1) เช่น 0.1 = พลาด 10%")]
+        [Header("Accuracy")]
+        [Tooltip("Chance to miss (0-1), e.g. 0.1 = 10% miss")]
         [Range(0f, 1f)]
         [SerializeField] private float missChance = 0.1f;
-        [Tooltip("ระยะเบี่ยงเบนเมื่อพลาด (หน่วยโลก) — ยิ่งมากยิ่งพลาดไกลจากเป้า")]
+        [Tooltip("How far off target a miss lands (world units) — larger = misses land further away")]
         [SerializeField] private float missOffsetRadius = 0.75f;
 
         private IDamageable target;
         private Vector3 lastKnownPos;
-        private Vector3 missOffset;  // เบี่ยงจากตำแหน่งเป้าจริง ใช้ตอนพลาดเท่านั้น
-        private bool hasTarget;   // false = ยังไม่เคยได้เป้า หรือหมดข้อมูลตำแหน่งแล้ว
-        private bool isMiss;      // สุ่มไว้ตอน Launch — ถ้า true จะไม่โดนดาเมจแม้บินไปถึง
+        private Vector3 missOffset;  // offset from the real target position, only used when missing
+        private bool hasTarget;   // false = never had a target, or no longer has position data
+        private bool isMiss;      // rolled once in Launch — if true it deals no damage even when it arrives
         private float damage;
         private float speed;
         private float life;
 
-        /// <summary>ยิงลูกธนู — เรียกจาก Tower.Fire()</summary>
+        /// <summary>Fires the arrow — called by Tower.Fire().</summary>
         public void Launch(IDamageable target, float damage, float speed)
         {
             this.target = target;
             this.damage = damage;
             this.speed = speed;
 
-            // สุ่มพลาดตอนยิงครั้งเดียว — ไม่สุ่มซ้ำระหว่างบิน กันลูกธนู "พลาดแล้วโดน" ตอนหลัง
+            // Roll the miss once at launch — never re-rolled in flight, so an arrow can't "miss then hit" later
             isMiss = Random.value < missChance;
             if (isMiss)
             {
@@ -56,7 +57,7 @@ namespace Verdant.Combat
             }
             else
             {
-                // ไม่มีเป้าหมายให้บินหา — ทำลายตัวเองทันทีกันลูกธนูค้างเปล่า ๆ
+                // Nothing to fly at — destroy immediately so empty arrows don't linger
                 Destroy(gameObject);
             }
         }
@@ -68,19 +69,19 @@ namespace Verdant.Combat
 
             if (!hasTarget) return;
 
-            // เป้ายังอยู่และยังไม่ตาย → อัปเดตตำแหน่งล่าสุดที่รู้
+            // Target still exists and is alive -> update its last known position
             if (target != null && target.IsAlive)
                 lastKnownPos = target.Transform.position;
 
             Vector3 before = transform.position;
-            Vector3 targetPos = lastKnownPos + missOffset; // พลาด → บินไปยังจุดที่เบี่ยงจากเป้าจริง
+            Vector3 targetPos = lastKnownPos + missOffset; // on a miss, fly to the point offset from the real target
             float step = speed * Time.deltaTime;
 
-            // หมุนแบบ 2D รอบแกน Z (เหมือนกับ Tower.AimAtTarget) แทน LookRotation แบบ 3D
+            // 2D rotation around the Z axis (same as Tower.AimAtTarget) instead of a 3D LookRotation
             Vector2 dir = targetPos - before;
             if (dir.sqrMagnitude > 0.0001f)
             {
-                // -90 เพราะสมมติสไปรต์หันหัวขึ้น (แกน +Y) เป็นค่าเริ่มต้น — ปรับให้ตรงกับสไปรต์จริง
+                // -90 because the sprite is assumed to point up (+Y) by default — adjust to match the real sprite
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
                 transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f);
             }
@@ -93,7 +94,7 @@ namespace Verdant.Combat
 
         private void HitTarget()
         {
-            // พลาด → ไม่สร้างดาเมจไม่ว่าจะบินไปจบใกล้เป้าแค่ไหนก็ตาม
+            // A miss never deals damage, however close to the target it ends up
             if (!isMiss && target != null && target.IsAlive)
                 target.TakeDamage(damage);
 

@@ -5,54 +5,54 @@ using DG.Tweening;
 namespace Verdant.Combat
 {
     /// <summary>
-    /// สมองของป้อม: ตรวจจับศัตรูในระยะ → เลือกเป้า → หมุนหัวเล็ง → ยิงตามอัตราไฟ
+    /// The brain of a ranged tower (Greenshot): detect enemies in range -> pick a target -> turn the head to aim -> fire at its rate of fire.
     ///
-    /// สถานะ (damage / range / atkSpeed) ดึงจาก towers.csv ผ่าน TowerDatabase
-    /// โดยอ้างอิงด้วย towerId — ถ้าโหลด CSV ไม่ได้จะตกไปใช้ค่าใน fallbackData
-    /// ค่าที่ไม่มีใน CSV (ลูกกระสุน, โหมดเล็ง) ตั้งบน component นี้โดยตรง
+    /// Stats (damage / range / atkSpeed) come from towers.csv through TowerDatabase,
+    /// looked up by towerId — if the CSV can't be loaded it falls back to the values in fallbackData.
+    /// Values the CSV doesn't have (projectile, targeting mode) are set directly on this component.
     /// </summary>
     [DisallowMultipleComponent]
-    public class Tower : MonoBehaviour, IUpgradableTower   // [เพิ่ม] implement interface (TowerId/NextLevelPrefab มีอยู่แล้ว)
+    public class Tower : MonoBehaviour, IUpgradableTower   // implements the upgrade interface (TowerId / NextLevelPrefab)
     {
-        [Header("อ้างอิง CSV")]
-        [Tooltip("ID ของป้อมใน towers.csv เช่น T1A1 — ดึง Damage/Range/Atk Speed จากแถวนี้")]
+        [Header("CSV reference")]
+        [Tooltip("This tower's ID in towers.csv, e.g. T1A1 — Damage/Range/Atk Speed are read from this row")]
         [SerializeField] private string towerId = "T1A1";
 
-        [Tooltip("ค่าสำรองเมื่อโหลด CSV ไม่ได้ หรือหา ID ไม่เจอ (ปล่อยว่างได้ถ้ามั่นใจว่ามี CSV)")]
+        [Tooltip("Backup values if the CSV can't be loaded or the ID isn't found (can be empty if you're sure the CSV exists)")]
         [SerializeField] private TowerData fallbackData;
 
-        [Header("ลูกกระสุน (ไม่มีใน CSV — ตั้งตรงนี้)")]
+        [Header("Projectile (not in the CSV — set here)")]
         [SerializeField] private Projectile projectilePrefab;
         [SerializeField] private float projectileSpeed = 10f;
 
-        [Header("การเล็ง")]
+        [Header("Targeting")]
         [SerializeField] private TargetingMode targeting = TargetingMode.Closest;
 
-        [Header("การอ้างอิงในฉาก")]
-        [Tooltip("จุดปล่อยลูกธนู (ปล่อยว่างได้ จะใช้ตำแหน่งป้อมแทน)")]
+        [Header("Scene references")]
+        [Tooltip("Where arrows are fired from (can be empty — the tower's position is used instead)")]
         [SerializeField] private Transform muzzle;
-        [Tooltip("ส่วนหัวป้อมที่จะหมุนตามเป้าหมาย (ปล่อยว่างได้ถ้าไม่ต้องการหมุน)")]
+        [Tooltip("The tower head that turns to follow the target (can be empty if it shouldn't turn)")]
         [SerializeField] private Transform rotatePart;
-        [Tooltip("เลเยอร์ของศัตรู — ตั้งเป็น Enemy (ถ้าเว้นว่าง จะเดาเป็น Enemy ให้อัตโนมัติ)")]
+        [Tooltip("Enemy layer — set to Enemy (if left empty, Enemy is assumed automatically)")]
         [SerializeField] private LayerMask enemyLayer;
 
-        // ── สถานะ runtime (มาจาก CSV) ──
+        // ── Runtime stats (from the CSV) ──
         private float damage;
         private float range;
-        private float fireCooldown;
+        private float fireCooldown;   // seconds between shots
 
         private float cooldownTimer;
         private IDamageable currentTarget;
 
-        // ใช้ List + ContactFilter2D แบบ non-alloc (แนะนำสำหรับ Unity 6)
+        // Non-allocating List + ContactFilter2D overload (recommended for Unity 6)
         private readonly List<Collider2D> hits = new List<Collider2D>();
         private ContactFilter2D filter;
 
-        private bool _statsReady;    // มีสถานะพร้อมทำงาน (CSV หรือ fallback)
-        private bool _csvResolved;   // ลอง CSV จน DB โหลดเสร็จแล้ว (เลิก retry)
+        private bool _statsReady;    // stats are ready to use (from the CSV or the fallback)
+        private bool _csvResolved;   // tried the CSV once the DB finished loading (stop retrying)
 
-        // ตำแหน่ง rotatePart เทียบกับ muzzle ตอนเริ่มเกม (world space offset + rotation เริ่มต้น)
-        // ใช้คำนวณให้ rotatePart "โคจร" รอบ muzzle ซึ่งเป็นจุดหมุนคงที่ เวลาป้อมหมุนเล็ง
+        // rotatePart's position relative to the muzzle at start (world-space offset + starting rotation).
+        // Used to make rotatePart "orbit" around the muzzle (a fixed pivot) when the tower turns to aim.
         private Vector3 rotatePartOffsetFromMuzzle;
         private Quaternion rotatePartInitialRotation;
         private bool hasRotateOrbit;
@@ -66,39 +66,39 @@ namespace Verdant.Combat
                 hasRotateOrbit = true;
             }
 
-            // เว้น enemyLayer ไว้ → เดาเป็น Enemy ให้ (กันลืมตั้งใน Inspector แล้วยิงไม่โดนใคร)
+            // enemyLayer left empty -> assume Enemy (in case it was forgotten in the Inspector and the tower never hits anything)
             if (enemyLayer.value == 0)
             {
                 enemyLayer = LayerMask.GetMask("Enemy");
-                Debug.LogWarning($"[Tower] '{name}' ไม่ได้ตั้ง enemyLayer — ใช้ layer 'Enemy' อัตโนมัติ", this);
+                Debug.LogWarning($"[Tower] '{name}' enemyLayer is not set — using the 'Enemy' layer automatically", this);
 
-                // ถ้าไม่มีเลเยอร์ชื่อ "Enemy" จริง ๆ ใน Project Settings, GetMask จะคืนค่า 0 เงียบ ๆ
-                // และ OverlapCircle จะไม่เจอศัตรูเลย — เตือนไว้ตรงนี้ให้ชัดเจน
+                // If no layer called "Enemy" exists in Project Settings, GetMask silently returns 0
+                // and OverlapCircle never finds an enemy — warn loudly here.
                 if (enemyLayer.value == 0)
                 {
-                    Debug.LogError($"[Tower] '{name}' หา layer 'Enemy' ไม่เจอเลย — " +
-                                   $"ตรวจสอบชื่อ layer ใน Project Settings หรือกำหนด enemyLayer ใน Inspector เอง", this);
+                    Debug.LogError($"[Tower] '{name}' could not find a layer named 'Enemy' at all — " +
+                                   $"check the layer name in Project Settings, or set enemyLayer in the Inspector yourself", this);
                 }
             }
 
             filter = new ContactFilter2D();
             filter.SetLayerMask(enemyLayer);
-            filter.useTriggers = true; // ตรวจจับ trigger collider ของศัตรูด้วย
+            filter.useTriggers = true; // also detect the enemies' trigger colliders
 
-            ApplyFallback();           // ให้ทำงานได้ก่อน แม้ CSV ยังไม่พร้อม
+            ApplyFallback();           // work straight away, even before the CSV is ready
         }
 
         private void Start() => TryLoadStatsFromCsv();
 
-        // ── [เพิ่ม] API สำหรับระบบอัพเกรด (แบบเปลี่ยน Prefab) ──
-        [Header("อัพเกรด")]
-        [Tooltip("Prefab ป้อมเลเวลถัดไป — เว้นว่าง = เลเวลสูงสุด (อัพเกรดต่อไม่ได้)")]
+        // ── API for the upgrade system (upgrade by swapping prefabs) ──
+        [Header("Upgrade")]
+        [Tooltip("Prefab for the next tower level — leave empty = max level (can't be upgraded further)")]
         [SerializeField] private GameObject nextLevelPrefab;
 
         public string TowerId => towerId;
         public GameObject NextLevelPrefab => nextLevelPrefab;
 
-        // ── โหลดสถานะจาก CSV ──
+        // ── Loading stats ──
 
         private void ApplyFallback()
         {
@@ -114,38 +114,38 @@ namespace Verdant.Combat
         }
 
         /// <summary>
-        /// พยายามดึงสถานะจาก TowerDatabase — เรียกซ้ำใน Update ได้จนกว่า DB จะโหลดเสร็จ
-        /// (ป้อมที่วางตอน runtime ผ่าน TowerSlot จะโหลดทันเสมอ ส่วนป้อมที่วางไว้ในฉาก
-        ///  ก่อนเล่นอาจ Start ก่อน TowerDatabase.Start — จึงต้อง retry)
+        /// Tries to read the stats from TowerDatabase — can be called repeatedly from Update until the DB has loaded.
+        /// (Towers placed at runtime through TowerSlot always load in time; towers already placed in the scene
+        ///  may Start before TowerDatabase.Start, so they need to retry.)
         /// </summary>
         private void TryLoadStatsFromCsv()
         {
             if (TowerDatabase.Instance == null || !TowerDatabase.Instance.IsLoaded)
-                return;   // DB ยังไม่พร้อม — จะลองใหม่ใน Update
+                return;   // DB not ready yet — try again in Update
 
-            _csvResolved = true;   // DB โหลดแล้ว ไม่ว่าจะเจอแถวหรือไม่ ก็เลิก retry
+            _csvResolved = true;   // the DB has loaded — stop retrying whether or not the row exists
 
             var rec = TowerDatabase.Instance.GetByID(towerId);
             if (rec == null)
             {
-                Debug.LogError($"[Tower] ไม่พบ tower ID '{towerId}' ใน towers.csv — " +
-                               $"'{name}' ใช้ค่า fallback แทน", this);
+                Debug.LogError($"[Tower] tower ID '{towerId}' not found in towers.csv — " +
+                               $"'{name}' using the fallback values instead", this);
                 return;
             }
             else
             {
-                Debug.Log($"[Tower] '{name}' โหลดสถานะจาก CSV ID='{towerId}' สำเร็จ", this);
+                Debug.Log($"[Tower] '{name}' loaded stats from the CSV, ID='{towerId}'", this);
             }
 
             damage       = rec.damage;
             range        = rec.range;
-            if (rec.atkSpeed > 0f) fireCooldown = rec.atkSpeed;   // atkSpeed = วินาที/นัด อยู่แล้ว
+            if (rec.atkSpeed > 0f) fireCooldown = rec.atkSpeed;   // atkSpeed is already seconds per shot
             _statsReady  = true;
         }
 
         private void Update()
         {
-            if (!_csvResolved) TryLoadStatsFromCsv();   // retry จนกว่า DB จะพร้อม
+            if (!_csvResolved) TryLoadStatsFromCsv();   // retry until the DB is ready
             if (!_statsReady || range <= 0f) return;
 
             cooldownTimer -= Time.deltaTime;
@@ -160,12 +160,12 @@ namespace Verdant.Combat
             }
         }
 
-        // ---------- เลือกเป้าหมาย ----------
+        // ---------- Picking a target ----------
         private void AcquireTarget()
         {
-            // ถ้าเป้าเดิมยังอยู่ในระยะและยังไม่ตาย ใช้ต่อ (กันการสลับเป้าถี่เกินไป)
+            // Keep the current target while it's still in range and alive (avoids switching targets too often)
             if (IsValidTarget(currentTarget)) return;
-            Debug.Log($"[Tower] '{name}' เป้าหมายเดิมหมดสภาพ → หาเป้าใหม่", this);
+            Debug.Log($"[Tower] '{name}' previous target is no longer valid → finding a new target", this);
             currentTarget = FindBestTarget();
         }
 
@@ -176,12 +176,13 @@ namespace Verdant.Combat
             return sqr <= range * range;
         }
 
+        // Scores every living enemy in range by the targeting mode and returns the best one (or null).
         private IDamageable FindBestTarget()
         {
             int count = Physics2D.OverlapCircle(transform.position, range, filter, hits);
 
-            // Debug ชั่วคราว: ช่วยไล่ปัญหา "No Enemies Detected"
-            // ถ้า count เป็น 0 เสมอ → เช็ค enemyLayer / Physics2D collision matrix / collider ของศัตรู
+            // Temporary debug: helps track down "No Enemies Detected"
+            // If count is always 0 -> check enemyLayer / the Physics2D collision matrix / the enemy's collider
             Debug.Log($"[Tower] '{name}' OverlapCircle: range={range}, enemyLayerMask={enemyLayer.value}, hitCount={count}", this);
 
             IDamageable best = null;
@@ -200,11 +201,11 @@ namespace Verdant.Combat
                 }
             }
 
-            Debug.Log($"[Tower] '{name}' พบ {count} ศัตรูในระยะ → เลือกเป้า '{best?.Transform.name}'", this);
+            Debug.Log($"[Tower] '{name}' found {count} enemies in range → chose target '{best?.Transform.name}'", this);
             return best;
         }
 
-        // แปลงโหมดเล็งเป็น "คะแนน" — ยิ่งมากยิ่งถูกเลือก
+        // Turns the targeting mode into a "score" — higher = more likely to be chosen
         private float ScoreTarget(IDamageable t)
         {
             switch (targeting)
@@ -212,12 +213,12 @@ namespace Verdant.Combat
                 case TargetingMode.First:     return t.PathProgress;
                 case TargetingMode.Last:      return -t.PathProgress;
                 case TargetingMode.Strongest: return t.CurrentHealth;
-                default: // Closest — ใกล้ = คะแนนสูง
+                default: // Closest — nearer = higher score
                     return -Vector2.Distance(transform.position, t.Transform.position);
             }
         }
 
-        // ---------- หมุนหัวป้อม ----------
+        // ---------- Turning the tower head ----------
         private void AimAtTarget()
         {
             if (currentTarget == null || rotatePart == null) return;
@@ -225,14 +226,14 @@ namespace Verdant.Combat
             Vector2 dir = (Vector2)(currentTarget.Transform.position - rotatePart.position);
             if (dir.sqrMagnitude < 0.0001f) return;
 
-            // -90 เพราะสมมติสไปรต์หันหัวขึ้น (แกน +Y) เป็นค่าเริ่มต้น
+            // -90 because the sprite is assumed to point up (+Y) by default
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
             Quaternion newRotation = Quaternion.Euler(0f, 0f, angle + 90f);
-            DOTween.Kill(rotatePart);   // กันป้อมหมุนสลับเป้าถี่เกินไปจนค้าง tween เก่า
-            rotatePart.DORotateQuaternion(newRotation, 0.1f).SetEase(Ease.OutBounce);   // หมุนหัวป้อมไปหาศัตรู (ไม่หมุนทันที → ดูเป็นธรรมชาติ)
+            DOTween.Kill(rotatePart);   // stops old tweens piling up when the tower switches targets quickly
+            rotatePart.DORotateQuaternion(newRotation, 0.1f).SetEase(Ease.OutBounce);   // turn toward the enemy (not instantly -> looks natural)
 
-            // ให้ rotatePart โคจรรอบ muzzle (จุดหมุนคงที่) ตามมุมที่หมุนไปจากจุดเริ่มต้น
-            // muzzle จะอยู่นิ่งกับที่เสมอ ส่วน rotatePart จะสวิงรอบมันแทน
+            // Make rotatePart orbit around the muzzle (a fixed pivot) by the angle turned from the start.
+            // The muzzle always stays put while rotatePart swings around it.
             if (hasRotateOrbit)
             {
                 Quaternion deltaRotation = newRotation * Quaternion.Inverse(rotatePartInitialRotation);
@@ -240,10 +241,10 @@ namespace Verdant.Combat
             }
         }
 
-        // ---------- ยิง ----------
+        // ---------- Firing ----------
         private void Fire()
         {
-            Debug.Log($"[Tower] '{name}' ยิง {currentTarget.Transform.name} (HP={currentTarget.CurrentHealth})");
+            Debug.Log($"[Tower] '{name}' fires at {currentTarget.Transform.name} (HP={currentTarget.CurrentHealth})");
             if (projectilePrefab == null) return;
 
             Vector3 spawnPos = muzzle != null ? muzzle.position : transform.position;
@@ -251,13 +252,13 @@ namespace Verdant.Combat
             arrow.Launch(currentTarget, damage, projectileSpeed);
         }
 
-        // วาดวงระยะยิงใน Scene view ช่วยจัดวางป้อม/ออกแบบด่าน
+        // Draws the firing range in the Scene view to help place towers / design levels
         private void OnDrawGizmosSelected()
         {
-            // ใน edit mode ยังไม่ได้โหลด CSV — โชว์ระยะจาก fallback ให้พอเห็นภาพ
+            // In Edit mode the CSV isn't loaded yet — show the fallback range so there's something to see
             float r = range > 0f ? range : (fallbackData != null ? fallbackData.range : 0f);
             if (r <= 0f) return;
-            Gizmos.color = new Color(0.15f, 1f, 0.55f, 0.35f); // teal-green ตามธีม Verdant
+            Gizmos.color = new Color(0.15f, 1f, 0.55f, 0.35f); // teal-green, Verdant's theme colour
             Gizmos.DrawWireSphere(transform.position, r);
         }
     }

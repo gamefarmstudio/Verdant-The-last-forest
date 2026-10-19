@@ -1,15 +1,19 @@
 using UnityEngine;
 using DG.Tweening;
 
-// [เพิ่ม] สคริปต์ใหม่: ป้อมประชิด — summon อัศวิน 1 ตัว, ตายแล้วเกิดใหม่หลัง respawnDelay
-//   วางบน prefab ป้อม Forest Knight (T1A) แทน/เพิ่มจาก Tower ระยะไกล
-public class MeleeTower : MonoBehaviour, IUpgradableTower   // [เพิ่ม] อัพเกรด/ขายได้เหมือนป้อมยิงไกล
+/// <summary>
+/// Melee tower (Forest Knight, T1A) — summons one KnightUnit that stands on the enemy path and
+/// blocks enemies; when the knight dies a new one is summoned after respawnDelay.
+/// Put it on the Forest Knight tower prefab instead of (or as well as) the ranged Tower.
+/// Upgradable / sellable like the ranged towers (implements IUpgradableTower).
+/// </summary>
+public class MeleeTower : MonoBehaviour, IUpgradableTower   // upgradable/sellable like the ranged towers
 {
-    // [เพิ่ม] ระบบอัพเกรด — สเตตัสอัศวินอ้างจาก towers.csv ด้วย towerId, เปลี่ยน prefab เมื่ออัพ
+    // Upgrade system — the knight's stats come from towers.csv via towerId; upgrading swaps the prefab.
     [Header("Upgrade")]
-    [Tooltip("ID ใน towers.csv เช่น T1A1 — โหลด HP/Damage/Atk Speed/Range ของอัศวินจากแถวนี้")]
+    [Tooltip("ID in towers.csv, e.g. T1A1 — the knight's HP/Damage/Atk Speed/Range are loaded from this row")]
     [SerializeField] private string towerId = "T1A1";
-    [Tooltip("Prefab ป้อมประชิดเลเวลถัดไป (เว้นว่าง = เลเวลสูงสุด)")]
+    [Tooltip("Prefab for the next melee tower level (leave empty = max level)")]
     [SerializeField] private GameObject nextLevelPrefab;
 
     public string TowerId => towerId;
@@ -17,45 +21,46 @@ public class MeleeTower : MonoBehaviour, IUpgradableTower   // [เพิ่ม]
 
     [Header("Summon")]
     [SerializeField] private KnightUnit knightPrefab;
-    // [แก้] เปลี่ยนจาก Transform (ลากใส่บน prefab ไม่ได้ → "Type mismatch") เป็น offset จากตัวป้อม
-    [Tooltip("ปรับตำแหน่งฐานก่อน snap ลง path (ปกติ (0,0) พอ)")]
+    // An offset from the tower (was a Transform, but that can't be assigned on a prefab -> "Type mismatch").
+    [Tooltip("Adjusts the base position before it snaps onto the path (usually (0,0) is fine)")]
     [SerializeField] private Vector2 rallyOffset = Vector2.zero;
-    // [เพิ่ม] ให้จุดยืนอัศวิน snap ลง "จุดบน EnemyPath ที่ใกล้ป้อมสุด" อัตโนมัติ
-    //        → วางป้อมตรงไหนก็ยืนบน path เอง ไม่ต้องตั้งค่าต่อ slot
-    [Tooltip("ยึดจุดยืนอัศวินให้อยู่บนทางเดินมอนที่ใกล้ป้อมสุดอัตโนมัติ")]
+    // Snap the knight's standing point onto "the point on the EnemyPath closest to the tower" automatically
+    //  -> wherever the tower is placed, the knight stands on the path; no per-slot setup needed.
+    [Tooltip("Automatically keep the knight's standing point on the enemy path nearest the tower")]
     [SerializeField] private bool snapRallyToPath = true;
-    // [เพิ่ม] เลื่อนจุดยืนไปตามแนว path: + = ไปทางฐาน (ดักหน้า), - = ไปทางจุดเกิดมอน (หน่วยโลก)
-    [Tooltip("เลื่อนอัศวินไปตามแนว path: + ไปทางฐาน / - ไปทางจุดเกิดมอน")]
+    // Shift the standing point along the path: + = toward the base (intercept further ahead), - = toward the enemy spawn (world units).
+    [Tooltip("Move the knight along the path: + toward the base / - toward the enemy spawn")]
     [SerializeField] private float pathShift = 0f;
-    [SerializeField] private float respawnDelay = 5f;   // เกิดใหม่หลังอัศวินตายกี่วินาที
+    [SerializeField] private float respawnDelay = 5f;   // seconds before a new knight appears after one dies
 
     private KnightUnit _knight;
     private float _respawnTimer;
-    [HideInInspector] public int _Health;   // [เพิ่ม] ให้ TowerSlot/UpgradePopup อ่านค่า HP อัศวินได้ (อ้างจาก towers.csv)
+    [HideInInspector] public int _Health;   // current knight HP, readable by TowerSlot / the upgrade popup
 
     void Start() => Summon();
 
     void Update()
     {
-        _Health = _knight != null ? _knight._hp : 0;   // [เพิ่ม] ให้ TowerSlot/UpgradePopup อ่านค่า HP อัศวินได้ (อ้างจาก towers.csv)
-        if (_knight != null) return;   // ยังมีอัศวินอยู่ (Destroy แล้วจะกลายเป็น null เอง)
+        _Health = _knight != null ? _knight._hp : 0;   // keep the knight's HP readable by TowerSlot / the upgrade popup
+        if (_knight != null) return;   // knight still alive (it becomes null once destroyed)
 
         _respawnTimer -= Time.deltaTime;
         if (_respawnTimer <= 0f) Summon();
     }
 
+    // Spawns a knight at the rally point and configures it from towers.csv.
     void Summon()
     {
         if (knightPrefab == null)
         {
-            Debug.LogError("[MeleeTower] ยังไม่ได้ตั้ง Knight Prefab", this);
+            Debug.LogError("[MeleeTower] Knight Prefab has not been set", this);
             return;
         }
 
         Vector3 pos = RallyPosition();
         _knight = Instantiate(knightPrefab, pos, Quaternion.identity);
 
-        // [เพิ่ม] โหลดสเตตัสอัศวินจาก towers.csv ตาม towerId ของป้อม (เลเวลนี้)
+        // Load the knight's stats from towers.csv using this tower's towerId (this level).
         var rec = TowerDatabase.Instance != null ? TowerDatabase.Instance.GetByID(towerId) : null;
         if (rec != null)
             _knight.Configure( rec.hp, Mathf.RoundToInt(rec.damage), rec.atkSpeed, rec.range);
@@ -64,7 +69,7 @@ public class MeleeTower : MonoBehaviour, IUpgradableTower   // [เพิ่ม]
         _knight.OnDeath += HandleKnightDeath;
     }
 
-    // [เพิ่ม] คำนวณจุดยืนอัศวิน — offset จากป้อม แล้ว (option) snap ลง path ที่ใกล้สุด
+    // Works out where the knight stands — offset from the tower, then (optionally) snapped onto the nearest path.
     Vector3 RallyPosition()
     {
         Vector3 basePos = transform.position + (Vector3)rallyOffset;
@@ -82,12 +87,13 @@ public class MeleeTower : MonoBehaviour, IUpgradableTower   // [เพิ่ม]
         _respawnTimer = respawnDelay;
     }
 
-    // [เพิ่ม] ป้อมถูกทำลาย (เช่นขายป้อม) → ทำลายอัศวินด้วย กันอัศวินค้างเดินต่อ
+    // The tower was destroyed (e.g. sold) -> destroy its knight too, so it doesn't keep walking around.
     void OnDestroy()
     {
         if (_knight != null) Destroy(_knight.gameObject);
     }
 
+    // Shows the knight's rally point in the Scene view.
     void OnDrawGizmosSelected()
     {
         Vector3 p = RallyPosition();

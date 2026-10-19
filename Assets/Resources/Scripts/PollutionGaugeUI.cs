@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// HUD bar for the pollution gauge. Updates a Slider (0..1) and tints its fill
+/// with a gradient (e.g. green -> red) whenever GameEvents.OnPollutionChanged fires.
+/// </summary>
 public class PollutionGaugeUI : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private Image fillImage;
-    [SerializeField] private Gradient dangerColor;
+    [SerializeField] private Gradient dangerColor;   // colour by gauge value, 0 = clean, 1 = full
 
     void OnEnable()
     {

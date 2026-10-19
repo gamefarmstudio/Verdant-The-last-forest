@@ -1,11 +1,16 @@
 using UnityEngine;
 using DG.Tweening;
 
+/// <summary>
+/// General-purpose "play a tween on start" component for decoration and UI.
+/// Tick the effects you want in the Inspector (move, scale, rotate, loop, shake);
+/// they play once in Awake, or again whenever PlayTween() is called.
+/// </summary>
 public class DoTween : MonoBehaviour
 {
     [Header("Move")]
     [SerializeField] private bool usingMoveTween = false;
-    [SerializeField] private Transform targetTransform;
+    [SerializeField] private Transform targetTransform;   // the object that gets animated
     [SerializeField] private Vector3 targetPosition;
     [SerializeField] private float duration = 1f;
 
@@ -35,6 +40,8 @@ public class DoTween : MonoBehaviour
     {
         PlayTween();
     }
+
+    /// <summary>Stops running tweens and resets the target to local position 0, scale 1, no rotation.</summary>
     public void ResetTransform()
     {
         transform.DOKill();
@@ -42,6 +49,8 @@ public class DoTween : MonoBehaviour
         targetTransform.localScale = Vector3.one;
         targetTransform.localRotation = Quaternion.identity;
     }
+
+    /// <summary>Resets the target, then plays every enabled effect.</summary>
     public void PlayTween()
     {
         ResetTransform();
@@ -60,6 +69,7 @@ public class DoTween : MonoBehaviour
             targetTransform.DORotate(targetRotation, duration).SetEase(easeType);
         }
 
+        // Loop replaces the one-shot move: finish it instantly, then loop a local move.
         if (usingLoop)
         {
             targetTransform.DOComplete();

@@ -3,30 +3,30 @@ using UnityEngine;
 namespace Verdant.Combat
 {
     /// <summary>
-    /// ค่าป้อม "สำรอง" (fallback) เก็บเป็น asset (ScriptableObject)
+    /// "Backup" (fallback) tower stats stored as an asset (ScriptableObject).
     ///
-    /// หมายเหตุ: source of truth จริงของ Verdant คือ towers.csv (ผ่าน TowerDatabase)
-    /// asset นี้ใช้เฉพาะตอนทดสอบป้อมเดี่ยว ๆ หรือกรณี CSV โหลดไม่ได้/หา ID ไม่เจอ
-    /// (ดู Tower.cs — ถ้าเจอแถวใน CSV จะ override ค่าพวกนี้ทับ)
+    /// Note: Verdant's real source of truth is towers.csv (via TowerDatabase).
+    /// This asset is only used when testing a single tower, or when the CSV can't be loaded / the ID isn't found
+    /// (see Tower.cs — if a matching CSV row exists, it overrides these values).
     /// </summary>
     [CreateAssetMenu(fileName = "TowerData_GreenArrow", menuName = "Verdant/Tower Data (Fallback)")]
     public class TowerData : ScriptableObject
     {
-        [Header("ข้อมูลทั่วไป")]
+        [Header("General")]
         public string towerName = "Green Arrow";
-        [TextArea] public string description = "ป้อมธนูพื้นฐาน ยิงเร็ว ดาเมจกลาง";
+        [TextArea] public string description = "Basic archer tower. Fires quickly, medium damage.";
 
-        [Header("การโจมตี (fallback — CSV ทับได้)")]
+        [Header("Attack (fallback — the CSV can override)")]
         public float damage = 10f;
         public float range = 3.5f;
-        [Tooltip("จำนวนนัดต่อวินาที")]
+        [Tooltip("Shots per second")]
         public float fireRate = 1.5f;
 
-        [Header("ลูกกระสุน (Arrow)")]
+        [Header("Projectile (Arrow)")]
         public Projectile projectilePrefab;
         public float projectileSpeed = 10f;
 
-        /// <summary>ช่วงเวลาพักระหว่างยิง (วินาที) คำนวณจาก fireRate</summary>
+        /// <summary>Seconds between shots, calculated from fireRate.</summary>
         public float FireCooldown => 1f / Mathf.Max(0.01f, fireRate);
     }
 }

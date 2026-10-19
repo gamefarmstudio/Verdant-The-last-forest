@@ -1,19 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Floating health bar above an enemy.
+/// Clones a world-space Canvas prefab (containing a Slider) for this enemy, keeps it above the
+/// enemy's head without rotating or flipping with it, and updates it from EnemyBase.OnHPChanged.
+/// Also adds a CapsuleCollider2D if the enemy has none, so towers can detect it.
+/// </summary>
 public class EnemyHealth : MonoBehaviour
 {
     [Tooltip("Reference to the EnemyBase script")]
     public EnemyBase enemyBase;
 
-    [Tooltip("ลาก Canvas prefab ที่มี Slider อยู่ข้างในมาใส่ตรงนี้ — จะถูก Clone แยกให้ enemy แต่ละตัว")]
+    [Tooltip("Drag in the Canvas prefab that contains a Slider — a separate copy is cloned for each enemy")]
     [SerializeField] private Canvas healthCanvasPrefab;
 
-    [Tooltip("ตำแหน่ง local เหนือหัว enemy ที่จะวาง health bar")]
+    [Tooltip("Local position above the enemy's head where the health bar is placed")]
     [SerializeField] private Vector3 offset = new Vector3(0f, 1f, 0f);
 
-    [Header("พรีวิวใน Scene view")]
-    [Tooltip("ขนาดกล่องพรีวิวตำแหน่ง offset (แค่ช่วยดูใน Editor ไม่มีผลกับเกมจริง)")]
+    [Header("Scene view preview")]
+    [Tooltip("Size of the preview box drawn at the offset position (Editor only, no effect in game)")]
     [SerializeField] private Vector3 gizmoPreviewSize = new Vector3(0.6f, 0.15f, 0.05f);
 
     private Canvas healthCanvas;
@@ -32,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (healthCanvasPrefab == null)
         {
-            Debug.LogError($"[EnemyHealth] '{name}' ยังไม่ได้ลาก Canvas prefab มาใส่ในช่อง Health Canvas Prefab", this);
+            Debug.LogError($"[EnemyHealth] '{name}' no Canvas prefab has been assigned to the Health Canvas Prefab field", this);
             return;
         }
         if (!this.gameObject.TryGetComponent<CapsuleCollider2D>(out var collider))
@@ -40,28 +46,28 @@ public class EnemyHealth : MonoBehaviour
             this.gameObject.AddComponent<CapsuleCollider2D>();
         }
 
-        // Clone Canvas แยกให้ enemy ตัวนี้โดยเฉพาะ กันหลาย enemy แย่งใช้ Slider ตัวเดียวกัน
+        // Clone a Canvas just for this enemy, so several enemies don't fight over the same Slider.
         healthCanvas = Instantiate(healthCanvasPrefab);
         healthCanvas.transform.SetParent(transform, worldPositionStays: false);
         healthCanvas.transform.localPosition = offset;
-        healthCanvas.transform.localRotation = Quaternion.identity; // กันไม่ให้เอียง/พลิกตามตัว enemy
+        healthCanvas.transform.localRotation = Quaternion.identity; // don't tilt/flip with the enemy
 
-        // World Space Canvas ต้องมี worldCamera ไม่งั้น Unity เตือนเรื่อง UI events
-        // (ไม่จำเป็นมากเพราะ Slider นี้ไม่ interactable แต่ตั้งให้ถูกไว้เลย)
+        // A World Space Canvas needs a worldCamera, otherwise Unity warns about UI events
+        // (not strictly needed since this Slider isn't interactable, but set it properly anyway).
         if (healthCanvas.renderMode == RenderMode.WorldSpace && healthCanvas.worldCamera == null)
         {
             healthCanvas.worldCamera = Camera.main;
             if (healthCanvas.worldCamera == null)
             {
-                Debug.LogWarning($"[EnemyHealth] '{name}' หา Camera.main ไม่เจอ — " +
-                                 "ตรวจสอบว่ากล้องหลักในฉากติด tag 'MainCamera' อยู่", this);
+                Debug.LogWarning($"[EnemyHealth] '{name}' could not find Camera.main — " +
+                                 "check that the main camera in the scene has the 'MainCamera' tag", this);
             }
         }
 
-        healthSlider = healthCanvas.GetComponentInChildren<Slider>(true); // true = หาแม้ถูกปิดอยู่
+        healthSlider = healthCanvas.GetComponentInChildren<Slider>(true); // true = find it even if disabled
         if (healthSlider == null)
         {
-            Debug.LogError($"[EnemyHealth] '{name}' Clone Canvas แล้วแต่ไม่พบ Slider อยู่ข้างใน", this);
+            Debug.LogError($"[EnemyHealth] '{name}' cloned the Canvas but found no Slider inside it", this);
             return;
         }
 
@@ -76,7 +82,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (enemyBase == null || healthSlider == null) return;
 
-        // Awake ทุกตัวใน scene ทำงานเสร็จหมดแล้วตอนนี้ — ค่า MaxHP/CurrentHP ควรพร้อมแล้ว
+        // Every Awake in the scene has finished by now — MaxHP/CurrentHP should be ready.
         healthSlider.maxValue = enemyBase.MaxHP;
         healthSlider.value = enemyBase.CurrentHP;
         Debug.Log($"[EnemyHealth] '{name}' health bar set up with MaxHP={enemyBase.MaxHP}, CurrentHP={enemyBase.CurrentHP}", this);
@@ -92,24 +98,24 @@ public class EnemyHealth : MonoBehaviour
 
     void LateUpdate()
     {
-        // อัปเดตตำแหน่งเองทุกเฟรมแทนที่จะพึ่ง parenting อย่างเดียว
-        // - กัน Canvas เอียง/หมุนตาม enemy เวลา enemy หัน/flip sprite
-        // - LateUpdate เพื่อให้รันหลังจาก enemy ขยับใน Update แล้ว กันอาการสั่น/ล้าเฟรม
+        // Set the position ourselves every frame instead of relying only on parenting:
+        // - stops the Canvas tilting/turning when the enemy turns or flips its sprite
+        // - LateUpdate runs after the enemy moved in Update, so the bar doesn't jitter or lag a frame
         if (healthCanvas == null) return;
 
         healthCanvas.transform.position = transform.position + offset;
         healthCanvas.transform.rotation = Quaternion.identity;
     }
 
-    // วาดกล่องพรีวิวตำแหน่ง offset ใน Scene view — ช่วยจัดตำแหน่ง health bar
-    // ก่อนกด Play โดยไม่ต้องรัน Instantiate จริง
+    // Draws a preview box at the offset position in the Scene view — helps position the health bar
+    // before pressing Play, without actually instantiating anything.
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1f, 0.2f, 0.2f, 0.6f); // แดงโปร่งแสง ให้เห็นชัดว่าเป็นพรีวิว
+        Gizmos.color = new Color(1f, 0.2f, 0.2f, 0.6f); // translucent red so it clearly reads as a preview
         Vector3 previewPos = transform.position + offset;
         Gizmos.DrawCube(previewPos, gizmoPreviewSize);
 
-        // เส้นขอบทึบ ช่วยให้เห็นขอบเขตชัดขึ้นเวลากล่องเล็ก
+        // Solid outline makes the bounds easier to see when the box is small.
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(previewPos, gizmoPreviewSize);
     }

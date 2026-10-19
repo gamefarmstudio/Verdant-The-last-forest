@@ -1,11 +1,13 @@
 using UnityEngine;
 
-// [เพิ่ม] interface กลางของ "ป้อมที่อัพเกรด/ขายได้"
-//   ให้ทั้ง Verdant.Combat.Tower (ยิงไกล) และ MeleeTower (ประชิด) implement
-//   ระบบ TowerSlot / TowerPlacementManager / TowerUpgradePopup อ่านผ่าน interface นี้
-//   → รองรับป้อมทั้ง 2 ชนิดโดยไม่ต้องรู้ว่าเป็นชนิดไหน
+/// <summary>
+/// Shared interface for "towers that can be upgraded or sold".
+/// Implemented by Verdant.Combat.Tower (ranged), MeleeTower, CrystalSpringTower and Wildfire.
+/// TowerSlot / TowerPlacementManager / TowerUpgradePopup only talk to towers through this
+/// interface, so they support every tower type without knowing which one it is.
+/// </summary>
 public interface IUpgradableTower
 {
-    string TowerId { get; }              // ID ใน towers.csv (เช่น T1B1 / T1A1)
-    GameObject NextLevelPrefab { get; }  // prefab เลเวลถัดไป (null = เลเวลสูงสุด)
+    string TowerId { get; }              // ID in towers.csv (e.g. T1B1 / T1A1)
+    GameObject NextLevelPrefab { get; }  // prefab for the next level (null = max level)
 }

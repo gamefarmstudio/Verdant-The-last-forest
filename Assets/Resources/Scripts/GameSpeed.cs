@@ -1,19 +1,22 @@
 using UnityEngine;
 
-// เก็บ "ความเร็วเกมที่ผู้เล่นเลือก" (1x/2x) ไว้ที่เดียว
-// ให้ที่อื่นที่ต้องคืนค่า Time.timeScale (เช่น TowerBuildPopup/TowerUpgradePopup ตอนปิดเมนู,
-// GameManager ตอน Resume) อ้างอิงจากนี่แทนที่จะ hardcode 1f — กันสปีดที่เลือกไว้โดนรีเซ็ตทิ้ง
+/// <summary>
+/// Stores the game speed the player chose (1x / 2x) in one place.
+/// Anything that needs to restore Time.timeScale (e.g. TowerBuildPopup / TowerUpgradePopup when
+/// a menu closes, GameManager on Resume, Tutorial when it closes) reads it from here instead of
+/// hard-coding 1f — so the chosen speed is never silently reset.
+/// </summary>
 public static class GameSpeed
 {
     public static float Current { get; private set; } = 1f;
 
-    /// <summary>ตั้งสปีดใหม่ + apply ทันที (เรียกจากปุ่ม toggle)</summary>
+    /// <summary>Sets a new speed and applies it immediately (called by the speed toggle button).</summary>
     public static void SetSpeed(float speed)
     {
         Current = speed;
         Time.timeScale = speed;
     }
 
-    /// <summary>คืน timeScale กลับไปที่สปีดปัจจุบัน — เรียกตอนปิดเมนู/popup ที่เคย override timeScale ไว้ชั่วคราว</summary>
+    /// <summary>Puts timeScale back to the current speed — call this when closing a menu/popup that temporarily overrode timeScale.</summary>
     public static void RestoreCurrent() => Time.timeScale = Current;
 }

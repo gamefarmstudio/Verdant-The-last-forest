@@ -4,26 +4,30 @@ using TMPro;
 using UnityEngine.InputSystem;
 using Verdant.Combat;
 
-// [เพิ่ม] สคริปต์ใหม่: เมนูอัพเกรด/ทำลาย — เด้งตอนคลิกป้อมที่สร้างแล้ว (คู่ขนานกับ TowerBuildPopup)
-//   ปุ่ม Upgrade: ดึงเลเวลถัดไปจาก towers.csv (TowerDatabase.GetNextLevel) — dim ถ้าเงินไม่พอ/เลเวลสูงสุด
-//   ปุ่ม Sell: คืนคริสตัลตาม % ของ Cumulative Cost แล้วทำลายป้อม
-// วิธีใช้: วางบน Panel ใน Canvas เดียวกับ TowerBuildPopup แล้วต่อปุ่ม/ข้อความ + ลากเข้า TowerPlacementManager
+/// <summary>
+/// Upgrade / sell menu — pops up when clicking a built tower (the counterpart of TowerBuildPopup).
+///   Upgrade button: next level from towers.csv (TowerDatabase.GetNextLevel) — dimmed if unaffordable or at max level.
+///   Sell button: refunds a % of the tower's Cumulative Cost and destroys the tower.
+/// Usage: put it on a Panel in the same Canvas as TowerBuildPopup, wire up the buttons/texts, and drag it into TowerPlacementManager.
+/// Slows the game to 0.1x while open and restores the chosen speed when closed.
+/// </summary>
 public class TowerUpgradePopup : MonoBehaviour
 {
     [Header("Buttons")]
     [SerializeField] Button upgradeButton;
     [SerializeField] Button sellButton;
-    [SerializeField] TMP_Text upgradeCostText;   // ราคาอัพเกรด หรือ "MAX"
-    [SerializeField] TMP_Text sellText;          // เงินคืนตอนขาย เช่น "+120"
+    [SerializeField] TMP_Text upgradeCostText;   // upgrade price, or "MAX"
+    [SerializeField] TMP_Text sellText;          // refund when selling, e.g. "+120"
 
     [Header("Panel")]
     [SerializeField] RectTransform panelRect;
 
-    private TowerSlot _slot;   // slot ที่เมนูนี้กำลังเปิดให้
+    private TowerSlot _slot;   // the slot this menu is open for
 
+    /// <summary>Opens the menu for the given slot.</summary>
     public void Show(TowerSlot slot)
     {
-        Time.timeScale = 0.1f; // หยุดเกมชั่วคราวตอนเมนูเปิด
+        Time.timeScale = 0.1f; // nearly pause the game while the menu is open
         _slot = slot;
         gameObject.SetActive(true);
         Refresh();
@@ -32,13 +36,13 @@ public class TowerUpgradePopup : MonoBehaviour
 
     public void Hide()
     {
-        GameSpeed.RestoreCurrent(); // คืนเวลาเกมกลับไปที่สปีดที่ผู้เล่นเลือกไว้ (1x/2x) แทนที่จะรีเซ็ตเป็น 1x เสมอ
+        GameSpeed.RestoreCurrent(); // back to the speed the player chose (1x/2x) instead of always resetting to 1x
 
         _slot = null;
         gameObject.SetActive(false);
     }
 
-    // อัปเดตข้อความ/สถานะปุ่มตามป้อมใน slot ปัจจุบัน
+    /// <summary>Updates the texts and button states for the tower in the current slot.</summary>
     public void Refresh()
     {
         if (_slot == null) return;
@@ -47,9 +51,9 @@ public class TowerUpgradePopup : MonoBehaviour
         var next = (tower != null && TowerDatabase.Instance != null)
             ? TowerDatabase.Instance.GetNextLevel(tower.TowerId)
             : null;
-        bool hasNextPrefab = tower != null && tower.NextLevelPrefab != null;   // [เพิ่ม] ต้องมี prefab เลเวลถัดไปด้วย
+        bool hasNextPrefab = tower != null && tower.NextLevelPrefab != null;   // a next-level prefab is also required
 
-        // ── Upgrade ── (ต้องมีทั้งข้อมูล CSV เลเวลถัดไป + prefab ถัดไป + เงินพอ)
+        // ── Upgrade ── (needs the next level's CSV row + a next-level prefab + enough crystals)
         bool canUpgrade = next != null && hasNextPrefab && CurrencyManager.Instance != null &&
                           CurrencyManager.Instance.CanAfford(next.cost);
         if (upgradeButton != null) upgradeButton.interactable = canUpgrade;
@@ -61,11 +65,11 @@ public class TowerUpgradePopup : MonoBehaviour
             sellText.text = "+" + TowerPlacementManager.Instance.SellRefund(tower);
     }
 
-    // ── ต่อกับปุ่ม (OnClick ใน Inspector) ──
+    // ── Wired to the buttons (OnClick in the Inspector) ──
     public void OnClickUpgrade() => TowerPlacementManager.Instance.UpgradeActiveTower();
     public void OnClickSell()    => TowerPlacementManager.Instance.SellActiveTower();
 
-    // ── วางเมนูใกล้ slot (เหมือน TowerBuildPopup) ──
+    // ── Place the menu next to the slot (same as TowerBuildPopup) ──
     void PositionNearSlot(Vector3 worldPos)
     {
         Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
@@ -79,6 +83,7 @@ public class TowerUpgradePopup : MonoBehaviour
         ClampToScreen();
     }
 
+    // Pushes the panel back inside the screen if it would stick out.
     void ClampToScreen()
     {
         Vector3[] corners = new Vector3[4];
@@ -93,7 +98,7 @@ public class TowerUpgradePopup : MonoBehaviour
         panelRect.anchoredPosition = pos;
     }
 
-    // ── คลิกนอกเมนู → ปิด ──
+    // ── Click outside the menu -> close ──
     void Update()
     {
         if (!gameObject.activeSelf) return;
@@ -104,7 +109,7 @@ public class TowerUpgradePopup : MonoBehaviour
         }
     }
 
-    // อัปเดตสถานะปุ่มเมื่อคริสตัลเปลี่ยน (dim/undim upgrade)
+    // Refresh the buttons whenever crystals change (dim/undim upgrade)
     void OnEnable()
     {
         if (CurrencyManager.Instance != null)

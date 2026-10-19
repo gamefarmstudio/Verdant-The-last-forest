@@ -1,29 +1,31 @@
 using UnityEngine;
 
 /// <summary>
-/// EnemyPath — เส้นทางเดินของมอนจากจุดเกิดไปยัง Crystal (ฐานผู้เล่น)
-/// วางบน GameObject เปล่าในฉาก แล้วลาก Transform (จุดหมาย) ใส่ waypoints ตามลำดับ
-///   waypoints[0]           = จุดเกิด (มอน spawn ที่นี่)
-///   waypoints[length - 1]  = Crystal (มอนถึงตรงนี้ = ReachBase)
+/// EnemyPath — the route enemies walk from their spawn point to the Crystal (the player's base).
+/// Put it on an empty GameObject in the scene and drag the waypoint Transforms into "waypoints" in order:
+///   waypoints[0]           = spawn point (enemies start here)
+///   waypoints[length - 1]  = the Crystal (an enemy reaching this = ReachBase)
 ///
-/// EnemyMovement จะค้นหา EnemyPath นี้เองด้วย FindAnyObjectByType (1 เส้นต่อด่าน)
+/// A scene can have several paths: EnemyMovement picks one at random for each enemy.
+/// KnightUnit and MeleeTower use the helper methods below to stand and move along a path.
 /// </summary>
 public class EnemyPath : MonoBehaviour
 {
-    [Tooltip("จุดหมายตามลำดับ — ตัวแรก = จุดเกิด, ตัวสุดท้าย = Crystal")]
+    [Tooltip("Waypoints in order — first = spawn point, last = Crystal")]
     [SerializeField] private Transform[] waypoints;
 
     public Transform[] Waypoints => waypoints;
 
+    /// <summary>A path needs at least two waypoints.</summary>
     public bool IsValid => waypoints != null && waypoints.Length >= 2;
 
-    /// <summary>ตำแหน่งจุดเกิด (waypoint แรก)</summary>
+    /// <summary>Position of the spawn point (the first waypoint).</summary>
     public Vector3 StartPoint =>
         (waypoints != null && waypoints.Length > 0 && waypoints[0] != null)
             ? waypoints[0].position
             : transform.position;
 
-    /// <summary>ความยาวรวมของเส้นทาง (ใช้คำนวณ PathProgress 0..1)</summary>
+    /// <summary>Total length of the path (used to calculate PathProgress 0..1).</summary>
     public float TotalLength
     {
         get
@@ -37,11 +39,13 @@ public class EnemyPath : MonoBehaviour
         }
     }
 
-    // [เพิ่ม] จุดบนเส้นทางที่ใกล้ from สุด (= เลื่อน 0)
+    /// <summary>The point on the path closest to <paramref name="from"/> (a shift of 0).</summary>
     public Vector3 ClosestPointOnPath(Vector3 from) => PointAlongPath(from, 0f);
 
-    // [เพิ่ม] จุดบน path ที่ใกล้ from สุด แล้วเลื่อนตามแนว path เป็นระยะ shift (หน่วยโลก)
-    //   shift > 0 = ไปทางฐาน, shift < 0 = ไปทางจุดเกิดมอน
+    /// <summary>
+    /// The point on the path closest to <paramref name="from"/>, then moved along the path by
+    /// <paramref name="shift"/> world units: shift &gt; 0 = toward the base, shift &lt; 0 = toward the enemy spawn.
+    /// </summary>
     public Vector3 PointAlongPath(Vector3 from, float shift)
     {
         if (waypoints == null || waypoints.Length < 2) return from;
@@ -49,7 +53,10 @@ public class EnemyPath : MonoBehaviour
         return PointAtDistance(d);
     }
 
-    // [เพิ่ม] ระยะสะสมจากจุดเกิดถึง "จุดบน path ที่ใกล้ from สุด" (KnightUnit ใช้รู้ตำแหน่งตัวเอง/ศัตรูบน path)
+    /// <summary>
+    /// Distance along the path from the spawn point to the point on the path closest to <paramref name="from"/>.
+    /// (KnightUnit uses this to know where itself and enemies are along the path.)
+    /// </summary>
     public float DistanceAlongPath(Vector3 from)
     {
         if (waypoints == null || waypoints.Length < 2) return 0f;
@@ -58,6 +65,7 @@ public class EnemyPath : MonoBehaviour
         for (int i = 1; i < waypoints.Length; i++)
         {
             if (waypoints[i - 1] == null || waypoints[i] == null) continue;
+            // Project 'from' onto this segment and remember the closest projection so far.
             Vector3 a = waypoints[i - 1].position, b = waypoints[i].position, ab = b - a;
             float segLen = ab.magnitude;
             float t = segLen > 1e-4f ? Mathf.Clamp01(Vector3.Dot(from - a, ab) / (segLen * segLen)) : 0f;
@@ -68,7 +76,7 @@ public class EnemyPath : MonoBehaviour
         return bestDist;
     }
 
-    // [เพิ่ม] จุดบน path ที่ระยะสะสม dist จากจุดเกิด (public — KnightUnit เดินตามแนว path)
+    /// <summary>The point on the path at distance <paramref name="dist"/> from the spawn point (KnightUnit walks along the path with this).</summary>
     public Vector3 PointAtDistance(float dist)
     {
         Vector3 prev = waypoints[0] != null ? waypoints[0].position : transform.position;
@@ -86,6 +94,7 @@ public class EnemyPath : MonoBehaviour
         return prev;
     }
 
+    // Draws the path (spheres at waypoints, lines between them) in the Scene view.
     void OnDrawGizmos()
     {
         if (waypoints == null) return;

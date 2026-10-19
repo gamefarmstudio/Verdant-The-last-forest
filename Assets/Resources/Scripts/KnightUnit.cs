@@ -1,70 +1,76 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // [Fix] แก้ไข Typo จาก UntyEngine.UI เป็น UnityEngine.UI
+using UnityEngine.UI; // (fixed a typo: was "UntyEngine.UI")
 
-// [เพิ่ม] อัศวิน — unit ประชิดที่ MeleeTower summon
-//   เคลื่อนที่ตามแนว EnemyPath (ไม่ตัดเส้นตรง)
-//   [แก้] block แบบ B + เพดาน: กั้นมอน "หลายตัว" ที่เข้ามาในรัศมี (สูงสุด maxBlock) — ทุกตัวรุมตีอัศวิน
-//   ตีทีละตัว (ตัวที่กั้นอยู่ใกล้สุด) · อัศวินตาย → ปลดบล็อกทุกตัว + แจ้ง MeleeTower
-//   สเตตัสถูกทับด้วย Configure() จาก towers.csv ตามเลเวลป้อม
-//   หมายเหตุ: วาง prefab อัศวินบน layer ที่ไม่ใช่ Enemy
+/// <summary>
+/// The knight — a melee unit summoned by MeleeTower.
+///   Moves along the EnemyPath (it doesn't cut straight across the map).
+///   Blocking: blocks several enemies that come within blockRadius (up to maxBlock at once); all of them attack the knight.
+///   It hits one at a time (the nearest blocked enemy). When the knight dies every enemy is released and MeleeTower is told.
+///   Its stats are overwritten by Configure() from towers.csv for the tower's level.
+///   Shows its own green health bar and plays an attack sound on each hit.
+///   Note: put the knight prefab on a layer that is NOT "Enemy".
+/// </summary>
 public class KnightUnit : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private int maxHP = 100;
     [SerializeField] private int damage = 25;
-    [SerializeField] private float attackInterval = 1f;
+    [SerializeField] private float attackInterval = 1f;   // seconds between hits
     [SerializeField] private float moveSpeed = 2.5f;
 
-    [Header("Block (แบบ B)")]
-    [SerializeField] private float blockRadius = 0.9f;   // รัศมีที่กั้นมอน (Configure ทับด้วย range จาก CSV)
-    [SerializeField] private int maxBlock = 3;           // กั้นได้สูงสุดกี่ตัวพร้อมกัน
+    [Header("Block")]
+    [SerializeField] private float blockRadius = 0.9f;   // blocking radius (overwritten by the CSV range in Configure)
+    [SerializeField] private int maxBlock = 3;           // max enemies blocked at the same time
 
     [Header("Seek")]
-    [SerializeField] private float detectRange = 6f;     // ระยะมองหามอน (รอบจุดรวมพล)
+    [SerializeField] private float detectRange = 6f;     // how far (around the rally point) it looks for enemies
     [SerializeField] private string enemyLayerName = "Enemy";
 
     [Header("Path Movement")]
     [SerializeField] private bool moveAlongPath = true;
-    [SerializeField] private float leash = 4f;           // ห่างจากจุดรวมพลได้สูงสุด (ตามแนว path)
+    [SerializeField] private float leash = 4f;           // max distance from the rally point (measured along the path)
 
     [Header("Visual")]
     [SerializeField] private bool flipToFaceDirection = true;
-    
+
     [Header("UI")]
-    [Tooltip("ลาก Canvas prefab ที่มี Slider อยู่ข้างในมาใส่ตรงนี้")]
+    [Tooltip("Drag in the Canvas prefab that contains a Slider")]
     [SerializeField] private Canvas healthCanvasPrefab;
-    [Tooltip("ตำแหน่ง local เหนือหัวอัศวินที่จะวาง health bar")]
+    [Tooltip("Local position above the knight's head where the health bar is placed")]
     [SerializeField] private Vector3 healthBarOffset = new Vector3(0f, 1.2f, 0f);
-    
+
     [Header("Animations")]
     [SerializeField] private Animator animator;
-    [SerializeField] private string TriggerAttack = "IsAttacking";   // bool param — true = กำลังตี, false = เดิน/ยืน
+    [SerializeField] private string TriggerAttack = "IsAttacking";   // Animator trigger fired on each hit
     [Header("Sound")]
     [SerializeField] private AudioClip attackSound;
-    [SerializeField] private AudioSource audioSource;   // เว้นว่างได้ — จะหาเอง/เพิ่มให้อัตโนมัติใน Awake
+    [SerializeField] private AudioSource audioSource;   // optional — found or added automatically in Awake
 
     public bool IsAlive => _hp > 0;
     public int CurrentHP => _hp;
-    public System.Action OnDeath;
+    public System.Action OnDeath;   // MeleeTower subscribes to start its respawn timer
 
     [HideInInspector] public int _hp;
     private float _attackTimer;
-    private Vector3 _rallyPoint;
+    private Vector3 _rallyPoint;    // where the knight is meant to stand
     private ContactFilter2D _filter;
     private readonly List<Collider2D> _hits = new List<Collider2D>();
-    private readonly List<EnemyBase> _blocked = new List<EnemyBase>();   // มอนที่กำลังกั้นอยู่
+    private readonly List<EnemyBase> _blocked = new List<EnemyBase>();   // enemies currently being blocked
 
     // path movement
     private EnemyPath _path;
-    private float _rallyDist;
-    private float _pathDist;
-    
+    private float _rallyDist;   // rally point's distance along the path
+    private float _pathDist;    // knight's current distance along the path
+
     // UI
     private Canvas _healthCanvas;
     private Slider _healthSlider;
 
-    // [เพิ่ม] ตั้งสเตตัสจากภายนอก (MeleeTower โหลดจาก towers.csv) — เรียกก่อน Init
+    /// <summary>
+    /// Sets the stats from outside (MeleeTower loads them from towers.csv) — call before Init.
+    /// Note: maxHP is fixed at 100 here (only the current HP comes from the CSV).
+    /// </summary>
     public void Configure( int hp, int dmg, float atkInterval, float reach)
     {
         maxHP = 100;
@@ -73,14 +79,15 @@ public class KnightUnit : MonoBehaviour
         if (atkInterval > 0f) attackInterval = atkInterval;
         if (reach > 0f) blockRadius = reach;
 
-        // [Fix] อัปเดตหลอดเลือดหาก Configure ถูกเรียกหลังจาก Awake
-        if (_healthSlider != null) 
+        // Update the health bar in case Configure is called after Awake
+        if (_healthSlider != null)
         {
             _healthSlider.maxValue = maxHP;
             _healthSlider.value = _hp;
         }
     }
 
+    /// <summary>Sets the rally point and places the knight on the path at that point.</summary>
     public void Init(Vector3 rallyPoint)
     {
         _rallyPoint = rallyPoint;
@@ -98,6 +105,7 @@ public class KnightUnit : MonoBehaviour
         _rallyPoint = transform.position;
         _path = FindAnyObjectByType<EnemyPath>();
 
+        // Only detect colliders on the Enemy layer (including triggers).
         int layer = LayerMask.NameToLayer(enemyLayerName);
         LayerMask mask = layer >= 0 ? (1 << layer) : LayerMask.GetMask(enemyLayerName);
         _filter = new ContactFilter2D();
@@ -106,7 +114,7 @@ public class KnightUnit : MonoBehaviour
 
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
-        
+
         audioSource.playOnAwake = false;
 
         SetupHealthBar();
@@ -116,17 +124,17 @@ public class KnightUnit : MonoBehaviour
     {
         if (healthCanvasPrefab == null)
         {
-            Debug.LogError($"[KnightUnit] '{name}' ยังไม่ได้ลาก Canvas prefab มาใส่ในช่อง Health Canvas Prefab", this);
+            Debug.LogError($"[KnightUnit] '{name}' no Canvas prefab has been assigned to the Health Canvas Prefab field", this);
             return;
         }
 
-        // Clone Canvas แยกให้อัศวินตัวนี้
+        // Clone a Canvas just for this knight
         _healthCanvas = Instantiate(healthCanvasPrefab);
         _healthCanvas.transform.SetParent(transform, worldPositionStays: false);
         _healthCanvas.transform.localPosition = healthBarOffset;
         _healthCanvas.transform.localRotation = Quaternion.identity;
 
-        // ตั้งกล้องให้ World Space Canvas (กัน Warning)
+        // Give the World Space Canvas a camera (avoids a warning)
         if (_healthCanvas.renderMode == RenderMode.WorldSpace && _healthCanvas.worldCamera == null)
         {
             _healthCanvas.worldCamera = Camera.main;
@@ -135,17 +143,17 @@ public class KnightUnit : MonoBehaviour
         _healthSlider = _healthCanvas.GetComponentInChildren<Slider>(true);
         if (_healthSlider == null)
         {
-            Debug.LogError($"[KnightUnit] '{name}' Clone Canvas แล้วแต่ไม่พบ Slider อยู่ข้างใน", this);
+            Debug.LogError($"[KnightUnit] '{name}' cloned the Canvas but found no Slider inside it", this);
             return;
         }
 
-        // เปลี่ยนสีหลอดเลือดเป็นสีเขียว/ฟ้า (เพื่อแยกความต่างจากศัตรูที่มักเป็นสีแดง)
+        // Make the health bar green (to tell it apart from enemies, which are usually red)
         var fillImage = _healthSlider.fillRect != null ? _healthSlider.fillRect.GetComponent<Image>() : null;
         if (fillImage != null) fillImage.color = Color.green;
 
         _healthSlider.interactable = false;
-        
-        // ตั้งค่าเริ่มต้น
+
+        // Initial values
         _healthSlider.minValue = 0;
         _healthSlider.maxValue = maxHP;
         _healthSlider.value = _hp;
@@ -155,10 +163,10 @@ public class KnightUnit : MonoBehaviour
     {
         if (!IsAlive) return;
 
-        UpdateBlockSet();   // เพิ่ม/ปลด มอนที่กั้นอยู่ตามรัศมี + เพดาน
+        UpdateBlockSet();   // add/release blocked enemies based on radius and the cap
 
-        // เป้าเคลื่อนที่: ถ้ากำลังกั้นอยู่ → ยืนกับที่ (กั้นตัวใกล้สุด — รวม B1 ด้วย กันหลุดบล็อกตอนตีมันไม่ได้),
-        // ถ้าว่าง → เดินไปดักมอนใกล้สุด
+        // Where to move: while blocking -> hold position at the nearest blocked enemy (B1 included, so the knight
+        // doesn't walk away and lose the block when B1 is the only one); otherwise -> go intercept the nearest enemy.
         EnemyBase moveTarget = _blocked.Count > 0 ? NearestBlockedAny() : NearestEnemyInDetect();
 
         if (moveAlongPath && _path != null && _path.IsValid)
@@ -166,7 +174,7 @@ public class KnightUnit : MonoBehaviour
         else
             MoveStraight(moveTarget != null ? moveTarget.transform.position : _rallyPoint);
 
-        // ตีตัวที่กั้นอยู่ใกล้สุด (ทีละตัว)
+        // Hit the nearest blocked enemy (one at a time)
         EnemyBase atk = NearestBlocked();
         if (atk != null)
         {
@@ -176,7 +184,7 @@ public class KnightUnit : MonoBehaviour
                 _attackTimer = attackInterval;
                 atk.TakeDamage(damage);
                 if (animator != null) animator.SetTrigger(TriggerAttack);
-                if (attackSound != null && audioSource != null) 
+                if (attackSound != null && audioSource != null)
                 {
                     audioSource.clip = attackSound;
                     audioSource.PlayOneShot(attackSound);
@@ -185,14 +193,14 @@ public class KnightUnit : MonoBehaviour
         }
         else
         {
-            // [Fix] ตรวจสอบ null ก่อนเรียก animator
+            // Null-check the animator before using it
             if(animator != null) animator.ResetTrigger(TriggerAttack);
         }
     }
 
     void LateUpdate()
     {
-        // อัปเดตตำแหน่งเองทุกเฟรมกัน Canvas พลิกซ้ายขวาเวลาอัศวินหันหน้า (FlipX)
+        // Set the health bar position ourselves every frame so the Canvas doesn't flip when the knight turns (FlipX)
         if (_healthCanvas != null)
         {
             _healthCanvas.transform.position = transform.position + healthBarOffset;
@@ -200,7 +208,7 @@ public class KnightUnit : MonoBehaviour
         }
     }
 
-    // จัดการชุดที่กั้น: ปลดตัวตาย/หลุดรัศมี → เติมตัวใหม่จนเต็มเพดาน
+    // Manages the blocked set: release dead / out-of-range enemies, then fill back up to the cap.
     void UpdateBlockSet()
     {
         for (int i = _blocked.Count - 1; i >= 0; i--)
@@ -222,14 +230,15 @@ public class KnightUnit : MonoBehaviour
         {
             var e = _hits[i].GetComponentInParent<EnemyBase>();
             if (e == null || e.IsDead || _blocked.Contains(e)) continue;
-            if (e.IsBlocked && e.Blocker != this) continue;   // ตัวอื่นกั้นอยู่ → ข้าม
-            
+            if (e.IsBlocked && e.Blocker != this) continue;   // already blocked by another knight -> skip
+
             e.EngageWith(this);
             _blocked.Add(e);
         }
     }
 
-    // ใช้เลือกเป้าโจมตี — ยกเว้น B1 (ตีไม่ได้)
+    // Picks the attack target — the nearest blocked enemy, skipping B1 (the Smog Dragon boss)
+    // while this knight's damage is 60 (the level-3 Forest Knight).
     EnemyBase NearestBlocked()
     {
         EnemyBase best = null; float bestSqr = float.MaxValue;
@@ -244,7 +253,8 @@ public class KnightUnit : MonoBehaviour
         return best;
     }
 
-    // ใช้เลือกเป้าสำหรับ "ยืนกั้น" — รวม B1 ด้วย กันอัศวินเดินหนีจนหลุดบล็อกตอนกั้น B1 อยู่ตัวเดียว
+    // Picks the target to "hold the line" against — includes B1, so the knight doesn't walk off
+    // and lose the block when B1 is the only enemy it's blocking.
     EnemyBase NearestBlockedAny()
     {
         EnemyBase best = null; float bestSqr = float.MaxValue;
@@ -258,6 +268,7 @@ public class KnightUnit : MonoBehaviour
         return best;
     }
 
+    // Nearest unblocked enemy within detectRange of the rally point (the one the knight walks out to meet).
     EnemyBase NearestEnemyInDetect()
     {
         int count = Physics2D.OverlapCircle(_rallyPoint, detectRange, _filter, _hits);
@@ -273,6 +284,7 @@ public class KnightUnit : MonoBehaviour
         return best;
     }
 
+    // Walks along the path toward the target (or back to the rally point), never more than "leash" away from it.
     void MoveAlongPath(EnemyBase target)
     {
         float targetDist = _rallyDist;
@@ -287,6 +299,7 @@ public class KnightUnit : MonoBehaviour
         transform.position = newPos;
     }
 
+    // Fallback when there's no path: move in a straight line.
     void MoveStraight(Vector3 dest)
     {
         Vector3 before = transform.position;
@@ -294,6 +307,7 @@ public class KnightUnit : MonoBehaviour
         FaceX(dest.x - before.x);
     }
 
+    // Faces left/right by flipping the X scale.
     void FaceX(float dx)
     {
         if (!flipToFaceDirection || Mathf.Abs(dx) < 0.001f) return;
@@ -302,13 +316,14 @@ public class KnightUnit : MonoBehaviour
         transform.localScale = s;
     }
 
+    /// <summary>Called by blocked enemies when they hit the knight.</summary>
     public void TakeDamage(int amount)
     {
         if (!IsAlive) return;
         _hp = Mathf.Max(0, _hp - amount);
-        
-        // [Fix] อัปเดตหลอดเลือดเมื่อโดนโจมตี
-        if (_healthSlider != null) 
+
+        // Update the health bar when hit
+        if (_healthSlider != null)
             _healthSlider.value = _hp;
 
         if (_hp <= 0) Die();
@@ -321,7 +336,7 @@ public class KnightUnit : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // ปลดบล็อกมอนทุกตัว (ตอนตาย/ถูกทำลาย) → มอนเดินต่อได้
+    // Releases every blocked enemy (on death / destruction) -> they can keep walking.
     void ReleaseAll()
     {
         for (int i = 0; i < _blocked.Count; i++)
@@ -331,15 +346,16 @@ public class KnightUnit : MonoBehaviour
 
     void OnDestroy() => ReleaseAll();
 
+    // Scene view: detect range (blue), block radius (orange) and a health-bar position preview (green).
     void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0.3f, 0.6f, 1f, 0.35f);
         Gizmos.DrawWireSphere(Application.isPlaying ? _rallyPoint : transform.position, detectRange);
-        Gizmos.color = new Color(1f, 0.5f, 0.2f, 0.6f);   // รัศมีกั้น
+        Gizmos.color = new Color(1f, 0.5f, 0.2f, 0.6f);   // block radius
         Gizmos.DrawWireSphere(transform.position, blockRadius);
 
-        // วาดพรีวิว Health bar
-        Gizmos.color = new Color(0.2f, 1f, 0.2f, 0.6f); 
+        // Health bar preview
+        Gizmos.color = new Color(0.2f, 1f, 0.2f, 0.6f);
         Vector3 previewPos = transform.position + healthBarOffset;
         Vector3 gizmoPreviewSize = new Vector3(0.6f, 0.15f, 0.05f);
         Gizmos.DrawCube(previewPos, gizmoPreviewSize);

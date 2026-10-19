@@ -3,17 +3,22 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 
-// ปุ่มสลับความเร็วเกม 1x/2x — กดครั้งแรก timeScale = 2, กดอีกครั้งกลับเป็น 1
-// ไม่ทำงานตอนเกม Paused (ปุ่ม Pause ควบคุม timeScale=0 อยู่แล้ว กันชนกัน)
+/// <summary>
+/// HUD button that toggles game speed or pause.
+///   - Speed button (IsPauseButton off): first click sets timeScale to 2, the next click back to 1.
+///   - Pause button (IsPauseButton on): toggles GameManager pause/resume and shows "Game is Paused!!!".
+/// While the game is paused, the speed choice is only remembered — GameManager.ResumeGame()
+/// applies it later through GameSpeed.Current, so the speed button can't accidentally unpause the game.
+/// </summary>
 public class GameSpeedToggleUI : MonoBehaviour
 {
     [SerializeField] private Button button;
-    [SerializeField] private TMP_Text label;   // โชว์ "1x" / "2x" — เว้นว่างได้
-    [SerializeField] private bool IsPauseButton;   // ถ้าเป็นปุ่ม Pause จะไม่สลับความเร็วเกม แต่จะสลับ pause/resume แทน
+    [SerializeField] private TMP_Text label;       // shows "1" / "2" (or the paused message) — optional
+    [SerializeField] private bool IsPauseButton;   // if ticked, this button toggles pause/resume instead of game speed
     [SerializeField] private GameObject Speed2XIcon1;
-    [SerializeField] private GameObject Speed2XIcon2;       
+    [SerializeField] private GameObject Speed2XIcon2;   // shown only while _fast is on
 
-    private bool _fast;
+    private bool _fast;   // toggled on every click (also drives the 2x icon)
 
     void Awake()
     {
@@ -35,13 +40,14 @@ public class GameSpeedToggleUI : MonoBehaviour
 
     void OnClick()
     {
-        // ระหว่างเกม Pause อยู่ (timeScale=0) — แค่สลับสถานะที่จำไว้ ยังไม่ apply จริง
-        // GameManager.ResumeGame() จะไป apply ให้เองตอนเลิก pause (ดู GameSpeed.Current)
+        // While the game is paused (timeScale = 0) the new speed is only remembered, not applied —
+        // GameManager.ResumeGame() applies it when the game un-pauses (see GameSpeed.Current).
         _fast = !_fast;
         if (IsPauseButton)
         {
             if (GameManager.Instance != null)
             {
+                // Toggle pause, tinting the button red while paused.
                 if (GameManager.Instance.CurrentState == GameManager.GameState.Paused)
                 {
                     this.gameObject.GetComponent<Image>().color = Color.white;
@@ -59,6 +65,8 @@ public class GameSpeedToggleUI : MonoBehaviour
         }
         else
         GameSpeed.SetSpeed(_fast ? 2f : 1f);
+
+        // Show the second "2x" icon only while fast mode is on.
         if (_fast)
         {
             if (Speed2XIcon2 != null) Speed2XIcon2.SetActive(true);
@@ -66,15 +74,17 @@ public class GameSpeedToggleUI : MonoBehaviour
         else
         {
             if (Speed2XIcon2 != null) Speed2XIcon2.SetActive(false);
-            
+
         }
 
+        // If the game is paused, make sure SetSpeed didn't un-pause it.
         if (GameManager.Instance != null && GameManager.Instance.CurrentState == GameManager.GameState.Paused)
             Time.timeScale = 0f;
 
         Refresh();
     }
 
+    // Updates the label text for the current mode.
     void Refresh()
     {
         if (label != null)
@@ -87,7 +97,7 @@ public class GameSpeedToggleUI : MonoBehaviour
                     label.text = "";
             }
             else
-                label.text = _fast ? "2" : "1";   
+                label.text = _fast ? "2" : "1";
         }
     }
 }

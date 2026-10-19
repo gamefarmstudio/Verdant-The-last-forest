@@ -1,43 +1,45 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using Verdant.Combat;   // IDamageable — ให้ป้อม/ลูกธนูยิงโดนได้
+using Verdant.Combat;   // IDamageable — lets towers/projectiles hit this enemy
 
 /// <summary>
-/// EnemyBase — ติดกับ Enemy Prefab ทุกตัว (ทั้ง normal enemy และ boss)
-/// รับ stats จาก CSV ผ่าน ApplyRecord() ทันทีหลัง Instantiate
+/// EnemyBase — on every enemy prefab (normal enemies and bosses).
+/// Gets its stats from the CSV via Setup() / ApplyRecord() right after being instantiated.
 ///
-/// ยังไม่มี movement — ตัวนี้ทำแค่ HP, รับ damage, ตาย, แจ้ง GameManager
-/// (เพิ่ม EnemyMovement.cs แยกทีหลัง)
+/// Handles HP, taking damage (with a short hit flash), dying, reaching the base, being blocked
+/// by a knight (and hitting it back), and slow/freeze status effects. It tells GameManager when
+/// it dies or reaches the base. Walking along the path is done by EnemyMovement.
 ///
-/// implement IDamageable → ระบบป้อม (Verdant.Combat.Tower) ตรวจจับและยิงได้
-/// ⚠ ต้องมี Collider2D บน prefab และตั้ง layer เป็น "Enemy" ป้อมถึงจะเห็น
+/// Implements IDamageable -> the tower system (Verdant.Combat.Tower) can detect and shoot it.
+/// ⚠ The prefab needs a Collider2D and the "Enemy" layer for towers to see it
+///   (WaveManager adds both automatically if they're missing).
 /// </summary>
 public class EnemyBase : MonoBehaviour, IDamageable
 {
     [Header("Runtime Data (set by ApplyRecord)")]
-    public EnemyRecord enemyRecord;   // null ถ้าเป็น boss
-    public BossRecord  bossRecord;    // null ถ้าเป็น enemy ปกติ
+    public EnemyRecord enemyRecord;   // null if this is a boss
+    public BossRecord  bossRecord;    // null if this is a normal enemy
 
     public bool IsBoss => bossRecord != null;
 
     // ─────────────────────────────────────────────
-    // STATS (อ่านจาก record)
+    // STATS (read from the record)
     // ─────────────────────────────────────────────
 
     public int   MaxHP        { get;  set; }
     public int   CurrentHP    { get;  set; }
     public float MoveSpeed    { get; private set; }
-    public int   BaseDamage    { get; private set; }   // damage ให้ player base เมื่อถึงเส้นชัย
-    public int   RewardKill    { get; private set; }   // crystal เมื่อฆ่าด้วยดาเมจ (ป้อมทั่วไป)
-    public int   RewardCleanse { get; private set; }   // crystal เมื่อ cleanse (Wildfire Tower) — boss = 0
+    public int   BaseDamage    { get; private set; }   // damage to the player's base when it reaches the end (also its melee damage)
+    public int   RewardKill    { get; private set; }   // crystals when killed by damage (normal towers)
+    public int   RewardCleanse { get; private set; }   // crystals when cleansed (Wildfire Tower) — 0 for bosses
     public bool  IsDead        { get; private set; } = false;
 
     // ─────────────────────────────────────────────
-    // IDamageable — สะพานเชื่อมระบบป้อม (Verdant.Combat)
+    // IDamageable — bridge to the tower system (Verdant.Combat)
     // ─────────────────────────────────────────────
 
-    private float _pathProgress;   // 0..1 — ให้ระบบ movement ทีหลังอัปเดตค่านี้
+    private float _pathProgress;   // 0..1 — updated by EnemyMovement
 
     public Transform Transform => transform;
     public bool      IsAlive   => !IsDead;
@@ -45,10 +47,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
     float IDamageable.CurrentHealth => CurrentHP;
     float IDamageable.PathProgress  => _pathProgress;
 
-    // HP เป็น int แต่ดาเมจป้อมเป็น float → ปัดเป็น int (อย่างน้อย 1 กันยิงแล้วไม่ขยับ)
+    // HP is an int but tower damage is a float -> round to an int (at least 1, so a hit always does something)
     void IDamageable.TakeDamage(float amount) => TakeDamage(Mathf.Max(1, Mathf.RoundToInt(amount)));
 
-    /// <summary>ให้ระบบเดินทาง (movement/wave) เรียกอัปเดตความคืบหน้าบนเส้นทาง — ใช้กับโหมดเล็ง First/Last</summary>
+    /// <summary>Called by the movement system to update progress along the path — used by the First/Last targeting modes.</summary>
     public void SetPathProgress(float t) => _pathProgress = Mathf.Clamp01(t);
 
     // ─────────────────────────────────────────────
@@ -56,15 +58,15 @@ public class EnemyBase : MonoBehaviour, IDamageable
     // ─────────────────────────────────────────────
 
     [Header("Events")]
-    public UnityEvent<int> OnHPChanged = new UnityEvent<int>();  // int = HP ใหม่
+    public UnityEvent<int> OnHPChanged = new UnityEvent<int>();  // int = new HP
     public UnityEvent      OnDeath     = new UnityEvent();
     public UnityEvent      OnReachedBase = new UnityEvent();
 
     // ─────────────────────────────────────────────
-    // SETUP — เรียกทันทีหลัง Instantiate
+    // SETUP — called right after Instantiate
     // ─────────────────────────────────────────────
-    
-    /// <summary>ใช้กับ enemy ปกติ — ดึง stats จาก EnemyRecord</summary>
+
+    /// <summary>For normal enemies — takes the stats from an EnemyRecord.</summary>
     public void ApplyRecord(EnemyRecord record)
     {
         enemyRecord = record;
@@ -83,7 +85,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         OnHPChanged.Invoke(CurrentHP);
     }
 
-    /// <summary>ใช้กับ boss — ดึง stats จาก BossRecord</summary>
+    /// <summary>For bosses — takes the stats from a BossRecord.</summary>
     public void ApplyBossRecord(BossRecord record)
     {
         bossRecord  = record;
@@ -94,7 +96,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         MoveSpeed     = record.speed;
         BaseDamage    = record.damage;
         RewardKill    = record.rewardCrystal;
-        RewardCleanse = 0;                     // boss ไม่มีคอลัมน์ cleanse
+        RewardCleanse = 0;                     // bosses have no cleanse column
         IsDead        = false;
 
         gameObject.name = $"Boss_{record.id}_{record.nameEN}";
@@ -103,8 +105,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// โหลด record จาก EnemyDatabase ด้วย ID แล้ว apply ให้ตัวเอง
-    /// สะดวกเวลา spawn จาก WaveManager โดยรู้แค่ ID
+    /// Looks up the record in EnemyDatabase by ID and applies it to this enemy.
+    /// Convenient when WaveManager spawns an enemy and only knows its ID.
     /// </summary>
     public void Setup(string id, bool isBoss = false)
     {
@@ -113,11 +115,11 @@ public class EnemyBase : MonoBehaviour, IDamageable
             var record = EnemyDatabase.Instance.GetBossByID(id);
             if (record == null)
             {
-                Debug.LogError($"[EnemyBase] ไม่พบ Boss ID: {id}");
+                Debug.LogError($"[EnemyBase] Boss ID not found: {id}");
                 return;
             }
             ApplyBossRecord(record);
-            MaxHP = record.hp;   // boss มี HP สูงมาก → slider ต้องปรับ maxValue ให้ถูกต้อง
+            MaxHP = record.hp;   // bosses have very high HP -> the health slider's maxValue must match
             CurrentHP = record.hp;
         }
         else
@@ -125,11 +127,11 @@ public class EnemyBase : MonoBehaviour, IDamageable
             var record = EnemyDatabase.Instance.GetEnemyByID(id);
             if (record == null)
             {
-                Debug.LogError($"[EnemyBase] ไม่พบ Enemy ID: {id}");
+                Debug.LogError($"[EnemyBase] Enemy ID not found: {id}");
                 return;
             }
             ApplyRecord(record);
-            MaxHP = record.hp;   // enemy ปกติ → slider ต้องปรับ maxValue ให้ถูกต้อง
+            MaxHP = record.hp;   // normal enemy -> the health slider's maxValue must match
             CurrentHP = record.hp;
         }
 
@@ -139,7 +141,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     // DAMAGE / DEATH
     // ─────────────────────────────────────────────
 
-    /// <summary>เรียกจาก Tower หรือ Projectile เมื่อโจมตี enemy ตัวนี้</summary>
+    /// <summary>Called by a Tower, Projectile, KnightUnit or Wildfire when it hits this enemy.</summary>
     public void TakeDamage(int amount)
     {
         if (IsDead) return;
@@ -149,38 +151,41 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         if (CurrentHP <= 0)
         {
-            RemoveByPlayer(RewardKill, "killed");   // ตายจากดาเมจ → reward kill
+            RemoveByPlayer(RewardKill, "killed");   // died from damage -> kill reward
             return;
         }
 
-        FlashOnHit();   // [เพิ่ม] วาบสีขาวสั้นๆ ให้เห็นว่าโดนตี (ข้ามถ้าตายไปแล้ว เพราะ object กำลังจะถูก Destroy)
+        FlashOnHit();   // short white flash to show the hit (skipped on death, since the object is about to be destroyed)
     }
 
     // ─────────────────────────────────────────────
-    // [เพิ่ม] HIT FLASH — วาบสีตอนโดนโจมตี (enemy ปกติ + boss ใช้ร่วมกัน)
+    // HIT FLASH — flashes the sprite when hit (shared by enemies and bosses)
     // ─────────────────────────────────────────────
 
     [Header("Hit Flash")]
-    // [แก้] Color.white เฉยๆ (1,1,1,1) เป็นค่า tint ปกติของ sprite อยู่แล้ว — คูณสีขาวเข้าไปเลยไม่เห็นผลอะไร
-    //      ใช้ค่าเกิน 1 แทน (เช่น 6,6,6,1) — shader ของ sprite คูณ texture ด้วยค่านี้
-    //      ทำให้พิกเซลที่ไม่ได้ดำสนิทถูก "โอเวอร์เอ็กซ์โพส" จนขาวจ้า ได้เอฟเฟกต์วาบขาวจริงๆ
-    //      (พิกเซลที่ดำสนิท (0,0,0) จะยังดำอยู่เสมอ ไม่ว่าคูณเท่าไหร่ก็ตาม — เช่น เส้น outline สีดำ)
+    // Plain Color.white (1,1,1,1) is already the sprite's normal tint — multiplying by white changes nothing.
+    // So use values above 1 (e.g. 2.2 or 6) — the sprite shader multiplies the texture by this,
+    // which "over-exposes" every pixel that isn't pure black into bright white: a real white flash.
+    // (Pure black pixels (0,0,0) always stay black however much they're multiplied — e.g. black outlines.)
     [SerializeField] private Color hitFlashColor = new Color(2.2f, 2.2f, 2.2f, 1f);
     [SerializeField] private float hitFlashDuration = 0.1f;
 
     private SpriteRenderer[] _spriteRenderers;
-    private Color[] _originalColors;
+    private Color[] _originalColors;   // each renderer's colour before the first flash, restored afterwards
     private Coroutine _flashRoutine;
     void Start()
     {
         if (enemyRecord == null && bossRecord == null)
-            Debug.LogWarning($"[EnemyBase] {gameObject.name} ยังไม่ได้ ApplyRecord() หรือ ApplyBossRecord()");
-            hitFlashColor = new Color(2.2f, 2.2f, 2.2f, 1f);   // safety — ถ้าไม่ตั้งใน inspector ให้ใช้ค่า default
+            Debug.LogWarning($"[EnemyBase] {gameObject.name} ApplyRecord() or ApplyBossRecord() has not been called yet");
+            // Note: despite the indentation this line is NOT inside the if — it always runs,
+            // so it overrides any Hit Flash Color set in the Inspector.
+            hitFlashColor = new Color(2.2f, 2.2f, 2.2f, 1f);   // safety — use the default value if nothing was set in the Inspector
     }
 
+    // Finds every SpriteRenderer on the enemy (including children) and remembers their colours. Runs once.
     private void CacheSpriteRenderers()
     {
-        if (_spriteRenderers != null) return;   // แคชครั้งเดียวพอ — สีต้นฉบับต้องมาจากก่อนวาบครั้งแรกเท่านั้น
+        if (_spriteRenderers != null) return;   // cache once — the original colours must come from before the first flash
 
         _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         _originalColors  = new Color[_spriteRenderers.Length];
@@ -193,18 +198,18 @@ public class EnemyBase : MonoBehaviour, IDamageable
         CacheSpriteRenderers();
         if (_spriteRenderers.Length == 0) return;
 
-        // โดนซ้ำระหว่างที่ยังวาบอยู่ → หยุดรอบเก่าแล้วเริ่มใหม่ (รีเฟรชเวลา ไม่ซ้อนกันจนสีค้าง)
+        // Hit again while still flashing -> stop the old flash and start a new one (refreshes the timer, colours never get stuck)
         if (_flashRoutine != null) StopCoroutine(_flashRoutine);
         _flashRoutine = StartCoroutine(FlashRoutine());
     }
 
     private IEnumerator FlashRoutine()
     {
-        // [แก้] เดิม set สีครั้งเดียวแล้ว WaitForSeconds — แต่ enemy พวกนี้เป็น rig ที่มี Animator
-        // ตั้ง Write Defaults ไว้ (เช็คใน .controller แล้ว) ซึ่งจะ "เขียนสีทับกลับ" ทุกเฟรมที่ Animator
-        // ประมวลผล ทำให้สีที่ set ไว้ครั้งเดียวโดนทับจนมองไม่เห็นเลยแม้แต่เฟรมเดียว
-        // แก้โดย set สีซ้ำทุกเฟรมตลอดช่วง flash แทน — สคริปต์รันหลัง Animator ในแต่ละเฟรมเสมอ
-        // จึงชนะการเขียนทับของ Animator ได้ทุกครั้ง ไม่ว่าสาเหตุจริงจะมาจาก Write Defaults หรือระบบอื่น
+        // Setting the colour once and then waiting does NOT work here: these enemies are Animator rigs with
+        // Write Defaults on (checked in the .controller), which write the colour back every frame the Animator
+        // runs, so a colour set once is overwritten before it is ever visible.
+        // Instead the colour is set again every frame for the whole flash — the script runs after the Animator
+        // each frame, so it always wins, whether the cause is Write Defaults or something else.
         float elapsed = 0f;
         while (elapsed < hitFlashDuration)
         {
@@ -222,12 +227,12 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// ฆ่าแบบ cleanse (เรียกจาก Wildfire Tower) — ให้ crystal เป็น rewardCleanse แทน rewardKill
-    /// ทำให้ค่า Reward Cleanse (Crystal) จาก CSV ถูกใช้จริง
+    /// Kill by cleansing (meant to be called by the Wildfire Tower) — pays rewardCleanse instead of rewardKill,
+    /// so the CSV's Reward Cleanse (Crystal) value is actually used.
     /// </summary>
     public void CleanseKill() => RemoveByPlayer(RewardCleanse, "cleansed");
 
-    /// <summary>เส้นทางการตายที่ผู้เล่นเป็นคนกำจัด (kill/cleanse) — มี crystal reward + หมอกถอย</summary>
+    /// <summary>Death caused by the player (kill or cleanse) — pays the crystal reward and reports it to GameManager.</summary>
     private void RemoveByPlayer(int crystalReward, string cause)
     {
         if (IsDead) return;
@@ -244,8 +249,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
 
     /// <summary>
-    /// เรียกจาก EnemyMovement (ทีหลัง) เมื่อ enemy เดินถึงปลายทาง
-    /// ทำ damage ให้ base แล้วทำลายตัวเอง — ไม่ได้ reward
+    /// Called by EnemyMovement when the enemy reaches the end of the path.
+    /// Damages the base and destroys itself — no reward.
     /// </summary>
     public void ReachBase()
     {
@@ -273,13 +278,13 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
 
     // ─────────────────────────────────────────────
-    // [เพิ่ม] ENGAGEMENT — ถูกอัศวิน (KnightUnit) บล็อก
-    //   ถูกบล็อก → EnemyMovement หยุดเดิน (เช็ค IsBlocked) + หันมาตีอัศวินทุก meleeAttackInterval
-    //   อัศวินตาย → หลุดบล็อก เดินต่อได้
+    // ENGAGEMENT — blocked by a knight (KnightUnit)
+    //   Blocked -> EnemyMovement stops walking (checks IsBlocked) and the enemy hits the knight every meleeAttackInterval
+    //   Knight dies -> the block is released and the enemy keeps walking
     // ─────────────────────────────────────────────
 
-    [Header("Melee (ตอนถูกอัศวินบล็อก)")]
-    [SerializeField] private float meleeAttackInterval = 1f;   // วินาที/นัด (ดาเมจ = BaseDamage)
+    [Header("Melee (while blocked by a knight)")]
+    [SerializeField] private float meleeAttackInterval = 1f;   // seconds per hit (damage = BaseDamage)
 
     private KnightUnit _blocker;
     private float _meleeTimer;
@@ -287,10 +292,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public bool IsBlocked => _blocker != null && _blocker.IsAlive;
     public KnightUnit Blocker => _blocker;
 
-    /// <summary>เรียกจาก KnightUnit เมื่อเข้าปะทะ — ศัตรูหยุดเดินแล้วตีอัศวิน</summary>
+    /// <summary>Called by KnightUnit when it engages — the enemy stops and fights the knight.</summary>
     public void EngageWith(KnightUnit knight)
     {
-        if (_blocker == knight) return;   // ปะทะอยู่แล้ว ไม่รีเซ็ต timer
+        if (_blocker == knight) return;   // already engaged — don't reset the timer
         _blocker = knight;
         _meleeTimer = meleeAttackInterval;
     }
@@ -298,18 +303,18 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public void Disengage() => _blocker = null;
 
     // ─────────────────────────────────────────────
-    // [เพิ่ม] STATUS — slow / freeze (จากป้อม Crystal Spring)
+    // STATUS — slow / freeze (from the Crystal Spring tower)
     // ─────────────────────────────────────────────
 
-    private float _slowFactor = 1f;   // 1 = ปกติ, 0.6 = ช้าลง 40%
+    private float _slowFactor = 1f;   // 1 = normal, 0.6 = 40% slower
     private float _slowTimer;
     private bool  _frozen;
     private float _freezeTimer;
 
-    /// <summary>ตัวคูณความเร็ว (EnemyMovement เอาไปคูณ) — 0 ตอน freeze</summary>
+    /// <summary>Speed multiplier (EnemyMovement multiplies by this) — 0 while frozen.</summary>
     public float SpeedMultiplier => _frozen ? 0f : _slowFactor;
 
-    /// <summary>ติด slow — slowPercent 0.4 = ช้าลง 40% · เอาอันที่ช้ากว่า และรีเฟรชเวลา</summary>
+    /// <summary>Applies a slow — slowPercent 0.4 = 40% slower. Keeps the stronger slow and refreshes the duration.</summary>
     public void ApplySlow(float slowPercent, float duration)
     {
         float factor = Mathf.Clamp01(1f - slowPercent);
@@ -317,7 +322,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         _slowTimer = Mathf.Max(_slowTimer, duration);
     }
 
-    /// <summary>ติด freeze — หยุดนิ่งชั่วคราว</summary>
+    /// <summary>Applies a freeze — stops the enemy completely for a while.</summary>
     public void ApplyFreeze(float duration)
     {
         _frozen = true;
@@ -328,11 +333,11 @@ public class EnemyBase : MonoBehaviour, IDamageable
     {
         if (IsDead) return;
 
-        // [เพิ่ม] นับเวลา slow/freeze แล้วคืนสภาพเมื่อหมดเวลา
+        // Count down slow/freeze and return to normal when they run out
         if (_slowTimer > 0f)   { _slowTimer   -= Time.deltaTime; if (_slowTimer <= 0f)   _slowFactor = 1f; }
         if (_freezeTimer > 0f) { _freezeTimer -= Time.deltaTime; if (_freezeTimer <= 0f) _frozen = false; }
 
-        // ตีอัศวินตอนถูกบล็อก (เดิม)
+        // Hit the knight while blocked
         if (_blocker == null) return;
         if (!_blocker.IsAlive) { _blocker = null; return; }
 
@@ -341,7 +346,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         {
             _meleeTimer = meleeAttackInterval;
             this.GetComponent<Animator>()?.SetTrigger("IsAttacking");   // trigger animation
-            _blocker.TakeDamage(BaseDamage);   // ตีอัศวิน
+            _blocker.TakeDamage(BaseDamage);   // hit the knight
         }
     }
 }

@@ -1,25 +1,30 @@
 using UnityEngine;
 
-// [แก้] ขับ shader น้ำจากเกจ PollutionManager (เกจเดียวกับด่าน 1 — ขึ้นเองตามเวลา + ปุ่มชำระล้างลด)
-//   - _Pollution : สีน้ำ ไล่ ฟ้า(สะอาด) → ม่วง(พิษ)
-//   - [เพิ่ม] _SurfaceX : ขอบพิษ/ความลึก คืบตามเกจ (พิษมาก = ขอบเลื่อนลามไปทั่ว) เหมือนหมอกด่านแรก
-//   set ค่าลง material ตรงๆ (เสถียรกว่า MaterialPropertyBlock กับ shader เขียนมือ)
+/// <summary>
+/// Drives the water shader from the PollutionManager gauge (the same gauge as level 1 —
+/// rises over time, lowered by the Cleanse button). Used for the water level (level 2).
+///   - _Pollution : water colour, from blue (clean) to purple (toxic)
+///   - _SurfaceX  : the toxic edge / depth line, which creeps along with the gauge
+///                  (more pollution = the edge spreads further), like the fog in level 1
+/// Values are set on the material directly (more reliable than a MaterialPropertyBlock with a hand-written shader).
+/// Runs in Edit mode too, using editorPreviewGauge.
+/// </summary>
 [ExecuteAlways]
 public class WaterPollutionShaderDriver : MonoBehaviour
 {
     [Header("Target")]
-    [Tooltip("TilemapRenderer/SpriteRenderer ของน้ำ (ที่ใช้ material WaterClear2D)")]
+    [Tooltip("The water TilemapRenderer/SpriteRenderer (the one using the WaterClear2D material)")]
     [SerializeField] private Renderer targetRenderer;
 
-    [Header("Pollution → สีน้ำ")]
+    [Header("Pollution -> water colour")]
     [SerializeField] private string pollutionProp = "_Pollution";
 
-    [Header("Pollution → ขอบพิษ (Surface X)")]
+    [Header("Pollution -> toxic edge (Surface X)")]
     [SerializeField] private bool driveSurfaceX = true;
     [SerializeField] private string surfaceXProp = "_SurfaceX";
-    [Tooltip("ตำแหน่ง Surface X ตอนสะอาด (pollution = 0) — พิษน้อย")]
+    [Tooltip("Surface X position when clean (pollution = 0) — little pollution")]
     [SerializeField] private float surfaceXClean = -10f;
-    [Tooltip("ตำแหน่ง Surface X ตอนพิษเต็ม (pollution = 1) — พิษลามไปทั่ว")]
+    [Tooltip("Surface X position when fully polluted (pollution = 1) — pollution everywhere")]
     [SerializeField] private float surfaceXPolluted = 10f;
 
     [Header("Response")]
@@ -29,7 +34,7 @@ public class WaterPollutionShaderDriver : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float editorPreviewGauge = 0.7f;
 
-    private float _target, _shown;
+    private float _target, _shown;   // real gauge vs. the smoothed value being displayed
     private Material _mat;
 
     void OnEnable()
@@ -41,6 +46,7 @@ public class WaterPollutionShaderDriver : MonoBehaviour
 
     void OnDisable() => GameEvents.OnPollutionChanged -= SetGauge;
 
+    /// <summary>Sets the target gauge (0..1). On the first frame it snaps instead of animating.</summary>
     public void SetGauge(float g)
     {
         _target = Mathf.Clamp01(g);
@@ -51,7 +57,7 @@ public class WaterPollutionShaderDriver : MonoBehaviour
     {
         if (_mat != null) return _mat;
         if (targetRenderer == null) return null;
-        // edit mode ใช้ sharedMaterial (ห้าม instantiate) / play mode ใช้ instance
+        // Edit mode uses sharedMaterial (must not instantiate) / Play mode uses an instance
         _mat = Application.isPlaying ? targetRenderer.material : targetRenderer.sharedMaterial;
         return _mat;
     }

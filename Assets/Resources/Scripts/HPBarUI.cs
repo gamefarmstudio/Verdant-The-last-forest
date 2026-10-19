@@ -2,19 +2,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-// [เพิ่ม] สคริปต์ใหม่: แถบเลือดของคริสตัล/ฐาน
-//   subscribe GameManager.OnBaseHPChanged เองแล้วอัปเดต Slider / ข้อความ
-//   (แก้ปัญหา UnityEvent<int> ต่อ Slider.value ที่เป็น float ตรงๆ ใน Inspector ไม่ได้)
-// วิธีใช้: วางบน UI แล้วลาก Slider เข้า slot — ที่เหลือ (label / fillImage) เป็น option
+/// <summary>
+/// HP bar for the crystal / base.
+/// Subscribes to GameManager.OnBaseHPChanged itself and updates a Slider and optional text.
+/// (Works around the fact that a UnityEvent&lt;int&gt; can't be wired directly to the float Slider.value in the Inspector.)
+/// Usage: put it on a UI object and drag the Slider into its slot — the label and fillImage are optional.
+/// </summary>
 public class HPBarUI : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    [SerializeField] private TMP_Text label;    // option: โชว์เป็นข้อความ เช่น "18/20"
+    [SerializeField] private TMP_Text label;    // optional: show as text, e.g. "18/20"
 
-    [Header("เปลี่ยนสีตามเลือด (option)")]
-    [SerializeField] private bool tintFill = false;   // เปิดถึงจะแตะสี — กันเผลอทำ fill ดำเพราะ gradient ว่าง
+    [Header("Tint by HP (optional)")]
+    [SerializeField] private bool tintFill = false;   // must be ticked to change colour — avoids a black fill from an empty gradient
     [SerializeField] private Image fillImage;
-    [SerializeField] private Gradient hpColor;        // 1 = เขียว (เต็ม), 0 = แดง (ใกล้ตาย)
+    [SerializeField] private Gradient hpColor;        // 1 = green (full), 0 = red (almost dead)
 
     private int _max = 1;
 
@@ -23,7 +25,7 @@ public class HPBarUI : MonoBehaviour
         var gm = GameManager.Instance;
         if (gm == null)
         {
-            Debug.LogError("[HPBarUI] ไม่พบ GameManager.Instance — แถบเลือดจะไม่อัปเดต", this);
+            Debug.LogError("[HPBarUI] GameManager.Instance not found — the HP bar will not update", this);
             return;
         }
 
@@ -32,12 +34,12 @@ public class HPBarUI : MonoBehaviour
         {
             slider.minValue = 0;
             slider.maxValue = _max;
-            slider.interactable = false;   // โชว์อย่างเดียว
+            slider.interactable = false;   // display only
         }
 
         gm.OnBaseHPChanged.AddListener(Refresh);
 
-        // ก่อน StartGame() ค่า BaseHP ยังเป็น 0 → โชว์เต็มไว้ก่อน กันเห็นแถบว่าง 1 เฟรม
+        // Before StartGame() BaseHP is still 0 — show it full so the bar isn't empty for a frame.
         Refresh(gm.BaseHP > 0 ? gm.BaseHP : _max);
     }
 

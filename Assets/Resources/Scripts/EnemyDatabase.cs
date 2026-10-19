@@ -3,21 +3,21 @@ using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// โหลด enemies.csv และ bosses.csv ผ่าน DataManager ที่มีอยู่แล้ว
-/// แล้วจัด index ให้ query ได้ง่ายจาก EnemyBase / WaveManager
+/// Loads enemies.csv and bosses.csv through the existing DataManager
+/// and indexes them so EnemyBase / WaveManager can look them up easily.
 ///
-/// วิธีใช้:
+/// Usage:
 ///   EnemyDatabase.Instance.GetEnemyByID("E1")
 ///   EnemyDatabase.Instance.GetBossByID("B1")
-///   EnemyDatabase.Instance.GetEnemiesForWave(3)   → enemy ที่ปลดล็อกแล้ว ณ wave นี้
-///   EnemyDatabase.Instance.GetBossForWave(5)      → boss ของ wave นี้ (ถ้ามี)
+///   EnemyDatabase.Instance.GetEnemiesForWave(3)   -> enemies unlocked by this wave
+///   EnemyDatabase.Instance.GetBossForWave(5)      -> this wave's boss (if any)
 /// </summary>
 public class EnemyDatabase : MonoBehaviour
 {
     public static EnemyDatabase Instance { get; private set; }
 
     [Header("CSV Settings")]
-    [Tooltip("ชื่อไฟล์ใน Resources/Data/ (ไม่ต้องใส่ .csv)")]
+    [Tooltip("File names in Resources/Data/ (without .csv)")]
     [SerializeField] private string enemiesCsvName = "enemies";
     [SerializeField] private string bossesCsvName   = "bosses";
 
@@ -35,7 +35,7 @@ public class EnemyDatabase : MonoBehaviour
 
     private void Start()
     {
-        // โหลดใน Start ไม่ใช่ Awake — รอให้ DataManager.Awake() วิ่งเสร็จก่อน
+        // Load in Start, not Awake — wait for DataManager.Awake() to finish first.
         LoadEnemies();
         LoadBosses();
         IsLoaded = true;
@@ -51,7 +51,7 @@ public class EnemyDatabase : MonoBehaviour
 
         if (rawRows == null || rawRows.Count == 0)
         {
-            Debug.LogError($"[EnemyDatabase] โหลด '{enemiesCsvName}' ไม่ได้ — ตรวจสอบไฟล์ใน Resources/Data/");
+            Debug.LogError($"[EnemyDatabase] Could not load '{enemiesCsvName}' — check the file in Resources/Data/");
             return;
         }
 
@@ -63,9 +63,10 @@ public class EnemyDatabase : MonoBehaviour
             if (record != null) _enemyByID[record.id] = record;
         }
 
-        Debug.Log($"[EnemyDatabase] โหลด enemies สำเร็จ {_enemyByID.Count} ตัว");
+        Debug.Log($"[EnemyDatabase] Loaded enemies successfully: {_enemyByID.Count}");
     }
 
+    // Converts one enemies.csv row into an EnemyRecord. Returns null (and logs) on a bad row.
     private EnemyRecord ParseEnemyRow(Dictionary<string, string> row)
     {
         try
@@ -89,7 +90,7 @@ public class EnemyDatabase : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.LogWarning($"[EnemyDatabase] Parse error บน enemy row {row.GetValueOrDefault("ID", "?")}: {e.Message}");
+            Debug.LogWarning($"[EnemyDatabase] Parse error on enemy row {row.GetValueOrDefault("ID", "?")}: {e.Message}");
             return null;
         }
     }
@@ -104,7 +105,7 @@ public class EnemyDatabase : MonoBehaviour
 
         if (rawRows == null || rawRows.Count == 0)
         {
-            Debug.LogWarning($"[EnemyDatabase] ไม่พบ '{bossesCsvName}' — ข้ามการโหลด boss (อาจยังไม่มีไฟล์)");
+            Debug.LogWarning($"[EnemyDatabase] '{bossesCsvName}' not found — skipping boss loading (the file may not exist yet)");
             return;
         }
 
@@ -118,17 +119,18 @@ public class EnemyDatabase : MonoBehaviour
 
             _bossByID[record.id] = record;
 
-            // กันบอส 2 ตัวชน wave เดียวกันแล้วทับกันเงียบๆ — เก็บตัวแรก เตือนตัวที่ชน
+            // Stop two bosses on the same wave from silently overwriting each other — keep the first, warn about the clash.
             if (_bossByWave.TryGetValue(record.WaveNumber, out var existing))
-                Debug.LogWarning($"[EnemyDatabase] Wave {record.WaveNumber} มีบอสซ้ำ: " +
-                                 $"'{existing.id}' (เก็บไว้) กับ '{record.id}' (ข้าม) — ตรวจสอบ bosses.csv");
+                Debug.LogWarning($"[EnemyDatabase] Wave {record.WaveNumber} has duplicate bosses: " +
+                                 $"'{existing.id}' (kept) and '{record.id}' (skipped) — check bosses.csv");
             else
                 _bossByWave[record.WaveNumber] = record;
         }
 
-        Debug.Log($"[EnemyDatabase] โหลด bosses สำเร็จ {_bossByID.Count} ตัว");
+        Debug.Log($"[EnemyDatabase] Loaded bosses successfully: {_bossByID.Count}");
     }
 
+    // Converts one bosses.csv row into a BossRecord. Returns null (and logs) on a bad row.
     private BossRecord ParseBossRow(Dictionary<string, string> row)
     {
         try
@@ -150,7 +152,7 @@ public class EnemyDatabase : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.LogWarning($"[EnemyDatabase] Parse error บน boss row {row.GetValueOrDefault("ID", "?")}: {e.Message}");
+            Debug.LogWarning($"[EnemyDatabase] Parse error on boss row {row.GetValueOrDefault("ID", "?")}: {e.Message}");
             return null;
         }
     }
@@ -159,13 +161,13 @@ public class EnemyDatabase : MonoBehaviour
     // QUERY API — ENEMY
     // ─────────────────────────────────────────────────
 
-    /// <summary>ดึง enemy ตัวเดียวจาก ID</summary>
+    /// <summary>Gets one enemy by ID, or null.</summary>
     public EnemyRecord GetEnemyByID(string id)
     {
         return _enemyByID.TryGetValue(id, out var r) ? r : null;
     }
 
-    /// <summary>ดึง enemy ทั้งหมดที่ปลดล็อกแล้ว ณ wave นี้ (firstAppearsWave <= wave)</summary>
+    /// <summary>Gets every enemy unlocked by this wave (firstAppearsWave &lt;= wave).</summary>
     public List<EnemyRecord> GetEnemiesForWave(int wave)
     {
         return _enemyByID.Values
@@ -174,7 +176,7 @@ public class EnemyDatabase : MonoBehaviour
             .ToList();
     }
 
-    /// <summary>ดึง enemy ทั้งหมด</summary>
+    /// <summary>Gets every enemy, sorted by the wave they first appear in.</summary>
     public List<EnemyRecord> GetAllEnemies()
     {
         return _enemyByID.Values.OrderBy(e => e.firstAppearsWave).ToList();
@@ -184,22 +186,22 @@ public class EnemyDatabase : MonoBehaviour
     // QUERY API — BOSS
     // ─────────────────────────────────────────────────
 
-    /// <summary>ดึง boss ตัวเดียวจาก ID</summary>
+    /// <summary>Gets one boss by ID, or null.</summary>
     public BossRecord GetBossByID(string id)
     {
         return _bossByID.TryGetValue(id, out var r) ? r : null;
     }
 
-    /// <summary>ดึง boss ของ wave นี้ — null ถ้า wave นี้ไม่มี boss</summary>
+    /// <summary>Gets this wave's boss — null if the wave has no boss.</summary>
     public BossRecord GetBossForWave(int wave)
     {
         return _bossByWave.TryGetValue(wave, out var r) ? r : null;
     }
 
-    /// <summary>เช็คว่า wave นี้มี boss ไหม</summary>
+    /// <summary>Checks whether this wave has a boss.</summary>
     public bool HasBossOnWave(int wave) => _bossByWave.ContainsKey(wave);
 
-    /// <summary>ดึง boss ทั้งหมด เรียงตาม wave</summary>
+    /// <summary>Gets every boss, sorted by wave.</summary>
     public List<BossRecord> GetAllBosses()
     {
         return _bossByID.Values.OrderBy(b => b.WaveNumber).ToList();
@@ -209,6 +211,7 @@ public class EnemyDatabase : MonoBehaviour
     // HELPERS
     // ─────────────────────────────────────────────────
 
+    // Lenient number parsing: blank or invalid text becomes 0, thousands separators are ignored.
     private int ParseIntSafe(string s)
     {
         if (string.IsNullOrWhiteSpace(s)) return 0;

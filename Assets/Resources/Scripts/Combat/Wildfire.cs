@@ -3,36 +3,44 @@ using UnityEngine;
 
 namespace Verdant.Combat
 {
-    // ป้อม Wildfire — จุดไฟเผา (burn DoT) ทุกตัวในระยะทุก BurnSpeedPer10Seconds วินาที
-    // ดาเมจรวมตลอด BurnDuration = MaxHP ของเป้า x BurnHpPercent แบ่งจ่ายเป็นก้อนตามจำนวน tick
+    /// <summary>
+    /// Wildfire tower — sets every enemy in range on fire (a burn / damage-over-time effect).
+    ///   - An enemy that enters range is ignited; after BurnSpeedPer10Seconds seconds it takes
+    ///     MaxHP x BurnHpPercent / round(BurnSpeedPer10Seconds) damage and its burn ends.
+    ///   - If it is still in range it is ignited again straight away, so enemies keep burning while they stay near the tower.
+    ///   - Several enemies can burn at once, each on its own timer.
+    /// Range comes from towers.csv (via towerId); the burn values are set per level on the prefab.
+    /// Shows an attack VFX on the tower while enemies are in range and a burn VFX on each burning enemy.
+    /// Upgradable / sellable through the shared system (implements IUpgradableTower).
+    /// </summary>
     public class Wildfire : MonoBehaviour, IUpgradableTower
     {
         [Header("Wildfire Settings")]
         [Range(0.1f, 1.0f)]
-        [Tooltip("ดาเมจรวมตลอดการเผา = MaxHP ของเป้า x ค่านี้")]
+        [Tooltip("Total burn damage = the target's MaxHP x this value")]
         [SerializeField] private float BurnHpPercent = 1.0f;
-        [Tooltip("เว้นกี่วินาทีต่อ 1 tick ดาเมจ")]
+        [Tooltip("Seconds per damage tick (also how long one burn lasts)")]
         [SerializeField] private float BurnSpeedPer10Seconds = 1.0f;
-        [Tooltip("เลเยอร์ศัตรู (เว้นว่าง = เดา Enemy)")]
+        [Tooltip("Enemy layer (leave empty = assume the \"Enemy\" layer)")]
         [SerializeField] private LayerMask EnemyLayer;
-        [SerializeField] private string towerId;
-        [SerializeField] private GameObject NextUpgradePrefab;
+        [SerializeField] private string towerId;               // ID in towers.csv, e.g. T2A1
+        [SerializeField] private GameObject NextUpgradePrefab; // next level's prefab (empty = max level)
         [Range(2.5f, 4.5f)]
-        [Tooltip("ค่าเริ่มต้น — จะถูกทับด้วย Range จาก towers.csv ถ้าโหลดได้")]
+        [Tooltip("Default value — overwritten by the Range from towers.csv if it can be loaded")]
         [SerializeField] private float AttackRange = 2.5f;
 
         [Header("VFX Settings")]
-        [SerializeField] private GameObject VFXPrefab;
-        [SerializeField] private GameObject AttackVFX;
+        [SerializeField] private GameObject VFXPrefab;   // burn effect attached to each burning enemy
+        [SerializeField] private GameObject AttackVFX;   // effect on the tower, shown while enemies are in range
 
         public string TowerId => towerId;
         public GameObject NextLevelPrefab => NextUpgradePrefab;
 
-        // สถานะการเผาต่อเป้าหมาย — รองรับเผาหลายตัวพร้อมกัน (AoE) แยกเวลากันคนละตัว
+        // Burn state per target — supports burning several enemies at once (AoE), each with its own timing
         private class BurnState
         {
-            public float elapsed;      // เวลาที่ติดไฟมาแล้ว (นับถึง BurnDuration แล้วเลิกเผา)
-            public float tickTimer;    // นับถอยหลังถึง tick ถัดไป
+            public float elapsed;      // how long it has been burning (the burn stops once this reaches the burn time)
+            public float tickTimer;    // countdown to the next damage tick
             public GameObject vfx;
         }
 
@@ -42,7 +50,7 @@ namespace Verdant.Combat
         private ContactFilter2D _filter;
         private readonly List<Collider2D> _hits = new List<Collider2D>();
         private bool _statsReady, _csvResolved;
-        private GameObject attackVFX;
+        private GameObject attackVFX;   // the spawned instance of AttackVFX
 
         void Awake()
         {
@@ -50,13 +58,13 @@ namespace Verdant.Combat
             _filter = new ContactFilter2D();
             _filter.SetLayerMask(EnemyLayer);
             _filter.useTriggers = true;
-            attackVFX = Instantiate(AttackVFX,transform.position, AttackVFX.transform.rotation, transform); // VFX เผาเป้าหมาย
+            attackVFX = Instantiate(AttackVFX,transform.position, AttackVFX.transform.rotation, transform); // the tower's attack VFX
         }
 
         void Start() => TryLoadStats();
 
-        // ดึง Range จาก towers.csv ตาม towerId (เหมือน CrystalSpringTower) — เว้นค่า Burn%/Duration/Speed
-        // ไว้เป็นค่าปรับต่อเลเวลบน prefab เอง เพราะ towers.csv ไม่มีคอลัมน์พวกนี้
+        // Reads the Range from towers.csv by towerId (like CrystalSpringTower). The Burn % / speed values stay
+        // as per-level settings on the prefab, because towers.csv has no columns for them.
         void TryLoadStats()
         {
             if (TowerDatabase.Instance == null || !TowerDatabase.Instance.IsLoaded) return;
@@ -65,7 +73,7 @@ namespace Verdant.Combat
             var rec = TowerDatabase.Instance.GetByID(towerId);
             if (rec == null)
             {
-                Debug.LogError($"[Wildfire] ไม่พบ ID '{towerId}' ใน towers.csv — ใช้ค่า Inspector แทน", this);
+                Debug.LogError($"[Wildfire] ID '{towerId}' not found in towers.csv — using the Inspector values instead", this);
                 _statsReady = true;
                 return;
             }
@@ -75,12 +83,13 @@ namespace Verdant.Combat
 
         void Update()
         {
-            if (!_csvResolved) TryLoadStats();
+            if (!_csvResolved) TryLoadStats();   // retry until TowerDatabase has loaded
 
             FindAndIgniteEnemies();
             TickBurningEnemies();
         }
 
+        // Ignites every enemy in range that isn't already burning, and toggles the tower's attack VFX.
         void FindAndIgniteEnemies()
         {
             int count = Physics2D.OverlapCircle(transform.position, AttackRange, _filter, _hits);
@@ -88,16 +97,17 @@ namespace Verdant.Combat
             {
                 var enemy = _hits[i].GetComponentInParent<EnemyBase>();
                 if (enemy == null || enemy.IsDead) continue;
-                if (_burning.ContainsKey(enemy)) continue;   // ติดไฟอยู่แล้ว ไม่ต้องจุดซ้ำ/รีเซ็ตเวลา
-                
-                attackVFX.SetActive(true); // เปิด VFX เผาเป้าหมายถ้าเจอเป้าในระยะ
+                if (_burning.ContainsKey(enemy)) continue;   // already burning — don't re-ignite or reset its timer
+
+                attackVFX.SetActive(true); // show the attack VFX when a target is in range
                 IgniteEnemy(enemy);
             }
-            if (_hits.Count == 0) attackVFX.SetActive(false); // ลบ VFX เผาเป้าหมายถ้าไม่มีเป้าในระยะ
-            // ล้าง hits list เพื่อเตรียมใช้รอบถัดไป
+            if (_hits.Count == 0) attackVFX.SetActive(false); // hide the attack VFX when nothing is in range
+            // Clear the hits list ready for the next frame
             _hits.Clear();
         }
 
+        // Starts burning one enemy and attaches the burn VFX to it.
         void IgniteEnemy(EnemyBase enemy)
         {
             GameObject vfx = null;
@@ -105,7 +115,7 @@ namespace Verdant.Combat
             {
                 vfx = Instantiate(VFXPrefab, enemy.transform.position, VFXPrefab.transform.rotation);
                 vfx.transform.SetParent(enemy.transform);
-                Destroy(vfx, BurnSpeedPer10Seconds); // ลบ VFX หลังหมดเวลาเผา
+                Destroy(vfx, BurnSpeedPer10Seconds); // remove the VFX when the burn time is up
             }
 
             _burning[enemy] = new BurnState
@@ -116,6 +126,7 @@ namespace Verdant.Combat
             };
         }
 
+        // Advances every burn: deals tick damage when a tick is due, and ends burns that are finished or whose enemy died.
         void TickBurningEnemies()
         {
             _toRemove.Clear();
@@ -147,6 +158,7 @@ namespace Verdant.Combat
                     _toRemove.Add(enemy);
             }
 
+            // Remove finished burns after the loop (a Dictionary can't be changed while it's being iterated).
             foreach (var enemy in _toRemove)
             {
                 if (_burning.TryGetValue(enemy, out var state) && state.vfx != null)
@@ -155,6 +167,7 @@ namespace Verdant.Combat
             }
         }
 
+        // Shows the attack range in the Scene view.
         void OnDrawGizmosSelected()
         {
             Gizmos.color = new Color(1f, 0.4f, 0.1f, 0.35f);

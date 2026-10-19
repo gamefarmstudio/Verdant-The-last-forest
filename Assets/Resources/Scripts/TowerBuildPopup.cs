@@ -4,9 +4,16 @@ using TMPro;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 
-// [แก้] เขียนใหม่ทั้งไฟล์ (ล้างคอมเมนต์เดิม) — ประเด็นหลัก: ราคาป้อมอ้างอิงจาก towers.csv
+/// <summary>
+/// The build menu that pops up next to an empty TowerSlot.
+/// Shows up to 4 tower options with icons and prices; prices come from towers.csv (via towerId),
+/// falling back to the typed-in cost if the CSV isn't available. Options the player can't afford are dimmed.
+/// Slows the game to 0.1x while open and restores the chosen speed when closed.
+/// Clicking outside the menu closes it.
+/// </summary>
 public class TowerBuildPopup : MonoBehaviour
 {
+    /// <summary>One buildable tower in this level's menu.</summary>
     [System.Serializable]
     public class TowerOption
     {
@@ -14,14 +21,14 @@ public class TowerBuildPopup : MonoBehaviour
         public string towerNameTH;
         public Sprite icon;
         public GameObject prefab;
-        public int cost;          // [แก้] เหลือไว้เป็น fallback เมื่อ CSV โหลดไม่ได้/หา ID ไม่เจอ
-        public string towerId;     // [เพิ่ม] ID ใน towers.csv (เช่น T1B1) — ราคาจริงดึงจากแถวนี้
+        public int cost;           // fallback only, used if the CSV can't be loaded / the ID isn't found
+        public string towerId;     // ID in towers.csv (e.g. T1B1) — the real price is read from this row
     }
 
-    [Header("ป้อมที่สร้างได้ในด่านนี้")]
+    [Header("Towers buildable in this level")]
     public TowerOption[] towerOptions;
 
-    [Header("UI Buttons (4 ช่อง)")]
+    [Header("UI Buttons (4 slots)")]
     [SerializeField] GameObject[] optionButtons;
     [SerializeField] Image[] btnIcons;
     [SerializeField] TMP_Text[] btnCosts;
@@ -30,9 +37,10 @@ public class TowerBuildPopup : MonoBehaviour
     [Header("Panel")]
     [SerializeField] RectTransform panelRect;
 
+    /// <summary>Opens the menu next to the given slot.</summary>
     public void Show(TowerSlot slot)
     {
-        Time.timeScale = 0.1f; // หยุดเกมชั่วคราวตอนเมนูเปิด
+        Time.timeScale = 0.1f; // nearly pause the game while the menu is open
         gameObject.SetActive(true);
         SetupButtons();
         PositionNearSlot(slot.transform.position);
@@ -42,16 +50,17 @@ public class TowerBuildPopup : MonoBehaviour
         panelRect.DOScale(1f, 0.25f).SetEase(Ease.OutBack).SetUpdate(true);
     }
 
+    /// <summary>Closes the menu with a shrink animation.</summary>
     public void Hide()
     {
-        GameSpeed.RestoreCurrent(); // คืนเวลาเกมกลับไปที่สปีดที่ผู้เล่นเลือกไว้ (1x/2x) แทนที่จะรีเซ็ตเป็น 1x เสมอ
+        GameSpeed.RestoreCurrent(); // back to the speed the player chose (1x/2x) instead of always resetting to 1x
         //gameObject.SetActive(false);
         panelRect.DOKill();
         panelRect.DOScale(0f, 0.25f).SetEase(Ease.OutBack).SetUpdate(false);
 
     }
 
-    // [เพิ่ม] คืนราคาจาก towers.csv ผ่าน towerId — ถ้าโหลด CSV ไม่ได้ค่อย fallback เป็น opt.cost
+    // Price from towers.csv via towerId — falls back to opt.cost if the CSV isn't loaded.
     int ResolveCost(TowerOption opt)
     {
         if (!string.IsNullOrEmpty(opt.towerId) &&
@@ -63,6 +72,7 @@ public class TowerBuildPopup : MonoBehaviour
         return opt.cost;
     }
 
+    // Fills in each button (icon, price) and dims the ones the player can't afford.
     void SetupButtons()
     {
         foreach (var btn in optionButtons) btn.SetActive(false);
@@ -77,12 +87,12 @@ public class TowerBuildPopup : MonoBehaviour
             if (btnIcons != null && i < btnIcons.Length && opt.icon != null)
                 btnIcons[i].sprite = opt.icon;
 
-            int cost = ResolveCost(opt);   // [แก้] เดิมใช้ opt.cost ตรงๆ ตอนนี้ดึงจาก CSV ก่อน
+            int cost = ResolveCost(opt);   // read from the CSV first
 
             if (btnCosts != null && i < btnCosts.Length)
                 btnCosts[i].text = cost.ToString();
 
-            // [แก้] เช็ค null ก่อนใช้ CurrencyManager.Instance กัน NRE ตอน popup โผล่ก่อน manager พร้อม
+            // Null-check CurrencyManager, in case the popup appears before the manager is ready.
             bool canAfford = CurrencyManager.Instance != null &&
                              CurrencyManager.Instance.CanAfford(cost);
 
@@ -94,6 +104,7 @@ public class TowerBuildPopup : MonoBehaviour
         }
     }
 
+    // ── Wired to the option buttons' OnClick in the Inspector ──
     public void OnClickOption0() => SelectTower(0);
     public void OnClickOption1() => SelectTower(1);
     public void OnClickOption2() => SelectTower(2);
@@ -104,10 +115,11 @@ public class TowerBuildPopup : MonoBehaviour
     {
         if (index >= towerOptions.Length) return;
         var opt = towerOptions[index];
-        // [แก้] หักเงินตามราคาจาก CSV แทนราคาที่กรอกมือ
+        // Charge the CSV price rather than the typed-in one.
         TowerPlacementManager.Instance.OnTowerSelected(opt.prefab, ResolveCost(opt));
     }
 
+    // Places the panel next to the slot on screen.
     void PositionNearSlot(Vector3 worldPos)
     {
         Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
@@ -122,6 +134,7 @@ public class TowerBuildPopup : MonoBehaviour
         ClampToScreen();
     }
 
+    // Pushes the panel back inside the screen if it would stick out.
     void ClampToScreen()
     {
         Vector3[] corners = new Vector3[4];
@@ -136,6 +149,7 @@ public class TowerBuildPopup : MonoBehaviour
         panelRect.anchoredPosition = pos;
     }
 
+    // Click outside the menu -> close it.
     void Update()
     {
         if (!gameObject.activeSelf) return;
@@ -147,6 +161,7 @@ public class TowerBuildPopup : MonoBehaviour
         }
     }
 
+    // Re-check affordability whenever crystals change while the menu is open.
     void OnEnable()
     {
         if (CurrencyManager.Instance != null)

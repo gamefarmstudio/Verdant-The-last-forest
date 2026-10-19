@@ -1,9 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Singleton that loads and caches CSV files from Assets/Resources/Data/.
+///
+/// Usage:
+///   var rows = DataManager.Instance.GetTableData("towers");
+///   // rows = one entry per CSV row; each row maps column header -> cell value
+///
+/// Put the CSV at:  Assets/Resources/Data/towers.csv
+/// Load it with:    DataManager.Instance.GetTableData("towers")
+/// TowerDatabase, EnemyDatabase and WaveDatabase all read their data through this class.
+/// </summary>
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance { get; private set; }
+
+    // Cache of already-loaded files — a file is only parsed once.
     private Dictionary<string, List<Dictionary<string, string>>> _cache
         = new Dictionary<string, List<Dictionary<string, string>>>();
 
@@ -15,33 +28,42 @@ public class DataManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Loads a CSV and returns its rows. Each row is a Dictionary: column name -> cell value.
+    /// Example: rows[0]["ID"] -> "T1A1", rows[0]["Cost (Crystal)"] -> "75".
+    /// </summary>
+    /// <param name="fileName">File name inside Resources/Data/, without ".csv".</param>
+    /// <returns>The rows, or null if the file doesn't exist.</returns>
     public List<Dictionary<string, string>> GetTableData(string fileName)
     {
-        // return จาก cache ถ้าโหลดแล้ว
+        // Return the cached copy if this file was already loaded.
         if (_cache.TryGetValue(fileName, out var cached))
             return cached;
 
-        // โหลดจาก Resources/Data/<fileName>
+        // Load from Resources/Data/<fileName>
         TextAsset asset = Resources.Load<TextAsset>($"Data/{fileName}");
 
         if (asset == null)
         {
-            Debug.LogError($"[DataManager] ไม่พบไฟล์: Resources/Data/{fileName}.csv");
+            Debug.LogError($"[DataManager] File not found: Resources/Data/{fileName}.csv");
             return null;
         }
 
         var result = ParseCSV(asset.text);
         _cache[fileName] = result;
 
-        Debug.Log($"[DataManager] โหลด '{fileName}' สำเร็จ — {result.Count} rows");
+        Debug.Log($"[DataManager] Loaded '{fileName}' successfully — {result.Count} rows");
         return result;
     }
 
+    /// <summary>Forgets the cached copy of one file, so the next GetTableData reloads it.</summary>
     public void ClearCache(string fileName)
     {
         if (_cache.ContainsKey(fileName))
             _cache.Remove(fileName);
     }
+
+    /// <summary>Forgets every cached file.</summary>
     public void ClearAllCache()
     {
         _cache.Clear();
@@ -49,16 +71,20 @@ public class DataManager : MonoBehaviour
 
 
 
+    // Turns CSV text into rows keyed by the header row.
     private List<Dictionary<string, string>> ParseCSV(string text)
     {
         var result = new List<Dictionary<string, string>>();
 
+        // Strip the UTF-8 BOM (U+FEFF) at the start of the file. Excel's "CSV UTF-8" adds one,
+        // which would put an invisible character in front of the first header so row["ID"] is never found.
         text = text.TrimStart('﻿');
 
+        // Parse the whole file at once, so newlines inside quoted cells are handled.
         var rows = ParseRows(text);
         if (rows.Count < 2)
         {
-            Debug.LogWarning("[DataManager] CSV มีน้อยกว่า 2 บรรทัด (header + data)");
+            Debug.LogWarning("[DataManager] CSV has fewer than 2 lines (header + data)");
             return result;
         }
 
@@ -69,6 +95,7 @@ public class DataManager : MonoBehaviour
         {
             var values = rows[i];
 
+            // Skip blank lines (a single empty field).
             if (values.Count == 1 && string.IsNullOrEmpty(values[0].Trim())) continue;
 
             var row = new Dictionary<string, string>();
@@ -81,6 +108,11 @@ public class DataManager : MonoBehaviour
         return result;
     }
 
+    /// <summary>
+    /// Splits the whole CSV into rows of fields.
+    /// Handles: commas/newlines inside quoted cells, "" as an escaped quote, and both \r\n and \n.
+    /// e.g.  T2A1,"Wildfire Tower",2,"30% Cleanse,\nclears tile"
+    /// </summary>
     private List<List<string>> ParseRows(string text)
     {
         var rows = new List<List<string>>();
@@ -96,7 +128,7 @@ public class DataManager : MonoBehaviour
             {
                 if (inQuote && i + 1 < text.Length && text[i + 1] == '"')
                 {
-                    current.Append('"');  
+                    current.Append('"');   // "" = an escaped quote character
                     i++;
                 }
                 else inQuote = !inQuote;
@@ -108,6 +140,7 @@ public class DataManager : MonoBehaviour
             }
             else if ((c == '\n' || c == '\r') && !inQuote)
             {
+                // End of row on a newline outside quotes — skip the \n of a \r\n pair.
                 if (c == '\r' && i + 1 < text.Length && text[i + 1] == '\n') i++;
                 fields.Add(current.ToString());
                 current.Clear();
@@ -117,6 +150,7 @@ public class DataManager : MonoBehaviour
             else current.Append(c);
         }
 
+        // Last field/row (for files that don't end with a newline).
         if (current.Length > 0 || fields.Count > 0)
         {
             fields.Add(current.ToString());

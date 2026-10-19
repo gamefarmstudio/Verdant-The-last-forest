@@ -1,6 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The "Next Wave" button.
+///   - Appears when a wave ends (GameManager.OnWaveEnd), except after the last wave (that's a win, no button needed).
+///   - Clicking it calls GameManager.StartNextWave().
+///   - Hides again when the next wave starts (GameManager.OnWaveStart).
+/// Usage: put this on an HUD object that is always active and drag the (child) Button into the button field.
+/// </summary>
 public class NextWaveButtonUI : MonoBehaviour
 {
     [SerializeField] private Button button;
@@ -22,7 +29,7 @@ public class NextWaveButtonUI : MonoBehaviour
         }
         else
         {
-            Debug.LogError("[NextWaveButtonUI] ไม่พบ GameManager.Instance — ปุ่มเริ่มเวฟถัดไปจะไม่ทำงาน");
+            Debug.LogError("[NextWaveButtonUI] GameManager.Instance not found — the Next Wave button will not work");
         }
     }
 
@@ -38,6 +45,7 @@ public class NextWaveButtonUI : MonoBehaviour
 
     void HandleWaveEnd(int wave)
     {
+        // The last wave just ended = level won, so no "next wave" button.
         if (wave >= GameManager.Instance.totalWaves) return;
         SetVisible(true);
     }

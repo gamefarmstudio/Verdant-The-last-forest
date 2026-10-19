@@ -1,17 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
+/// <summary>
+/// Loads towers.csv through DataManager and indexes it so tower stats are easy to look up.
+///
+/// Usage:
+///   TowerDatabase.Instance.GetBaseLevel(tier)    -> every level-1 tower of that tier
+///   TowerDatabase.Instance.GetByID("T1A1")       -> a single tower level
+///   TowerDatabase.Instance.GetNextLevel("T1A1")  -> T1A2 (its upgrade)
+/// </summary>
 public class TowerDatabase : MonoBehaviour
 {
     public static TowerDatabase Instance { get; private set; }
 
     [Header("CSV Settings")]
-    [Tooltip("ชื่อไฟล์ CSV ใน Resources/Data/ (ไม่ต้องใส่ .csv)")]
+    [Tooltip("CSV file name in Resources/Data/ (without .csv)")]
     [SerializeField] private string csvFileName = "towers";
 
+    // Main lookup: ID -> TowerRecord
     private Dictionary<string, TowerRecord> _byID = new Dictionary<string, TowerRecord>();
 
-    
+    // Index: tier -> list of level-1 towers (what the player can buy directly)
     private Dictionary<int, List<TowerRecord>> _baseLevelByTier = new Dictionary<int, List<TowerRecord>>();
 
     public bool IsLoaded { get; private set; } = false;
@@ -22,6 +32,7 @@ public class TowerDatabase : MonoBehaviour
         Instance = this;
     }
 
+    // Load in Start, not Awake — so DataManager.Awake() has already run.
     private void Start()
     {
         LoadFromCSV();
@@ -34,7 +45,7 @@ public class TowerDatabase : MonoBehaviour
 
         if (rawRows == null || rawRows.Count == 0)
         {
-            Debug.LogError($"[TowerDatabase] โหลด CSV '{csvFileName}' ไม่ได้ — ตรวจสอบ DataManager");
+            Debug.LogError($"[TowerDatabase] Could not load CSV '{csvFileName}' — check DataManager");
             return;
         }
 
@@ -48,6 +59,7 @@ public class TowerDatabase : MonoBehaviour
 
             _byID[record.id] = record;
 
+            // Index level-1 towers by tier.
             if (record.IsBaseLevel)
             {
                 if (!_baseLevelByTier.ContainsKey(record.tier))
@@ -57,10 +69,11 @@ public class TowerDatabase : MonoBehaviour
         }
 
         IsLoaded = true;
-        Debug.Log($"[TowerDatabase] โหลดสำเร็จ {_byID.Count} rows | " +
+        Debug.Log($"[TowerDatabase] Loaded successfully: {_byID.Count} rows | " +
                   $"Tier1:{GetBaseLevel(1).Count} Tier2:{GetBaseLevel(2).Count} Tier3:{GetBaseLevel(3).Count}");
     }
 
+    // Converts one CSV row into a TowerRecord. Returns null (and logs) if a required column is missing or malformed.
     private TowerRecord ParseRow(Dictionary<string, string> row)
     {
         try
@@ -85,27 +98,31 @@ public class TowerDatabase : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.LogWarning($"[TowerDatabase] Parse error บน row {row.GetValueOrDefault("ID", "?")}: {e.Message}");
+            Debug.LogWarning($"[TowerDatabase] Parse error on row {row.GetValueOrDefault("ID", "?")}: {e.Message}");
             return null;
         }
     }
 
 
+    /// <summary>Every level-1 tower of the given tier (empty list if none).</summary>
     public List<TowerRecord> GetBaseLevel(int tier)
     {
         return _baseLevelByTier.TryGetValue(tier, out var list) ? list : new List<TowerRecord>();
     }
 
+    /// <summary>Every level-1 tower across all tiers, sorted by tier then ID.</summary>
     public List<TowerRecord> GetAllBaseLevel()
     {
         return _byID.Values.Where(r => r.IsBaseLevel).OrderBy(r => r.tier).ThenBy(r => r.id).ToList();
     }
 
+    /// <summary>The tower with exactly this ID, or null.</summary>
     public TowerRecord GetByID(string id)
     {
         return _byID.TryGetValue(id, out var r) ? r : null;
     }
 
+    /// <summary>The next upgrade level, e.g. T1A1 -> T1A2. Returns null at max level.</summary>
     public TowerRecord GetNextLevel(string currentID)
     {
         var current = GetByID(currentID);
@@ -114,6 +131,7 @@ public class TowerDatabase : MonoBehaviour
         return GetByID(nextID);
     }
 
+    /// <summary>Every level of one tower, e.g. "T1A" -> [T1A1, T1A2, T1A3].</summary>
     public List<TowerRecord> GetAllLevels(string baseID)
     {
         return _byID.Values
@@ -123,6 +141,7 @@ public class TowerDatabase : MonoBehaviour
     }
 
 
+    // Lenient number parsing: thousands separators are ignored, invalid text becomes 0.
     private int ParseIntSafe(string s)
     {
         return int.TryParse(s.Replace(",", ""), out int v) ? v : 0;

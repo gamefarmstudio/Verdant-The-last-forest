@@ -2,6 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Loads a level's wave data through DataManager:
+///   1) the wave settings file (e.g. waves.csv) — interval, reward, type per wave;
+///   2) the spawn-list file (e.g. waves_enemies.csv) — which enemies spawn in each wave.
+/// The two file names are set per scene in the Inspector (LV1: waves / waves_enemies,
+/// LV2: waves_2 / waves_2_enemies, LV3: waves_3 / waves_3_enemies).
+/// WaveManager reads waves from here with GetWave(n).
+/// </summary>
 public class WaveDatabase : MonoBehaviour
 {
     public static WaveDatabase Instance { get; private set; }
@@ -13,8 +21,8 @@ public class WaveDatabase : MonoBehaviour
     private readonly Dictionary<int, WaveRecord> _byNumber = new Dictionary<int, WaveRecord>();
 
     public bool IsLoaded { get; private set; }
-    public int  TotalWaves { get; private set; }        // เวฟมากสุดที่มี metadata
-    public int  LastComposedWave { get; private set; }  // เวฟมากสุดที่ "มีองค์ประกอบ" จริง
+    public int  TotalWaves { get; private set; }        // highest wave number that has settings
+    public int  LastComposedWave { get; private set; }  // highest wave number that actually has spawn groups
 
     private void Awake()
     {
@@ -33,11 +41,11 @@ public class WaveDatabase : MonoBehaviour
 
     private void Load()
     {
-        // 1) metadata ของแต่ละเวฟ
+        // 1) Settings for each wave
         var waveRows = DataManager.Instance.GetTableData(wavesCsvName);
         if (waveRows == null || waveRows.Count == 0)
         {
-            Debug.LogError($"[WaveDatabase] โหลด '{wavesCsvName}' ไม่ได้ — ตรวจสอบ Resources/Data/");
+            Debug.LogError($"[WaveDatabase] Could not load '{wavesCsvName}' — check Resources/Data/");
             return;
         }
 
@@ -48,28 +56,28 @@ public class WaveDatabase : MonoBehaviour
             if (rec != null) _byNumber[rec.waveNumber] = rec;
         }
 
-        // 2) องค์ประกอบการ spawn (แต่ละเวฟมีหลายแถว)
+        // 2) Spawn groups (each wave can have several rows)
         var compRows = DataManager.Instance.GetTableData(wavesEnemiesCsvName);
         if (compRows != null)
         {
             foreach (var row in compRows)
             {
                 var entry = ParseEntry(row, out int waveNum);
-                if (entry == null) continue;   // ข้ามแถวว่าง/แถว note (count ไม่เป็นตัวเลข)
+                if (entry == null) continue;   // skip blank / note rows (count isn't a number)
 
                 if (_byNumber.TryGetValue(waveNum, out var rec))
                     rec.spawns.Add(entry);
                 else
-                    Debug.LogWarning($"[WaveDatabase] waves_enemies อ้างเวฟ {waveNum} ที่ไม่มีใน waves.csv");
+                    Debug.LogWarning($"[WaveDatabase] waves_enemies refers to wave {waveNum}, which is not in waves.csv");
             }
 
-            // เรียง spawn ตาม spawnOrder ในแต่ละเวฟ
+            // Sort each wave's groups by spawnOrder
             foreach (var rec in _byNumber.Values)
                 rec.spawns.Sort((a, b) => a.spawnOrder.CompareTo(b.spawnOrder));
         }
         else
         {
-            Debug.LogWarning($"[WaveDatabase] ไม่พบ '{wavesEnemiesCsvName}' — เวฟจะไม่มีองค์ประกอบ");
+            Debug.LogWarning($"[WaveDatabase] '{wavesEnemiesCsvName}' not found — waves will have no spawn groups");
         }
 
         TotalWaves = _byNumber.Count > 0 ? _byNumber.Keys.Max() : 0;
@@ -80,9 +88,10 @@ public class WaveDatabase : MonoBehaviour
             .Max();
 
         IsLoaded = true;
-        Debug.Log($"[WaveDatabase] โหลด {_byNumber.Count} เวฟ | มีองค์ประกอบถึงเวฟ {LastComposedWave}/{TotalWaves}");
+        Debug.Log($"[WaveDatabase] Loaded {_byNumber.Count} waves | spawn groups defined up to wave {LastComposedWave}/{TotalWaves}");
     }
 
+    // Converts one wave-settings row into a WaveRecord (spawns are added later). Null for rows with no waveID.
     private WaveRecord ParseWave(Dictionary<string, string> row)
     {
         try
@@ -109,7 +118,7 @@ public class WaveDatabase : MonoBehaviour
         }
     }
 
-    /// <summary>แปลง 1 แถวของ waves_enemies เป็น entry — คืน null ถ้าเป็นแถวว่าง/note</summary>
+    /// <summary>Converts one waves_enemies row into a spawn entry — returns null for blank / note rows.</summary>
     private WaveSpawnEntry ParseEntry(Dictionary<string, string> row, out int waveNum)
     {
         waveNum = 0;
@@ -117,7 +126,7 @@ public class WaveDatabase : MonoBehaviour
         string eid = Get(row, "enemyID");
         if (string.IsNullOrEmpty(wid) || string.IsNullOrEmpty(eid)) return null;
 
-        // count ต้องเป็นตัวเลขบวก (แถว note เช่น "1× The Hollow..." จะไม่ผ่าน)
+        // count must be a positive number (note rows such as "1× The Hollow..." are rejected)
         if (!int.TryParse(Get(row, "count"), out int cnt) || cnt <= 0) return null;
 
         waveNum = DigitsToInt(wid);
@@ -133,6 +142,7 @@ public class WaveDatabase : MonoBehaviour
     // QUERY
     // ─────────────────────────────────────────────
 
+    /// <summary>The wave with this number, or null if it isn't defined.</summary>
     public WaveRecord GetWave(int waveNumber) =>
         _byNumber.TryGetValue(waveNumber, out var r) ? r : null;
 
@@ -142,10 +152,11 @@ public class WaveDatabase : MonoBehaviour
     // HELPERS
     // ─────────────────────────────────────────────
 
+    // Reads a cell by column name; missing columns become "".
     private static string Get(Dictionary<string, string> row, string key) =>
         row.TryGetValue(key, out var v) ? v.Trim() : "";
 
-    /// <summary>ดึงเฉพาะตัวเลขจากข้อความ เช่น "W5" → 5</summary>
+    /// <summary>Keeps only the digits of a string, e.g. "W5" -> 5.</summary>
     private static int DigitsToInt(string s)
     {
         string digits = new string(s.Where(char.IsDigit).ToArray());

@@ -12,11 +12,11 @@ public static class GameEvents
 {
     // ── Pollution ──
     public static event Action<float> OnPollutionChanged;   // new gauge value, 0..1
-    public static event Action OnPollutionCleared;           // fog reached 0% (no longer a win condition)
+    public static event Action OnPollutionCleared;           // fog reached 0% — currently never raised (0% is no longer a win)
     public static event Action OnPollutionFull;              // fog reached 100% -> game over
 
-    public static event Action<float> OnEnemyKilled;         // passes the cleanse amount of the enemy that died
-    public static event Action<float> OnCrystalDamaged;      // passes the damage the crystal took
+    public static event Action<float> OnEnemyKilled;         // an enemy was removed by the player — raised by GameManager, no listeners yet
+    public static event Action<float> OnCrystalDamaged;      // damage the crystal took — currently unused (see GameManager.DamageBase)
 
     public static void RaisePollutionChanged(float v) => OnPollutionChanged?.Invoke(v);
     public static void RaisePollutionCleared()        => OnPollutionCleared?.Invoke();
